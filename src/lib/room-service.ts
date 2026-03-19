@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import { Prisma } from '@prisma/client';
 import QRCode from 'qrcode';
 import { prisma } from '@/src/lib/prisma';
 import { checkAnswer, generateJoinId } from '@/src/lib/utils';
@@ -63,6 +64,34 @@ function toRoomSummaryDto(room: {
   };
 }
 
+async function expireRoomRecord<T extends { id: string; joinId: string; status: 'WAITING' | 'ACTIVE' | 'EXPIRED'; expiresAt: Date }>(room: T): Promise<T | { id: string; joinId: string; teacherId: string; topic: 'SUPERMARKET'; language: 'DE' | 'EN' | 'FR' | 'ES'; languageHelp: boolean; joinUrl: string; qrCodeDataUrl: string; status: 'WAITING' | 'ACTIVE' | 'EXPIRED'; expiresAt: Date; startedAt: Date | null; createdAt: Date; updatedAt: Date; }> {
+  if (room.expiresAt <= new Date() && room.status !== 'EXPIRED') {
+    return prisma.room.update({
+      where: { id: room.id },
+      data: { status: 'EXPIRED' },
+    });
+  }
+
+  return room;
+}
+
+export async function expireRoomIfNeeded(joinId: string) {
+  const room = await prisma.room.findUnique({ where: { joinId } });
+  if (!room) return null;
+  return expireRoomRecord(room);
+}
+
+export async function expireRoomsForTeacher(teacherId: string) {
+  await prisma.room.updateMany({
+    where: {
+      teacherId,
+      status: { not: 'EXPIRED' },
+      expiresAt: { lte: new Date() },
+    },
+    data: { status: 'EXPIRED' },
+  });
+}
+
 export async function createRoom({
   teacherId,
   language,
@@ -101,18 +130,6 @@ export async function createRoom({
   return toRoomSummaryDto({ ...room, startedAt: room.startedAt ?? null });
 }
 
-export async function expireRoomIfNeeded(joinId: string) {
-  const room = await prisma.room.findUnique({ where: { joinId } });
-  if (!room) return null;
-  if (room.expiresAt <= new Date() && room.status !== 'EXPIRED') {
-    return prisma.room.update({
-      where: { joinId },
-      data: { status: 'EXPIRED' },
-    });
-  }
-  return room;
-}
-
 export async function joinRoom(joinId: string, displayName: string) {
   const room = await expireRoomIfNeeded(joinId);
   if (!room || room.status === 'EXPIRED') {
@@ -120,14 +137,23 @@ export async function joinRoom(joinId: string, displayName: string) {
   }
 
   const accessToken = crypto.randomBytes(24).toString('hex');
-  const participant = await prisma.participant.create({
-    data: {
-      roomId: room.id,
-      displayName,
-      accessToken,
-      status: room.status === 'ACTIVE' ? 'ACTIVE' : 'WAITING',
-    },
-  });
+
+  let participant;
+  try {
+    participant = await prisma.participant.create({
+      data: {
+        roomId: room.id,
+        displayName,
+        accessToken,
+        status: room.status === 'ACTIVE' ? 'ACTIVE' : 'WAITING',
+      },
+    });
+  } catch (error) {
+    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+      throw new Error('Dieser Anzeigename ist bereits vergeben.');
+    }
+    throw error;
+  }
 
   const freshRoom = await prisma.room.findUniqueOrThrow({
     where: { id: room.id },
@@ -150,10 +176,22 @@ export async function ensureTeacherOwnsRoom(roomId: string, teacherId: string) {
   if (!room) {
     throw new Error('Raum nicht gefunden oder keine Berechtigung.');
   }
-  return room;
+
+  return expireRoomRecord(room);
 }
 
 export async function startRoom(roomId: string) {
+  const currentRoom = await prisma.room.findUniqueOrThrow({ where: { id: roomId } });
+  const safeRoom = await expireRoomRecord(currentRoom);
+
+  if (safeRoom.status === 'EXPIRED') {
+    throw new Error('Abgelaufene Räume können nicht gestartet werden.');
+  }
+
+  if (safeRoom.status !== 'WAITING') {
+    throw new Error('Nur wartende Räume können gestartet werden.');
+  }
+
   const room = await prisma.room.update({
     where: { id: roomId },
     data: {
@@ -185,11 +223,15 @@ export async function getAuthorizedParticipant(participantId: string, accessToke
     throw new Error('Schülerzugang ist ungültig oder abgelaufen.');
   }
 
-  if (participant.room.expiresAt <= new Date() || participant.room.status === 'EXPIRED') {
+  const room = await expireRoomRecord(participant.room);
+  if (room.status === 'EXPIRED') {
     throw new Error('Dieser Raum ist abgelaufen oder existiert nicht.');
   }
 
-  return participant;
+  return {
+    ...participant,
+    room,
+  };
 }
 
 export async function submitAnswer({
@@ -205,14 +247,17 @@ export async function submitAnswer({
 }) {
   const participant = await getAuthorizedParticipant(participantId, accessToken);
 
-  const translation = await prisma.itemTranslation.findUniqueOrThrow({
-    where: {
-      itemId_language: {
-        itemId,
-        language: participant.room.language,
+  const [translation, totalItems] = await Promise.all([
+    prisma.itemTranslation.findUniqueOrThrow({
+      where: {
+        itemId_language: {
+          itemId,
+          language: participant.room.language,
+        },
       },
-    },
-  });
+    }),
+    prisma.item.count({ where: { topic: 'SUPERMARKET' } }),
+  ]);
 
   const verdict = checkAnswer(answer, [translation.label, ...translation.alternatives]);
 
@@ -234,7 +279,24 @@ export async function submitAnswer({
     },
   });
 
-  return { created, verdict, expected: translation.label, roomId: participant.roomId };
+  let participantStatus = participant.status;
+  if (verdict.isCorrect) {
+    const correctAnswers = await prisma.studentAnswer.count({
+      where: {
+        participantId,
+        roomId: participant.roomId,
+        isCorrect: true,
+      },
+    });
+
+    participantStatus = correctAnswers >= totalItems ? 'COMPLETED' : 'ACTIVE';
+    await prisma.participant.update({
+      where: { id: participantId },
+      data: { status: participantStatus },
+    });
+  }
+
+  return { created, verdict, expected: translation.label, roomId: participant.roomId, participantStatus };
 }
 
 export async function getRoomDetailForTeacher(teacherId: string, joinId: string) {
@@ -246,7 +308,22 @@ export async function getRoomDetailForTeacher(teacherId: string, joinId: string)
     },
   });
 
-  return room ? toRoomSummaryDto(room) : null;
+  if (!room) {
+    return null;
+  }
+
+  const safeRoom = await expireRoomRecord(room);
+  const hydratedRoom = safeRoom.status === room.status
+    ? room
+    : await prisma.room.findUniqueOrThrow({
+        where: { id: room.id },
+        include: {
+          participants: { orderBy: { joinedAt: 'asc' } },
+          answers: true,
+        },
+      });
+
+  return toRoomSummaryDto(hydratedRoom);
 }
 
 export async function getStudentRoom(joinId: string, participantId: string, accessToken: string) {
@@ -266,7 +343,17 @@ export async function getStudentRoom(joinId: string, participantId: string, acce
     throw new Error('Schülerzugang passt nicht zu diesem Raum.');
   }
 
-  return toRoomSummaryDto({ ...room, startedAt: room.startedAt ?? null });
+  const safeRoom = await expireRoomRecord(room);
+  const hydratedRoom = safeRoom.status === room.status
+    ? room
+    : await prisma.room.findUniqueOrThrow({
+        where: { id: room.id },
+        include: {
+          participants: { orderBy: { joinedAt: 'asc' } },
+        },
+      });
+
+  return toRoomSummaryDto({ ...hydratedRoom, startedAt: hydratedRoom.startedAt ?? null });
 }
 
 export async function getLearningItems(): Promise<LearningItemDto[]> {

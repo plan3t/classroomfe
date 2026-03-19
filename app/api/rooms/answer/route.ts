@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { submitAnswer } from '@/src/lib/room-service';
 import { prisma } from '@/src/lib/prisma';
-import { emitAnswerSubmitted } from '@/src/server/socket';
+import { emitAnswerSubmitted, emitWaitingRoom } from '@/src/server/socket';
 
 const answerSchema = z.object({
   participantId: z.string().min(1),
@@ -22,8 +22,24 @@ export async function POST(request: Request) {
     }
 
     const result = await submitAnswer({ ...payload, accessToken });
-    const answers = await prisma.studentAnswer.findMany({ where: { roomId: result.roomId } });
+    const [answers, room] = await Promise.all([
+      prisma.studentAnswer.findMany({ where: { roomId: result.roomId } }),
+      prisma.room.findUnique({
+        where: { id: result.roomId },
+        include: { participants: { orderBy: { joinedAt: 'asc' } } },
+      }),
+    ]);
+
     emitAnswerSubmitted(result.roomId, answers);
+    if (room) {
+      emitWaitingRoom(room.joinId, room.participants.map((participant) => ({
+        id: participant.id,
+        displayName: participant.displayName,
+        status: participant.status,
+        joinedAt: participant.joinedAt.toISOString(),
+      })));
+    }
+
     return NextResponse.json(result);
   } catch (error) {
     return NextResponse.json({ message: error instanceof Error ? error.message : 'Fehler' }, { status: 400 });

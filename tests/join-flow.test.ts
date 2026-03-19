@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { Prisma } from '@prisma/client';
 import { joinRoom, getAuthorizedParticipant } from '@/src/lib/room-service';
 import { prisma } from '@/src/lib/prisma';
 
@@ -15,10 +16,22 @@ vi.mock('@/src/lib/prisma', () => ({
       findUniqueOrThrow: vi.fn(),
       findFirst: vi.fn(),
       update: vi.fn(),
+      updateMany: vi.fn(),
     },
     participant: {
       create: vi.fn(),
       findUnique: vi.fn(),
+      update: vi.fn(),
+    },
+    itemTranslation: {
+      findUniqueOrThrow: vi.fn(),
+    },
+    studentAnswer: {
+      upsert: vi.fn(),
+      count: vi.fn(),
+    },
+    item: {
+      count: vi.fn(),
     },
   },
 }));
@@ -64,6 +77,20 @@ describe('join flow', () => {
     expect(result.room.joinId).toBe('12345678');
   });
 
+  it('shows a friendly message for duplicate display names', async () => {
+    vi.mocked(prisma.room.findUnique).mockResolvedValue({
+      id: 'room-1',
+      joinId: '12345678',
+      status: 'WAITING',
+      expiresAt: new Date(Date.now() + 10000),
+    } as never);
+    vi.mocked(prisma.participant.create).mockRejectedValue(
+      new Prisma.PrismaClientKnownRequestError('duplicate', { code: 'P2002', clientVersion: '6.19.2' }),
+    );
+
+    await expect(joinRoom('12345678', 'Mia')).rejects.toThrow(/bereits vergeben/);
+  });
+
   it('rejects expired rooms', async () => {
     vi.mocked(prisma.room.findUnique).mockResolvedValue({
       id: 'room-1',
@@ -84,8 +111,10 @@ describe('join flow', () => {
   it('authorizes a participant via access token', async () => {
     vi.mocked(prisma.participant.findUnique).mockResolvedValue({
       id: 'participant-1',
+      status: 'ACTIVE',
       accessToken: 'secure-token',
       room: {
+        id: 'room-1',
         joinId: '12345678',
         status: 'ACTIVE',
         expiresAt: new Date(Date.now() + 10000),

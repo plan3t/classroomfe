@@ -41,6 +41,8 @@ export function TeacherRoom({ room }: { room: RoomSummaryDto }) {
     if (answer.isCorrect) acc[answer.participantId] = (acc[answer.participantId] ?? 0) + 1;
     return acc;
   }, {});
+  const completedCount = state.participants.filter((participant) => participant.status === 'COMPLETED').length;
+  const totalCorrect = Object.values(correctByParticipant).reduce((sum, value) => sum + value, 0);
 
   return (
     <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
@@ -52,10 +54,23 @@ export function TeacherRoom({ room }: { room: RoomSummaryDto }) {
           </div>
           <span className="rounded-full bg-white/10 px-3 py-1 text-sm">{formatLanguage(state.language)}</span>
         </div>
-        <div className="space-y-2 text-sm text-slate-300">
-          <p>Thema: Supermarkt</p>
-          <p>Sprachhilfe: {state.languageHelp ? 'Aktiv' : 'Inaktiv'}</p>
-          <p>Status: {state.status}</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
+            <p className="text-slate-400">Status</p>
+            <p className="mt-1 font-semibold text-white">{state.status}</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
+            <p className="text-slate-400">Sprachhilfe</p>
+            <p className="mt-1 font-semibold text-white">{state.languageHelp ? 'Aktiv' : 'Inaktiv'}</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
+            <p className="text-slate-400">Abgeschlossen</p>
+            <p className="mt-1 font-semibold text-white">{completedCount}/{state.participants.length}</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
+            <p className="text-slate-400">Richtige Antworten</p>
+            <p className="mt-1 font-semibold text-white">{totalCorrect}</p>
+          </div>
         </div>
         <img src={state.qrCodeDataUrl} alt="QR Code" className="h-48 w-48 rounded-2xl bg-white p-3" />
         <Button onClick={startSession} disabled={state.status !== 'WAITING'}>
