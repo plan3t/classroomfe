@@ -32,6 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
+      IMAGE_ARCHIVE_NAME: classroomfe-${{ inputs.release_tag }}-docker-image.tar.gz
+      IMAGE_CHECKSUM_NAME: classroomfe-${{ inputs.release_tag }}-docker-image.tar.gz.sha256
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -64,6 +66,12 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      - name: Export Docker image archive for release assets
+        run: |
+          docker pull "${IMAGE_NAME}:${{ inputs.release_tag }}"
+          docker save "${IMAGE_NAME}:${{ inputs.release_tag }}" | gzip > "${IMAGE_ARCHIVE_NAME}"
+          sha256sum "${IMAGE_ARCHIVE_NAME}" > "${IMAGE_CHECKSUM_NAME}"
+
       - name: Create Git tag
         run: |
           git config user.name github-actions
@@ -84,5 +92,15 @@ jobs:
             Published tags:
             ${{ steps.meta.outputs.tags }}
 
+            Pull command:
+            `docker pull ${{ env.IMAGE_NAME }}:${{ inputs.release_tag }}`
+
+            Downloadable release assets:
+            - `${{ env.IMAGE_ARCHIVE_NAME }}`
+            - `${{ env.IMAGE_CHECKSUM_NAME }}`
+
             Image digest:
             `${{ steps.build.outputs.digest }}`
+          files: |
+            ${{ env.IMAGE_ARCHIVE_NAME }}
+            ${{ env.IMAGE_CHECKSUM_NAME }}
