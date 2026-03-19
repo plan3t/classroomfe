@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { io } from 'socket.io-client';
 import { Button, Card, Input } from '@/src/components/ui';
 import type { LearningItemDto, RoomSummaryDto } from '@/src/lib/contracts';
+import { formatLanguage } from '@/src/lib/utils';
 import { socketEvents } from '@/src/lib/socket-events';
 
 type RoomStatusPayload = { status: RoomSummaryDto['status'] };
@@ -43,6 +44,7 @@ export function StudentRoom({ room, items, participantId }: { room: RoomSummaryD
   const item = items[currentIndex];
 
   async function submit() {
+    if (!item) return;
     const res = await fetch('/api/rooms/answer', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -71,9 +73,9 @@ export function StudentRoom({ room, items, participantId }: { room: RoomSummaryD
   }
 
   function speak() {
-    const translation = item.translations.find((entry) => entry.language === activeRoom.language);
-    if (!translation || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-    window.speechSynthesis.speak(new SpeechSynthesisUtterance(translation.label));
+    if (!item?.speechText || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(new SpeechSynthesisUtterance(item.speechText));
   }
 
   if (activeRoom.status === 'WAITING') {
@@ -98,7 +100,7 @@ export function StudentRoom({ room, items, participantId }: { room: RoomSummaryD
     <Card className="mx-auto max-w-xl space-y-5">
       <div className="flex items-center justify-between text-sm text-slate-300">
         <span>Artikel {currentIndex + 1} / {items.length}</span>
-        <span>{activeRoom.language}</span>
+        <span>{formatLanguage(activeRoom.language)}</span>
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-white/10">
         <div className="h-full rounded-full bg-emerald-400 transition-all" style={{ width: `${Math.round((correctCount / items.length) * 100)}%` }} />
@@ -107,7 +109,7 @@ export function StudentRoom({ room, items, participantId }: { room: RoomSummaryD
       <Input value={answer} onChange={(event) => setAnswer(event.target.value)} placeholder="Wie heißt der Artikel?" />
       <div className="flex gap-3">
         <Button onClick={submit} className="flex-1">Antwort prüfen</Button>
-        {activeRoom.languageHelp ? <Button onClick={speak} className="bg-slate-100 text-slate-950">Vorlesen</Button> : null}
+        {activeRoom.languageHelp && item.speechText ? <Button onClick={speak} className="bg-slate-100 text-slate-950">Vorlesen</Button> : null}
       </div>
       {feedback ? <p className="text-sm text-emerald-200">{feedback}</p> : null}
     </Card>

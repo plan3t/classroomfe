@@ -2,7 +2,7 @@ import crypto from 'node:crypto';
 import QRCode from 'qrcode';
 import { prisma } from '@/src/lib/prisma';
 import { checkAnswer, generateJoinId } from '@/src/lib/utils';
-import type { LearningItemDto, ParticipantDto, RoomSummaryDto } from '@/src/lib/contracts';
+import type { LanguageCode, LearningItemDto, ParticipantDto, RoomSummaryDto } from '@/src/lib/contracts';
 
 const ROOM_TTL_HOURS = 4;
 
@@ -43,6 +43,7 @@ function toRoomSummaryDto(room: {
   languageHelp: boolean;
   status: 'WAITING' | 'ACTIVE' | 'COMPLETED' | 'EXPIRED';
   qrCodeDataUrl: string;
+  joinUrl: string;
   startedAt: Date | null;
   participants: Array<{
     id: string;
@@ -61,7 +62,9 @@ function toRoomSummaryDto(room: {
 }): RoomSummaryDto {
   return {
     id: room.id,
+    topic: 'SUPERMARKET',
     joinId: room.joinId,
+    joinUrl: room.joinUrl,
     language: room.language,
     languageHelp: room.languageHelp,
     status: room.status,
@@ -434,10 +437,14 @@ export async function exportRoomResultsCsv(roomId: string) {
   ].join('\n');
 }
 
-export async function getLearningItems(): Promise<LearningItemDto[]> {
+export async function getLearningItems(language?: LanguageCode, includeSpeechText = false): Promise<LearningItemDto[]> {
   const items = await prisma.item.findMany({
     where: { topic: 'SUPERMARKET' },
-    include: { translations: true },
+    include: {
+      translations: language
+        ? { where: { language }, take: 1 }
+        : { take: 0 },
+    },
     orderBy: { order: 'asc' },
   });
 
@@ -445,10 +452,6 @@ export async function getLearningItems(): Promise<LearningItemDto[]> {
     id: item.id,
     imageUrl: item.imageUrl,
     order: item.order,
-    translations: item.translations.map((translation: (typeof item.translations)[number]) => ({
-      language: translation.language,
-      label: translation.label,
-      alternatives: translation.alternatives,
-    })),
+    speechText: includeSpeechText ? item.translations[0]?.label : undefined,
   }));
 }

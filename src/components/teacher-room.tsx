@@ -58,6 +58,7 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
           <div>
             <p className="text-sm text-emerald-300">Raum {state.joinId}</p>
             <h1 className="text-3xl font-bold">Warteraum</h1>
+            <p className="mt-2 text-sm text-slate-300">Thema: Supermarkt</p>
           </div>
           <span className="rounded-full bg-white/10 px-3 py-1 text-sm">{formatLanguage(state.language)}</span>
         </div>
@@ -83,7 +84,10 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
             <p className="mt-1 font-semibold text-white">{totalCorrect}</p>
           </div>
         </div>
-        <img src={state.qrCodeDataUrl} alt="QR Code" className="h-48 w-48 rounded-2xl bg-white p-3" />
+        <div className="space-y-3">
+          <img src={state.qrCodeDataUrl} alt="QR Code" className="h-48 w-48 rounded-2xl bg-white p-3" />
+          <p className="break-all text-sm text-slate-300">Join-URL: <span className="text-white">{state.joinUrl}</span></p>
+        </div>
         <div className="flex flex-wrap gap-3">
           <Button onClick={startSession} disabled={state.status !== 'WAITING'}>
             Session starten

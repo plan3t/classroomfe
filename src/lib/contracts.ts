@@ -1,4 +1,5 @@
 export type LanguageCode = 'DE' | 'EN' | 'FR' | 'ES';
+export type RoomTopicCode = 'SUPERMARKET';
 export type RoomStatusCode = 'WAITING' | 'ACTIVE' | 'COMPLETED' | 'EXPIRED';
 export type ParticipantStatusCode = 'WAITING' | 'ACTIVE' | 'COMPLETED';
 
@@ -20,7 +21,9 @@ export type StudentAnswerDto = {
 
 export type RoomSummaryDto = {
   id: string;
+  topic: RoomTopicCode;
   joinId: string;
+  joinUrl: string;
   language: LanguageCode;
   languageHelp: boolean;
   status: RoomStatusCode;
@@ -30,15 +33,9 @@ export type RoomSummaryDto = {
   startedAt?: string | null;
 };
 
-export type ItemTranslationDto = {
-  language: LanguageCode;
-  label: string;
-  alternatives: string[];
-};
-
 export type LearningItemDto = {
   id: string;
   imageUrl: string;
   order: number;
-  translations: ItemTranslationDto[];
+  speechText?: string;
 };

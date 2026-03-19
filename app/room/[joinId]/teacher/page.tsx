@@ -7,11 +7,10 @@ export default async function TeacherRoomPage({ params }: { params: Promise<{ jo
   const session = await auth();
   if (!session?.user?.id) redirect('/login');
   const { joinId } = await params;
-  const [room, items] = await Promise.all([
-    getRoomDetailForTeacher(session.user.id, joinId),
-    getLearningItems(),
-  ]);
+  const room = await getRoomDetailForTeacher(session.user.id, joinId);
   if (!room) notFound();
+
+  const items = await getLearningItems(room.language, room.languageHelp);
 
   return (
     <main className="min-h-screen px-6 py-10">

@@ -4,6 +4,7 @@ import { createRoom } from '@/src/lib/room-service';
 import { requireTeacherSession } from '@/src/lib/session';
 
 const roomSchema = z.object({
+  topic: z.literal('SUPERMARKET').default('SUPERMARKET'),
   language: z.enum(['DE', 'EN', 'FR', 'ES']),
   languageHelp: z.boolean(),
 });
