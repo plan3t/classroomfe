@@ -31,6 +31,7 @@ export type RoomSummaryDto = {
   participants: ParticipantDto[];
   answers?: StudentAnswerDto[];
   startedAt?: string | null;
+  expiresAt?: string;
 };
 
 export type LearningItemDto = {
