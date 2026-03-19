@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { checkAnswer, normalizeAnswer } from '@/src/lib/utils';
-import { submitAnswer } from '@/src/lib/room-service';
+import { exportRoomResultsCsv, finishRoom, submitAnswer } from '@/src/lib/room-service';
 import { prisma } from '@/src/lib/prisma';
 
 vi.mock('@/src/lib/prisma', () => ({
@@ -10,6 +10,8 @@ vi.mock('@/src/lib/prisma', () => ({
       update: vi.fn(),
     },
     room: {
+      findUnique: vi.fn(),
+      findUniqueOrThrow: vi.fn(),
       update: vi.fn(),
     },
     itemTranslation: {
@@ -77,5 +79,45 @@ describe('answer normalization', () => {
       where: { id: 'participant-1' },
       data: { status: 'COMPLETED' },
     });
+  });
+
+  it('finishes an active room and marks remaining participants completed', async () => {
+    vi.mocked(prisma.room.findUniqueOrThrow).mockResolvedValue({
+      id: 'room-1',
+      status: 'ACTIVE',
+      joinId: '12345678',
+      expiresAt: new Date(Date.now() + 10000),
+    } as never);
+    vi.mocked(prisma.room.update).mockResolvedValue({
+      id: 'room-1',
+      joinId: '12345678',
+      language: 'DE',
+      languageHelp: true,
+      status: 'COMPLETED',
+      qrCodeDataUrl: 'qr',
+      startedAt: new Date(),
+      participants: [],
+      answers: [],
+    } as never);
+
+    const room = await finishRoom('room-1');
+    expect(room.status).toBe('COMPLETED');
+  });
+
+  it('exports room results as csv', async () => {
+    vi.mocked(prisma.room.findUniqueOrThrow).mockResolvedValue({
+      id: 'room-1',
+      participants: [
+        { id: 'participant-1', displayName: 'Mia', status: 'COMPLETED' },
+      ],
+      answers: [
+        { participantId: 'participant-1', isCorrect: true },
+      ],
+    } as never);
+    vi.mocked(prisma.item.count).mockResolvedValue(3 as never);
+
+    const csv = await exportRoomResultsCsv('room-1');
+    expect(csv).toContain('Anzeigename;Status;Richtige Antworten;Gesamtitems;Genauigkeit');
+    expect(csv).toContain('Mia;COMPLETED;1;3;100%');
   });
 });

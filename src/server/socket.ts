@@ -21,6 +21,10 @@ export function emitRoomStarted(joinId: string, status: string, startedAt: strin
   global.ioServer?.to(`room:${joinId}`).emit(socketEvents.roomStarted, { status, startedAt });
 }
 
+export function emitRoomFinished(joinId: string, status: string) {
+  global.ioServer?.to(`room:${joinId}`).emit(socketEvents.roomFinished, { status });
+}
+
 export function emitAnswerSubmitted(roomId: string, answers: unknown[]) {
   global.ioServer?.to(`room-id:${roomId}`).emit(socketEvents.answerSubmitted, { answers });
 }

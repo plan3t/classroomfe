@@ -1,5 +1,4 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { Prisma } from '@prisma/client';
 import { joinRoom, getAuthorizedParticipant } from '@/src/lib/room-service';
 import { prisma } from '@/src/lib/prisma';
 
@@ -84,28 +83,20 @@ describe('join flow', () => {
       status: 'WAITING',
       expiresAt: new Date(Date.now() + 10000),
     } as never);
-    vi.mocked(prisma.participant.create).mockRejectedValue(
-      new Prisma.PrismaClientKnownRequestError('duplicate', { code: 'P2002', clientVersion: '6.19.2' }),
-    );
+    vi.mocked(prisma.participant.create).mockRejectedValue({ code: 'P2002' } as never);
 
     await expect(joinRoom('12345678', 'Mia')).rejects.toThrow(/bereits vergeben/);
   });
 
-  it('rejects expired rooms', async () => {
+  it('rejects expired or completed rooms', async () => {
     vi.mocked(prisma.room.findUnique).mockResolvedValue({
       id: 'room-1',
       joinId: '12345678',
-      status: 'EXPIRED',
-      expiresAt: new Date(Date.now() - 10000),
-    } as never);
-    vi.mocked(prisma.room.update).mockResolvedValue({
-      id: 'room-1',
-      joinId: '12345678',
-      status: 'EXPIRED',
-      expiresAt: new Date(Date.now() - 10000),
+      status: 'COMPLETED',
+      expiresAt: new Date(Date.now() + 10000),
     } as never);
 
-    await expect(joinRoom('12345678', 'Mia')).rejects.toThrow(/abgelaufen/);
+    await expect(joinRoom('12345678', 'Mia')).rejects.toThrow(/nicht mehr beitretbar/);
   });
 
   it('authorizes a participant via access token', async () => {

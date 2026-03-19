@@ -1,5 +1,5 @@
 export type LanguageCode = 'DE' | 'EN' | 'FR' | 'ES';
-export type RoomStatusCode = 'WAITING' | 'ACTIVE' | 'EXPIRED';
+export type RoomStatusCode = 'WAITING' | 'ACTIVE' | 'COMPLETED' | 'EXPIRED';
 export type ParticipantStatusCode = 'WAITING' | 'ACTIVE' | 'COMPLETED';
 
 export type ParticipantDto = {

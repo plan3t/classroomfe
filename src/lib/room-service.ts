@@ -1,11 +1,26 @@
 import crypto from 'node:crypto';
-import { Prisma } from '@prisma/client';
 import QRCode from 'qrcode';
 import { prisma } from '@/src/lib/prisma';
 import { checkAnswer, generateJoinId } from '@/src/lib/utils';
 import type { LearningItemDto, ParticipantDto, RoomSummaryDto } from '@/src/lib/contracts';
 
 const ROOM_TTL_HOURS = 4;
+
+type RoomRecord = {
+  id: string;
+  joinId: string;
+  teacherId: string;
+  topic: 'SUPERMARKET';
+  language: 'DE' | 'EN' | 'FR' | 'ES';
+  languageHelp: boolean;
+  joinUrl: string;
+  qrCodeDataUrl: string;
+  status: 'WAITING' | 'ACTIVE' | 'COMPLETED' | 'EXPIRED';
+  expiresAt: Date;
+  startedAt: Date | null;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 function toParticipantDto(participant: {
   id: string;
@@ -26,7 +41,7 @@ function toRoomSummaryDto(room: {
   joinId: string;
   language: 'DE' | 'EN' | 'FR' | 'ES';
   languageHelp: boolean;
-  status: 'WAITING' | 'ACTIVE' | 'EXPIRED';
+  status: 'WAITING' | 'ACTIVE' | 'COMPLETED' | 'EXPIRED';
   qrCodeDataUrl: string;
   startedAt: Date | null;
   participants: Array<{
@@ -64,12 +79,12 @@ function toRoomSummaryDto(room: {
   };
 }
 
-async function expireRoomRecord<T extends { id: string; joinId: string; status: 'WAITING' | 'ACTIVE' | 'EXPIRED'; expiresAt: Date }>(room: T): Promise<T | { id: string; joinId: string; teacherId: string; topic: 'SUPERMARKET'; language: 'DE' | 'EN' | 'FR' | 'ES'; languageHelp: boolean; joinUrl: string; qrCodeDataUrl: string; status: 'WAITING' | 'ACTIVE' | 'EXPIRED'; expiresAt: Date; startedAt: Date | null; createdAt: Date; updatedAt: Date; }> {
-  if (room.expiresAt <= new Date() && room.status !== 'EXPIRED') {
+async function expireRoomRecord<T extends { id: string; joinId: string; status: 'WAITING' | 'ACTIVE' | 'COMPLETED' | 'EXPIRED'; expiresAt: Date }>(room: T): Promise<T | RoomRecord> {
+  if (room.expiresAt <= new Date() && room.status !== 'EXPIRED' && room.status !== 'COMPLETED') {
     return prisma.room.update({
       where: { id: room.id },
       data: { status: 'EXPIRED' },
-    });
+    }) as Promise<RoomRecord>;
   }
 
   return room;
@@ -85,7 +100,7 @@ export async function expireRoomsForTeacher(teacherId: string) {
   await prisma.room.updateMany({
     where: {
       teacherId,
-      status: { not: 'EXPIRED' },
+      status: { in: ['WAITING', 'ACTIVE'] },
       expiresAt: { lte: new Date() },
     },
     data: { status: 'EXPIRED' },
@@ -132,8 +147,8 @@ export async function createRoom({
 
 export async function joinRoom(joinId: string, displayName: string) {
   const room = await expireRoomIfNeeded(joinId);
-  if (!room || room.status === 'EXPIRED') {
-    throw new Error('Dieser Raum ist abgelaufen oder existiert nicht.');
+  if (!room || room.status === 'EXPIRED' || room.status === 'COMPLETED') {
+    throw new Error('Dieser Raum ist nicht mehr beitretbar.');
   }
 
   const accessToken = crypto.randomBytes(24).toString('hex');
@@ -149,7 +164,7 @@ export async function joinRoom(joinId: string, displayName: string) {
       },
     });
   } catch (error) {
-    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+    if (typeof error === 'object' && error && 'code' in error && (error as { code?: string }).code === 'P2002') {
       throw new Error('Dieser Anzeigename ist bereits vergeben.');
     }
     throw error;
@@ -213,6 +228,38 @@ export async function startRoom(roomId: string) {
   return toRoomSummaryDto(room);
 }
 
+export async function finishRoom(roomId: string) {
+  const room = await prisma.room.findUniqueOrThrow({ where: { id: roomId } });
+  const safeRoom = await expireRoomRecord(room);
+
+  if (safeRoom.status === 'EXPIRED') {
+    throw new Error('Abgelaufene Räume können nicht beendet werden.');
+  }
+
+  if (safeRoom.status !== 'ACTIVE') {
+    throw new Error('Nur aktive Räume können beendet werden.');
+  }
+
+  const completedRoom = await prisma.room.update({
+    where: { id: roomId },
+    data: {
+      status: 'COMPLETED',
+      participants: {
+        updateMany: {
+          where: { roomId, status: { in: ['WAITING', 'ACTIVE'] } },
+          data: { status: 'COMPLETED' },
+        },
+      },
+    },
+    include: {
+      participants: true,
+      answers: true,
+    },
+  });
+
+  return toRoomSummaryDto(completedRoom);
+}
+
 export async function getAuthorizedParticipant(participantId: string, accessToken: string) {
   const participant = await prisma.participant.findUnique({
     where: { id: participantId },
@@ -224,8 +271,8 @@ export async function getAuthorizedParticipant(participantId: string, accessToke
   }
 
   const room = await expireRoomRecord(participant.room);
-  if (room.status === 'EXPIRED') {
-    throw new Error('Dieser Raum ist abgelaufen oder existiert nicht.');
+  if (room.status === 'EXPIRED' || room.status === 'COMPLETED') {
+    throw new Error('Dieser Raum ist nicht mehr aktiv.');
   }
 
   return {
@@ -338,12 +385,20 @@ export async function getStudentRoom(joinId: string, participantId: string, acce
     return null;
   }
 
-  const participant = await getAuthorizedParticipant(participantId, accessToken);
-  if (participant.room.joinId !== joinId) {
+  const participant = await prisma.participant.findUnique({
+    where: { id: participantId },
+    include: { room: true },
+  });
+
+  if (!participant || participant.accessToken !== accessToken || participant.room.joinId !== joinId) {
     throw new Error('Schülerzugang passt nicht zu diesem Raum.');
   }
 
   const safeRoom = await expireRoomRecord(room);
+  if (safeRoom.status === 'EXPIRED') {
+    throw new Error('Dieser Raum ist nicht mehr aktiv.');
+  }
+
   const hydratedRoom = safeRoom.status === room.status
     ? room
     : await prisma.room.findUniqueOrThrow({
@@ -354,6 +409,29 @@ export async function getStudentRoom(joinId: string, participantId: string, acce
       });
 
   return toRoomSummaryDto({ ...hydratedRoom, startedAt: hydratedRoom.startedAt ?? null });
+}
+
+export async function exportRoomResultsCsv(roomId: string) {
+  const room = await prisma.room.findUniqueOrThrow({
+    where: { id: roomId },
+    include: {
+      participants: { orderBy: { displayName: 'asc' } },
+      answers: true,
+    },
+  });
+  const totalItems = await prisma.item.count({ where: { topic: 'SUPERMARKET' } });
+
+  const rows = room.participants.map((participant) => {
+    const answers = room.answers.filter((answer) => answer.participantId === participant.id);
+    const correctAnswers = answers.filter((answer) => answer.isCorrect).length;
+    const accuracy = answers.length === 0 ? 0 : Math.round((correctAnswers / answers.length) * 100);
+    return [participant.displayName, participant.status, String(correctAnswers), String(totalItems), `${accuracy}%`];
+  });
+
+  return [
+    ['Anzeigename', 'Status', 'Richtige Antworten', 'Gesamtitems', 'Genauigkeit'].join(';'),
+    ...rows.map((row) => row.join(';')),
+  ].join('\n');
 }
 
 export async function getLearningItems(): Promise<LearningItemDto[]> {

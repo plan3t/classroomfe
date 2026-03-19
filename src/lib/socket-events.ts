@@ -3,5 +3,6 @@ export const socketEvents = {
   studentJoin: 'student:join-room',
   waitingRoomUpdate: 'room:waiting-update',
   roomStarted: 'room:started',
+  roomFinished: 'room:finished',
   answerSubmitted: 'room:answer-submitted',
 };

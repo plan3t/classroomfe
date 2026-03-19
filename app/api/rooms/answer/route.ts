@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
     emitAnswerSubmitted(result.roomId, answers);
     if (room) {
-      emitWaitingRoom(room.joinId, room.participants.map((participant) => ({
+      emitWaitingRoom(room.joinId, room.participants.map((participant: (typeof room.participants)[number]) => ({
         id: participant.id,
         displayName: participant.displayName,
         status: participant.status,

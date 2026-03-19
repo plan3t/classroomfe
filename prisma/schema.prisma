@@ -25,6 +25,7 @@ enum Language {
 enum RoomStatus {
   WAITING
   ACTIVE
+  COMPLETED
   EXPIRED
 }
 
