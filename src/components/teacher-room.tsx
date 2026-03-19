@@ -232,6 +232,14 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
             <p className={`mt-1 font-semibold ${getCountdownTone(state.expiresAt)}`}>{timeRemaining}</p>
             <p className="mt-1 text-xs text-slate-500">Warnstufen wechseln automatisch bei 10, 5 und 1 Minute Restzeit.</p>
           </div>
+          <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
+            <p className="text-slate-400">Abgeschlossen</p>
+            <p className="mt-1 font-semibold text-white">{completedCount}/{state.participants.length}</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
+            <p className="text-slate-400">Ø Trefferquote / Fortschritt</p>
+            <p className="mt-1 font-semibold text-white">{averageAccuracy}% / {averageProgress}%</p>
+          </div>
         </div>
         <div className="space-y-3">
           <img src={state.qrCodeDataUrl} alt="QR Code zum Raumbeitritt" className="h-48 w-48 rounded-2xl bg-white p-3" />
