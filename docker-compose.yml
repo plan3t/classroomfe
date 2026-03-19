@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: classroomfe
+      POSTGRES_USER: classroomfe
+      POSTGRES_PASSWORD: classroomfe
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U classroomfe -d classroomfe"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres-init:/docker-entrypoint-initdb.d:ro
+
+  app:
+    image: ghcr.io/plan3t/classroomfe:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://classroomfe:classroomfe@db:5432/classroomfe?schema=public
+      AUTH_SECRET: classroomfe-local-dev-secret-change-me
+      AUTH_TRUST_HOST: "true"
+      NEXT_PUBLIC_ENABLE_NFC: "false"
+
+volumes:
+  postgres_data:
