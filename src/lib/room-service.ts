@@ -453,5 +453,8 @@ export async function getLearningItems(language?: LanguageCode, includeSpeechTex
     imageUrl: item.imageUrl,
     order: item.order,
     speechText: includeSpeechText ? item.translations[0]?.label : undefined,
+    imageAlt: includeSpeechText && item.translations[0]?.label
+      ? `Lernbild: ${item.translations[0].label}`
+      : 'Lernbild aus dem Supermarkt',
   }));
 }

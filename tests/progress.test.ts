@@ -15,16 +15,18 @@ const answers = [
 ];
 
 describe('room progress helpers', () => {
-  it('builds participant progress with accuracy and completion', () => {
+  it('builds participant progress with attempts, accuracy and progress', () => {
     const progress = buildParticipantProgress(participants, answers, 3);
-    expect(progress[0]).toMatchObject({ correctAnswers: 1, accuracy: 50, completionPercent: 33 });
-    expect(progress[1]).toMatchObject({ correctAnswers: 3, accuracy: 100, completionPercent: 100 });
+    expect(progress[0]).toMatchObject({ attemptedAnswers: 2, correctAnswers: 1, accuracy: 50, progressPercent: 67 });
+    expect(progress[1]).toMatchObject({ attemptedAnswers: 3, correctAnswers: 3, accuracy: 100, progressPercent: 100 });
   });
 
   it('summarizes room totals', () => {
     const summary = summarizeRoomProgress(participants, answers, 3);
     expect(summary.completedCount).toBe(1);
+    expect(summary.totalAttempted).toBe(5);
     expect(summary.totalCorrect).toBe(4);
     expect(summary.averageAccuracy).toBe(75);
+    expect(summary.averageProgress).toBe(84);
   });
 });
