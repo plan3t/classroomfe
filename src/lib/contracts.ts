@@ -38,4 +38,5 @@ export type LearningItemDto = {
   imageUrl: string;
   order: number;
   speechText?: string;
+  imageAlt?: string;
 };

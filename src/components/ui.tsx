@@ -21,9 +21,9 @@ export function Button({
 }
 
 export function Input(props: InputHTMLAttributes<HTMLInputElement>) {
-  return <input className="w-full rounded-2xl border border-white/10 bg-slate-900 px-4 py-3 text-sm" {...props} />;
+  return <input className="w-full rounded-2xl border border-white/10 bg-slate-900 px-4 py-3 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-300" {...props} />;
 }
 
 export function Select(props: SelectHTMLAttributes<HTMLSelectElement>) {
-  return <select className="w-full rounded-2xl border border-white/10 bg-slate-900 px-4 py-3 text-sm" {...props} />;
+  return <select className="w-full rounded-2xl border border-white/10 bg-slate-900 px-4 py-3 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-300" {...props} />;
 }
