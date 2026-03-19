@@ -3,9 +3,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { io } from 'socket.io-client';
 import { Button, Card, Input } from '@/src/components/ui';
+import type { LearningItemDto, RoomSummaryDto } from '@/src/lib/contracts';
 import { socketEvents } from '@/src/lib/socket-events';
 
-export function StudentRoom({ room, items, participantId }: { room: any; items: any[]; participantId: string }) {
+type RoomStartedPayload = { status: RoomSummaryDto['status'] };
+
+export function StudentRoom({ room, items, participantId }: { room: RoomSummaryDto; items: LearningItemDto[]; participantId: string }) {
   const [activeRoom, setActiveRoom] = useState(room);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answer, setAnswer] = useState('');
@@ -16,7 +19,9 @@ export function StudentRoom({ room, items, participantId }: { room: any; items: 
     fetch('/api/socket');
     socket.connect();
     socket.emit(socketEvents.studentJoin, { joinId: room.joinId, participantId });
-    socket.on(socketEvents.roomStarted, (payload) => setActiveRoom((current: any) => ({ ...current, status: payload.status })));
+    socket.on(socketEvents.roomStarted, (payload: RoomStartedPayload) => {
+      setActiveRoom((current) => ({ ...current, status: payload.status }));
+    });
     return () => {
       socket.disconnect();
     };
@@ -43,7 +48,7 @@ export function StudentRoom({ room, items, participantId }: { room: any; items: 
   }
 
   function speak() {
-    const translation = item.translations.find((entry: any) => entry.language === activeRoom.language);
+    const translation = item.translations.find((entry) => entry.language === activeRoom.language);
     if (!translation || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
     window.speechSynthesis.speak(new SpeechSynthesisUtterance(translation.label));
   }

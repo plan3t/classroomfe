@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { submitAnswer } from '@/src/lib/room-service';
@@ -13,10 +14,16 @@ const answerSchema = z.object({
 export async function POST(request: Request) {
   try {
     const payload = answerSchema.parse(await request.json());
-    const result = await submitAnswer(payload);
-    const participant = await prisma.participant.findUniqueOrThrow({ where: { id: payload.participantId } });
-    const answers = await prisma.studentAnswer.findMany({ where: { roomId: participant.roomId } });
-    emitAnswerSubmitted(participant.roomId, answers);
+    const cookieStore = await cookies();
+    const accessToken = cookieStore.get(`student-access-${payload.participantId}`)?.value;
+
+    if (!accessToken) {
+      return NextResponse.json({ message: 'Schülerzugang fehlt. Bitte dem Raum erneut beitreten.' }, { status: 401 });
+    }
+
+    const result = await submitAnswer({ ...payload, accessToken });
+    const answers = await prisma.studentAnswer.findMany({ where: { roomId: result.roomId } });
+    emitAnswerSubmitted(result.roomId, answers);
     return NextResponse.json(result);
   } catch (error) {
     return NextResponse.json({ message: error instanceof Error ? error.message : 'Fehler' }, { status: 400 });

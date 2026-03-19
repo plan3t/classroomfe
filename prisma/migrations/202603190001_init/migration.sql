@@ -35,6 +35,7 @@ CREATE TABLE "Participant" (
   "roomId" TEXT NOT NULL REFERENCES "Room"("id") ON DELETE CASCADE,
   "displayName" TEXT NOT NULL,
   "socketId" TEXT,
+  "accessToken" TEXT UNIQUE,
   "status" "ParticipantStatus" NOT NULL DEFAULT 'WAITING',
   "joinedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT "Participant_roomId_displayName_key" UNIQUE ("roomId", "displayName")

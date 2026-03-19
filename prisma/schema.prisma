@@ -69,6 +69,7 @@ model Participant {
   room         Room            @relation(fields: [roomId], references: [id], onDelete: Cascade)
   displayName  String
   socketId     String?
+  accessToken  String?           @unique
   status       ParticipantStatus @default(WAITING)
   joinedAt     DateTime        @default(now())
   answers      StudentAnswer[]
@@ -88,6 +89,7 @@ model Item {
   imageUrl      String
   order         Int
   translations  ItemTranslation[]
+  answers       StudentAnswer[]
 
   @@unique([topic, order])
 }

@@ -3,16 +3,25 @@ import { auth } from '@/src/lib/auth';
 import { prisma } from '@/src/lib/prisma';
 import { RoomCreator } from '@/src/components/room-creator';
 import { Card } from '@/src/components/ui';
+import type { LanguageCode, RoomStatusCode } from '@/src/lib/contracts';
+
+type DashboardRoom = {
+  id: string;
+  joinId: string;
+  language: LanguageCode;
+  status: RoomStatusCode;
+  participants: Array<{ id: string }>;
+};
 
 export default async function DashboardPage() {
   const session = await auth();
   if (!session?.user?.id) redirect('/login');
 
-  const rooms = await prisma.room.findMany({
+  const rooms = (await prisma.room.findMany({
     where: { teacherId: session.user.id },
     include: { participants: true },
     orderBy: { createdAt: 'desc' },
-  });
+  })) as DashboardRoom[];
 
   return (
     <main className="min-h-screen px-6 py-10">
@@ -23,7 +32,7 @@ export default async function DashboardPage() {
         </div>
         <RoomCreator />
         <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {rooms.map((room: any) => (
+          {rooms.map((room) => (
             <Card key={room.id} className="space-y-3">
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-semibold">{room.joinId}</h2>

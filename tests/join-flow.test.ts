@@ -1,16 +1,24 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { joinRoom } from '@/src/lib/room-service';
+import { joinRoom, getAuthorizedParticipant } from '@/src/lib/room-service';
 import { prisma } from '@/src/lib/prisma';
+
+vi.mock('node:crypto', () => ({
+  default: {
+    randomBytes: vi.fn(() => ({ toString: () => 'secure-token' })),
+  },
+}));
 
 vi.mock('@/src/lib/prisma', () => ({
   prisma: {
     room: {
       findUnique: vi.fn(),
       findUniqueOrThrow: vi.fn(),
+      findFirst: vi.fn(),
       update: vi.fn(),
     },
     participant: {
       create: vi.fn(),
+      findUnique: vi.fn(),
     },
   },
 }));
@@ -20,19 +28,38 @@ describe('join flow', () => {
     vi.clearAllMocks();
   });
 
-  it('creates a waiting participant for active room lookup', async () => {
+  it('creates a waiting participant with an access token', async () => {
     vi.mocked(prisma.room.findUnique).mockResolvedValue({
       id: 'room-1',
       joinId: '12345678',
       status: 'WAITING',
       expiresAt: new Date(Date.now() + 10000),
-    } as any);
-    vi.mocked(prisma.participant.create).mockResolvedValue({ id: 'participant-1', displayName: 'Mia' } as any);
-    vi.mocked(prisma.room.findUniqueOrThrow).mockResolvedValue({ id: 'room-1', joinId: '12345678', participants: [{ id: 'participant-1', displayName: 'Mia' }] } as any);
+    } as never);
+    vi.mocked(prisma.participant.create).mockResolvedValue({
+      id: 'participant-1',
+      displayName: 'Mia',
+      status: 'WAITING',
+      joinedAt: new Date('2026-03-19T10:00:00Z'),
+    } as never);
+    vi.mocked(prisma.room.findUniqueOrThrow).mockResolvedValue({
+      id: 'room-1',
+      joinId: '12345678',
+      language: 'DE',
+      languageHelp: true,
+      status: 'WAITING',
+      qrCodeDataUrl: 'qr',
+      startedAt: null,
+      participants: [{
+        id: 'participant-1',
+        displayName: 'Mia',
+        status: 'WAITING',
+        joinedAt: new Date('2026-03-19T10:00:00Z'),
+      }],
+    } as never);
 
     const result = await joinRoom('12345678', 'Mia');
     expect(prisma.participant.create).toHaveBeenCalledWith(expect.objectContaining({
-      data: expect.objectContaining({ displayName: 'Mia' }),
+      data: expect.objectContaining({ displayName: 'Mia', accessToken: 'secure-token' }),
     }));
     expect(result.room.joinId).toBe('12345678');
   });
@@ -43,14 +70,29 @@ describe('join flow', () => {
       joinId: '12345678',
       status: 'EXPIRED',
       expiresAt: new Date(Date.now() - 10000),
-    } as any);
+    } as never);
     vi.mocked(prisma.room.update).mockResolvedValue({
       id: 'room-1',
       joinId: '12345678',
       status: 'EXPIRED',
       expiresAt: new Date(Date.now() - 10000),
-    } as any);
+    } as never);
 
     await expect(joinRoom('12345678', 'Mia')).rejects.toThrow(/abgelaufen/);
+  });
+
+  it('authorizes a participant via access token', async () => {
+    vi.mocked(prisma.participant.findUnique).mockResolvedValue({
+      id: 'participant-1',
+      accessToken: 'secure-token',
+      room: {
+        joinId: '12345678',
+        status: 'ACTIVE',
+        expiresAt: new Date(Date.now() + 10000),
+      },
+    } as never);
+
+    const participant = await getAuthorizedParticipant('participant-1', 'secure-token');
+    expect(participant.id).toBe('participant-1');
   });
 });

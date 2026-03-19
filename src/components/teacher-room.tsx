@@ -3,10 +3,15 @@
 import { useEffect, useMemo, useState } from 'react';
 import { io } from 'socket.io-client';
 import { Button, Card } from '@/src/components/ui';
+import type { RoomSummaryDto, StudentAnswerDto } from '@/src/lib/contracts';
 import { socketEvents } from '@/src/lib/socket-events';
 import { formatLanguage } from '@/src/lib/utils';
 
-export function TeacherRoom({ room }: { room: any }) {
+type WaitingRoomPayload = { participants: RoomSummaryDto['participants'] };
+type AnswerPayload = { answers: StudentAnswerDto[] };
+type RoomStartedPayload = { status: RoomSummaryDto['status']; startedAt: string | null };
+
+export function TeacherRoom({ room }: { room: RoomSummaryDto }) {
   const [state, setState] = useState(room);
   const socket = useMemo(() => io({ path: '/api/socket/io', autoConnect: false }), []);
 
@@ -14,9 +19,15 @@ export function TeacherRoom({ room }: { room: any }) {
     fetch('/api/socket');
     socket.connect();
     socket.emit(socketEvents.teacherJoin, { joinId: room.joinId });
-    socket.on(socketEvents.waitingRoomUpdate, (payload) => setState((current: any) => ({ ...current, participants: payload.participants })));
-    socket.on(socketEvents.answerSubmitted, (payload) => setState((current: any) => ({ ...current, answers: payload.answers })));
-    socket.on(socketEvents.roomStarted, (payload) => setState((current: any) => ({ ...current, status: payload.status, startedAt: payload.startedAt })));
+    socket.on(socketEvents.waitingRoomUpdate, (payload: WaitingRoomPayload) => {
+      setState((current) => ({ ...current, participants: payload.participants }));
+    });
+    socket.on(socketEvents.answerSubmitted, (payload: AnswerPayload) => {
+      setState((current) => ({ ...current, answers: payload.answers }));
+    });
+    socket.on(socketEvents.roomStarted, (payload: RoomStartedPayload) => {
+      setState((current) => ({ ...current, status: payload.status, startedAt: payload.startedAt }));
+    });
     return () => {
       socket.disconnect();
     };
@@ -26,10 +37,10 @@ export function TeacherRoom({ room }: { room: any }) {
     await fetch(`/api/rooms/${room.id}/start`, { method: 'POST' });
   }
 
-  const correctByParticipant = state.answers?.reduce((acc: Record<string, number>, answer: any) => {
+  const correctByParticipant = (state.answers ?? []).reduce<Record<string, number>>((acc, answer) => {
     if (answer.isCorrect) acc[answer.participantId] = (acc[answer.participantId] ?? 0) + 1;
     return acc;
-  }, {}) ?? {};
+  }, {});
 
   return (
     <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
@@ -57,7 +68,7 @@ export function TeacherRoom({ room }: { room: any }) {
           <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-sm text-emerald-300">{state.participants.length} beigetreten</span>
         </div>
         <div className="space-y-3">
-          {state.participants.map((participant: any) => (
+          {state.participants.map((participant) => (
             <div key={participant.id} className="flex items-center justify-between rounded-2xl border border-white/10 bg-slate-900/60 p-4">
               <div>
                 <p className="font-medium">{participant.displayName}</p>

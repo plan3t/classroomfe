@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import type { RoomSummaryDto } from '@/src/lib/contracts';
 import { Button, Card, Select } from '@/src/components/ui';
 
 export function RoomCreator() {
   const [language, setLanguage] = useState<'DE' | 'EN' | 'FR' | 'ES'>('DE');
   const [languageHelp, setLanguageHelp] = useState(true);
-  const [room, setRoom] = useState<any>(null);
+  const [room, setRoom] = useState<RoomSummaryDto | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   async function handleCreate() {
@@ -21,7 +22,7 @@ export function RoomCreator() {
       setError(body.message ?? 'Raum konnte nicht erstellt werden.');
       return;
     }
-    setRoom(body.room);
+    setRoom(body.room as RoomSummaryDto);
   }
 
   return (
