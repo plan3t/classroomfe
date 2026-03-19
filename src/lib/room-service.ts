@@ -45,6 +45,7 @@ function toRoomSummaryDto(room: {
   qrCodeDataUrl: string;
   joinUrl: string;
   startedAt: Date | null;
+  expiresAt: Date;
   participants: Array<{
     id: string;
     displayName: string;
@@ -70,6 +71,7 @@ function toRoomSummaryDto(room: {
     status: room.status,
     qrCodeDataUrl: room.qrCodeDataUrl,
     startedAt: room.startedAt?.toISOString() ?? null,
+    expiresAt: room.expiresAt?.toISOString(),
     participants: room.participants.map(toParticipantDto),
     answers: room.answers?.map((answer) => ({
       id: answer.id,
@@ -145,7 +147,7 @@ export async function createRoom({
     },
   });
 
-  return toRoomSummaryDto({ ...room, startedAt: room.startedAt ?? null });
+  return toRoomSummaryDto({ ...room, startedAt: room.startedAt ?? null, expiresAt: room.expiresAt });
 }
 
 export async function joinRoom(joinId: string, displayName: string) {
@@ -181,7 +183,7 @@ export async function joinRoom(joinId: string, displayName: string) {
   });
 
   return {
-    room: toRoomSummaryDto({ ...freshRoom, startedAt: freshRoom.startedAt ?? null }),
+    room: toRoomSummaryDto({ ...freshRoom, startedAt: freshRoom.startedAt ?? null, expiresAt: freshRoom.expiresAt }),
     participant: {
       ...toParticipantDto(participant),
       accessToken,
@@ -411,7 +413,7 @@ export async function getStudentRoom(joinId: string, participantId: string, acce
         },
       });
 
-  return toRoomSummaryDto({ ...hydratedRoom, startedAt: hydratedRoom.startedAt ?? null });
+  return toRoomSummaryDto({ ...hydratedRoom, startedAt: hydratedRoom.startedAt ?? null, expiresAt: hydratedRoom.expiresAt });
 }
 
 export async function exportRoomResultsCsv(roomId: string) {
@@ -453,5 +455,8 @@ export async function getLearningItems(language?: LanguageCode, includeSpeechTex
     imageUrl: item.imageUrl,
     order: item.order,
     speechText: includeSpeechText ? item.translations[0]?.label : undefined,
+    imageAlt: includeSpeechText && item.translations[0]?.label
+      ? `Lernbild: ${item.translations[0].label}`
+      : 'Lernbild aus dem Supermarkt',
   }));
 }

@@ -31,6 +31,7 @@ export type RoomSummaryDto = {
   participants: ParticipantDto[];
   answers?: StudentAnswerDto[];
   startedAt?: string | null;
+  expiresAt?: string;
 };
 
 export type LearningItemDto = {
@@ -38,4 +39,5 @@ export type LearningItemDto = {
   imageUrl: string;
   order: number;
   speechText?: string;
+  imageAlt?: string;
 };
