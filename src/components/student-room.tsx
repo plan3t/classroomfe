@@ -59,7 +59,7 @@ export function StudentRoom({ room, items, participantId }: { room: RoomSummaryD
     socket.on(socketEvents.roomFinished, (payload: RoomStatusPayload) => {
       setActiveRoom((current) => ({ ...current, status: payload.status }));
       setCompleted(true);
-      setFeedback('Die Session wurde vom Lehrer beendet.');
+      setFeedback('Das Spiel wurde vom Spielleiter beendet.');
     });
     return () => {
       socket.off(socketEvents.roomStarted);
@@ -145,15 +145,15 @@ export function StudentRoom({ room, items, participantId }: { room: RoomSummaryD
   }
 
   if (activeRoom.status === 'WAITING') {
-    return <Card className="mx-auto max-w-lg text-center text-lg">Bitte warten, bis der Lehrer die Session startet.</Card>;
+    return <Card className="mx-auto max-w-lg text-center text-lg">Bitte warten, bis der Spielleiter das Spiel startet.</Card>;
   }
 
   if (completed || activeRoom.status === 'COMPLETED' || !item) {
     return (
       <Card className="mx-auto max-w-xl space-y-4 text-center">
         <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">Fertig</p>
-        <h2 className="text-3xl font-bold">Session abgeschlossen</h2>
-        <p className="text-slate-300" aria-live="polite">{feedback ?? 'Die Supermarkt-Session ist beendet.'}</p>
+        <h2 className="text-3xl font-bold">Spiel abgeschlossen</h2>
+        <p className="text-slate-300" aria-live="polite">{feedback ?? 'Das Spiel ist beendet.'}</p>
         <div className="rounded-3xl border border-emerald-400/20 bg-emerald-400/10 p-6">
           <p className="text-sm text-slate-300">Dein Ergebnis</p>
           <p className="mt-2 text-4xl font-black text-white">{correctCount} / {items.length}</p>
@@ -165,18 +165,18 @@ export function StudentRoom({ room, items, participantId }: { room: RoomSummaryD
   return (
     <Card className="mx-auto max-w-xl space-y-5">
       <div className="flex items-center justify-between text-sm text-slate-300">
-        <span>Artikel {currentIndex + 1} / {items.length}</span>
+        <span>Zug {currentIndex + 1} / {items.length}</span>
         <span>{formatLanguage(activeRoom.language)}</span>
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-white/10" aria-hidden="true">
         <div className="h-full rounded-full bg-emerald-400 transition-all" style={{ width: `${Math.round((currentIndex / items.length) * 100)}%` }} />
       </div>
-      <img src={item.imageUrl} alt={item.imageAlt ?? 'Lernbild'} className="h-72 w-full rounded-3xl object-cover" />
+      <img src={item.imageUrl} alt={item.imageAlt ?? 'Spielkarte'} className="h-72 w-full rounded-3xl object-cover" />
       <div className="space-y-2">
         <Input
           value={answer}
           onChange={(event) => setAnswer(event.target.value)}
-          placeholder="Wie heißt der Artikel?"
+          placeholder="Deine Aktion / Antwort"
           onKeyDown={(event) => {
             if (event.key === 'Enter') {
               event.preventDefault();
@@ -200,7 +200,7 @@ export function StudentRoom({ room, items, participantId }: { room: RoomSummaryD
         ) : null}
       </div>
       <div className="flex gap-3">
-        <Button onClick={() => void submit()} disabled={submitting || !answer.trim()} className="flex-1">{submitting ? 'Prüfe…' : 'Antwort prüfen'}</Button>
+        <Button onClick={() => void submit()} disabled={submitting || !answer.trim()} className="flex-1">{submitting ? 'Prüfe…' : 'Eingabe prüfen'}</Button>
         {activeRoom.languageHelp && item.speechText ? <Button onClick={speak} className="bg-slate-100 text-slate-950">Vorlesen</Button> : null}
       </div>
       <p className="text-xs text-slate-400">Fehlversuche für dieses Wort: {currentAttempts}</p>
