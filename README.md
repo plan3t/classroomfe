@@ -47,6 +47,7 @@ npm run build
 
 ## Docker-Hinweis (DB-Verbindung)
 - Die App wartet beim Start aktiv auf die Erreichbarkeit von `DATABASE_URL` (Host/Port), bevor `server.js` gestartet wird.
+- Danach werden beim Containerstart Prisma-Migrationen automatisch mit `prisma migrate deploy` angewendet.
 - Standard in Compose: `postgresql://classroomfe:classroomfe@db:5432/classroomfe?schema=public`.
 - Optional steuerbar:
   - `DB_WAIT_TIMEOUT_MS` (Default `60000`)

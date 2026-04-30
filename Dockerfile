@@ -21,6 +21,8 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/scripts ./scripts
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/node_modules ./node_modules
 ENV HOSTNAME=0.0.0.0
 EXPOSE 3000
-CMD ["sh", "-c", "node scripts/wait-for-db.mjs && node server.js"]
+CMD ["sh", "-c", "node scripts/wait-for-db.mjs && npx prisma migrate deploy && node server.js"]
