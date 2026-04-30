@@ -40,6 +40,7 @@ model User {
   rooms         Room[]
   accounts      Account[]
   sessions      Session[]
+  gameSessions  GameSession[]
 }
 
 model Room {
@@ -156,4 +157,40 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+enum GameMode {
+  NORMAL
+  WITH_GOALS
+}
+
+model GameSession {
+  id         String       @id @default(cuid())
+  teacherId  String
+  teacher    User         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  mode       GameMode     @default(NORMAL)
+  notes      String?
+  createdAt  DateTime     @default(now())
+  players    GamePlayer[]
+
+  @@index([teacherId, createdAt])
+}
+
+model GamePlayer {
+  id            String         @id @default(cuid())
+  gameSessionId String
+  gameSession   GameSession    @relation(fields: [gameSessionId], references: [id], onDelete: Cascade)
+  displayName   String
+  goals         String[]
+  done          Boolean        @default(false)
+  cartLines     GameCartLine[]
+}
+
+model GameCartLine {
+  id           String      @id @default(cuid())
+  gamePlayerId String
+  gamePlayer   GamePlayer  @relation(fields: [gamePlayerId], references: [id], onDelete: Cascade)
+  foodId       String
+  variantId    String
+  qty          Int
 }

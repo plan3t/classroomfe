@@ -20,6 +20,7 @@ RUN apk add --no-cache libc6-compat
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/scripts ./scripts
 ENV HOSTNAME=0.0.0.0
 EXPOSE 3000
-CMD ["node", "server.js"]
+CMD ["sh", "-c", "node scripts/wait-for-db.mjs && node server.js"]
