@@ -13,7 +13,7 @@ type JoinErrors = {
 function validateJoin(joinId: string, displayName: string): JoinErrors {
   const trimmedName = displayName.trim();
   return {
-    joinId: joinId.length === 8 ? undefined : 'Bitte gib eine 8-stellige Join-ID ein.',
+    joinId: joinId.length === 8 ? undefined : 'Bitte gib eine 8-stellige Spiel-ID ein.',
     displayName: trimmedName.length >= 2 ? undefined : 'Bitte gib einen Anzeigenamen mit mindestens 2 Zeichen ein.',
   };
 }
@@ -50,7 +50,7 @@ export function StudentJoin({ initialJoinId = '' }: { initialJoinId?: string }) 
     const body = await res.json();
     setSubmitting(false);
     if (!res.ok) {
-      setError(body.message ?? 'Beitritt fehlgeschlagen');
+      setError(body.message ?? 'Spielbeitritt fehlgeschlagen');
       return;
     }
     router.push(`/join/${body.room.joinId}?participantId=${body.participant.id}`);
@@ -67,20 +67,20 @@ export function StudentJoin({ initialJoinId = '' }: { initialJoinId?: string }) 
       reader.onreading = (event) => {
         const record = event.message.records.find((entry) => entry.recordType === 'text');
         if (!record?.data) {
-          setNfcMessage('Kein lesbarer Join-Code auf dem NFC-Tag gefunden.');
+          setNfcMessage('Keine lesbare Spiel-ID auf dem NFC-Tag gefunden.');
           setScanning(false);
           return;
         }
         const text = new TextDecoder().decode(record.data).trim();
         const parsedJoinId = text.replace(/\D/g, '').slice(0, 8);
         if (!parsedJoinId) {
-          setNfcMessage('Der NFC-Tag enthält keine gültige Join-ID.');
+          setNfcMessage('Der NFC-Tag enthält keine gültige Spiel-ID.');
           setScanning(false);
           return;
         }
         setJoinId(parsedJoinId);
         setFieldErrors((current) => ({ ...current, joinId: undefined }));
-        setNfcMessage(`Join-ID ${parsedJoinId} übernommen.`);
+        setNfcMessage(`Spiel-ID ${parsedJoinId} übernommen.`);
         setScanning(false);
       };
     } catch {
@@ -92,8 +92,8 @@ export function StudentJoin({ initialJoinId = '' }: { initialJoinId?: string }) 
   return (
     <Card className="mx-auto max-w-lg space-y-4">
       <div>
-        <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">Schüler-Zugang</p>
-        <h1 className="mt-2 text-3xl font-bold">Raum beitreten</h1>
+        <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">Spieler-Zugang</p>
+        <h1 className="mt-2 text-3xl font-bold">Spiel beitreten</h1>
       </div>
       <div className="space-y-2">
         <Input
@@ -103,7 +103,7 @@ export function StudentJoin({ initialJoinId = '' }: { initialJoinId?: string }) 
             setJoinId(nextValue);
             setFieldErrors((current) => ({ ...current, joinId: validateJoin(nextValue, displayName).joinId }));
           }}
-          placeholder="8-stellige Join-ID"
+          placeholder="8-stellige Spiel-ID"
           maxLength={8}
           inputMode="numeric"
           aria-invalid={Boolean(fieldErrors.joinId)}
@@ -132,7 +132,7 @@ export function StudentJoin({ initialJoinId = '' }: { initialJoinId?: string }) 
             : 'NFC ist per Feature-Flag aktiviert, wird von diesem Browser aber nicht unterstützt.'}
         </div>
       ) : null}
-      {showNfcActions ? <Button onClick={startNfcScan} disabled={scanning} className="w-full bg-white text-slate-950 hover:bg-slate-200">{scanning ? 'Suche NFC-Tag…' : 'Join-ID per NFC scannen'}</Button> : null}
+      {showNfcActions ? <Button onClick={startNfcScan} disabled={scanning} className="w-full bg-white text-slate-950 hover:bg-slate-200">{scanning ? 'Suche NFC-Tag…' : 'Spiel-ID per NFC scannen'}</Button> : null}
       {nfcMessage ? <p className="text-sm text-emerald-200">{nfcMessage}</p> : null}
       {error ? <p className="text-sm text-rose-300">{error}</p> : null}
       <Button onClick={submit} disabled={!isFormValid || submitting}>{submitting ? 'Beitritt läuft…' : 'Jetzt beitreten'}</Button>

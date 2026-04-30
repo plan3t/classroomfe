@@ -19,7 +19,7 @@ type ResultSort = 'accuracy-desc' | 'progress-desc' | 'correct-desc' | 'name-asc
 function formatTimeRemaining(expiresAt?: string) {
   if (!expiresAt) return 'Keine Ablaufzeit verfügbar';
   const remainingMs = new Date(expiresAt).getTime() - Date.now();
-  if (remainingMs <= 0) return 'Raum läuft gerade ab';
+  if (remainingMs <= 0) return 'Spiel läuft gerade ab';
 
   const totalMinutes = Math.floor(remainingMs / 60000);
   const hours = Math.floor(totalMinutes / 60);
@@ -48,6 +48,8 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
   const [feedback, setFeedback] = useState<FeedbackState>(null);
   const [timeRemaining, setTimeRemaining] = useState(() => formatTimeRemaining(room.expiresAt));
   const [resultSort, setResultSort] = useState<ResultSort>('accuracy-desc');
+  const [currentRound, setCurrentRound] = useState(1);
+  const [totalRounds, setTotalRounds] = useState(10);
   const socket = useMemo(() => io({ path: '/api/socket/io', autoConnect: false, reconnection: true }), []);
 
   useEffect(() => {
@@ -111,12 +113,12 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
     socket.on(socketEvents.roomStarted, (payload: RoomStatusPayload) => {
       setState((current) => ({ ...current, status: payload.status, startedAt: payload.startedAt ?? current.startedAt }));
       setActionState('idle');
-      setFeedback({ tone: 'success', message: 'Die Session wurde gestartet.' });
+      setFeedback({ tone: 'success', message: 'Das Spiel wurde gestartet.' });
     });
     socket.on(socketEvents.roomFinished, (payload: RoomStatusPayload) => {
       setState((current) => ({ ...current, status: payload.status }));
       setActionState('idle');
-      setFeedback({ tone: 'success', message: 'Die Session wurde beendet.' });
+      setFeedback({ tone: 'success', message: 'Das Spiel wurde beendet.' });
     });
 
     return () => {
@@ -135,13 +137,13 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
   async function performRoomAction(action: 'start' | 'finish') {
     const nextActionState = action === 'start' ? 'starting' : 'finishing';
     setActionState(nextActionState);
-    setFeedback({ tone: 'info', message: action === 'start' ? 'Session wird gestartet…' : 'Session wird beendet…' });
+    setFeedback({ tone: 'info', message: action === 'start' ? 'Spiel wird gestartet…' : 'Spiel wird beendet…' });
 
     try {
       const res = await fetch(`/api/rooms/${room.id}/${action}`, { method: 'POST' });
       const body = (await res.json().catch(() => ({}))) as { message?: string };
       if (!res.ok) {
-        throw new Error(body.message ?? (action === 'start' ? 'Session konnte nicht gestartet werden.' : 'Session konnte nicht beendet werden.'));
+        throw new Error(body.message ?? (action === 'start' ? 'Spiel konnte nicht gestartet werden.' : 'Spiel konnte nicht beendet werden.'));
       }
       setFeedback({
         tone: 'success',
@@ -183,9 +185,9 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
       <Card className="space-y-4">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-sm text-emerald-300">Raum {state.joinId}</p>
-            <h1 className="text-3xl font-bold">Warteraum</h1>
-            <p className="mt-2 text-sm text-slate-300">Thema: Supermarkt</p>
+            <p className="text-sm text-emerald-300">Spiel {state.joinId}</p>
+            <h1 className="text-3xl font-bold">Spiel-Lobby</h1>
+            <p className="mt-2 text-sm text-slate-300">Modus: Punkte & Runden</p>
           </div>
           <div className="space-y-2 text-right">
             <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-sm">{formatLanguage(state.language)}</span>
@@ -212,11 +214,11 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
             <p className="mt-1 font-semibold text-white">{state.languageHelp ? 'Aktiv' : 'Inaktiv'}</p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
-            <p className="text-slate-400">Bearbeitet gesamt</p>
+            <p className="text-slate-400">Aktionen gesamt</p>
             <p className="mt-1 font-semibold text-white">{totalAttempted}</p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
-            <p className="text-slate-400">Richtige Antworten gesamt</p>
+            <p className="text-slate-400">Punkte gesamt</p>
             <p className="mt-1 font-semibold text-white">{totalCorrect}</p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
@@ -224,7 +226,7 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
             <p className="mt-1 font-semibold text-white">{completedCount}/{state.participants.length}</p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
-            <p className="text-slate-400">Ø Trefferquote / Fortschritt</p>
+            <p className="text-slate-400">Ø Wertung / Fortschritt</p>
             <p className="mt-1 font-semibold text-white">{averageAccuracy}% / {averageProgress}%</p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300 sm:col-span-2">
@@ -232,25 +234,65 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
             <p className={`mt-1 font-semibold ${getCountdownTone(state.expiresAt)}`}>{timeRemaining}</p>
             <p className="mt-1 text-xs text-slate-500">Warnstufen wechseln automatisch bei 10, 5 und 1 Minute Restzeit.</p>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
-            <p className="text-slate-400">Abgeschlossen</p>
-            <p className="mt-1 font-semibold text-white">{completedCount}/{state.participants.length}</p>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
-            <p className="text-slate-400">Ø Trefferquote / Fortschritt</p>
-            <p className="mt-1 font-semibold text-white">{averageAccuracy}% / {averageProgress}%</p>
+          <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300 sm:col-span-2">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p className="text-slate-400">Rundenstand</p>
+                <p className="mt-1 font-semibold text-white">Runde {currentRound} / {totalRounds}</p>
+              </div>
+              <label className="text-xs text-slate-400">
+                Runden gesamt
+                <input
+                  type="number"
+                  min={1}
+                  max={99}
+                  value={totalRounds}
+                  onChange={(event) => {
+                    const next = Number(event.target.value);
+                    if (!Number.isFinite(next)) return;
+                    const bounded = Math.min(99, Math.max(1, Math.trunc(next)));
+                    setTotalRounds(bounded);
+                    setCurrentRound((prev) => Math.min(prev, bounded));
+                  }}
+                  className="ml-2 w-20 rounded-lg border border-white/15 bg-slate-950 px-2 py-1 text-white"
+                />
+              </label>
+            </div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <Button
+                onClick={() => setCurrentRound((prev) => Math.max(1, prev - 1))}
+                className="bg-white/10 text-white hover:bg-white/20"
+                disabled={currentRound <= 1}
+              >
+                Runde zurück
+              </Button>
+              <Button
+                onClick={() => setCurrentRound((prev) => Math.min(totalRounds, prev + 1))}
+                className="bg-white text-slate-950 hover:bg-slate-200"
+                disabled={currentRound >= totalRounds}
+              >
+                Nächste Runde
+              </Button>
+              <Button
+                onClick={() => setCurrentRound(1)}
+                className="bg-white/10 text-white hover:bg-white/20"
+                disabled={currentRound === 1}
+              >
+                Auf Runde 1 setzen
+              </Button>
+            </div>
           </div>
         </div>
         <div className="space-y-3">
-          <img src={state.qrCodeDataUrl} alt="QR Code zum Raumbeitritt" className="h-48 w-48 rounded-2xl bg-white p-3" />
-          <p className="break-all text-sm text-slate-300">Join-URL: <span className="text-white">{state.joinUrl}</span></p>
+          <img src={state.qrCodeDataUrl} alt="QR-Code für den Spielbeitritt" className="h-48 w-48 rounded-2xl bg-white p-3" />
+          <p className="break-all text-sm text-slate-300">Spiel-URL: <span className="text-white">{state.joinUrl}</span></p>
         </div>
         <div className="flex flex-wrap gap-3">
           <Button onClick={() => performRoomAction('start')} disabled={state.status !== 'WAITING' || actionState !== 'idle'}>
-            {actionState === 'starting' ? 'Session startet…' : 'Session starten'}
+            {actionState === 'starting' ? 'Spiel startet…' : 'Spiel starten'}
           </Button>
           <Button onClick={() => performRoomAction('finish')} disabled={state.status !== 'ACTIVE' || actionState !== 'idle'} className="bg-rose-300 text-slate-950 hover:bg-rose-200">
-            {actionState === 'finishing' ? 'Session beendet…' : 'Session beenden'}
+            {actionState === 'finishing' ? 'Spiel wird beendet…' : 'Spiel beenden'}
           </Button>
           <a href={`/api/rooms/${room.id}/results`} className="rounded-2xl border border-white/15 px-4 py-3 font-semibold text-white transition hover:bg-white/5">
             CSV exportieren
@@ -276,7 +318,7 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
           <table className="min-w-full divide-y divide-white/10 text-sm">
             <thead className="bg-white/5 text-left text-slate-300">
               <tr>
-                <th className="px-4 py-3 font-medium">Schüler</th>
+                <th className="px-4 py-3 font-medium">Spieler</th>
                 <th className="px-4 py-3 font-medium">Status</th>
                 <th className="px-4 py-3 font-medium">Bearbeitet</th>
                 <th className="px-4 py-3 font-medium">Richtig</th>
@@ -287,7 +329,7 @@ export function TeacherRoom({ room, itemCount }: { room: RoomSummaryDto; itemCou
             <tbody className="divide-y divide-white/10 bg-slate-950/40">
               {sortedParticipantProgress.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-4 py-6 text-center text-slate-400">Noch keine Teilnehmer im Raum.</td>
+                  <td colSpan={6} className="px-4 py-6 text-center text-slate-400">Noch keine Spieler im Spiel.</td>
                 </tr>
               ) : sortedParticipantProgress.map((participant) => (
                 <tr key={participant.id}>
