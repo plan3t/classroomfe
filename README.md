@@ -48,6 +48,9 @@ npm run build
 ## Docker-Hinweis (DB-Verbindung)
 - Die App wartet beim Start aktiv auf die Erreichbarkeit von `DATABASE_URL` (Host/Port), bevor `server.js` gestartet wird.
 - Standard in Compose: `postgresql://classroomfe:classroomfe@db:5432/classroomfe?schema=public`.
+- Optional steuerbar:
+  - `DB_WAIT_TIMEOUT_MS` (Default `60000`)
+  - `DB_WAIT_STRICT` (Default `false`, d. h. UI startet auch bei DB-Timeout)
 - Falls weiterhin `Can't reach database server at db:5432` erscheint:
   1. Sicherstellen, dass **beide Services im selben Compose-Projekt** laufen.
   2. `docker compose ps` prüfen (db muss healthy sein).
