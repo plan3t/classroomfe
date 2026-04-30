@@ -40,8 +40,8 @@ export function AuthForm({ mode }: { mode: 'login' | 'register' }) {
   return (
     <Card className="mx-auto max-w-md space-y-5">
       <div>
-        <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">LinguaClass</p>
-        <h1 className="mt-2 text-3xl font-bold">{mode === 'register' ? 'Lehrer-Konto erstellen' : 'Lehrer-Login'}</h1>
+        <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">Game Companion</p>
+        <h1 className="mt-2 text-3xl font-bold">{mode === 'register' ? 'Spielleiter-Konto erstellen' : 'Spielleiter-Login'}</h1>
       </div>
       <form action={handleSubmit} className="space-y-4">
         {mode === 'register' ? <Input name="name" placeholder="Name" required /> : null}
