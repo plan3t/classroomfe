@@ -45,6 +45,14 @@ npm test
 npm run build
 ```
 
+## Docker-Hinweis (DB-Verbindung)
+- Die App wartet beim Start aktiv auf die Erreichbarkeit von `DATABASE_URL` (Host/Port), bevor `server.js` gestartet wird.
+- Standard in Compose: `postgresql://classroomfe:classroomfe@db:5432/classroomfe?schema=public`.
+- Falls weiterhin `Can't reach database server at db:5432` erscheint:
+  1. Sicherstellen, dass **beide Services im selben Compose-Projekt** laufen.
+  2. `docker compose ps` prüfen (db muss healthy sein).
+  3. `docker compose logs db app` prüfen (DNS/Health/Restart-Loop).
+
 ## Offene Aufgaben (Remaining)
 - **Validierte Daten einpflegen:** `data/foods-validated.json` auf vollständige 61 Lebensmittel + echte Varianten + geprüfte Nährwerte erweitern (derzeit Fallback auf generierten 61er Katalog).
 - **Export ausbauen:** CSV ist vorhanden, PDF-Export fehlt noch.
