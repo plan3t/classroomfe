@@ -25,4 +25,4 @@ COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/node_modules ./node_modules
 ENV HOSTNAME=0.0.0.0
 EXPOSE 3000
-CMD ["sh", "-c", "node scripts/wait-for-db.mjs && npx prisma migrate deploy && node server.js"]
+CMD ["node", "scripts/start.mjs"]
