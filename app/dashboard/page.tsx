@@ -152,7 +152,10 @@ export default async function DashboardPage({ searchParams }: { searchParams: Da
                       <td className="px-4 py-3 text-slate-300">{gs.players.length}</td>
                       <td className="px-4 py-3 text-slate-300">{lines}</td>
                       <td className="px-4 py-3 text-slate-300">{gs.createdAt.toLocaleString('de-DE')}</td>
-                      <td className="px-4 py-3"><a className="text-emerald-300 underline" href={`/api/game/sessions/${gs.id}/export`}>CSV</a></td>
+                      <td className="px-4 py-3 space-x-3">
+                        <a className="text-emerald-300 underline" href={`/api/game/sessions/${gs.id}/export`}>CSV</a>
+                        <a className="text-sky-300 underline" href={`/api/game/sessions/${gs.id}/report`} target="_blank" rel="noreferrer">PDF/Print</a>
+                      </td>
                     </tr>
                   );
                 })}

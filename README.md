@@ -30,7 +30,7 @@ Diese App wurde von einer Classroom-Quiz-App zu einer **Brettspiel-Begleitapp** 
 
 ## Datenmodell im Spielmodus
 - `FoodItem` / `FoodVariant` für Produktdaten
-- `SavedGameSession` für gespeicherte Spielstände
+- `GameSession` / `GamePlayer` / `GameCartLine` (Prisma) für gespeicherte Spielstände
 - 61er Vollkatalog als aktueller App-Katalog (iterierbar/erweiterbar)
 
 ## Entwicklung
@@ -65,3 +65,9 @@ npm run build
 - **Medienbibliothek serverseitig:** Upload ist aktuell lokal/browserbasiert; zentrale persistente Medienablage fehlt.
 - **Scoring-Regeln finalisieren:** Pädagogische Zielmetriken mit Fachteam abstimmen und Grenzwerte pro Ziel verifizieren.
 - **Legacy-Cleanup:** Nach Stabilisierung entscheiden, ob `/rooms` langfristig entfernt oder als Parallelmodus behalten wird.
+
+## Ziel-Scoring Kalibrierung (ENV)
+- `GOAL_MAX_AVG_SALT_G` (Default `0.8`)
+- `GOAL_MAX_SUGARED_RATIO` (Default `0.34`)
+- `GOAL_MIN_FIBER_RATIO` (Default `0.34`)
+- `GOAL_MAX_PROCESSED_RATIO` (Default `0.25`)
