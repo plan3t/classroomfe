@@ -18,9 +18,6 @@ const availableGoals = [
   'Ultra-verarbeitete Produkte reduzieren',
 ];
 
-function money(cents: number) {
-  return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(cents / 100);
-}
 
 function findVariant(catalog: FoodItem[], foodId: string, variantId: string): { item: FoodItem; variant: FoodVariant } | null {
   const item = catalog.find((f) => f.id === foodId);
@@ -53,7 +50,7 @@ export function GameApp() {
     return players.map((p) => {
       const total = p.cart.reduce((sum, line) => {
         const result = findVariant(catalog, line.foodId, line.variantId);
-        return result ? sum + result.variant.priceCents * line.qty : sum;
+        return result ? sum + result.variant.rating.preisbewusstsein * line.qty : sum;
       }, 0);
       return { playerId: p.id, total };
     });
@@ -317,22 +314,22 @@ export function GameApp() {
                 onChange={(e) => setSelectedVariantId(e.target.value)}
                 className="mt-1 w-full rounded-xl border border-white/15 bg-slate-950 px-3 py-2"
               >
-                {selectedFood.variants.map((v) => <option key={v.id} value={v.id}>{v.name} · {money(v.priceCents)}</option>)}
+                {selectedFood.variants.map((v) => <option key={v.id} value={v.id}>{v.name} · Preis-Score {v.rating.preisbewusstsein}/5</option>)}
               </select>
             </label>
             {selectedFood.variants.filter((v) => v.id === selectedVariantId).map((v) => (
               <div key={v.id} className="grid gap-3 md:grid-cols-2">
                 <div className="rounded-xl border border-white/10 p-3 text-sm">
                   <p className="font-semibold">Tabelle 1: Nährstoffe</p>
-                  <p>Energie: {v.nutrition.energyKcal} kcal</p>
-                  <p>Fett: {v.nutrition.fatG} g</p>
-                  <p>Salz: {v.nutrition.saltG} g</p>
+                  <p>Preisbewusstsein: {v.rating.preisbewusstsein}/5</p>
+                  <p>Gesundheitsförderlichkeit: {v.rating.gesundheit}/5</p>
+                  <p>Nachhaltigkeit: {v.rating.nachhaltigkeit}/5</p>
                 </div>
                 <div className="rounded-xl border border-white/10 p-3 text-sm">
                   <p className="font-semibold">Tabelle 2: Zusatzstoffe / Vorteile / Risiken</p>
-                  <p>Zusatzstoffe: {v.additives.length ? v.additives.join(', ') : 'Keine'}</p>
-                  <p>Vorteile: {v.benefits.join(', ')}</p>
-                  <p>Risiken: {v.risks.length ? v.risks.join(', ') : 'Keine'}</p>
+                  <p>Preis-Info: {v.rating.preisText}</p>
+                  <p>Gesundheits-Info: {v.rating.gesundheitText}</p>
+                  <p>Nachhaltigkeits-Info: {v.rating.nachhaltigkeitText}</p>
                 </div>
               </div>
             ))}
@@ -353,10 +350,10 @@ export function GameApp() {
           {activePlayer?.cart.length ? activePlayer.cart.map((line, idx) => {
             const entry = findVariant(catalog, line.foodId, line.variantId);
             if (!entry) return null;
-            return <p key={`${line.foodId}-${line.variantId}-${idx}`}>{entry.item.name} ({entry.variant.name}) × {line.qty} = {money(entry.variant.priceCents * line.qty)}</p>;
+            return <p key={`${line.foodId}-${line.variantId}-${idx}`}>{entry.item.name} ({entry.variant.name}) × {line.qty} = Preis-Score {entry.variant.rating.preisbewusstsein * line.qty}</p>;
           }) : <p className="text-slate-400">Noch nichts im Korb.</p>}
         </div>
-        <p className="font-semibold">Summe: {money(totalsByPlayer.find((t) => t.playerId === activePlayer?.id)?.total ?? 0)}</p>
+        <p className="font-semibold">Preis-Score Summe: {totalsByPlayer.find((t) => t.playerId === activePlayer?.id)?.total ?? 0}</p>
         <div className="flex flex-wrap gap-2">
           <Button onClick={finishShopping} className="bg-emerald-400 text-slate-950 hover:bg-emerald-300">Einkauf fertig</Button>
           <Button onClick={nextPlayer} className="bg-white text-slate-950 hover:bg-slate-200">iPad weitergeben</Button>
@@ -373,7 +370,7 @@ export function GameApp() {
           <p className="font-semibold">Spielstand</p>
           {players.map((p) => {
             const total = totalsByPlayer.find((t) => t.playerId === p.id)?.total ?? 0;
-            return <p key={p.id}>{p.name}: {money(total)} · {p.done ? 'fertig' : 'offen'}{mode === 'with-goals' && p.goals.length ? ` · Ziele: ${p.goals.join(', ')}` : ''}</p>;
+            return <p key={p.id}>{p.name}: Preis-Score {total} · {p.done ? 'fertig' : 'offen'}{mode === 'with-goals' && p.goals.length ? ` · Ziele: ${p.goals.join(', ')}` : ''}</p>;
           })}
         </div>
 
