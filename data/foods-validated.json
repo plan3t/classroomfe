@@ -1,0 +1,19 @@
+[
+  {
+    "id": "validated-1",
+    "name": "Apfel",
+    "image": "🍎",
+    "category": "OBST_GEMUESE",
+    "variants": [
+      {
+        "id": "validated-1-a",
+        "name": "Apfel regional",
+        "priceCents": 99,
+        "nutrition": { "energyKcal": 52, "fatG": 0.2, "saltG": 0.01 },
+        "additives": [],
+        "benefits": ["Ballaststoffe", "Vitamin C"],
+        "risks": []
+      }
+    ]
+  }
+]
