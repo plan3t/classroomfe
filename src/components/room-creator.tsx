@@ -12,6 +12,7 @@ export function RoomCreator() {
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
+  const gameLocked = Boolean(room);
 
   async function handleCreate() {
     setError(null);
@@ -49,7 +50,7 @@ export function RoomCreator() {
         </div>
         <label className="block space-y-2 text-sm">
           <span>Zielsprache</span>
-          <Select value={language} onChange={(event) => setLanguage(event.target.value as 'DE' | 'EN' | 'FR' | 'ES')}>
+          <Select value={language} onChange={(event) => setLanguage(event.target.value as 'DE' | 'EN' | 'FR' | 'ES')} disabled={gameLocked}>
             <option value="DE">Deutsch</option>
             <option value="EN">Englisch</option>
             <option value="FR">Französisch</option>
@@ -58,10 +59,15 @@ export function RoomCreator() {
         </label>
         <label className="flex items-center justify-between rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm">
           <span>Sprachhilfe aktiv</span>
-          <input type="checkbox" checked={languageHelp} onChange={(event) => setLanguageHelp(event.target.checked)} />
+          <input type="checkbox" checked={languageHelp} onChange={(event) => setLanguageHelp(event.target.checked)} disabled={gameLocked} />
         </label>
         {error ? <p className="text-sm text-rose-300">{error}</p> : null}
-        <Button onClick={handleCreate} disabled={loading}>{loading ? 'Erstelle Spiel…' : 'Spiel erstellen'}</Button>
+        <Button onClick={handleCreate} disabled={loading || gameLocked}>{loading ? 'Erstelle Spiel…' : 'Spiel erstellen'}</Button>
+        {gameLocked ? (
+          <Button onClick={() => setRoom(null)} className="bg-white/10 text-white hover:bg-white/20">
+            Neues Spiel konfigurieren
+          </Button>
+        ) : null}
       </Card>
       <Card className="space-y-4">
         <h3 className="text-xl font-semibold">Spielzugang</h3>
