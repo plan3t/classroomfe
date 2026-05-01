@@ -128,7 +128,7 @@ export async function createRoom({
     joinId = generateJoinId();
   }
 
-  const joinUrl = `${baseUrl}/join/${joinId}`;
+  const joinUrl = `${baseUrl}/join?joinId=${joinId}`;
   const qrCodeDataUrl = await QRCode.toDataURL(joinUrl);
 
   const room = await prisma.room.create({

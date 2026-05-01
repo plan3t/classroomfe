@@ -12,6 +12,7 @@ export function RoomCreator() {
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
+  const gameLocked = Boolean(room);
 
   async function handleCreate() {
     setError(null);
@@ -24,7 +25,7 @@ export function RoomCreator() {
     });
     const body = await res.json();
     if (!res.ok) {
-      setError(body.message ?? 'Raum konnte nicht erstellt werden.');
+      setError(body.message ?? 'Spiel konnte nicht erstellt werden.');
       setLoading(false);
       return;
     }
@@ -43,13 +44,13 @@ export function RoomCreator() {
     <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
       <Card className="space-y-4">
         <div>
-          <p className="text-sm text-emerald-300">Thema</p>
-          <h2 className="text-2xl font-bold">Supermarkt</h2>
-          <p className="mt-2 text-sm text-slate-300">Lege einen Raum mit 8-stelliger Join-ID, QR-Code und optionaler Sprachhilfe an.</p>
+          <p className="text-sm text-emerald-300">Spielsetup</p>
+          <h2 className="text-2xl font-bold">Neues Spiel</h2>
+          <p className="mt-2 text-sm text-slate-300">Lege ein Spiel mit 8-stelliger Spiel-ID, QR-Code und optionalen Hilfsfunktionen an.</p>
         </div>
         <label className="block space-y-2 text-sm">
           <span>Zielsprache</span>
-          <Select value={language} onChange={(event) => setLanguage(event.target.value as 'DE' | 'EN' | 'FR' | 'ES')}>
+          <Select value={language} onChange={(event) => setLanguage(event.target.value as 'DE' | 'EN' | 'FR' | 'ES')} disabled={gameLocked}>
             <option value="DE">Deutsch</option>
             <option value="EN">Englisch</option>
             <option value="FR">Französisch</option>
@@ -58,34 +59,39 @@ export function RoomCreator() {
         </label>
         <label className="flex items-center justify-between rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm">
           <span>Sprachhilfe aktiv</span>
-          <input type="checkbox" checked={languageHelp} onChange={(event) => setLanguageHelp(event.target.checked)} />
+          <input type="checkbox" checked={languageHelp} onChange={(event) => setLanguageHelp(event.target.checked)} disabled={gameLocked} />
         </label>
         {error ? <p className="text-sm text-rose-300">{error}</p> : null}
-        <Button onClick={handleCreate} disabled={loading}>{loading ? 'Erstelle Raum…' : 'Raum erstellen'}</Button>
+        <Button onClick={handleCreate} disabled={loading || gameLocked}>{loading ? 'Erstelle Spiel…' : 'Spiel erstellen'}</Button>
+        {gameLocked ? (
+          <Button onClick={() => setRoom(null)} className="bg-white/10 text-white hover:bg-white/20">
+            Neues Spiel konfigurieren
+          </Button>
+        ) : null}
       </Card>
       <Card className="space-y-4">
-        <h3 className="text-xl font-semibold">Live-Zugang</h3>
+        <h3 className="text-xl font-semibold">Spielzugang</h3>
         {room ? (
           <div className="space-y-4">
             <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm text-slate-300">
-              <p>Thema: <span className="font-semibold text-white">Supermarkt</span></p>
+              <p>Modus: <span className="font-semibold text-white">Punkte & Runden</span></p>
               <p>Zielsprache: <span className="font-semibold text-white">{formatLanguage(room.language)}</span></p>
-              <p className="mt-2">Join-ID: <span className="font-mono text-lg text-white">{room.joinId}</span></p>
+              <p className="mt-2">Spiel-ID: <span className="font-mono text-lg text-white">{room.joinId}</span></p>
             </div>
-            <img src={room.qrCodeDataUrl} alt="QR Code zum Beitreten" className="mx-auto h-48 w-48 rounded-2xl bg-white p-3" />
+            <img src={room.qrCodeDataUrl} alt="QR-Code zum Spielbeitritt" className="mx-auto h-48 w-48 rounded-2xl bg-white p-3" />
             <div className="space-y-2">
-              <p className="text-sm text-slate-300">Join-URL</p>
-              <Input value={room.joinUrl} readOnly aria-label="Join-URL" />
+              <p className="text-sm text-slate-300">Spiel-URL</p>
+              <Input value={room.joinUrl} readOnly aria-label="Spiel-URL" />
             </div>
             <div className="flex flex-wrap gap-3">
               <Button onClick={copyJoinUrl} className="bg-white text-slate-950 hover:bg-slate-200">{copied ? 'Kopiert!' : 'Link kopieren'}</Button>
               <a className="rounded-2xl border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/5" href={`/room/${room.joinId}/teacher`}>
-                Warteraum öffnen
+                Lobby öffnen
               </a>
             </div>
           </div>
         ) : (
-          <p className="text-sm text-slate-400">Erstelle einen Raum, um Join-ID, Join-URL und QR-Code zu erhalten.</p>
+          <p className="text-sm text-slate-400">Erstelle ein Spiel, um Spiel-ID, Spiel-URL und QR-Code zu erhalten.</p>
         )}
       </Card>
     </div>
