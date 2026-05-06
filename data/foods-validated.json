@@ -1,15 +1,747 @@
 [
-  {"id":"banana","name":"Banane","image":"🍌","category":"OBST","variants":[{"id":"banana-v1","name":"Banane Variante 1","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Frisches Obst"],"risks":[],"rating":{"preisbewusstsein":5,"gesundheit":5,"nachhaltigkeit":3,"preisText":"Niedriger Preis, oft im Angebot erhältlich.","gesundheitText":"Frisches Obst mit Vitaminen, Mineralstoffen und Ballaststoffen.","nachhaltigkeitText":"Pflanzliches Produkt mit wenig Verpackung, aber konventioneller Anbau."}}]},
-  {"id":"apple","name":"Apfel","image":"🍎","category":"OBST","variants":[{"id":"apple-v4","name":"Apfel Variante 4","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Frisches Obst"],"risks":[],"rating":{"preisbewusstsein":4,"gesundheit":5,"nachhaltigkeit":5,"preisText":"Höherer Preis durch Bio- und Regional-/saisonal-Siegel.","gesundheitText":"Frisches Obst, nährstoffreich und mit reduziertem Pestizideinsatz.","nachhaltigkeitText":"Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."}}]},
-  {"id":"snack-tomaten","name":"Snack-Tomaten","image":"🍅","category":"GEMUESE","variants":[{"id":"snack-tomaten-v4","name":"Snack-Tomaten Variante 4","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Frisches Gemüse"],"risks":[],"rating":{"preisbewusstsein":2,"gesundheit":5,"nachhaltigkeit":5,"preisText":"Höherer Preis durch Bio- und Regional-/saisonal-Siegel.","gesundheitText":"Frisches Gemüse, nährstoffreich und mit reduziertem Pestizideinsatz.","nachhaltigkeitText":"Bio-Anbau, Regionalität/Saisonalität & unverpackt sorgen für hohe Umwelt- und Sozialstandards."}}]},
-  {"id":"weizenbroetchen","name":"Weizenbrötchen","image":"🥐","category":"BACKWAREN_GEBAECK","variants":[{"id":"weizen-v1","name":"Weizenbrötchen Variante 1","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Sättigend"],"risks":[],"rating":{"preisbewusstsein":5,"gesundheit":3,"nachhaltigkeit":3,"preisText":"Sehr günstiges Produkt.","gesundheitText":"Getreideprodukte sättigen, mehr Ballaststoffe wären günstiger.","nachhaltigkeitText":"Getreide ressourcenschonender, Nachhaltigkeit steigt mit Bio."}}]},
-  {"id":"salat-ready","name":"Frisch zubereiteter Salat","image":"🥗","category":"KUEHLREGAL_READY_TO_EAT","variants":[{"id":"salat-v2","name":"Frisch zubereiteter Salat Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Gemüseanteil hoch"],"risks":[],"rating":{"preisbewusstsein":1,"gesundheit":5,"nachhaltigkeit":3,"preisText":"Höherer Preis, selten im Angebot.","gesundheitText":"Gemüseanteil hoch: mehr Volumen und Mikronährstoffe.","nachhaltigkeitText":"Oft verarbeitet/verpackt; tierische Zutaten senken Nachhaltigkeit."}}]},
-  {"id":"frikadelle","name":"Frikadelle","image":"🍖","category":"KUEHLREGAL_FLEISCH_ALTERNATIVEN","variants":[{"id":"frikadelle-v2","name":"Frikadelle Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Sättigung"],"risks":["Fett","Salz"],"rating":{"preisbewusstsein":2,"gesundheit":2,"nachhaltigkeit":4,"preisText":"Kleine Menge und hoher Preis.","gesundheitText":"Wichtige Nährstoffe, aber hoher Fett-, Salz- und Zusatzstoffgehalt.","nachhaltigkeitText":"Bio fördert umweltfreundlichere Landwirtschaft."}}]},
-  {"id":"naturjoghurt","name":"Naturjoghurt","image":"🥛","category":"KUEHLREGAL_MILCH_ALTERNATIVEN","variants":[{"id":"naturjoghurt-v2","name":"Naturjoghurt Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Eiweiß","Calcium"],"risks":[],"rating":{"preisbewusstsein":3,"gesundheit":5,"nachhaltigkeit":3,"preisText":"Günstigeres Produkt.","gesundheitText":"Ohne zugesetzten Zucker, fettärmere Variante.","nachhaltigkeitText":"Tierisches Produkt mit höherer Klimawirkung."}}]},
-  {"id":"muesliriegel-schoko","name":"Müsliriegel mit Schokolade","image":"🍫","category":"GETREIDEPRODUKTE","variants":[{"id":"muesli-v2","name":"Müsliriegel mit Schokolade Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":[],"risks":["Zucker"],"rating":{"preisbewusstsein":2,"gesundheit":3,"nachhaltigkeit":3,"preisText":"Teurer wegen ökologischem Landbau.","gesundheitText":"Häufig Zucker/Zusatzstoffe.","nachhaltigkeitText":"Unterstützt umweltschonende Landwirtschaft und soziale Standards."}}]},
-  {"id":"wasser","name":"Wasser","image":"💧","category":"GETRAENKE","variants":[{"id":"wasser-v2","name":"Wasser Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Kalorienfrei"],"risks":[],"rating":{"preisbewusstsein":4,"gesundheit":5,"nachhaltigkeit":4,"preisText":"Niedriger Preis, Pfand kommt dazu.","gesundheitText":"Bestes Standardgetränk, keine Kalorien.","nachhaltigkeitText":"Mehrweg reduziert Einwegmüll, Energie und Ressourcen."}}]},
-  {"id":"studentenfutter","name":"Studentenfutter","image":"🥜","category":"NUESSE_UND_SALZIGES","variants":[{"id":"studentenfutter-v2","name":"Studentenfutter Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Wertvolle Fette"],"risks":[],"rating":{"preisbewusstsein":2,"gesundheit":3,"nachhaltigkeit":4,"preisText":"Bio-Produkte sind eher teuer.","gesundheitText":"Nüsse energiereich, Portion klein halten.","nachhaltigkeitText":"Bio mit strengeren Umweltauflagen."}}]},
-  {"id":"gummibaerchen","name":"Gummibärchen","image":"🍬","category":"SCHOKOLADE_SUESSWAREN","variants":[{"id":"gummibaerchen-v2","name":"Gummibärchen Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":[],"risks":["Zucker"],"rating":{"preisbewusstsein":1,"gesundheit":1,"nachhaltigkeit":4,"preisText":"Deutlich höherer Preis als konventionell.","gesundheitText":"Hauptsächlich Zucker, keine nennenswerten Nährstoffe.","nachhaltigkeitText":"Biologische Zutaten, ohne gentechnische Zusatzstoffe."}}]},
-  {"id":"haferkekse","name":"Haferkekse","image":"🍪","category":"KEKSE","variants":[{"id":"haferkekse-v2","name":"Haferkekse Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":[],"risks":["Zucker"],"rating":{"preisbewusstsein":3,"gesundheit":2,"nachhaltigkeit":3,"preisText":"Mittelpreisig, Bio oft teurer.","gesundheitText":"Süßgebäck mit viel Zucker/Fett.","nachhaltigkeitText":"Mit Bio etwas nachhaltiger."}}]},
-  {"id":"wassereis","name":"Wassereis am Stiel","image":"🍦","category":"TIEFKUEHL_EIS","variants":[{"id":"wassereis-v2","name":"Wassereis am Stiel Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":[],"risks":["Zucker"],"rating":{"preisbewusstsein":2,"gesundheit":2,"nachhaltigkeit":3,"preisText":"Etwas teurer aufgrund von Bio-Zutaten.","gesundheitText":"Geringere Kalorien, aber oft viel Zucker.","nachhaltigkeitText":"Nachhaltiger durch ökologische Zutaten."}}]}
+  {
+    "id": "banana",
+    "name": "Banane",
+    "image": "🍌",
+    "category": "OBST",
+    "variants": [
+      {
+        "id": "banana-v1",
+        "name": "Banane Variante 1",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Niedriger Preis, oft im Angebot erhältlich.",
+          "gesundheitText": "Frisches Obst mit Vitaminen, Mineralstoffen und Ballaststoffen.",
+          "nachhaltigkeitText": "Pflanzliches Produkt mit wenig Verpackung, aber konventioneller Anbau."
+        }
+      }
+    ]
+  },
+  {
+    "id": "apple",
+    "name": "Apfel",
+    "image": "🍎",
+    "category": "OBST",
+    "variants": [
+      {
+        "id": "apple-v4",
+        "name": "Apfel Variante 4",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio- und Regional-/saisonal-Siegel.",
+          "gesundheitText": "Frisches Obst, nährstoffreich und mit reduziertem Pestizideinsatz.",
+          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "snack-tomaten",
+    "name": "Snack-Tomaten",
+    "image": "🍅",
+    "category": "GEMUESE",
+    "variants": [
+      {
+        "id": "snack-tomaten-v4",
+        "name": "Snack-Tomaten Variante 4",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio- und Regional-/saisonal-Siegel.",
+          "gesundheitText": "Frisches Gemüse, nährstoffreich und mit reduziertem Pestizideinsatz.",
+          "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität & unverpackt sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "donut",
+    "name": "Donut",
+    "image": "🍩",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "donut-v1",
+        "name": "Donut Variante 1",
+        "variantName": "Konventioneller Donut",
+        "description": "Viele Kohlenhydrate, keine Ballaststoffe, fettreiche Glasuren",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 56,
+        "priceLabel": "0,56 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Keine Ballaststoffe",
+          "Fettreiche Glasuren"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiger Einzelartikel.",
+          "gesundheitText": "Süßgebäck mit vielen Kohlenhydraten, fettreicher Glasur und kaum Ballaststoffen.",
+          "nachhaltigkeitText": "Papiertüte und pflanzliche Grundzutaten sind günstiger als Plastik, konventionelle Zutaten senken die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "kaesebroetchen",
+    "name": "Käsebrötchen",
+    "image": "🧀",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "kaesebroetchen-v1",
+        "name": "Käsebrötchen Variante 1",
+        "variantName": "Konventionelles Käsebrötchen",
+        "description": "Viele Kohlenhydrate, kaum Ballaststoffe, fettreicher Käse",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 39,
+        "priceLabel": "0,39 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sättigend"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Kaum Ballaststoffe",
+          "Fettreicher Käse"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiges Brötchen aus dem Backshop.",
+          "gesundheitText": "Sättigt, enthält aber viele Kohlenhydrate, wenig Ballaststoffe und fettreichen Käse.",
+          "nachhaltigkeitText": "Getreidebasis und Papiertüte sind moderat, Käse und konventionelle Zutaten belasten die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "mehrkornbroetchen",
+    "name": "Mehrkornbrötchen",
+    "image": "🥖",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "mehrkornbroetchen-v1",
+        "name": "Mehrkornbrötchen Variante 1",
+        "variantName": "Konventionelles Mehrkornbrötchen",
+        "description": "Viele Kohlenhydrate, hoher Vollkornanteil",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 33,
+        "priceLabel": "0,33 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Hoher Vollkornanteil",
+          "Ballaststoffreicher"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiges Mehrkornbrötchen.",
+          "gesundheitText": "Hoher Vollkornanteil liefert mehr Ballaststoffe und sättigt besser als Weißmehlgebäck.",
+          "nachhaltigkeitText": "Pflanzliches Produkt mit wenig Verpackung, jedoch aus konventionellem Anbau."
+        }
+      },
+      {
+        "id": "mehrkornbroetchen-v2",
+        "name": "Mehrkornbrötchen Variante 2",
+        "variantName": "Bio-Mehrkornbrötchen",
+        "description": "Viele Kohlenhydrate, hoher Vollkornanteil",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 55,
+        "priceLabel": "0,55 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Hoher Vollkornanteil",
+          "Ballaststoffreicher",
+          "Bio-Zutaten"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 5,
+          "preisText": "Teurer als die konventionelle Variante, aber noch moderater Einzelpreis.",
+          "gesundheitText": "Hoher Vollkornanteil liefert mehr Ballaststoffe und sättigt besser als Weißmehlgebäck.",
+          "nachhaltigkeitText": "Bio-Zutaten und geringe Verpackung sorgen für eine hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "pizzastueck",
+    "name": "Pizzastück",
+    "image": "🍕",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "pizzastueck-v1",
+        "name": "Pizzastück Variante 1",
+        "variantName": "Konventionelles Pizzastück",
+        "description": "Viele Kohlenhydrate, wenig Ballaststoffe, fettreiche Beläge",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 169,
+        "priceLabel": "1,69 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sättigend"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Wenig Ballaststoffe",
+          "Fettreiche Beläge"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Mittelpreisiger Snack im Vergleich zu einfachen Brötchen.",
+          "gesundheitText": "Sättigt, enthält aber viele Kohlenhydrate, wenig Ballaststoffe und fettreiche Beläge.",
+          "nachhaltigkeitText": "Papiertüte ist günstig, doch Käse/Fleischbeläge und Verarbeitung senken die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "schokobroetchen",
+    "name": "Schokobrötchen",
+    "image": "🍫",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "schokobroetchen-v1",
+        "name": "Schokobrötchen Variante 1",
+        "variantName": "Konventionelle Schokobrötchen",
+        "description": "Viele Kohlenhydrate, keine Ballaststoffe, fettreiche Schokolade",
+        "packaging": "Großpackung aus dem Discounter, Plastikverpackung",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Keine Ballaststoffe",
+          "Fettreiche Schokolade",
+          "Plastikverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Als Großpackung günstig pro Stück, aber Packungspreis höher als Einzelgebäck.",
+          "gesundheitText": "Süßgebäck mit vielen Kohlenhydraten, fettreicher Schokolade und ohne nennenswerte Ballaststoffe.",
+          "nachhaltigkeitText": "Plastikverpackung, Verarbeitung und konventionelle Zutaten führen zu einer niedrigen Bewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "sesam-bagel",
+    "name": "Sesam-Bagel",
+    "image": "🥯",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "sesam-bagel-v1",
+        "name": "Sesam-Bagel Variante 1",
+        "variantName": "Konventioneller Sesam-Bagel",
+        "description": "Viele Kohlenhydrate, kleiner Ballaststoffanteil",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 65,
+        "priceLabel": "0,65 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sättigend",
+          "Kleiner Ballaststoffanteil durch Sesam"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiger Einzelartikel, etwas teurer als einfache Brötchen.",
+          "gesundheitText": "Sättigend, aber überwiegend kohlenhydratreich mit nur kleinem Ballaststoffanteil.",
+          "nachhaltigkeitText": "Papiertüte und pflanzliche Zutaten sind moderat, konventioneller Anbau begrenzt die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "waffeln",
+    "name": "Waffeln",
+    "image": "🧇",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "waffeln-v1",
+        "name": "Waffeln Variante 1",
+        "variantName": "Konventionelle Waffel",
+        "description": "Viele Kohlenhydrate, viel Fett, geringer Sättigungsgrad",
+        "packaging": "Meist 12er-Packung aus dem Discounter, Plastikverpackung",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Viel Fett",
+          "Geringer Sättigungsgrad",
+          "Plastikverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstige Discounter-Packung.",
+          "gesundheitText": "Süßgebäck mit vielen Kohlenhydraten und viel Fett bei geringem Sättigungsgrad.",
+          "nachhaltigkeitText": "Plastikverpackung, Verarbeitung und konventionelle Zutaten führen zu einer niedrigen Bewertung."
+        }
+      },
+      {
+        "id": "waffeln-v2",
+        "name": "Waffeln Variante 2",
+        "variantName": "Bio Waffel",
+        "description": "Viele Kohlenhydrate, viel Fett, geringer Sättigungsgrad",
+        "packaging": "Kleinere Packung, Plastikverpackung",
+        "priceCents": 239,
+        "priceLabel": "2,39 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Viel Fett",
+          "Geringer Sättigungsgrad",
+          "Plastikverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 1,
+          "nachhaltigkeit": 4,
+          "preisText": "Deutlich teurer als die konventionelle Packung.",
+          "gesundheitText": "Auch als Bio-Produkt süß und fettreich mit geringem Sättigungsgrad.",
+          "nachhaltigkeitText": "Bio-Zutaten verbessern die Bewertung, Plastikverpackung und Verarbeitung bleiben Nachteile."
+        }
+      }
+    ]
+  },
+  {
+    "id": "weizenbroetchen",
+    "name": "Weizenbrötchen",
+    "image": "🥐",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "weizenbroetchen-v1",
+        "name": "Weizenbrötchen Variante 1",
+        "variantName": "Konventionelles Weizenbrötchen",
+        "description": "Viele Kohlenhydrate, kein Vollkorn, geringer Ballaststoffanteil",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 19,
+        "priceLabel": "0,19 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sättigend"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Kein Vollkorn",
+          "Geringer Ballaststoffanteil"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiges Produkt.",
+          "gesundheitText": "Getreideprodukte sättigen, mehr Ballaststoffe wären günstiger.",
+          "nachhaltigkeitText": "Getreide ressourcenschonender, Nachhaltigkeit steigt mit Bio."
+        }
+      }
+    ]
+  },
+  {
+    "id": "salat-ready",
+    "name": "Frisch zubereiteter Salat",
+    "image": "🥗",
+    "category": "KUEHLREGAL_READY_TO_EAT",
+    "variants": [
+      {
+        "id": "salat-v2",
+        "name": "Frisch zubereiteter Salat Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Gemüseanteil hoch"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Höherer Preis, selten im Angebot.",
+          "gesundheitText": "Gemüseanteil hoch: mehr Volumen und Mikronährstoffe.",
+          "nachhaltigkeitText": "Oft verarbeitet/verpackt; tierische Zutaten senken Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "frikadelle",
+    "name": "Frikadelle",
+    "image": "🍖",
+    "category": "KUEHLREGAL_FLEISCH_ALTERNATIVEN",
+    "variants": [
+      {
+        "id": "frikadelle-v2",
+        "name": "Frikadelle Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sättigung"
+        ],
+        "risks": [
+          "Fett",
+          "Salz"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Kleine Menge und hoher Preis.",
+          "gesundheitText": "Wichtige Nährstoffe, aber hoher Fett-, Salz- und Zusatzstoffgehalt.",
+          "nachhaltigkeitText": "Bio fördert umweltfreundlichere Landwirtschaft."
+        }
+      }
+    ]
+  },
+  {
+    "id": "naturjoghurt",
+    "name": "Naturjoghurt",
+    "image": "🥛",
+    "category": "KUEHLREGAL_MILCH_ALTERNATIVEN",
+    "variants": [
+      {
+        "id": "naturjoghurt-v2",
+        "name": "Naturjoghurt Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Eiweiß",
+          "Calcium"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstigeres Produkt.",
+          "gesundheitText": "Ohne zugesetzten Zucker, fettärmere Variante.",
+          "nachhaltigkeitText": "Tierisches Produkt mit höherer Klimawirkung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "muesliriegel-schoko",
+    "name": "Müsliriegel mit Schokolade",
+    "image": "🍫",
+    "category": "GETREIDEPRODUKTE",
+    "variants": [
+      {
+        "id": "muesli-v2",
+        "name": "Müsliriegel mit Schokolade Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Teurer wegen ökologischem Landbau.",
+          "gesundheitText": "Häufig Zucker/Zusatzstoffe.",
+          "nachhaltigkeitText": "Unterstützt umweltschonende Landwirtschaft und soziale Standards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "wasser",
+    "name": "Wasser",
+    "image": "💧",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "wasser-v2",
+        "name": "Wasser Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Niedriger Preis, Pfand kommt dazu.",
+          "gesundheitText": "Bestes Standardgetränk, keine Kalorien.",
+          "nachhaltigkeitText": "Mehrweg reduziert Einwegmüll, Energie und Ressourcen."
+        }
+      }
+    ]
+  },
+  {
+    "id": "studentenfutter",
+    "name": "Studentenfutter",
+    "image": "🥜",
+    "category": "NUESSE_UND_SALZIGES",
+    "variants": [
+      {
+        "id": "studentenfutter-v2",
+        "name": "Studentenfutter Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Wertvolle Fette"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Bio-Produkte sind eher teuer.",
+          "gesundheitText": "Nüsse energiereich, Portion klein halten.",
+          "nachhaltigkeitText": "Bio mit strengeren Umweltauflagen."
+        }
+      }
+    ]
+  },
+  {
+    "id": "gummibaerchen",
+    "name": "Gummibärchen",
+    "image": "🍬",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "gummibaerchen-v2",
+        "name": "Gummibärchen Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 1,
+          "nachhaltigkeit": 4,
+          "preisText": "Deutlich höherer Preis als konventionell.",
+          "gesundheitText": "Hauptsächlich Zucker, keine nennenswerten Nährstoffe.",
+          "nachhaltigkeitText": "Biologische Zutaten, ohne gentechnische Zusatzstoffe."
+        }
+      }
+    ]
+  },
+  {
+    "id": "haferkekse",
+    "name": "Haferkekse",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "haferkekse-v2",
+        "name": "Haferkekse Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Mittelpreisig, Bio oft teurer.",
+          "gesundheitText": "Süßgebäck mit viel Zucker/Fett.",
+          "nachhaltigkeitText": "Mit Bio etwas nachhaltiger."
+        }
+      }
+    ]
+  },
+  {
+    "id": "wassereis",
+    "name": "Wassereis am Stiel",
+    "image": "🍦",
+    "category": "TIEFKUEHL_EIS",
+    "variants": [
+      {
+        "id": "wassereis-v2",
+        "name": "Wassereis am Stiel Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Etwas teurer aufgrund von Bio-Zutaten.",
+          "gesundheitText": "Geringere Kalorien, aber oft viel Zucker.",
+          "nachhaltigkeitText": "Nachhaltiger durch ökologische Zutaten."
+        }
+      }
+    ]
+  }
 ]
