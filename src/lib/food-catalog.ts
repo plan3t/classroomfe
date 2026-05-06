@@ -1,7 +1,11 @@
 export type FoodVariant = {
   id: string;
   name: string;
+  variantName?: string;
+  description?: string;
+  packaging?: string;
   priceCents: number;
+  priceLabel?: string;
   nutrition: {
     energyKcal: number;
     fatG: number;
