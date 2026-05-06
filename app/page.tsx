@@ -7,12 +7,11 @@ export default function HomePage() {
       <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <section className="space-y-6 py-10">
           <p className="text-sm uppercase tracking-[0.4em] text-emerald-300">LinguaClass</p>
-          <h1 className="max-w-3xl text-5xl font-black leading-tight">Responsive Brettspiel-Begleitapp für Spielleiter und Spieler.</h1>
-          <p className="max-w-2xl text-lg text-slate-300">Spielleiter erstellen Live-Spiele mit Join-ID und QR-Code. Spieler treten bei, erfassen Punkte und verfolgen den Spielstand in Echtzeit am Tisch.</p>
+          <h1 className="max-w-3xl text-5xl font-black leading-tight">Responsive Brettspiel-Begleitapp für Spieler am Tisch.</h1>
+          <p className="max-w-2xl text-lg text-slate-300">Startet direkt ins Spiel, verwaltet Lebensmittel, Varianten und Einkaufskörbe und verfolgt die Spielinhalte zentral auf dem iPad.</p>
           <div className="flex flex-wrap gap-3">
-            <Link className="rounded-2xl bg-emerald-400 px-5 py-3 font-semibold text-slate-950" href="/register">Spielleiter registrieren</Link>
+            <Link className="rounded-2xl bg-emerald-400 px-5 py-3 font-semibold text-slate-950" href="/game">Spiel starten</Link>
             <Link className="rounded-2xl border border-white/15 px-5 py-3 font-semibold" href="/join">Als Spieler beitreten</Link>
-            <Link className="rounded-2xl border border-emerald-400/40 px-5 py-3 font-semibold text-emerald-300" href="/game">iPad-Spielmodus öffnen</Link>
           </div>
         </section>
         <Card className="space-y-4 self-start">
