@@ -45,6 +45,7 @@ export function GameApp() {
   const activePlayer = players[activePlayerIndex];
 
   const allDone = players.length > 0 && players.every((p) => p.done);
+  const canShowScores = allDone;
 
   const totalsByPlayer = useMemo(() => {
     return players.map((p) => {
@@ -54,7 +55,7 @@ export function GameApp() {
       }, 0);
       return { playerId: p.id, total };
     });
-  }, [players]);
+  }, [catalog, players]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -161,6 +162,17 @@ export function GameApp() {
       };
     }));
     setQty(1);
+  }
+
+  function removeFromCart(lineIndex: number) {
+    if (!activePlayer) return;
+    setPlayers((current) => current.map((p, idx) => {
+      if (idx !== activePlayerIndex) return p;
+      return {
+        ...p,
+        cart: p.cart.filter((_, cartIdx) => cartIdx !== lineIndex),
+      };
+    }));
   }
 
   function finishShopping() {
@@ -314,22 +326,22 @@ export function GameApp() {
                 onChange={(e) => setSelectedVariantId(e.target.value)}
                 className="mt-1 w-full rounded-xl border border-white/15 bg-slate-950 px-3 py-2"
               >
-                {selectedFood.variants.map((v) => <option key={v.id} value={v.id}>{v.name} · Preis-Score {v.rating.preisbewusstsein}/5</option>)}
+                {selectedFood.variants.map((v) => <option key={v.id} value={v.id}>{v.name}</option>)}
               </select>
             </label>
             {selectedFood.variants.filter((v) => v.id === selectedVariantId).map((v) => (
               <div key={v.id} className="grid gap-3 md:grid-cols-2">
                 <div className="rounded-xl border border-white/10 p-3 text-sm">
-                  <p className="font-semibold">Tabelle 1: Nährstoffe</p>
-                  <p>Preisbewusstsein: {v.rating.preisbewusstsein}/5</p>
-                  <p>Gesundheitsförderlichkeit: {v.rating.gesundheit}/5</p>
-                  <p>Nachhaltigkeit: {v.rating.nachhaltigkeit}/5</p>
+                  <p className="font-semibold">Nährwerte</p>
+                  <p>Energie: {v.nutrition.energyKcal} kcal</p>
+                  <p>Fett: {v.nutrition.fatG} g</p>
+                  <p>Salz: {v.nutrition.saltG} g</p>
                 </div>
                 <div className="rounded-xl border border-white/10 p-3 text-sm">
-                  <p className="font-semibold">Tabelle 2: Zusatzstoffe / Vorteile / Risiken</p>
-                  <p>Preis-Info: {v.rating.preisText}</p>
-                  <p>Gesundheits-Info: {v.rating.gesundheitText}</p>
-                  <p>Nachhaltigkeits-Info: {v.rating.nachhaltigkeitText}</p>
+                  <p className="font-semibold">Produktinformationen</p>
+                  <p>Zusatzstoffe: {v.additives.length ? v.additives.join(', ') : 'Keine angegeben'}</p>
+                  <p>Vorteile: {v.benefits.length ? v.benefits.join(', ') : 'Keine angegeben'}</p>
+                  <p>Risiken: {v.risks.length ? v.risks.join(', ') : 'Keine angegeben'}</p>
                 </div>
               </div>
             ))}
@@ -350,10 +362,15 @@ export function GameApp() {
           {activePlayer?.cart.length ? activePlayer.cart.map((line, idx) => {
             const entry = findVariant(catalog, line.foodId, line.variantId);
             if (!entry) return null;
-            return <p key={`${line.foodId}-${line.variantId}-${idx}`}>{entry.item.name} ({entry.variant.name}) × {line.qty} = Preis-Score {entry.variant.rating.preisbewusstsein * line.qty}</p>;
+            return (
+              <div key={`${line.foodId}-${line.variantId}-${idx}`} className="flex items-center justify-between gap-3 rounded-xl border border-white/10 p-2">
+                <span>{entry.item.name} ({entry.variant.name}) × {line.qty}</span>
+                {!activePlayer.done ? <Button onClick={() => removeFromCart(idx)} className="bg-rose-300 px-3 py-1 text-xs text-slate-950 hover:bg-rose-200">Entfernen</Button> : null}
+              </div>
+            );
           }) : <p className="text-slate-400">Noch nichts im Korb.</p>}
         </div>
-        <p className="font-semibold">Preis-Score Summe: {totalsByPlayer.find((t) => t.playerId === activePlayer?.id)?.total ?? 0}</p>
+        {canShowScores ? <p className="font-semibold">Preis-Score Summe: {totalsByPlayer.find((t) => t.playerId === activePlayer?.id)?.total ?? 0}</p> : null}
         <div className="flex flex-wrap gap-2">
           <Button onClick={finishShopping} className="bg-emerald-400 text-slate-950 hover:bg-emerald-300">Einkauf fertig</Button>
           <Button onClick={nextPlayer} className="bg-white text-slate-950 hover:bg-slate-200">iPad weitergeben</Button>
@@ -370,7 +387,7 @@ export function GameApp() {
           <p className="font-semibold">Spielstand</p>
           {players.map((p) => {
             const total = totalsByPlayer.find((t) => t.playerId === p.id)?.total ?? 0;
-            return <p key={p.id}>{p.name}: Preis-Score {total} · {p.done ? 'fertig' : 'offen'}{mode === 'with-goals' && p.goals.length ? ` · Ziele: ${p.goals.join(', ')}` : ''}</p>;
+            return <p key={p.id}>{p.name}: {canShowScores ? `Preis-Score ${total} · ` : ''}{p.done ? 'fertig' : 'offen'}{mode === 'with-goals' && p.goals.length ? ` · Ziele: ${p.goals.join(', ')}` : ''}</p>;
           })}
         </div>
 
@@ -378,6 +395,48 @@ export function GameApp() {
           <div className="rounded-2xl border border-emerald-400/40 bg-emerald-400/10 p-4">
             <p className="font-semibold">Alle Spieler sind an der Kasse fertig.</p>
             <p className="text-sm text-slate-300">Feedback kann jetzt im Heft/Reflexionsbogen erfolgen.</p>
+            <div className="mt-3 space-y-3 text-sm">
+              {players.map((player) => {
+                const totals = player.cart.reduce((sum, line) => {
+                  const entry = findVariant(catalog, line.foodId, line.variantId);
+                  if (!entry) return sum;
+                  return {
+                    preis: sum.preis + entry.variant.rating.preisbewusstsein * line.qty,
+                    gesundheit: sum.gesundheit + entry.variant.rating.gesundheit * line.qty,
+                    nachhaltigkeit: sum.nachhaltigkeit + entry.variant.rating.nachhaltigkeit * line.qty,
+                    menge: sum.menge + line.qty,
+                  };
+                }, { preis: 0, gesundheit: 0, nachhaltigkeit: 0, menge: 0 });
+                const divisor = Math.max(1, totals.menge);
+                return (
+                  <div key={`rating-${player.id}`} className="rounded-xl border border-white/10 p-3">
+                    <p className="font-semibold">Bewertung für {player.name}</p>
+                    <p>Preisbewusstsein: {(totals.preis / divisor).toFixed(1)}/5</p>
+                    <p>Gesundheitsförderlichkeit: {(totals.gesundheit / divisor).toFixed(1)}/5</p>
+                    <p>Nachhaltigkeit: {(totals.nachhaltigkeit / divisor).toFixed(1)}/5</p>
+                    {player.cart.length ? (
+                      <details className="mt-2">
+                        <summary className="cursor-pointer text-emerald-200">Begründungen anzeigen</summary>
+                        <div className="mt-2 space-y-2 text-slate-300">
+                          {player.cart.map((line, idx) => {
+                            const entry = findVariant(catalog, line.foodId, line.variantId);
+                            if (!entry) return null;
+                            return (
+                              <div key={`reason-${player.id}-${idx}`}>
+                                <p className="font-medium text-white">{entry.item.name} ({entry.variant.name}) × {line.qty}</p>
+                                <p>Preis: {entry.variant.rating.preisText}</p>
+                                <p>Gesundheit: {entry.variant.rating.gesundheitText}</p>
+                                <p>Nachhaltigkeit: {entry.variant.rating.nachhaltigkeitText}</p>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </details>
+                    ) : <p className="text-slate-300">Keine Artikel im Einkaufskorb.</p>}
+                  </div>
+                );
+              })}
+            </div>
             {mode === 'with-goals' ? <p className="mt-2 text-sm text-amber-200">Jetzt pro Spieler prüfen, wie gut die ausgewählten Ziele erreicht wurden.</p> : null}
             {mode === 'with-goals' ? (
               <div className="mt-3 space-y-2 text-sm">
