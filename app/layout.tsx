@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'LinguaClass',
-  description: 'Echtzeit-Begleitapp für Brettspiele mit Spielleiter- und Spieler-Modus',
+  description: 'Begleitapp für Brettspiele mit Spielmodus, Lebensmitteln und Einkaufsdaten',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
