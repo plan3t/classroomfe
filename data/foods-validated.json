@@ -1369,24 +1369,235 @@
     ]
   },
   {
-    "id": "muesliriegel-schoko",
-    "name": "Müsliriegel mit Schokolade",
-    "image": "🍫",
+    "id": "reiswaffeln-pur",
+    "name": "Reiswaffeln pur",
+    "image": "🍘",
     "category": "GETREIDEPRODUKTE",
     "variants": [
       {
-        "id": "muesli-v2",
-        "name": "Müsliriegel mit Schokolade Variante 2",
-        "priceCents": 0,
+        "id": "reiswaffeln-pur-v1",
+        "name": "Reiswaffeln pur Variante 1",
+        "variantName": "Bio und Vollkorn",
+        "description": "Umweltschonenderer Anbau und sozial verträglichere Produktionsbedingungen. Durch Vollkorn etwas höhere Nährstoffdichte, aber höherer Preis.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 100 g",
         "nutrition": {
           "energyKcal": 0,
           "fatG": 0,
           "saltG": 0
         },
         "additives": [],
-        "benefits": [],
+        "benefits": [
+          "Bio",
+          "Vollkorn",
+          "Höhere Nährstoffdichte"
+        ],
         "risks": [
-          "Zucker"
+          "Höherer Preis",
+          "Nährstoffarm im Vergleich zu vollwertigen Mahlzeiten"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 3,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis als einfache Reiswaffeln, aber noch moderat.",
+          "gesundheitText": "Vollkorn erhöht die Nährstoffdichte etwas, Reiswaffeln bleiben eher leichte Snacks.",
+          "nachhaltigkeitText": "Bio-Anbau und sozial verträglichere Produktionsbedingungen sorgen für eine hohe Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "reiswaffeln-pur-v2",
+        "name": "Reiswaffeln pur Variante 2",
+        "variantName": "Bio",
+        "description": "Umweltschonenderer Anbau und sozial verträglichere Produktionsbedingungen. Sehr günstig, konventionelles Produkt meistens nicht verfügbar.",
+        "priceCents": 69,
+        "priceLabel": "0,69 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Sehr günstig"
+        ],
+        "risks": [
+          "Nährstoffarm",
+          "Geringer Sättigungsgrad"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 2,
+          "nachhaltigkeit": 5,
+          "preisText": "Sehr günstiges Bio-Produkt.",
+          "gesundheitText": "Leichter Snack mit wenig Fett, aber geringer Nährstoffdichte und Sättigung.",
+          "nachhaltigkeitText": "Bio-Anbau und sozial verträglichere Produktionsbedingungen sind sehr positiv."
+        }
+      }
+    ]
+  },
+  {
+    "id": "muesliriegel-erdnuesse",
+    "name": "Müsliriegel mit Erdnüssen",
+    "image": "🥜",
+    "category": "GETREIDEPRODUKTE",
+    "variants": [
+      {
+        "id": "muesliriegel-erdnuesse-v1",
+        "name": "Müsliriegel mit Erdnüssen Variante 1",
+        "variantName": "Konventionell",
+        "description": "Standardzutaten, teilweise Zuckerzusatz, konventionell angebaute Rohwaren und mögliche synthetische Zusatzstoffe. Preiswert und gut erhältlich.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 8×25 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Preiswert",
+          "Gut erhältlich",
+          "Erdnüsse liefern wertvolle Fette"
+        ],
+        "risks": [
+          "Zuckerzusatz möglich",
+          "Synthetische Zusatzstoffe möglich",
+          "Konventionelle Rohwaren"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Preiswert und gut erhältlich in der Mehrfachpackung.",
+          "gesundheitText": "Erdnüsse liefern wertvolle Fette, Zuckerzusatz und mögliche Zusatzstoffe mindern die Bewertung.",
+          "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, konventioneller Anbau und Verarbeitung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "muesliriegel-erdnuesse-v2",
+        "name": "Müsliriegel mit Erdnüssen Variante 2",
+        "variantName": "Bio",
+        "description": "Zutaten aus ökologischem Anbau, keine synthetischen Pestizide oder Düngemittel, oft weniger künstliche Zusatzstoffe. Teurer, Auswahl kann begrenzt sein.",
+        "priceCents": 339,
+        "priceLabel": "3,39 € / 6×24 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Weniger künstliche Zusatzstoffe",
+          "Erdnüsse liefern wertvolle Fette"
+        ],
+        "risks": [
+          "Teurer",
+          "Auswahl kann begrenzt sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 4,
+          "nachhaltigkeit": 5,
+          "preisText": "Deutlich teurer als die konventionelle Mehrfachpackung.",
+          "gesundheitText": "Bio-Zutaten und oft weniger künstliche Zusatzstoffe verbessern die Bewertung.",
+          "nachhaltigkeitText": "Ökologischer Anbau ohne synthetische Pestizide oder Düngemittel sorgt für eine hohe Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "muesliriegel-erdnuesse-v3",
+        "name": "Müsliriegel mit Erdnüssen Variante 3",
+        "variantName": "Ohne Zuckerzusatz",
+        "description": "Kein zugesetzter Zucker, oft Ersatz durch Süßstoffe oder Früchte wie Datteln. Kann trotzdem kalorienreich sein, auch konventionell oder Bio möglich.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 8×25 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker",
+          "Preiswert",
+          "Erdnüsse liefern wertvolle Fette"
+        ],
+        "risks": [
+          "Kann kalorienreich sein",
+          "Süßstoffe oder Datteln möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Preiswert und auf Niveau der konventionellen Variante.",
+          "gesundheitText": "Ohne Zuckerzusatz ist vorteilhaft, Kalorien und Süßungsalternativen bleiben zu beachten.",
+          "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, Nachhaltigkeit hängt von Bio- oder konventioneller Herkunft ab."
+        }
+      }
+    ]
+  },
+  {
+    "id": "muesliriegel-schoko",
+    "name": "Müsliriegel mit Schokolade",
+    "image": "🍫",
+    "category": "GETREIDEPRODUKTE",
+    "variants": [
+      {
+        "id": "muesliriegel-schoko-v1",
+        "name": "Müsliriegel mit Schokolade Variante 1",
+        "variantName": "Konventionell",
+        "description": "Standardzutaten, teilweise Zuckerzusatz, konventionell angebaute Rohwaren und mögliche synthetische Zusatzstoffe. Preiswert und gut erhältlich.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 8×25 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Preiswert",
+          "Gut erhältlich"
+        ],
+        "risks": [
+          "Zuckerzusatz möglich",
+          "Schokolade",
+          "Synthetische Zusatzstoffe möglich",
+          "Konventionelle Rohwaren"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Preiswert und gut erhältlich in der Mehrfachpackung.",
+          "gesundheitText": "Schokolade und möglicher Zuckerzusatz machen den Riegel eher zu einer Süßigkeit.",
+          "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, konventioneller Anbau und Verarbeitung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "muesliriegel-schoko-v2",
+        "name": "Müsliriegel mit Schokolade Variante 2",
+        "variantName": "Bio",
+        "description": "Zutaten aus ökologischem Anbau, keine synthetischen Pestizide oder Düngemittel, oft weniger künstliche Zusatzstoffe. Teurer, Auswahl kann begrenzt sein.",
+        "priceCents": 339,
+        "priceLabel": "3,39 € / 6×24 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Weniger künstliche Zusatzstoffe"
+        ],
+        "risks": [
+          "Teurer",
+          "Schokolade",
+          "Auswahl kann begrenzt sein"
         ],
         "rating": {
           "preisbewusstsein": 2,
@@ -1395,6 +1606,109 @@
           "preisText": "Teurer wegen ökologischem Landbau.",
           "gesundheitText": "Häufig Zucker/Zusatzstoffe.",
           "nachhaltigkeitText": "Unterstützt umweltschonende Landwirtschaft und soziale Standards."
+        }
+      },
+      {
+        "id": "muesliriegel-schoko-v3",
+        "name": "Müsliriegel mit Schokolade Variante 3",
+        "variantName": "Ohne Zuckerzusatz",
+        "description": "Kein zugesetzter Zucker, oft Ersatz durch Süßstoffe oder Früchte wie Datteln. Kann trotzdem kalorienreich sein, auch konventionell oder Bio möglich.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 8×25 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker",
+          "Preiswert"
+        ],
+        "risks": [
+          "Kann kalorienreich sein",
+          "Schokolade",
+          "Süßstoffe oder Datteln möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Preiswert und auf Niveau der konventionellen Variante.",
+          "gesundheitText": "Ohne Zuckerzusatz ist besser, Schokolade und Kalorien bleiben zu beachten.",
+          "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, Nachhaltigkeit hängt von Bio- oder konventioneller Herkunft ab."
+        }
+      }
+    ]
+  },
+  {
+    "id": "reiswaffeln-schokolade",
+    "name": "Reiswaffeln mit Schokolade",
+    "image": "🍫",
+    "category": "GETREIDEPRODUKTE",
+    "variants": [
+      {
+        "id": "reiswaffeln-schokolade-v1",
+        "name": "Reiswaffeln mit Schokolade Variante 1",
+        "variantName": "Bio",
+        "description": "Umweltschonenderer Anbau und sozial verträglichere Produktionsbedingungen. Sehr günstig, konventionelles Produkt meistens nicht verfügbar.",
+        "priceCents": 169,
+        "priceLabel": "1,69 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Günstig"
+        ],
+        "risks": [
+          "Schokolade",
+          "Zucker möglich",
+          "Nährstoffarm"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 5,
+          "preisText": "Günstiges Bio-Produkt mit Schokoladenüberzug.",
+          "gesundheitText": "Schokolade macht die Reiswaffeln zu einem süßen Snack mit eher geringer Nährstoffdichte.",
+          "nachhaltigkeitText": "Bio-Anbau und sozial verträglichere Produktionsbedingungen sind sehr positiv."
+        }
+      },
+      {
+        "id": "reiswaffeln-schokolade-v2",
+        "name": "Reiswaffeln mit Schokolade Variante 2",
+        "variantName": "Bio, ohne Zuckerzusatz",
+        "description": "Kein zugesetzter Zucker, oft Ersatz durch Süßstoffe. Für weniger Zuckerkonsum geeignet, aber weiterhin kalorienreich und nährstoffarm. Deutlich teurer.",
+        "priceCents": 319,
+        "priceLabel": "3,19 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Ohne Zuckerzusatz",
+          "Für weniger Zuckerkonsum geeignet"
+        ],
+        "risks": [
+          "Deutlich teurer",
+          "Kalorienreich",
+          "Nährstoffarm",
+          "Süßstoffe möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 3,
+          "nachhaltigkeit": 5,
+          "preisText": "Deutlich teurer als die Bio-Standardvariante.",
+          "gesundheitText": "Ohne Zuckerzusatz ist vorteilhaft, das Produkt bleibt aber kalorienreich und nährstoffarm.",
+          "nachhaltigkeitText": "Bio-Anbau ist nachhaltig, der starke Verarbeitungsgrad bleibt ein kleiner Nachteil."
         }
       }
     ]
