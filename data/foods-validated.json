@@ -1431,6 +1431,750 @@
     ]
   },
   {
+    "id": "apfelschorle",
+    "name": "Apfelschorle",
+    "image": "🍎",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "apfelschorle-v1",
+        "name": "Apfelschorle Variante 1",
+        "variantName": "Apfelschorle Standard",
+        "description": "Fruchtsaftanteil ca. 50–60 %, kohlensäurehaltiges Mineralwasser, Einwegflasche/PET, wenig Zusatzstoffe, vegan, kein Koffein",
+        "priceCents": 79,
+        "priceLabel": "0,79 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan",
+          "Kein Koffein",
+          "Wenig Zusatzstoffe"
+        ],
+        "risks": [
+          "Fruchtzucker",
+          "Einwegflasche/PET"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstiger Preis für 0,5 Liter.",
+          "gesundheitText": "Fruchtsaftanteil und wenig Zusatzstoffe sind positiv, Zucker aus Saft bleibt relevant.",
+          "nachhaltigkeitText": "Einweg-PET belastet die Nachhaltigkeit trotz veganer Rezeptur."
+        }
+      },
+      {
+        "id": "apfelschorle-v2",
+        "name": "Apfelschorle Variante 2",
+        "variantName": "Apfelschorle „leicht“ / light",
+        "description": "Weniger Fruchtsaft, weniger Zucker/Kalorien, höherer Wasseranteil, Einwegflasche/PET, vegan, kein Koffein",
+        "priceCents": 89,
+        "priceLabel": "0,89 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienärmer",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Einwegflasche/PET",
+          "Weniger Fruchtsaft"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Etwas teurer als die Standardvariante.",
+          "gesundheitText": "Weniger Zucker und Kalorien sind vorteilhaft, der geringere Fruchtsaftanteil mindert den Produktwert.",
+          "nachhaltigkeitText": "Einweg-PET bleibt ein deutlicher Nachhaltigkeitsnachteil."
+        }
+      },
+      {
+        "id": "apfelschorle-v3",
+        "name": "Apfelschorle Variante 3",
+        "variantName": "Apfelschorle Standard in Mehrwegflasche",
+        "description": "Mehrwegflasche, nachhaltiger durch Reinigung und Wiederbefüllung, Zucker kann variieren, vegan, kein Koffein",
+        "priceCents": 79,
+        "priceLabel": "0,79 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Mehrwegflasche",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Zucker kann variieren"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Günstiger Preis bei nachhaltigerer Verpackung.",
+          "gesundheitText": "Schorle enthält Fruchtsaft, der Zuckergehalt kann aber variieren.",
+          "nachhaltigkeitText": "Mehrweg spart Einwegmüll, Energie und Ressourcen."
+        }
+      },
+      {
+        "id": "apfelschorle-v4",
+        "name": "Apfelschorle Variante 4",
+        "variantName": "Apfelschorle „leicht“ / light in Mehrwegflasche",
+        "description": "Kalorienärmer, wenig Zusatzstoffe, Mehrwegflasche spart Energie und Ressourcen, vegan, kein Koffein",
+        "priceCents": 89,
+        "priceLabel": "0,89 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienärmer",
+          "Mehrwegflasche",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 5,
+          "preisText": "Etwas teurer, kombiniert aber weniger Zucker mit Mehrweg.",
+          "gesundheitText": "Kalorienärmer und mit wenig Zusatzstoffen, daher die beste Schorle-Variante für Gesundheit.",
+          "nachhaltigkeitText": "Mehrwegflasche reduziert Verpackungsmüll und Ressourceneinsatz deutlich."
+        }
+      }
+    ]
+  },
+  {
+    "id": "cola",
+    "name": "Cola",
+    "image": "🥤",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "cola-v1",
+        "name": "Cola Variante 1",
+        "variantName": "Colagetränk mit Zucker in Einwegdose/-flasche",
+        "description": "Zuckerhaltig, Zusatzstoffe möglich, Einwegverpackung, hoher Energieverbrauch, koffeinhaltig",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein",
+          "Zusatzstoffe möglich",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Günstiges Getränk pro Dose oder Flasche.",
+          "gesundheitText": "Zuckerhaltig, koffeinhaltig und nicht als Durstlöscher geeignet.",
+          "nachhaltigkeitText": "Einwegverpackung und hoher Energieverbrauch führen zu einer niedrigen Bewertung."
+        }
+      },
+      {
+        "id": "cola-v2",
+        "name": "Cola Variante 2",
+        "variantName": "Cola Light/Zero in Einwegdose/-flasche",
+        "description": "Wenig oder kein Zucker, mehr Zusatzstoffe wie Süß-, Farb- und Aromastoffe, koffeinhaltig",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Wenig oder kein Zucker",
+          "Kalorienärmer"
+        ],
+        "risks": [
+          "Koffein",
+          "Süßstoffe",
+          "Farb- und Aromastoffe",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 1,
+          "preisText": "Günstiges Getränk, preislich wie Zucker-Cola.",
+          "gesundheitText": "Wenig Zucker ist positiv, Süßstoffe, Zusatzstoffe und Koffein bleiben Nachteile.",
+          "nachhaltigkeitText": "Einwegverpackung belastet die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "cola-v3",
+        "name": "Cola Variante 3",
+        "variantName": "Colagetränk mit Zucker in Mehrwegflasche",
+        "description": "Zuckerhaltige Cola in Mehrwegflasche, nachhaltiger durch Wiederbefüllung, koffeinhaltig",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Mehrwegflasche"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstig und preisgleich zur Einwegvariante.",
+          "gesundheitText": "Zuckerhaltig und koffeinhaltig, daher nur gelegentlich geeignet.",
+          "nachhaltigkeitText": "Mehrweg verbessert die Verpackungsbilanz, die Rezeptur bleibt unverändert."
+        }
+      },
+      {
+        "id": "cola-v4",
+        "name": "Cola Variante 4",
+        "variantName": "Cola ohne Zucker in Mehrwegflasche",
+        "description": "Kalorienfrei, aber nicht als Durstlöscher geeignet, enthält Süß-, Farb- und Aromastoffe sowie Koffein",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei",
+          "Mehrwegflasche"
+        ],
+        "risks": [
+          "Koffein",
+          "Süßstoffe",
+          "Farb- und Aromastoffe"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Günstig und preisgleich zu den anderen Cola-Varianten.",
+          "gesundheitText": "Kalorienfrei, aber durch Koffein und Zusatzstoffe kein guter Durstlöscher.",
+          "nachhaltigkeitText": "Mehrwegflasche verbessert die Nachhaltigkeit deutlich gegenüber Einweg."
+        }
+      }
+    ]
+  },
+  {
+    "id": "durstloescher",
+    "name": "Durstlöscher",
+    "image": "🧃",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "durstloescher-v1",
+        "name": "Durstlöscher Variante 1",
+        "variantName": "Durstlöscher mit Zucker",
+        "description": "500-ml-Trinkpack/Tetrapack mit Strohhalm, viele Geschmacksrichtungen, Fruchtgehalt meist 1–15 %, Zusatzstoffe, vegan, kein Koffein",
+        "priceCents": 115,
+        "priceLabel": "1,15 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan",
+          "Kein Koffein",
+          "Viele Geschmacksrichtungen"
+        ],
+        "risks": [
+          "Zucker",
+          "Zusatzstoffe",
+          "Trinkpack mit Strohhalm",
+          "Niedriger Fruchtgehalt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Relativ teuer bezogen auf 0,33 Liter.",
+          "gesundheitText": "Viel Zucker, niedriger Fruchtgehalt und Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Trinkpack und Strohhalm verursachen Verpackungsaufwand."
+        }
+      },
+      {
+        "id": "durstloescher-v2",
+        "name": "Durstlöscher Variante 2",
+        "variantName": "Durstlöscher ohne Zucker / Zero",
+        "description": "Zuckerfreie Variante, kalorienärmer, mehr Zusatzstoffe möglich, nur Eistee-Varianten als Zero verfügbar, vegan, kein Koffein",
+        "priceCents": 115,
+        "priceLabel": "1,15 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Kalorienärmer",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Mehr Zusatzstoffe möglich",
+          "Trinkpack mit Strohhalm",
+          "Begrenzte Sortenauswahl"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Relativ teuer bezogen auf 0,33 Liter.",
+          "gesundheitText": "Zuckerfrei und kalorienärmer, aber häufig mit mehr Zusatzstoffen.",
+          "nachhaltigkeitText": "Verpackungsaufwand bleibt durch Trinkpack und Strohhalm bestehen."
+        }
+      }
+    ]
+  },
+  {
+    "id": "eistee",
+    "name": "Eistee",
+    "image": "🧋",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "eistee-v1",
+        "name": "Eistee Variante 1",
+        "variantName": "Eistee mit Zucker",
+        "description": "Eistee auf Teebasis, Einwegflasche/-dose/-karton, Schwarztee-Extrakt, Zusatzstoffe, vegan, koffeinhaltig",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein",
+          "Zusatzstoffe",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittelpreisiges Getränk.",
+          "gesundheitText": "Zuckerhaltig, koffeinhaltig und mit Zusatzstoffen, daher nur gelegentlich geeignet.",
+          "nachhaltigkeitText": "Einwegverpackung senkt die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "eistee-v2",
+        "name": "Eistee Variante 2",
+        "variantName": "Eistee ohne Zucker / Zero",
+        "description": "Zuckerfrei bzw. kalorienärmer, Einwegflasche/-dose, Schwarztee-Extrakt, ggf. mehr Zusatzstoffe, vegan, koffeinhaltig",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Kalorienärmer",
+          "Vegan"
+        ],
+        "risks": [
+          "Koffein",
+          "Zusatzstoffe",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittelpreisig und preisgleich zur Zucker-Variante.",
+          "gesundheitText": "Zuckerfrei und kalorienärmer, aber koffeinhaltig und ggf. mit mehr Zusatzstoffen.",
+          "nachhaltigkeitText": "Einwegverpackung bleibt ein Nachhaltigkeitsnachteil."
+        }
+      },
+      {
+        "id": "eistee-v3",
+        "name": "Eistee Variante 3",
+        "variantName": "Eistee mit Zucker in Mehrwegflasche",
+        "description": "Zuckerhaltiger Eistee in Mehrwegflasche, nachhaltiger durch Wiederbefüllung, vegan, koffeinhaltig",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Mehrwegflasche",
+          "Vegan"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 1,
+          "nachhaltigkeit": 4,
+          "preisText": "Mittelpreisig und preisgleich zur Einwegvariante.",
+          "gesundheitText": "Zuckerhaltig und koffeinhaltig, daher kein idealer Durstlöscher.",
+          "nachhaltigkeitText": "Mehrwegflasche reduziert Verpackungsmüll und Ressourcenverbrauch."
+        }
+      },
+      {
+        "id": "eistee-v4",
+        "name": "Eistee Variante 4",
+        "variantName": "Eistee ohne Zucker in Mehrwegflasche",
+        "description": "Kalorienfrei, enthält Zusatzstoffe und Koffein, Mehrwegflasche spart Energie und Ressourcen, vegan",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei",
+          "Mehrwegflasche",
+          "Vegan"
+        ],
+        "risks": [
+          "Koffein",
+          "Zusatzstoffe"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Mittelpreisig und preisgleich zu den anderen Eistee-Varianten.",
+          "gesundheitText": "Kalorienfrei, aber Zusatzstoffe und Koffein bleiben Nachteile.",
+          "nachhaltigkeitText": "Mehrwegflasche spart Energie und Ressourcen gegenüber Einweg."
+        }
+      }
+    ]
+  },
+  {
+    "id": "energy-drink",
+    "name": "Energy Drink",
+    "image": "⚡",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "energy-drink-v1",
+        "name": "Energy Drink Variante 1",
+        "variantName": "Energy Drink mit Zucker aus Einwegdose/-flasche",
+        "description": "Zuckerhaltig, verschiedene Geschmacksrichtungen, Zusatzstoffe, ggf. Farbstoffe, enthält Koffein und Taurin",
+        "priceCents": 139,
+        "priceLabel": "1,39 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Viele Geschmacksrichtungen"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein",
+          "Taurin",
+          "Zusatzstoffe",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Teurer als viele Softdrinks in ähnlicher Portionsgröße.",
+          "gesundheitText": "Zucker, Koffein, Taurin und Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Einwegdose oder -flasche und energieintensive Herstellung belasten die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "energy-drink-v2",
+        "name": "Energy Drink Variante 2",
+        "variantName": "Energy Drink ohne Zucker / Zero aus Einwegdose/-flasche",
+        "description": "Zuckerfrei bzw. kalorienärmer, ggf. mehr Zusatzstoffe, verschiedene Geschmacksrichtungen, enthält Koffein und Taurin",
+        "priceCents": 139,
+        "priceLabel": "1,39 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Kalorienärmer",
+          "Viele Geschmacksrichtungen"
+        ],
+        "risks": [
+          "Koffein",
+          "Taurin",
+          "Mehr Zusatzstoffe möglich",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 1,
+          "preisText": "Teurer als viele Softdrinks in ähnlicher Portionsgröße.",
+          "gesundheitText": "Zuckerfrei ist vorteilhaft, Koffein, Taurin und Zusatzstoffe bleiben problematisch.",
+          "nachhaltigkeitText": "Einwegverpackung und Verarbeitung führen zu einer niedrigen Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "saft",
+    "name": "Saft",
+    "image": "🧃",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "saft-v1",
+        "name": "Saft Variante 1",
+        "variantName": "Fruchtsaftgetränk mit 6–30 % Fruchtgehalt in Einweg",
+        "description": "Einwegflasche/-dose/-glas oder Trinkpack, enthält Wasser, Zusatzstoffe, Fruchtzucker und zugesetzten Zucker, vegan, kein Koffein",
+        "priceCents": 169,
+        "priceLabel": "1,69 €/Liter",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Zugesetzter Zucker",
+          "Zusatzstoffe",
+          "Einwegverpackung",
+          "Niedriger Fruchtgehalt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittelpreisig, aber mit niedrigem Fruchtgehalt.",
+          "gesundheitText": "Enthält Fruchtzucker, zugesetzten Zucker und Zusatzstoffe bei nur 6–30 % Fruchtgehalt.",
+          "nachhaltigkeitText": "Einwegverpackung und Verarbeitung senken die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "saft-v2",
+        "name": "Saft Variante 2",
+        "variantName": "Fruchtsaft mit 100 % Fruchtgehalt in Einweg",
+        "description": "100 % Frucht, Direktsaft oder Konzentrat, ohne zugesetzten Zucker und Zusatzstoffe, natürlicher Zucker enthalten, vegan, kein Koffein",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Liter",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "100 % Frucht",
+          "Ohne zugesetzten Zucker",
+          "Ohne Zusatzstoffe",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Natürlicher Zucker",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Etwas teurer als Fruchtsaftgetränk, aber bessere Qualität.",
+          "gesundheitText": "100 % Frucht ohne zugesetzten Zucker und Zusatzstoffe, natürlicher Zucker bleibt enthalten.",
+          "nachhaltigkeitText": "Einwegverpackung begrenzt die Nachhaltigkeit trotz besserer Rezeptur."
+        }
+      },
+      {
+        "id": "saft-v3",
+        "name": "Saft Variante 3",
+        "variantName": "Fruchtsaftgetränk mit 6–30 % Fruchtgehalt in Mehrweg",
+        "description": "Regionaler Fruchtsaft in Mehrwegflasche, nachhaltiger, aber erhöhter Zuckergehalt im Vergleich zu Fruchtsaft, vegan, kein Koffein",
+        "priceCents": 169,
+        "priceLabel": "1,69 €/Liter",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Mehrwegflasche",
+          "Regional",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Erhöhter Zuckergehalt",
+          "Niedriger Fruchtgehalt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Mittelpreisig und preisgleich zur Einweg-Variante.",
+          "gesundheitText": "Niedriger Fruchtgehalt und erhöhter Zuckergehalt mindern die Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Regionalität und Mehrwegflasche verbessern die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "saft-v4",
+        "name": "Saft Variante 4",
+        "variantName": "Fruchtsaft mit 100 % Fruchtgehalt in Mehrweg",
+        "description": "100 % Frucht, regional, Mehrwegflasche spart Energie und Ressourcen, vegan, kein Koffein",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Liter",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "100 % Frucht",
+          "Regional",
+          "Mehrwegflasche",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Natürlicher Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 5,
+          "preisText": "Etwas teurer, bietet aber die beste Saftqualität.",
+          "gesundheitText": "100 % Frucht ohne zugesetzten Zucker, natürlicher Zucker bleibt zu beachten.",
+          "nachhaltigkeitText": "Regionalität und Mehrwegflasche sorgen für eine hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "trinkwasser",
+    "name": "Trinkwasser",
+    "image": "💧",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "trinkwasser-v1",
+        "name": "Trinkwasser Variante 1",
+        "variantName": "Wasser in Einwegflaschen",
+        "description": "Einwegflasche mit 25 Cent Pfand, wird recycelt, aber nicht wiederbefüllt; Neuproduktion energieintensiv",
+        "priceCents": 19,
+        "priceLabel": "0,19 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei",
+          "Kein Zucker",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Einwegflasche",
+          "Neuproduktion energieintensiv"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiges Getränk, Pfand kommt hinzu.",
+          "gesundheitText": "Kalorienfrei, zuckerfrei und sehr gut als Durstlöscher geeignet.",
+          "nachhaltigkeitText": "Recycling ist besser als Restmüll, aber Einwegflaschen werden nicht wiederbefüllt und brauchen Neuproduktion."
+        }
+      },
+      {
+        "id": "trinkwasser-v2",
+        "name": "Trinkwasser Variante 2",
+        "variantName": "Wasser in Mehrwegflaschen",
+        "description": "Mehrwegflasche mit 8 oder 15 Cent Pfand, wird gereinigt und bis zu 50-mal wiederbefüllt; ressourcenschonender",
+        "priceCents": 29,
+        "priceLabel": "0,29 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei",
+          "Kein Zucker",
+          "Kein Koffein",
+          "Mehrwegflasche"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Sehr günstiges Getränk, trotz leicht höherem Preis als Einweg.",
+          "gesundheitText": "Bestes Standardgetränk: kalorienfrei, zuckerfrei und ideal als Durstlöscher.",
+          "nachhaltigkeitText": "Mehrwegflaschen werden vielfach wiederbefüllt und sind besonders ressourcenschonend."
+        }
+      }
+    ]
+  },
+  {
     "id": "studentenfutter",
     "name": "Studentenfutter",
     "image": "🥜",
