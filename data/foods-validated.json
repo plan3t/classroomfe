@@ -2551,6 +2551,304 @@
     ]
   },
   {
+    "id": "hafer-cookies",
+    "name": "Hafer-Cookies",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "hafer-cookies-v1",
+        "name": "Hafer-Cookies Variante 1",
+        "variantName": "Konventionelle Hafer-Kekse",
+        "description": "Hoher Zuckeranteil, kein Vollkorn, viele Zusatzstoffe. Meist günstiger Preis. Verpackung aus Pappe und Folie, dadurch moderat viel Müll.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Kein Vollkorn",
+          "Viele Zusatzstoffe",
+          "Moderat viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstiger Kilopreis für ein Süßgebäck.",
+          "gesundheitText": "Hoher Zuckeranteil, kein Vollkorn und viele Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Pappe und Folie verursachen moderat viel Müll; konventionelle Zutaten begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "hafer-cookies-v2",
+        "name": "Hafer-Cookies Variante 2",
+        "variantName": "Bio Hafer-Kekse",
+        "description": "Kein oder wenig Palmöl, teilweise Fairtrade-Schokolade und höherer Vollkornanteil. Teureres Produkt. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 249,
+        "priceLabel": "2,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Kein oder wenig Palmöl",
+          "Höherer Vollkornanteil",
+          "Teilweise Fairtrade-Schokolade"
+        ],
+        "risks": [
+          "Teurer",
+          "Süßgebäck",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber noch moderat.",
+          "gesundheitText": "Höherer Vollkornanteil und weniger Palmöl sind positiv, das Produkt bleibt Süßgebäck.",
+          "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "schoko-cookies",
+    "name": "Schoko-Cookies",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "schoko-cookies-v1",
+        "name": "Schoko-Cookies Variante 1",
+        "variantName": "Konventionelle Schoko-Cookies",
+        "description": "Hoher Zuckeranteil, kein Vollkorn, viele Zusatzstoffe. Meist günstiger Preis. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 195,
+        "priceLabel": "1,95 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Kein Vollkorn",
+          "Viele Zusatzstoffe",
+          "Schokolade",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstiger Kilopreis für Schoko-Gebäck.",
+          "gesundheitText": "Hoher Zuckeranteil, Schokolade, kein Vollkorn und viele Zusatzstoffe führen zu einer niedrigen Bewertung.",
+          "nachhaltigkeitText": "Pappe und Folie verursachen Verpackungsmüll; konventionelle Zutaten begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "schoko-cookies-v2",
+        "name": "Schoko-Cookies Variante 2",
+        "variantName": "Bio Schoko-Cookies",
+        "description": "Kein oder wenig Palmöl, teilweise Fairtrade-Schokolade. Teureres Produkt. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 249,
+        "priceLabel": "2,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Kein oder wenig Palmöl",
+          "Teilweise Fairtrade-Schokolade"
+        ],
+        "risks": [
+          "Teurer",
+          "Süßgebäck",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Schoko-Cookies.",
+          "gesundheitText": "Weniger Palmöl ist positiv, Schokolade und Zucker machen es weiterhin zu Süßgebäck.",
+          "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Schokolade verbessern die Nachhaltigkeit trotz Verpackung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "dinkel-doppelkeks-schokofuellung",
+    "name": "Dinkel-Doppelkeks mit Schokofüllung",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "dinkel-doppelkeks-schokofuellung-v1",
+        "name": "Dinkel-Doppelkeks mit Schokofüllung Variante 1",
+        "variantName": "Konventionelle Kekse mit kakaohaltiger Füllung",
+        "description": "Hoher Zuckeranteil, geringer Vollkornanteil, viele Zusatzstoffe. Meist günstiger Preis. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 159,
+        "priceLabel": "1,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis",
+          "Geringer Vollkornanteil"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Viele Zusatzstoffe",
+          "Kakaohaltige Füllung",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Sehr günstiger Kilopreis.",
+          "gesundheitText": "Hoher Zuckeranteil und viele Zusatzstoffe überwiegen den geringen Vollkornanteil.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verbundverpackung führen zu einer eher niedrigen Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "dinkel-doppelkeks-schokofuellung-v2",
+        "name": "Dinkel-Doppelkeks mit Schokofüllung Variante 2",
+        "variantName": "Bio Kekse mit Schokolade oder kakaohaltiger Füllung",
+        "description": "Kein oder wenig Palmöl, teilweise Fairtrade-Schokolade und höherer Vollkornanteil. Teureres Produkt. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 259,
+        "priceLabel": "2,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Kein oder wenig Palmöl",
+          "Höherer Vollkornanteil",
+          "Teilweise Fairtrade-Schokolade"
+        ],
+        "risks": [
+          "Teurer",
+          "Süßgebäck",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Dinkel-Doppelkeks-Variante.",
+          "gesundheitText": "Höherer Vollkornanteil ist positiv, Schokofüllung und Zucker bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "doppelkeks-schokofuellung",
+    "name": "Doppelkeks mit Schokofüllung",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "doppelkeks-schokofuellung-v1",
+        "name": "Doppelkeks mit Schokofüllung Variante 1",
+        "variantName": "Konventionelle Kekse mit kakaohaltiger Füllung",
+        "description": "Hoher Zuckeranteil, kein Vollkorn, viele Zusatzstoffe. Meist günstiger Preis. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sehr günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Kein Vollkorn",
+          "Viele Zusatzstoffe",
+          "Kakaohaltige Füllung",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Sehr günstiger Kilopreis.",
+          "gesundheitText": "Hoher Zuckeranteil, kein Vollkorn und viele Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verbundverpackung führen zu einer eher niedrigen Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "doppelkeks-schokofuellung-v2",
+        "name": "Doppelkeks mit Schokofüllung Variante 2",
+        "variantName": "Bio Kekse mit Schokolade oder kakaohaltiger Füllung",
+        "description": "Kein oder wenig Palmöl, teilweise Fairtrade-Schokolade und höherer Vollkornanteil. Teureres Produkt. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 259,
+        "priceLabel": "2,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Kein oder wenig Palmöl",
+          "Höherer Vollkornanteil",
+          "Teilweise Fairtrade-Schokolade"
+        ],
+        "risks": [
+          "Teurer",
+          "Süßgebäck",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Doppelkeks-Variante.",
+          "gesundheitText": "Höherer Vollkornanteil und weniger Palmöl sind positiv, Schokofüllung und Zucker bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
+        }
+      }
+    ]
+  },
+  {
     "id": "haferkekse",
     "name": "Haferkekse",
     "image": "🍪",
