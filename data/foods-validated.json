@@ -62,15 +62,18 @@
     ]
   },
   {
-    "id": "snack-tomaten",
-    "name": "Snack-Tomaten",
-    "image": "🍅",
+    "id": "snack-paprika",
+    "name": "Snack-Paprika",
+    "image": "🫑",
     "category": "GEMUESE",
     "variants": [
       {
-        "id": "snack-tomaten-v4",
-        "name": "Snack-Tomaten Variante 4",
-        "priceCents": 0,
+        "id": "snack-paprika-v1",
+        "name": "Snack-Paprika Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, weniger strenge Umweltauflagen.",
+        "priceCents": 139,
+        "priceLabel": "1,39 €/kg",
         "nutrition": {
           "energyKcal": 0,
           "fatG": 0,
@@ -78,9 +81,237 @@
         },
         "additives": [],
         "benefits": [
-          "Frisches Gemüse"
+          "Frisches Gemüse",
+          "Gut verfügbar"
         ],
-        "risks": [],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiges Gemüse im Standardangebot.",
+          "gesundheitText": "Frisches Gemüse ist nährstoffreich, mögliche Pestizidrückstände und weniger strenge Umweltauflagen mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau ist verfügbar und preiswert, aber mit weniger strengen Umweltauflagen verbunden."
+        }
+      },
+      {
+        "id": "snack-paprika-v2",
+        "name": "Snack-Paprika Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber moderat im Vergleich zu kombinierten Nachhaltigkeitsoptionen.",
+          "gesundheitText": "Bio-Anbau reduziert synthetische Pestizide und unterstützt eine hohe Gemüsequalität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "snack-paprika-v3",
+        "name": "Snack-Paprika Variante 3",
+        "variantName": "Regional / saisonal / möglichst unverpackt",
+        "description": "Regionale und saisonale Produkte, oft frischer und klimafreundlicher; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 159,
+        "priceLabel": "1,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer als Standardware, dafür oft frisch und saisonal.",
+          "gesundheitText": "Frisches, regionales und saisonales Gemüse kann nährstoffreich und besonders frisch sein.",
+          "nachhaltigkeitText": "Kürzere Transportwege und möglichst wenig Verpackung verbessern die Nachhaltigkeit, auch wenn der Anbau konventionell sein kann."
+        }
+      },
+      {
+        "id": "snack-paprika-v4",
+        "name": "Snack-Paprika Variante 4",
+        "variantName": "Bio + regional/saisonal + möglichst unverpackt",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, nachhaltiger durch Regionalität und Saisonalität.",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höchster Preis durch Bio-, Regional-/Saisonal- und möglichst unverpackte Qualität.",
+          "gesundheitText": "Frisches Gemüse mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität und möglichst wenig Verpackung sorgen für eine sehr hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "snack-tomaten-cherrytomaten",
+    "name": "Snack-Tomaten / Cherrytomaten",
+    "image": "🍅",
+    "category": "GEMUESE",
+    "variants": [
+      {
+        "id": "snack-tomaten-cherrytomaten-v1",
+        "name": "Snack-Tomaten / Cherrytomaten Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, weniger strenge Umweltauflagen.",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiges Gemüse im Standardangebot.",
+          "gesundheitText": "Frisches Gemüse ist nährstoffreich, mögliche Pestizidrückstände und weniger strenge Umweltauflagen mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau ist verfügbar und preiswert, aber mit weniger strengen Umweltauflagen verbunden."
+        }
+      },
+      {
+        "id": "snack-tomaten-cherrytomaten-v2",
+        "name": "Snack-Tomaten / Cherrytomaten Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 179,
+        "priceLabel": "1,79 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber moderat im Vergleich zu kombinierten Nachhaltigkeitsoptionen.",
+          "gesundheitText": "Bio-Anbau reduziert synthetische Pestizide und unterstützt eine hohe Gemüsequalität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "snack-tomaten-cherrytomaten-v3",
+        "name": "Snack-Tomaten / Cherrytomaten Variante 3",
+        "variantName": "Regional / saisonal / möglichst unverpackt",
+        "description": "Regionale und saisonale Produkte, oft frischer und klimafreundlicher; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 159,
+        "priceLabel": "1,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer als Standardware, dafür oft frisch und saisonal.",
+          "gesundheitText": "Frisches, regionales und saisonales Gemüse kann nährstoffreich und besonders frisch sein.",
+          "nachhaltigkeitText": "Kürzere Transportwege und möglichst wenig Verpackung verbessern die Nachhaltigkeit, auch wenn der Anbau konventionell sein kann."
+        }
+      },
+      {
+        "id": "snack-tomaten-cherrytomaten-v4",
+        "name": "Snack-Tomaten / Cherrytomaten Variante 4",
+        "variantName": "Bio + regional/saisonal + möglichst unverpackt",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, nachhaltiger durch Regionalität und Saisonalität.",
+        "priceCents": 209,
+        "priceLabel": "2,09 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
         "rating": {
           "preisbewusstsein": 2,
           "gesundheit": 5,
@@ -88,6 +319,268 @@
           "preisText": "Höherer Preis durch Bio- und Regional-/saisonal-Siegel.",
           "gesundheitText": "Frisches Gemüse, nährstoffreich und mit reduziertem Pestizideinsatz.",
           "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität & unverpackt sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "snack-gurken",
+    "name": "Snack-Gurken",
+    "image": "🥒",
+    "category": "GEMUESE",
+    "variants": [
+      {
+        "id": "snack-gurken-v1",
+        "name": "Snack-Gurken Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, weniger strenge Umweltauflagen.",
+        "priceCents": 69,
+        "priceLabel": "0,69 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiges Gemüse im Standardangebot.",
+          "gesundheitText": "Frisches Gemüse ist nährstoffreich, mögliche Pestizidrückstände und weniger strenge Umweltauflagen mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau ist verfügbar und preiswert, aber mit weniger strengen Umweltauflagen verbunden."
+        }
+      },
+      {
+        "id": "snack-gurken-v2",
+        "name": "Snack-Gurken Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 99,
+        "priceLabel": "0,99 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber moderat im Vergleich zu kombinierten Nachhaltigkeitsoptionen.",
+          "gesundheitText": "Bio-Anbau reduziert synthetische Pestizide und unterstützt eine hohe Gemüsequalität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "snack-gurken-v3",
+        "name": "Snack-Gurken Variante 3",
+        "variantName": "Regional / saisonal / möglichst unverpackt",
+        "description": "Regionale und saisonale Produkte, oft frischer und klimafreundlicher; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 69,
+        "priceLabel": "0,69 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer als Standardware, dafür oft frisch und saisonal.",
+          "gesundheitText": "Frisches, regionales und saisonales Gemüse kann nährstoffreich und besonders frisch sein.",
+          "nachhaltigkeitText": "Kürzere Transportwege und möglichst wenig Verpackung verbessern die Nachhaltigkeit, auch wenn der Anbau konventionell sein kann."
+        }
+      },
+      {
+        "id": "snack-gurken-v4",
+        "name": "Snack-Gurken Variante 4",
+        "variantName": "Bio + regional/saisonal + möglichst unverpackt",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, nachhaltiger durch Regionalität und Saisonalität.",
+        "priceCents": 99,
+        "priceLabel": "0,99 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höchster Preis durch Bio-, Regional-/Saisonal- und möglichst unverpackte Qualität.",
+          "gesundheitText": "Frisches Gemüse mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität und möglichst wenig Verpackung sorgen für eine sehr hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "moehren",
+    "name": "Möhren",
+    "image": "🥕",
+    "category": "GEMUESE",
+    "variants": [
+      {
+        "id": "moehren-v1",
+        "name": "Möhren Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, weniger strenge Umweltauflagen.",
+        "priceCents": 115,
+        "priceLabel": "1,15 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiges Gemüse im Standardangebot.",
+          "gesundheitText": "Frisches Gemüse ist nährstoffreich, mögliche Pestizidrückstände und weniger strenge Umweltauflagen mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau ist verfügbar und preiswert, aber mit weniger strengen Umweltauflagen verbunden."
+        }
+      },
+      {
+        "id": "moehren-v2",
+        "name": "Möhren Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 169,
+        "priceLabel": "1,69 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber moderat im Vergleich zu kombinierten Nachhaltigkeitsoptionen.",
+          "gesundheitText": "Bio-Anbau reduziert synthetische Pestizide und unterstützt eine hohe Gemüsequalität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "moehren-v3",
+        "name": "Möhren Variante 3",
+        "variantName": "Regional / saisonal / möglichst unverpackt/lose",
+        "description": "Regionale und saisonale Produkte, oft frischer und klimafreundlicher; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer als Standardware, dafür oft frisch und saisonal.",
+          "gesundheitText": "Frisches, regionales und saisonales Gemüse kann nährstoffreich und besonders frisch sein.",
+          "nachhaltigkeitText": "Kürzere Transportwege und möglichst wenig Verpackung verbessern die Nachhaltigkeit, auch wenn der Anbau konventionell sein kann."
+        }
+      },
+      {
+        "id": "moehren-v4",
+        "name": "Möhren Variante 4",
+        "variantName": "Bio + regional/saisonal + möglichst unverpackt/lose",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, nachhaltiger durch Regionalität und Saisonalität.",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höchster Preis durch Bio-, Regional-/Saisonal- und möglichst unverpackte Qualität.",
+          "gesundheitText": "Frisches Gemüse mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität und möglichst wenig Verpackung sorgen für eine sehr hohe Nachhaltigkeitsbewertung."
         }
       }
     ]
