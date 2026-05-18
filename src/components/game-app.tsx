@@ -684,8 +684,16 @@ export function GameApp() {
                   ))}
                 </div>
               </div>
-            );
-          }) : <p className="text-slate-400">Noch nichts im Korb.</p>}
+              <div className="space-y-2">
+                {lines.map(({ line, lineIndex, item, variant }) => (
+                  <div key={`${line.foodId}-${line.variantId}-${lineIndex}`} className="flex items-center justify-between gap-3 rounded-xl border border-white/10 p-2">
+                    <span>{item.name} ({variant.name}) × {line.qty}</span>
+                    {!activePlayer?.done ? <Button onClick={() => removeFromCart(lineIndex)} className="bg-rose-300 px-3 py-1 text-xs text-slate-950 hover:bg-rose-200">Entfernen</Button> : null}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )) : <p className="text-slate-400">Noch nichts im Korb.</p>}
         </div>
         {canShowScores ? <p className="font-semibold">Preis-Score Summe: {totalsByPlayer.find((t) => t.playerId === activePlayer?.id)?.total ?? 0}</p> : null}
         <div className="flex flex-wrap gap-2">
