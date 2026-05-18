@@ -1238,13 +1238,13 @@
   },
   {
     "id": "wuerstchen",
-    "name": "Würstchen",
+    "name": "Salami-Snack",
     "image": "🌭",
     "category": "KUEHLREGAL_FLEISCH_ALTERNATIVEN",
     "variants": [
       {
         "id": "wuerstchen-v1",
-        "name": "Würstchen Variante 1",
+        "name": "Salami-Snack Variante 1",
         "variantName": "Konventionell",
         "description": "Standard-Fleischmischungen, eventuell mit Zusatzstoffen und Füllmaterialien. Preiswert und gut erhältlich, jedoch meist geringere Qualität und mehr Zusatzstoffe.",
         "priceCents": 149,
@@ -1276,7 +1276,7 @@
       },
       {
         "id": "wuerstchen-v2",
-        "name": "Würstchen Variante 2",
+        "name": "Salami-Snack Variante 2",
         "variantName": "Bio",
         "description": "Fleisch aus kontrolliert biologischer Haltung, ohne Antibiotika und synthetische Zusätze. Höhere Qualität und bessere Tierhaltung, aber teurer.",
         "priceCents": 572,
@@ -1301,14 +1301,14 @@
           "preisbewusstsein": 1,
           "gesundheit": 3,
           "nachhaltigkeit": 3,
-          "preisText": "Deutlich teurer als konventionelle Würstchen.",
+          "preisText": "Deutlich teurer als konventionelle Salami-Snacks.",
           "gesundheitText": "Bessere Fleischqualität und weniger synthetische Zusätze, bleibt aber verarbeitetes Fleisch.",
           "nachhaltigkeitText": "Bio-Tierhaltung verbessert Standards, Fleisch bleibt ressourcenintensiv."
         }
       },
       {
         "id": "wuerstchen-v3",
-        "name": "Würstchen Variante 3",
+        "name": "Salami-Snack Variante 3",
         "variantName": "Regional",
         "description": "Fleisch aus der näheren Umgebung, teils in Handarbeit hergestellt. Kürzere Transportwege und Unterstützung der lokalen Wirtschaft, Qualität kann variieren.",
         "priceCents": 572,
@@ -3850,33 +3850,6 @@
       {
         "id": "kiwi-v3",
         "name": "Kiwi Variante 3",
-        "variantName": "Nicht angegeben",
-        "description": "Im Dokument ist für Variante 3 keine Beschreibung und kein Preis eingetragen.",
-        "priceCents": 0,
-        "priceLabel": "Nicht angegeben",
-        "nutrition": {
-          "energyKcal": 0,
-          "fatG": 0,
-          "saltG": 0
-        },
-        "additives": [],
-        "benefits": [],
-        "risks": [
-          "Keine Beschreibung angegeben",
-          "Kein Preis angegeben"
-        ],
-        "rating": {
-          "preisbewusstsein": 1,
-          "gesundheit": 1,
-          "nachhaltigkeit": 1,
-          "preisText": "Kein Preis angegeben.",
-          "gesundheitText": "Keine Produktinformationen angegeben; daher nicht sinnvoll bewertbar.",
-          "nachhaltigkeitText": "Keine Informationen zu Anbau, Herkunft oder Verpackung angegeben."
-        }
-      },
-      {
-        "id": "kiwi-v4",
-        "name": "Kiwi Variante 4",
         "variantName": "Bio + Regionalität/Saisonalität",
         "description": "Weniger Pestizide, Schutz von Boden und Umwelt, regionale/saisonale Erzeugung, Beitrag zur Nachhaltigkeit.",
         "priceCents": 69,
@@ -4913,37 +4886,6 @@
           "preisText": "Teurer als die konventionelle Doppelkeks-Variante.",
           "gesundheitText": "Höherer Vollkornanteil und weniger Palmöl sind positiv, Schokofüllung und Zucker bleiben Nachteile.",
           "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
-        }
-      }
-    ]
-  },
-  {
-    "id": "haferkekse",
-    "name": "Haferkekse",
-    "image": "🍪",
-    "category": "KEKSE",
-    "variants": [
-      {
-        "id": "haferkekse-v2",
-        "name": "Haferkekse Variante 2",
-        "priceCents": 0,
-        "nutrition": {
-          "energyKcal": 0,
-          "fatG": 0,
-          "saltG": 0
-        },
-        "additives": [],
-        "benefits": [],
-        "risks": [
-          "Zucker"
-        ],
-        "rating": {
-          "preisbewusstsein": 3,
-          "gesundheit": 2,
-          "nachhaltigkeit": 3,
-          "preisText": "Mittelpreisig, Bio oft teurer.",
-          "gesundheitText": "Süßgebäck mit viel Zucker/Fett.",
-          "nachhaltigkeitText": "Mit Bio etwas nachhaltiger."
         }
       }
     ]
