@@ -893,25 +893,224 @@
     ]
   },
   {
+    "id": "sandwich-kaese",
+    "name": "Sandwich mit Käse",
+    "image": "🥪",
+    "category": "KUEHLREGAL_READY_TO_EAT",
+    "variants": [
+      {
+        "id": "sandwich-kaese-v1",
+        "name": "Variante 1",
+        "variantName": "Konventionelles Sandwich mit Käse und Ei",
+        "description": "Hoher Fettanteil, wenig Vollkorn, viele Zusatzstoffe. Meist teurerer Snack. Verpackung: Pappschachtel mit Beschichtung und Plastikfolie.",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/Portion",
+        "nutrition": {
+          "energyKcal": 310,
+          "fatG": 14,
+          "saltG": 1.4
+        },
+        "additives": [
+          "Konservierungsstoffe möglich",
+          "Stabilisatoren möglich",
+          "Aromen möglich"
+        ],
+        "benefits": [
+          "Schnell verfügbar",
+          "Sättigender Snack"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Wenig Vollkorn",
+          "Viele Zusatzstoffe",
+          "Einwegverpackung mit Kunststoffanteil"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittlerer Portionspreis, für einen Snack aber eher teuer.",
+          "gesundheitText": "Hoher Fettanteil, wenig Vollkorn und viele Zusatzstoffe senken die Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Verarbeiteter Snack mit Ei, Käse und beschichteter Einwegverpackung erzeugt eine niedrigere Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "sandwich-schinken",
+    "name": "Sandwich mit Schinken",
+    "image": "🥪",
+    "category": "KUEHLREGAL_READY_TO_EAT",
+    "variants": [
+      {
+        "id": "sandwich-schinken-v1",
+        "name": "Variante 1",
+        "variantName": "Konventionelles Sandwich mit Käse, Ei und Schinken",
+        "description": "Hoher Fettanteil, wenig Vollkorn, viele Zusatzstoffe. Meist teurerer Snack. Verpackung: Pappschachtel mit Beschichtung und Plastikfolie.",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/Portion",
+        "nutrition": {
+          "energyKcal": 330,
+          "fatG": 15,
+          "saltG": 1.7
+        },
+        "additives": [
+          "Konservierungsstoffe möglich",
+          "Stabilisatoren möglich",
+          "Aromen möglich"
+        ],
+        "benefits": [
+          "Schnell verfügbar",
+          "Sättigender Snack"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Wenig Vollkorn",
+          "Viele Zusatzstoffe",
+          "Enthält Fleisch",
+          "Einwegverpackung mit Kunststoffanteil"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 1,
+          "preisText": "Mittlerer Portionspreis, für einen Snack aber eher teuer.",
+          "gesundheitText": "Hoher Fett- und Salzanteil, wenig Vollkorn und viele Zusatzstoffe senken die Bewertung.",
+          "nachhaltigkeitText": "Fleisch, tierische Zutaten und beschichtete Einwegverpackung belasten die Nachhaltigkeitsbewertung deutlich."
+        }
+      }
+    ]
+  },
+  {
+    "id": "smoothie",
+    "name": "Smoothie",
+    "image": "🥤",
+    "category": "KUEHLREGAL_READY_TO_EAT",
+    "variants": [
+      {
+        "id": "smoothie-v1",
+        "name": "Variante 1",
+        "variantName": "Konventioneller Smoothie mit geringerem Obstanteil",
+        "description": "Hauptsächlich Apfel- und Orangensaft als Basis, hoher Zuckeranteil. Verpackung: Plastik-Einwegflasche, dadurch viel Müll.",
+        "priceCents": 159,
+        "priceLabel": "1,59 €/Flasche",
+        "nutrition": {
+          "energyKcal": 180,
+          "fatG": 0,
+          "saltG": 0.02
+        },
+        "additives": [],
+        "benefits": [
+          "Praktisch mitzunehmen",
+          "Enthält Fruchtbestandteile"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Geringerer Anteil beworbener Früchte",
+          "Plastik-Einwegflasche"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstiger als die Mehrweg-Variante.",
+          "gesundheitText": "Hoher Zuckeranteil und geringerer Obstanteil machen den Smoothie weniger empfehlenswert als frisches Obst.",
+          "nachhaltigkeitText": "Die Plastik-Einwegflasche verursacht zusätzlichen Verpackungsmüll."
+        }
+      },
+      {
+        "id": "smoothie-v2",
+        "name": "Variante 2",
+        "variantName": "Konventioneller Smoothie mit höherem Anteil beworbener Früchte",
+        "description": "Apfel- und Orangensaft als Basis, höherer Anteil der beworbenen Früchte, hoher Zuckeranteil. In Mehrweg-Glasflaschen erhältlich.",
+        "priceCents": 229,
+        "priceLabel": "2,29 €/Flasche",
+        "nutrition": {
+          "energyKcal": 190,
+          "fatG": 0,
+          "saltG": 0.02
+        },
+        "additives": [],
+        "benefits": [
+          "Höherer Anteil beworbener Früchte",
+          "Mehrweg-Glasflasche möglich",
+          "Praktisch mitzunehmen"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Teurer als Einweg-Variante"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die einfache Einweg-Variante.",
+          "gesundheitText": "Mehr beworbene Früchte sind positiv, der hohe Zuckeranteil bleibt aber kritisch.",
+          "nachhaltigkeitText": "Mehrweg-Glasflaschen reduzieren Verpackungsmüll und verbessern die Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
     "id": "salat-ready",
     "name": "Frisch zubereiteter Salat",
     "image": "🥗",
     "category": "KUEHLREGAL_READY_TO_EAT",
     "variants": [
       {
-        "id": "salat-v2",
-        "name": "Frisch zubereiteter Salat Variante 2",
-        "priceCents": 0,
+        "id": "salat-v1",
+        "name": "Variante 1",
+        "variantName": "Konventionell angebaut",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 249,
+        "priceLabel": "2,49 €/Packung",
         "nutrition": {
-          "energyKcal": 0,
-          "fatG": 0,
-          "saltG": 0
+          "energyKcal": 95,
+          "fatG": 4,
+          "saltG": 0.6
         },
         "additives": [],
         "benefits": [
-          "Gemüseanteil hoch"
+          "Gemüseanteil hoch",
+          "Schnell verzehrfertig"
         ],
-        "risks": [],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittlerer Preis für eine verzehrfertige Packung.",
+          "gesundheitText": "Der hohe Gemüseanteil ist positiv, mögliche Pestizidrückstände und Dressing/Verarbeitung senken leicht die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau und Einwegverpackung führen zu einer niedrigeren Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "salat-v2",
+        "name": "Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 329,
+        "priceLabel": "3,29 €/Packung",
+        "nutrition": {
+          "energyKcal": 95,
+          "fatG": 4,
+          "saltG": 0.6
+        },
+        "additives": [],
+        "benefits": [
+          "Gemüseanteil hoch",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide",
+          "Besser für Bodenschutz und Biodiversität"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Einwegverpackung"
+        ],
         "rating": {
           "preisbewusstsein": 1,
           "gesundheit": 5,
@@ -919,6 +1118,50 @@
           "preisText": "Höherer Preis, selten im Angebot.",
           "gesundheitText": "Gemüseanteil hoch: mehr Volumen und Mikronährstoffe.",
           "nachhaltigkeitText": "Oft verarbeitet/verpackt; tierische Zutaten senken Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "joghurt-fruechte-granola",
+    "name": "Joghurt mit Früchten und Granola",
+    "image": "🥣",
+    "category": "KUEHLREGAL_READY_TO_EAT",
+    "variants": [
+      {
+        "id": "joghurt-fruechte-granola-v1",
+        "name": "Variante 1",
+        "variantName": "Konventionelle Joghurtzubereitung mit zuckerhaltigem Granola und gezuckerter Fruchtzubereitung",
+        "description": "Hoher Zuckeranteil, wenig Vollkorn, viele Zusatzstoffe. Meist teurerer Snack. Verpackung: Becher und Deckel mit Alufolie, Einwegplastik.",
+        "priceCents": 259,
+        "priceLabel": "2,59 €/Portion",
+        "nutrition": {
+          "energyKcal": 280,
+          "fatG": 8,
+          "saltG": 0.35
+        },
+        "additives": [
+          "Aromen möglich",
+          "Stabilisatoren möglich",
+          "Verdickungsmittel möglich"
+        ],
+        "benefits": [
+          "Schnell verfügbar",
+          "Enthält Milchprodukt und Früchte"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Wenig Vollkorn",
+          "Viele Zusatzstoffe",
+          "Einwegplastik mit Alufolie"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Relativ teuer für eine einzelne Snack-Portion.",
+          "gesundheitText": "Hoher Zuckeranteil, wenig Vollkorn und viele Zusatzstoffe senken die Bewertung.",
+          "nachhaltigkeitText": "Einwegplastik, Alufolie und ein tierisches Milchprodukt führen zu einer eher niedrigen Nachhaltigkeitsbewertung."
         }
       }
     ]
