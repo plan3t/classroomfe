@@ -3975,7 +3975,7 @@
     "id": "naturjoghurt",
     "name": "Naturjoghurt",
     "image": "🥛",
-    "category": "KEKSE",
+    "category": "KUEHLREGAL_MILCH_ALTERNATIVEN",
     "variants": [
       {
         "id": "naturjoghurt-v1",
@@ -4115,7 +4115,7 @@
     "id": "skyr-natur",
     "name": "Skyr Natur",
     "image": "🥣",
-    "category": "KEKSE",
+    "category": "KUEHLREGAL_MILCH_ALTERNATIVEN",
     "variants": [
       {
         "id": "skyr-natur-v1",
@@ -4186,7 +4186,7 @@
     "id": "skyr-himbeere",
     "name": "Skyr Himbeere",
     "image": "🍓",
-    "category": "KEKSE",
+    "category": "KUEHLREGAL_MILCH_ALTERNATIVEN",
     "variants": [
       {
         "id": "skyr-himbeere-v1",
@@ -4259,7 +4259,7 @@
     "id": "trinkschokolade-kakao",
     "name": "Trinkschokolade / Kakao",
     "image": "🧃",
-    "category": "KEKSE",
+    "category": "KUEHLREGAL_MILCH_ALTERNATIVEN",
     "variants": [
       {
         "id": "trinkschokolade-kakao-v1",
@@ -4299,7 +4299,7 @@
     "id": "kaese-snack",
     "name": "Käse-Snack",
     "image": "🧀",
-    "category": "KEKSE",
+    "category": "KUEHLREGAL_MILCH_ALTERNATIVEN",
     "variants": [
       {
         "id": "kaese-snack-v1",
@@ -4339,7 +4339,7 @@
     "id": "knick-joghurt",
     "name": "Knick-Joghurt",
     "image": "🍫",
-    "category": "KEKSE",
+    "category": "KUEHLREGAL_MILCH_ALTERNATIVEN",
     "variants": [
       {
         "id": "knick-joghurt-v1",
