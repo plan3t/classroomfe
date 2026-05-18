@@ -339,6 +339,10 @@ export function GameApp() {
                 </div>
                 <div className="rounded-xl border border-white/10 p-3 text-sm">
                   <p className="font-semibold">Produktinformationen</p>
+                  {v.variantName ? <p>Variante: {v.variantName}</p> : null}
+                  {v.description ? <p>Merkmale: {v.description}</p> : null}
+                  {v.packaging ? <p>Verpackung/Kaufart: {v.packaging}</p> : null}
+                  <p>Preis: {v.priceLabel ?? `${(v.priceCents / 100).toFixed(2).replace('.', ',')} €`}</p>
                   <p>Zusatzstoffe: {v.additives.length ? v.additives.join(', ') : 'Keine angegeben'}</p>
                   <p>Vorteile: {v.benefits.length ? v.benefits.join(', ') : 'Keine angegeben'}</p>
                   <p>Risiken: {v.risks.length ? v.risks.join(', ') : 'Keine angegeben'}</p>
