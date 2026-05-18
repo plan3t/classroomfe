@@ -3022,7 +3022,7 @@
     "id": "apfel",
     "name": "Apfel",
     "image": "🍎",
-    "category": "KEKSE",
+    "category": "OBST",
     "variants": [
       {
         "id": "apfel-v1",
@@ -3152,7 +3152,7 @@
     "id": "banana",
     "name": "Banane",
     "image": "🍌",
-    "category": "KEKSE",
+    "category": "OBST",
     "variants": [
       {
         "id": "banana-v1",
@@ -3282,7 +3282,7 @@
     "id": "birne",
     "name": "Birne",
     "image": "🍐",
-    "category": "KEKSE",
+    "category": "OBST",
     "variants": [
       {
         "id": "birne-v1",
@@ -3412,7 +3412,7 @@
     "id": "erdbeeren",
     "name": "Erdbeeren",
     "image": "🍓",
-    "category": "KEKSE",
+    "category": "OBST",
     "variants": [
       {
         "id": "erdbeeren-v1",
@@ -3542,7 +3542,7 @@
     "id": "kiwi",
     "name": "Kiwi",
     "image": "🥝",
-    "category": "KEKSE",
+    "category": "OBST",
     "variants": [
       {
         "id": "kiwi-v1",
