@@ -1,15 +1,4854 @@
 [
-  {"id":"banana","name":"Banane","image":"🍌","category":"OBST","variants":[{"id":"banana-v1","name":"Banane Variante 1","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Frisches Obst"],"risks":[],"rating":{"preisbewusstsein":5,"gesundheit":5,"nachhaltigkeit":3,"preisText":"Niedriger Preis, oft im Angebot erhältlich.","gesundheitText":"Frisches Obst mit Vitaminen, Mineralstoffen und Ballaststoffen.","nachhaltigkeitText":"Pflanzliches Produkt mit wenig Verpackung, aber konventioneller Anbau."}}]},
-  {"id":"apple","name":"Apfel","image":"🍎","category":"OBST","variants":[{"id":"apple-v4","name":"Apfel Variante 4","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Frisches Obst"],"risks":[],"rating":{"preisbewusstsein":4,"gesundheit":5,"nachhaltigkeit":5,"preisText":"Höherer Preis durch Bio- und Regional-/saisonal-Siegel.","gesundheitText":"Frisches Obst, nährstoffreich und mit reduziertem Pestizideinsatz.","nachhaltigkeitText":"Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."}}]},
-  {"id":"snack-tomaten","name":"Snack-Tomaten","image":"🍅","category":"GEMUESE","variants":[{"id":"snack-tomaten-v4","name":"Snack-Tomaten Variante 4","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Frisches Gemüse"],"risks":[],"rating":{"preisbewusstsein":2,"gesundheit":5,"nachhaltigkeit":5,"preisText":"Höherer Preis durch Bio- und Regional-/saisonal-Siegel.","gesundheitText":"Frisches Gemüse, nährstoffreich und mit reduziertem Pestizideinsatz.","nachhaltigkeitText":"Bio-Anbau, Regionalität/Saisonalität & unverpackt sorgen für hohe Umwelt- und Sozialstandards."}}]},
-  {"id":"weizenbroetchen","name":"Weizenbrötchen","image":"🥐","category":"BACKWAREN_GEBAECK","variants":[{"id":"weizen-v1","name":"Weizenbrötchen Variante 1","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Sättigend"],"risks":[],"rating":{"preisbewusstsein":5,"gesundheit":3,"nachhaltigkeit":3,"preisText":"Sehr günstiges Produkt.","gesundheitText":"Getreideprodukte sättigen, mehr Ballaststoffe wären günstiger.","nachhaltigkeitText":"Getreide ressourcenschonender, Nachhaltigkeit steigt mit Bio."}}]},
-  {"id":"salat-ready","name":"Frisch zubereiteter Salat","image":"🥗","category":"KUEHLREGAL_READY_TO_EAT","variants":[{"id":"salat-v2","name":"Frisch zubereiteter Salat Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Gemüseanteil hoch"],"risks":[],"rating":{"preisbewusstsein":1,"gesundheit":5,"nachhaltigkeit":3,"preisText":"Höherer Preis, selten im Angebot.","gesundheitText":"Gemüseanteil hoch: mehr Volumen und Mikronährstoffe.","nachhaltigkeitText":"Oft verarbeitet/verpackt; tierische Zutaten senken Nachhaltigkeit."}}]},
-  {"id":"frikadelle","name":"Frikadelle","image":"🍖","category":"KUEHLREGAL_FLEISCH_ALTERNATIVEN","variants":[{"id":"frikadelle-v2","name":"Frikadelle Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Sättigung"],"risks":["Fett","Salz"],"rating":{"preisbewusstsein":2,"gesundheit":2,"nachhaltigkeit":4,"preisText":"Kleine Menge und hoher Preis.","gesundheitText":"Wichtige Nährstoffe, aber hoher Fett-, Salz- und Zusatzstoffgehalt.","nachhaltigkeitText":"Bio fördert umweltfreundlichere Landwirtschaft."}}]},
-  {"id":"naturjoghurt","name":"Naturjoghurt","image":"🥛","category":"KUEHLREGAL_MILCH_ALTERNATIVEN","variants":[{"id":"naturjoghurt-v2","name":"Naturjoghurt Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Eiweiß","Calcium"],"risks":[],"rating":{"preisbewusstsein":3,"gesundheit":5,"nachhaltigkeit":3,"preisText":"Günstigeres Produkt.","gesundheitText":"Ohne zugesetzten Zucker, fettärmere Variante.","nachhaltigkeitText":"Tierisches Produkt mit höherer Klimawirkung."}}]},
-  {"id":"muesliriegel-schoko","name":"Müsliriegel mit Schokolade","image":"🍫","category":"GETREIDEPRODUKTE","variants":[{"id":"muesli-v2","name":"Müsliriegel mit Schokolade Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":[],"risks":["Zucker"],"rating":{"preisbewusstsein":2,"gesundheit":3,"nachhaltigkeit":3,"preisText":"Teurer wegen ökologischem Landbau.","gesundheitText":"Häufig Zucker/Zusatzstoffe.","nachhaltigkeitText":"Unterstützt umweltschonende Landwirtschaft und soziale Standards."}}]},
-  {"id":"wasser","name":"Wasser","image":"💧","category":"GETRAENKE","variants":[{"id":"wasser-v2","name":"Wasser Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Kalorienfrei"],"risks":[],"rating":{"preisbewusstsein":4,"gesundheit":5,"nachhaltigkeit":4,"preisText":"Niedriger Preis, Pfand kommt dazu.","gesundheitText":"Bestes Standardgetränk, keine Kalorien.","nachhaltigkeitText":"Mehrweg reduziert Einwegmüll, Energie und Ressourcen."}}]},
-  {"id":"studentenfutter","name":"Studentenfutter","image":"🥜","category":"NUESSE_UND_SALZIGES","variants":[{"id":"studentenfutter-v2","name":"Studentenfutter Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":["Wertvolle Fette"],"risks":[],"rating":{"preisbewusstsein":2,"gesundheit":3,"nachhaltigkeit":4,"preisText":"Bio-Produkte sind eher teuer.","gesundheitText":"Nüsse energiereich, Portion klein halten.","nachhaltigkeitText":"Bio mit strengeren Umweltauflagen."}}]},
-  {"id":"gummibaerchen","name":"Gummibärchen","image":"🍬","category":"SCHOKOLADE_SUESSWAREN","variants":[{"id":"gummibaerchen-v2","name":"Gummibärchen Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":[],"risks":["Zucker"],"rating":{"preisbewusstsein":1,"gesundheit":1,"nachhaltigkeit":4,"preisText":"Deutlich höherer Preis als konventionell.","gesundheitText":"Hauptsächlich Zucker, keine nennenswerten Nährstoffe.","nachhaltigkeitText":"Biologische Zutaten, ohne gentechnische Zusatzstoffe."}}]},
-  {"id":"haferkekse","name":"Haferkekse","image":"🍪","category":"KEKSE","variants":[{"id":"haferkekse-v2","name":"Haferkekse Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":[],"risks":["Zucker"],"rating":{"preisbewusstsein":3,"gesundheit":2,"nachhaltigkeit":3,"preisText":"Mittelpreisig, Bio oft teurer.","gesundheitText":"Süßgebäck mit viel Zucker/Fett.","nachhaltigkeitText":"Mit Bio etwas nachhaltiger."}}]},
-  {"id":"wassereis","name":"Wassereis am Stiel","image":"🍦","category":"TIEFKUEHL_EIS","variants":[{"id":"wassereis-v2","name":"Wassereis am Stiel Variante 2","priceCents":0,"nutrition":{"energyKcal":0,"fatG":0,"saltG":0},"additives":[],"benefits":[],"risks":["Zucker"],"rating":{"preisbewusstsein":2,"gesundheit":2,"nachhaltigkeit":3,"preisText":"Etwas teurer aufgrund von Bio-Zutaten.","gesundheitText":"Geringere Kalorien, aber oft viel Zucker.","nachhaltigkeitText":"Nachhaltiger durch ökologische Zutaten."}}]}
+  {
+    "id": "snack-paprika",
+    "name": "Snack-Paprika",
+    "image": "🫑",
+    "category": "GEMUESE",
+    "variants": [
+      {
+        "id": "snack-paprika-v1",
+        "name": "Snack-Paprika Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, weniger strenge Umweltauflagen.",
+        "priceCents": 139,
+        "priceLabel": "1,39 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiges Gemüse im Standardangebot.",
+          "gesundheitText": "Frisches Gemüse ist nährstoffreich, mögliche Pestizidrückstände und weniger strenge Umweltauflagen mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau ist verfügbar und preiswert, aber mit weniger strengen Umweltauflagen verbunden."
+        }
+      },
+      {
+        "id": "snack-paprika-v2",
+        "name": "Snack-Paprika Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber moderat im Vergleich zu kombinierten Nachhaltigkeitsoptionen.",
+          "gesundheitText": "Bio-Anbau reduziert synthetische Pestizide und unterstützt eine hohe Gemüsequalität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "snack-paprika-v3",
+        "name": "Snack-Paprika Variante 3",
+        "variantName": "Regional / saisonal / möglichst unverpackt",
+        "description": "Regionale und saisonale Produkte, oft frischer und klimafreundlicher; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 159,
+        "priceLabel": "1,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer als Standardware, dafür oft frisch und saisonal.",
+          "gesundheitText": "Frisches, regionales und saisonales Gemüse kann nährstoffreich und besonders frisch sein.",
+          "nachhaltigkeitText": "Kürzere Transportwege und möglichst wenig Verpackung verbessern die Nachhaltigkeit, auch wenn der Anbau konventionell sein kann."
+        }
+      },
+      {
+        "id": "snack-paprika-v4",
+        "name": "Snack-Paprika Variante 4",
+        "variantName": "Bio + regional/saisonal + möglichst unverpackt",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, nachhaltiger durch Regionalität und Saisonalität.",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höchster Preis durch Bio-, Regional-/Saisonal- und möglichst unverpackte Qualität.",
+          "gesundheitText": "Frisches Gemüse mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität und möglichst wenig Verpackung sorgen für eine sehr hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "snack-tomaten-cherrytomaten",
+    "name": "Snack-Tomaten / Cherrytomaten",
+    "image": "🍅",
+    "category": "GEMUESE",
+    "variants": [
+      {
+        "id": "snack-tomaten-cherrytomaten-v1",
+        "name": "Snack-Tomaten / Cherrytomaten Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, weniger strenge Umweltauflagen.",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiges Gemüse im Standardangebot.",
+          "gesundheitText": "Frisches Gemüse ist nährstoffreich, mögliche Pestizidrückstände und weniger strenge Umweltauflagen mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau ist verfügbar und preiswert, aber mit weniger strengen Umweltauflagen verbunden."
+        }
+      },
+      {
+        "id": "snack-tomaten-cherrytomaten-v2",
+        "name": "Snack-Tomaten / Cherrytomaten Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 179,
+        "priceLabel": "1,79 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber moderat im Vergleich zu kombinierten Nachhaltigkeitsoptionen.",
+          "gesundheitText": "Bio-Anbau reduziert synthetische Pestizide und unterstützt eine hohe Gemüsequalität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "snack-tomaten-cherrytomaten-v3",
+        "name": "Snack-Tomaten / Cherrytomaten Variante 3",
+        "variantName": "Regional / saisonal / möglichst unverpackt",
+        "description": "Regionale und saisonale Produkte, oft frischer und klimafreundlicher; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 159,
+        "priceLabel": "1,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer als Standardware, dafür oft frisch und saisonal.",
+          "gesundheitText": "Frisches, regionales und saisonales Gemüse kann nährstoffreich und besonders frisch sein.",
+          "nachhaltigkeitText": "Kürzere Transportwege und möglichst wenig Verpackung verbessern die Nachhaltigkeit, auch wenn der Anbau konventionell sein kann."
+        }
+      },
+      {
+        "id": "snack-tomaten-cherrytomaten-v4",
+        "name": "Snack-Tomaten / Cherrytomaten Variante 4",
+        "variantName": "Bio + regional/saisonal + möglichst unverpackt",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, nachhaltiger durch Regionalität und Saisonalität.",
+        "priceCents": 209,
+        "priceLabel": "2,09 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio- und Regional-/saisonal-Siegel.",
+          "gesundheitText": "Frisches Gemüse, nährstoffreich und mit reduziertem Pestizideinsatz.",
+          "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität & unverpackt sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "snack-gurken",
+    "name": "Snack-Gurken",
+    "image": "🥒",
+    "category": "GEMUESE",
+    "variants": [
+      {
+        "id": "snack-gurken-v1",
+        "name": "Snack-Gurken Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, weniger strenge Umweltauflagen.",
+        "priceCents": 69,
+        "priceLabel": "0,69 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiges Gemüse im Standardangebot.",
+          "gesundheitText": "Frisches Gemüse ist nährstoffreich, mögliche Pestizidrückstände und weniger strenge Umweltauflagen mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau ist verfügbar und preiswert, aber mit weniger strengen Umweltauflagen verbunden."
+        }
+      },
+      {
+        "id": "snack-gurken-v2",
+        "name": "Snack-Gurken Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 99,
+        "priceLabel": "0,99 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber moderat im Vergleich zu kombinierten Nachhaltigkeitsoptionen.",
+          "gesundheitText": "Bio-Anbau reduziert synthetische Pestizide und unterstützt eine hohe Gemüsequalität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "snack-gurken-v3",
+        "name": "Snack-Gurken Variante 3",
+        "variantName": "Regional / saisonal / möglichst unverpackt",
+        "description": "Regionale und saisonale Produkte, oft frischer und klimafreundlicher; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 69,
+        "priceLabel": "0,69 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer als Standardware, dafür oft frisch und saisonal.",
+          "gesundheitText": "Frisches, regionales und saisonales Gemüse kann nährstoffreich und besonders frisch sein.",
+          "nachhaltigkeitText": "Kürzere Transportwege und möglichst wenig Verpackung verbessern die Nachhaltigkeit, auch wenn der Anbau konventionell sein kann."
+        }
+      },
+      {
+        "id": "snack-gurken-v4",
+        "name": "Snack-Gurken Variante 4",
+        "variantName": "Bio + regional/saisonal + möglichst unverpackt",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, nachhaltiger durch Regionalität und Saisonalität.",
+        "priceCents": 99,
+        "priceLabel": "0,99 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höchster Preis durch Bio-, Regional-/Saisonal- und möglichst unverpackte Qualität.",
+          "gesundheitText": "Frisches Gemüse mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität und möglichst wenig Verpackung sorgen für eine sehr hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "moehren",
+    "name": "Möhren",
+    "image": "🥕",
+    "category": "GEMUESE",
+    "variants": [
+      {
+        "id": "moehren-v1",
+        "name": "Möhren Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, weniger strenge Umweltauflagen.",
+        "priceCents": 115,
+        "priceLabel": "1,15 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiges Gemüse im Standardangebot.",
+          "gesundheitText": "Frisches Gemüse ist nährstoffreich, mögliche Pestizidrückstände und weniger strenge Umweltauflagen mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau ist verfügbar und preiswert, aber mit weniger strengen Umweltauflagen verbunden."
+        }
+      },
+      {
+        "id": "moehren-v2",
+        "name": "Möhren Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 169,
+        "priceLabel": "1,69 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber moderat im Vergleich zu kombinierten Nachhaltigkeitsoptionen.",
+          "gesundheitText": "Bio-Anbau reduziert synthetische Pestizide und unterstützt eine hohe Gemüsequalität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "moehren-v3",
+        "name": "Möhren Variante 3",
+        "variantName": "Regional / saisonal / möglichst unverpackt/lose",
+        "description": "Regionale und saisonale Produkte, oft frischer und klimafreundlicher; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer als Standardware, dafür oft frisch und saisonal.",
+          "gesundheitText": "Frisches, regionales und saisonales Gemüse kann nährstoffreich und besonders frisch sein.",
+          "nachhaltigkeitText": "Kürzere Transportwege und möglichst wenig Verpackung verbessern die Nachhaltigkeit, auch wenn der Anbau konventionell sein kann."
+        }
+      },
+      {
+        "id": "moehren-v4",
+        "name": "Möhren Variante 4",
+        "variantName": "Bio + regional/saisonal + möglichst unverpackt/lose",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, nachhaltiger durch Regionalität und Saisonalität.",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Gemüse",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal",
+          "Möglichst unverpackt"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höchster Preis durch Bio-, Regional-/Saisonal- und möglichst unverpackte Qualität.",
+          "gesundheitText": "Frisches Gemüse mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität und möglichst wenig Verpackung sorgen für eine sehr hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "donut",
+    "name": "Donut",
+    "image": "🍩",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "donut-v1",
+        "name": "Donut Variante 1",
+        "variantName": "Konventioneller Donut",
+        "description": "Viele Kohlenhydrate, keine Ballaststoffe, fettreiche Glasuren",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 56,
+        "priceLabel": "0,56 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Keine Ballaststoffe",
+          "Fettreiche Glasuren"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiger Einzelartikel.",
+          "gesundheitText": "Süßgebäck mit vielen Kohlenhydraten, fettreicher Glasur und kaum Ballaststoffen.",
+          "nachhaltigkeitText": "Papiertüte und pflanzliche Grundzutaten sind günstiger als Plastik, konventionelle Zutaten senken die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "kaesebroetchen",
+    "name": "Käsebrötchen",
+    "image": "🧀",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "kaesebroetchen-v1",
+        "name": "Käsebrötchen Variante 1",
+        "variantName": "Konventionelles Käsebrötchen",
+        "description": "Viele Kohlenhydrate, kaum Ballaststoffe, fettreicher Käse",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 39,
+        "priceLabel": "0,39 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sättigend"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Kaum Ballaststoffe",
+          "Fettreicher Käse"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiges Brötchen aus dem Backshop.",
+          "gesundheitText": "Sättigt, enthält aber viele Kohlenhydrate, wenig Ballaststoffe und fettreichen Käse.",
+          "nachhaltigkeitText": "Getreidebasis und Papiertüte sind moderat, Käse und konventionelle Zutaten belasten die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "mehrkornbroetchen",
+    "name": "Mehrkornbrötchen",
+    "image": "🥖",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "mehrkornbroetchen-v1",
+        "name": "Mehrkornbrötchen Variante 1",
+        "variantName": "Konventionelles Mehrkornbrötchen",
+        "description": "Viele Kohlenhydrate, hoher Vollkornanteil",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 33,
+        "priceLabel": "0,33 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Hoher Vollkornanteil",
+          "Ballaststoffreicher"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiges Mehrkornbrötchen.",
+          "gesundheitText": "Hoher Vollkornanteil liefert mehr Ballaststoffe und sättigt besser als Weißmehlgebäck.",
+          "nachhaltigkeitText": "Pflanzliches Produkt mit wenig Verpackung, jedoch aus konventionellem Anbau."
+        }
+      },
+      {
+        "id": "mehrkornbroetchen-v2",
+        "name": "Mehrkornbrötchen Variante 2",
+        "variantName": "Bio-Mehrkornbrötchen",
+        "description": "Viele Kohlenhydrate, hoher Vollkornanteil",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 55,
+        "priceLabel": "0,55 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Hoher Vollkornanteil",
+          "Ballaststoffreicher",
+          "Bio-Zutaten"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 5,
+          "preisText": "Teurer als die konventionelle Variante, aber noch moderater Einzelpreis.",
+          "gesundheitText": "Hoher Vollkornanteil liefert mehr Ballaststoffe und sättigt besser als Weißmehlgebäck.",
+          "nachhaltigkeitText": "Bio-Zutaten und geringe Verpackung sorgen für eine hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "pizzastueck",
+    "name": "Pizzastück",
+    "image": "🍕",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "pizzastueck-v1",
+        "name": "Pizzastück Variante 1",
+        "variantName": "Konventionelles Pizzastück",
+        "description": "Viele Kohlenhydrate, wenig Ballaststoffe, fettreiche Beläge",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 169,
+        "priceLabel": "1,69 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sättigend"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Wenig Ballaststoffe",
+          "Fettreiche Beläge"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Mittelpreisiger Snack im Vergleich zu einfachen Brötchen.",
+          "gesundheitText": "Sättigt, enthält aber viele Kohlenhydrate, wenig Ballaststoffe und fettreiche Beläge.",
+          "nachhaltigkeitText": "Papiertüte ist günstig, doch Käse/Fleischbeläge und Verarbeitung senken die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "schokobroetchen",
+    "name": "Schokobrötchen",
+    "image": "🍫",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "schokobroetchen-v1",
+        "name": "Schokobrötchen Variante 1",
+        "variantName": "Konventionelle Schokobrötchen",
+        "description": "Viele Kohlenhydrate, keine Ballaststoffe, fettreiche Schokolade",
+        "packaging": "Großpackung aus dem Discounter, Plastikverpackung",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Keine Ballaststoffe",
+          "Fettreiche Schokolade",
+          "Plastikverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Als Großpackung günstig pro Stück, aber Packungspreis höher als Einzelgebäck.",
+          "gesundheitText": "Süßgebäck mit vielen Kohlenhydraten, fettreicher Schokolade und ohne nennenswerte Ballaststoffe.",
+          "nachhaltigkeitText": "Plastikverpackung, Verarbeitung und konventionelle Zutaten führen zu einer niedrigen Bewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "sesam-bagel",
+    "name": "Sesam-Bagel",
+    "image": "🥯",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "sesam-bagel-v1",
+        "name": "Sesam-Bagel Variante 1",
+        "variantName": "Konventioneller Sesam-Bagel",
+        "description": "Viele Kohlenhydrate, kleiner Ballaststoffanteil",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 65,
+        "priceLabel": "0,65 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sättigend",
+          "Kleiner Ballaststoffanteil durch Sesam"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstiger Einzelartikel, etwas teurer als einfache Brötchen.",
+          "gesundheitText": "Sättigend, aber überwiegend kohlenhydratreich mit nur kleinem Ballaststoffanteil.",
+          "nachhaltigkeitText": "Papiertüte und pflanzliche Zutaten sind moderat, konventioneller Anbau begrenzt die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "waffeln",
+    "name": "Waffeln",
+    "image": "🧇",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "waffeln-v1",
+        "name": "Waffeln Variante 1",
+        "variantName": "Konventionelle Waffel",
+        "description": "Viele Kohlenhydrate, viel Fett, geringer Sättigungsgrad",
+        "packaging": "Meist 12er-Packung aus dem Discounter, Plastikverpackung",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Viel Fett",
+          "Geringer Sättigungsgrad",
+          "Plastikverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstige Discounter-Packung.",
+          "gesundheitText": "Süßgebäck mit vielen Kohlenhydraten und viel Fett bei geringem Sättigungsgrad.",
+          "nachhaltigkeitText": "Plastikverpackung, Verarbeitung und konventionelle Zutaten führen zu einer niedrigen Bewertung."
+        }
+      },
+      {
+        "id": "waffeln-v2",
+        "name": "Waffeln Variante 2",
+        "variantName": "Bio Waffel",
+        "description": "Viele Kohlenhydrate, viel Fett, geringer Sättigungsgrad",
+        "packaging": "Kleinere Packung, Plastikverpackung",
+        "priceCents": 239,
+        "priceLabel": "2,39 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Viel Fett",
+          "Geringer Sättigungsgrad",
+          "Plastikverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 1,
+          "nachhaltigkeit": 4,
+          "preisText": "Deutlich teurer als die konventionelle Packung.",
+          "gesundheitText": "Auch als Bio-Produkt süß und fettreich mit geringem Sättigungsgrad.",
+          "nachhaltigkeitText": "Bio-Zutaten verbessern die Bewertung, Plastikverpackung und Verarbeitung bleiben Nachteile."
+        }
+      }
+    ]
+  },
+  {
+    "id": "weizenbroetchen",
+    "name": "Weizenbrötchen",
+    "image": "🥐",
+    "category": "BACKWAREN_GEBAECK",
+    "variants": [
+      {
+        "id": "weizenbroetchen-v1",
+        "name": "Weizenbrötchen Variante 1",
+        "variantName": "Konventionelles Weizenbrötchen",
+        "description": "Viele Kohlenhydrate, kein Vollkorn, geringer Ballaststoffanteil",
+        "packaging": "Einzeln aus dem Backshop, Papiertüte",
+        "priceCents": 19,
+        "priceLabel": "0,19 €/Brötchen",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sättigend"
+        ],
+        "risks": [
+          "Viele Kohlenhydrate",
+          "Kein Vollkorn",
+          "Geringer Ballaststoffanteil"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiges Produkt.",
+          "gesundheitText": "Getreideprodukte sättigen, mehr Ballaststoffe wären günstiger.",
+          "nachhaltigkeitText": "Getreide ressourcenschonender, Nachhaltigkeit steigt mit Bio."
+        }
+      }
+    ]
+  },
+  {
+    "id": "salat-ready",
+    "name": "Frisch zubereiteter Salat",
+    "image": "🥗",
+    "category": "KUEHLREGAL_READY_TO_EAT",
+    "variants": [
+      {
+        "id": "salat-v2",
+        "name": "Frisch zubereiteter Salat Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Gemüseanteil hoch"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Höherer Preis, selten im Angebot.",
+          "gesundheitText": "Gemüseanteil hoch: mehr Volumen und Mikronährstoffe.",
+          "nachhaltigkeitText": "Oft verarbeitet/verpackt; tierische Zutaten senken Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "veganer-snack-salami-art",
+    "name": "Veganer Snack Salami Art",
+    "image": "🌱",
+    "category": "KUEHLREGAL_FLEISCH_ALTERNATIVEN",
+    "variants": [
+      {
+        "id": "veganer-snack-salami-art-v1",
+        "name": "Veganer Snack Salami Art Variante 1",
+        "variantName": "Konventionell",
+        "description": "Industriell hergestellt, oft mit Zusatzstoffen und Aromen. Preiswert und gut verfügbar, aber häufig mit vielen Zusatzstoffen und weniger natürlichen Zutaten.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 30 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan",
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Zusatzstoffe",
+          "Aromen",
+          "Stark verarbeitet"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Preiswert und gut verfügbar, bezogen auf 30 g aber kein sehr günstiger Sattmacher.",
+          "gesundheitText": "Vegan, aber stark verarbeitet und häufig mit Zusatzstoffen und Aromen.",
+          "nachhaltigkeitText": "Pflanzliche Alternative mit besserer Klimabilanz als Fleisch, konventionelle Zutaten und Verarbeitung bleiben Nachteile."
+        }
+      },
+      {
+        "id": "veganer-snack-salami-art-v2",
+        "name": "Veganer Snack Salami Art Variante 2",
+        "variantName": "Bio",
+        "description": "Aus kontrolliert biologischen Zutaten, ohne künstliche Zusätze. Umweltfreundlicher, aber teurer und mit eingeschränkter Auswahl.",
+        "priceCents": 99,
+        "priceLabel": "0,99 € / 50 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan",
+          "Bio-Zutaten",
+          "Ohne künstliche Zusätze"
+        ],
+        "risks": [
+          "Eingeschränkte Auswahl",
+          "Verarbeitet"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 5,
+          "preisText": "Günstiger Preis für 50 g, trotz Bio-Qualität.",
+          "gesundheitText": "Bio-Zutaten und Verzicht auf künstliche Zusätze sind vorteilhaft, das Produkt bleibt verarbeitet.",
+          "nachhaltigkeitText": "Pflanzlich und Bio sorgt für eine sehr gute Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "wuerstchen",
+    "name": "Würstchen",
+    "image": "🌭",
+    "category": "KUEHLREGAL_FLEISCH_ALTERNATIVEN",
+    "variants": [
+      {
+        "id": "wuerstchen-v1",
+        "name": "Würstchen Variante 1",
+        "variantName": "Konventionell",
+        "description": "Standard-Fleischmischungen, eventuell mit Zusatzstoffen und Füllmaterialien. Preiswert und gut erhältlich, jedoch meist geringere Qualität und mehr Zusatzstoffe.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Preiswert",
+          "Gut erhältlich"
+        ],
+        "risks": [
+          "Fleischprodukt",
+          "Zusatzstoffe",
+          "Füllmaterialien",
+          "Geringere Qualität möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Sehr günstige Fleischware und gut erhältlich.",
+          "gesundheitText": "Verarbeitetes Fleischprodukt mit möglichen Zusatzstoffen, Füllmaterialien und oft höherem Salz-/Fettanteil.",
+          "nachhaltigkeitText": "Konventionelles Fleisch hat eine hohe Umwelt- und Tierwohlbelastung."
+        }
+      },
+      {
+        "id": "wuerstchen-v2",
+        "name": "Würstchen Variante 2",
+        "variantName": "Bio",
+        "description": "Fleisch aus kontrolliert biologischer Haltung, ohne Antibiotika und synthetische Zusätze. Höhere Qualität und bessere Tierhaltung, aber teurer.",
+        "priceCents": 572,
+        "priceLabel": "5,72 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Haltung",
+          "Höhere Qualität",
+          "Bessere Tierhaltung"
+        ],
+        "risks": [
+          "Fleischprodukt",
+          "Teurer",
+          "Verarbeitet"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Deutlich teurer als konventionelle Würstchen.",
+          "gesundheitText": "Bessere Fleischqualität und weniger synthetische Zusätze, bleibt aber verarbeitetes Fleisch.",
+          "nachhaltigkeitText": "Bio-Tierhaltung verbessert Standards, Fleisch bleibt ressourcenintensiv."
+        }
+      },
+      {
+        "id": "wuerstchen-v3",
+        "name": "Würstchen Variante 3",
+        "variantName": "Regional",
+        "description": "Fleisch aus der näheren Umgebung, teils in Handarbeit hergestellt. Kürzere Transportwege und Unterstützung der lokalen Wirtschaft, Qualität kann variieren.",
+        "priceCents": 572,
+        "priceLabel": "5,72 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Regional",
+          "Kürzere Transportwege",
+          "Unterstützt lokale Wirtschaft"
+        ],
+        "risks": [
+          "Fleischprodukt",
+          "Qualität kann variieren",
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Teuer im Vergleich zur konventionellen Variante.",
+          "gesundheitText": "Regionale Herstellung kann hochwertiger sein, die Qualität variiert und es bleibt verarbeitetes Fleisch.",
+          "nachhaltigkeitText": "Kürzere Transportwege und lokale Wertschöpfung sind positiv, Fleisch bleibt ressourcenintensiv."
+        }
+      }
+    ]
+  },
+  {
+    "id": "falafel",
+    "name": "Falafel",
+    "image": "🧆",
+    "category": "KUEHLREGAL_FLEISCH_ALTERNATIVEN",
+    "variants": [
+      {
+        "id": "falafel-v1",
+        "name": "Falafel Variante 1",
+        "variantName": "Konventionell",
+        "description": "Oft industriell hergestellt, mit möglichen Zusatzstoffen und im Großgebinde verfügbar. Preiswert und gut erhältlich, aber weniger frisch.",
+        "priceCents": 199,
+        "priceLabel": "1,99 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Pflanzlich",
+          "Preiswert",
+          "Gut erhältlich"
+        ],
+        "risks": [
+          "Mögliche Zusatzstoffe",
+          "Weniger frisch",
+          "Industriell hergestellt"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Günstige pflanzliche Alternative im 200-g-Pack.",
+          "gesundheitText": "Kichererbsenbasis ist sättigend und pflanzlich, industrielle Herstellung und mögliche Zusatzstoffe mindern die Bewertung.",
+          "nachhaltigkeitText": "Pflanzliche Alternative mit guter Nachhaltigkeit, konventionelle Zutaten und Verarbeitung begrenzen die Bewertung."
+        }
+      },
+      {
+        "id": "falafel-v2",
+        "name": "Falafel Variante 2",
+        "variantName": "Bio",
+        "description": "Aus kontrolliert biologischem Anbau, eher ohne Konservierungsstoffe. Umweltfreundlicher und oft bessere Qualität, aber teurer und teils begrenzt verfügbar.",
+        "priceCents": 229,
+        "priceLabel": "2,29 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Pflanzlich",
+          "Bio-Zutaten",
+          "Eher ohne Konservierungsstoffe"
+        ],
+        "risks": [
+          "Teurer",
+          "Teils begrenzt verfügbar"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 5,
+          "preisText": "Etwas teurer als konventionelle Falafel, aber noch moderater Preis.",
+          "gesundheitText": "Pflanzlich, sättigend und mit Bio-Zutaten sowie eher ohne Konservierungsstoffe.",
+          "nachhaltigkeitText": "Pflanzliche Bio-Zutaten sorgen für eine hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "frikadelle",
+    "name": "Frikadelle",
+    "image": "🍖",
+    "category": "KUEHLREGAL_FLEISCH_ALTERNATIVEN",
+    "variants": [
+      {
+        "id": "frikadelle-v1",
+        "name": "Frikadelle Variante 1",
+        "variantName": "Konventionell",
+        "description": "Standard-Fleischqualität, eventuell Mischfleisch und Zusatzstoffe. Preiswert und gut verfügbar, aber geringere Qualität möglich.",
+        "priceCents": 319,
+        "priceLabel": "3,19 € / 500 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Preiswert",
+          "Gut verfügbar",
+          "Sättigung"
+        ],
+        "risks": [
+          "Fleischprodukt",
+          "Mischfleisch möglich",
+          "Zusatzstoffe",
+          "Geringere Qualität möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Günstige große Packung und gut verfügbar.",
+          "gesundheitText": "Verarbeitetes Fleischprodukt mit möglichem Mischfleisch, Zusatzstoffen und oft höherem Fett-/Salzanteil.",
+          "nachhaltigkeitText": "Konventionelles Fleisch und Verarbeitung führen zu einer niedrigen Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "frikadelle-v2",
+        "name": "Frikadelle Variante 2",
+        "variantName": "Bio",
+        "description": "Fleisch aus kontrolliert biologischer Landwirtschaft, keine Antibiotika und keine synthetischen Zusätze. Höhere Qualität und artgerechtere Tierhaltung, aber teurer.",
+        "priceCents": 379,
+        "priceLabel": "3,79 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Höhere Qualität",
+          "Artgerechtere Tierhaltung",
+          "Bio"
+        ],
+        "risks": [
+          "Fleischprodukt",
+          "Teurer",
+          "Fett",
+          "Salz"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Kleine Menge und hoher Preis.",
+          "gesundheitText": "Wichtige Nährstoffe, aber hoher Fett-, Salz- und Zusatzstoffgehalt.",
+          "nachhaltigkeitText": "Bio fördert umweltfreundlichere Landwirtschaft."
+        }
+      },
+      {
+        "id": "frikadelle-v3",
+        "name": "Frikadelle Variante 3",
+        "variantName": "Regional",
+        "description": "Fleisch aus der näheren Umgebung, kurze Transportwege, unterstützt lokale Landwirtschaft und ist eher an der Fleischtheke verfügbar. Qualität kann unterschiedlich sein.",
+        "priceCents": 399,
+        "priceLabel": "3,99 € / 250 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Regional",
+          "Kurze Transportwege",
+          "Unterstützt lokale Landwirtschaft"
+        ],
+        "risks": [
+          "Fleischprodukt",
+          "Qualität kann unterschiedlich sein",
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Teurer als konventionelle Frikadellen, oft als kleinere Menge an der Fleischtheke.",
+          "gesundheitText": "Regional kann frischer sein, Qualität variiert und es bleibt ein verarbeitetes Fleischprodukt.",
+          "nachhaltigkeitText": "Kurze Transportwege sind positiv, Fleischproduktion bleibt ressourcenintensiv."
+        }
+      }
+    ]
+  },
+  {
+    "id": "reiswaffeln-pur",
+    "name": "Reiswaffeln pur",
+    "image": "🍘",
+    "category": "GETREIDEPRODUKTE",
+    "variants": [
+      {
+        "id": "reiswaffeln-pur-v1",
+        "name": "Reiswaffeln pur Variante 1",
+        "variantName": "Bio und Vollkorn",
+        "description": "Umweltschonenderer Anbau und sozial verträglichere Produktionsbedingungen. Durch Vollkorn etwas höhere Nährstoffdichte, aber höherer Preis.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Vollkorn",
+          "Höhere Nährstoffdichte"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Nährstoffarm im Vergleich zu vollwertigen Mahlzeiten"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 3,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis als einfache Reiswaffeln, aber noch moderat.",
+          "gesundheitText": "Vollkorn erhöht die Nährstoffdichte etwas, Reiswaffeln bleiben eher leichte Snacks.",
+          "nachhaltigkeitText": "Bio-Anbau und sozial verträglichere Produktionsbedingungen sorgen für eine hohe Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "reiswaffeln-pur-v2",
+        "name": "Reiswaffeln pur Variante 2",
+        "variantName": "Bio",
+        "description": "Umweltschonenderer Anbau und sozial verträglichere Produktionsbedingungen. Sehr günstig, konventionelles Produkt meistens nicht verfügbar.",
+        "priceCents": 69,
+        "priceLabel": "0,69 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Sehr günstig"
+        ],
+        "risks": [
+          "Nährstoffarm",
+          "Geringer Sättigungsgrad"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 2,
+          "nachhaltigkeit": 5,
+          "preisText": "Sehr günstiges Bio-Produkt.",
+          "gesundheitText": "Leichter Snack mit wenig Fett, aber geringer Nährstoffdichte und Sättigung.",
+          "nachhaltigkeitText": "Bio-Anbau und sozial verträglichere Produktionsbedingungen sind sehr positiv."
+        }
+      }
+    ]
+  },
+  {
+    "id": "muesliriegel-erdnuesse",
+    "name": "Müsliriegel mit Erdnüssen",
+    "image": "🥜",
+    "category": "GETREIDEPRODUKTE",
+    "variants": [
+      {
+        "id": "muesliriegel-erdnuesse-v1",
+        "name": "Müsliriegel mit Erdnüssen Variante 1",
+        "variantName": "Konventionell",
+        "description": "Standardzutaten, teilweise Zuckerzusatz, konventionell angebaute Rohwaren und mögliche synthetische Zusatzstoffe. Preiswert und gut erhältlich.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 8×25 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Preiswert",
+          "Gut erhältlich",
+          "Erdnüsse liefern wertvolle Fette"
+        ],
+        "risks": [
+          "Zuckerzusatz möglich",
+          "Synthetische Zusatzstoffe möglich",
+          "Konventionelle Rohwaren"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Preiswert und gut erhältlich in der Mehrfachpackung.",
+          "gesundheitText": "Erdnüsse liefern wertvolle Fette, Zuckerzusatz und mögliche Zusatzstoffe mindern die Bewertung.",
+          "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, konventioneller Anbau und Verarbeitung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "muesliriegel-erdnuesse-v2",
+        "name": "Müsliriegel mit Erdnüssen Variante 2",
+        "variantName": "Bio",
+        "description": "Zutaten aus ökologischem Anbau, keine synthetischen Pestizide oder Düngemittel, oft weniger künstliche Zusatzstoffe. Teurer, Auswahl kann begrenzt sein.",
+        "priceCents": 339,
+        "priceLabel": "3,39 € / 6×24 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Weniger künstliche Zusatzstoffe",
+          "Erdnüsse liefern wertvolle Fette"
+        ],
+        "risks": [
+          "Teurer",
+          "Auswahl kann begrenzt sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 4,
+          "nachhaltigkeit": 5,
+          "preisText": "Deutlich teurer als die konventionelle Mehrfachpackung.",
+          "gesundheitText": "Bio-Zutaten und oft weniger künstliche Zusatzstoffe verbessern die Bewertung.",
+          "nachhaltigkeitText": "Ökologischer Anbau ohne synthetische Pestizide oder Düngemittel sorgt für eine hohe Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "muesliriegel-erdnuesse-v3",
+        "name": "Müsliriegel mit Erdnüssen Variante 3",
+        "variantName": "Ohne Zuckerzusatz",
+        "description": "Kein zugesetzter Zucker, oft Ersatz durch Süßstoffe oder Früchte wie Datteln. Kann trotzdem kalorienreich sein, auch konventionell oder Bio möglich.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 8×25 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker",
+          "Preiswert",
+          "Erdnüsse liefern wertvolle Fette"
+        ],
+        "risks": [
+          "Kann kalorienreich sein",
+          "Süßstoffe oder Datteln möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Preiswert und auf Niveau der konventionellen Variante.",
+          "gesundheitText": "Ohne Zuckerzusatz ist vorteilhaft, Kalorien und Süßungsalternativen bleiben zu beachten.",
+          "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, Nachhaltigkeit hängt von Bio- oder konventioneller Herkunft ab."
+        }
+      }
+    ]
+  },
+  {
+    "id": "muesliriegel-schoko",
+    "name": "Müsliriegel mit Schokolade",
+    "image": "🍫",
+    "category": "GETREIDEPRODUKTE",
+    "variants": [
+      {
+        "id": "muesliriegel-schoko-v1",
+        "name": "Müsliriegel mit Schokolade Variante 1",
+        "variantName": "Konventionell",
+        "description": "Standardzutaten, teilweise Zuckerzusatz, konventionell angebaute Rohwaren und mögliche synthetische Zusatzstoffe. Preiswert und gut erhältlich.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 8×25 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Preiswert",
+          "Gut erhältlich"
+        ],
+        "risks": [
+          "Zuckerzusatz möglich",
+          "Schokolade",
+          "Synthetische Zusatzstoffe möglich",
+          "Konventionelle Rohwaren"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Preiswert und gut erhältlich in der Mehrfachpackung.",
+          "gesundheitText": "Schokolade und möglicher Zuckerzusatz machen den Riegel eher zu einer Süßigkeit.",
+          "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, konventioneller Anbau und Verarbeitung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "muesliriegel-schoko-v2",
+        "name": "Müsliriegel mit Schokolade Variante 2",
+        "variantName": "Bio",
+        "description": "Zutaten aus ökologischem Anbau, keine synthetischen Pestizide oder Düngemittel, oft weniger künstliche Zusatzstoffe. Teurer, Auswahl kann begrenzt sein.",
+        "priceCents": 339,
+        "priceLabel": "3,39 € / 6×24 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Weniger künstliche Zusatzstoffe"
+        ],
+        "risks": [
+          "Teurer",
+          "Schokolade",
+          "Auswahl kann begrenzt sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Teurer wegen ökologischem Landbau.",
+          "gesundheitText": "Häufig Zucker/Zusatzstoffe.",
+          "nachhaltigkeitText": "Unterstützt umweltschonende Landwirtschaft und soziale Standards."
+        }
+      },
+      {
+        "id": "muesliriegel-schoko-v3",
+        "name": "Müsliriegel mit Schokolade Variante 3",
+        "variantName": "Ohne Zuckerzusatz",
+        "description": "Kein zugesetzter Zucker, oft Ersatz durch Süßstoffe oder Früchte wie Datteln. Kann trotzdem kalorienreich sein, auch konventionell oder Bio möglich.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 8×25 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker",
+          "Preiswert"
+        ],
+        "risks": [
+          "Kann kalorienreich sein",
+          "Schokolade",
+          "Süßstoffe oder Datteln möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 3,
+          "preisText": "Preiswert und auf Niveau der konventionellen Variante.",
+          "gesundheitText": "Ohne Zuckerzusatz ist besser, Schokolade und Kalorien bleiben zu beachten.",
+          "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, Nachhaltigkeit hängt von Bio- oder konventioneller Herkunft ab."
+        }
+      }
+    ]
+  },
+  {
+    "id": "reiswaffeln-schokolade",
+    "name": "Reiswaffeln mit Schokolade",
+    "image": "🍫",
+    "category": "GETREIDEPRODUKTE",
+    "variants": [
+      {
+        "id": "reiswaffeln-schokolade-v1",
+        "name": "Reiswaffeln mit Schokolade Variante 1",
+        "variantName": "Bio",
+        "description": "Umweltschonenderer Anbau und sozial verträglichere Produktionsbedingungen. Sehr günstig, konventionelles Produkt meistens nicht verfügbar.",
+        "priceCents": 169,
+        "priceLabel": "1,69 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Günstig"
+        ],
+        "risks": [
+          "Schokolade",
+          "Zucker möglich",
+          "Nährstoffarm"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 5,
+          "preisText": "Günstiges Bio-Produkt mit Schokoladenüberzug.",
+          "gesundheitText": "Schokolade macht die Reiswaffeln zu einem süßen Snack mit eher geringer Nährstoffdichte.",
+          "nachhaltigkeitText": "Bio-Anbau und sozial verträglichere Produktionsbedingungen sind sehr positiv."
+        }
+      },
+      {
+        "id": "reiswaffeln-schokolade-v2",
+        "name": "Reiswaffeln mit Schokolade Variante 2",
+        "variantName": "Bio, ohne Zuckerzusatz",
+        "description": "Kein zugesetzter Zucker, oft Ersatz durch Süßstoffe. Für weniger Zuckerkonsum geeignet, aber weiterhin kalorienreich und nährstoffarm. Deutlich teurer.",
+        "priceCents": 319,
+        "priceLabel": "3,19 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Ohne Zuckerzusatz",
+          "Für weniger Zuckerkonsum geeignet"
+        ],
+        "risks": [
+          "Deutlich teurer",
+          "Kalorienreich",
+          "Nährstoffarm",
+          "Süßstoffe möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 3,
+          "nachhaltigkeit": 5,
+          "preisText": "Deutlich teurer als die Bio-Standardvariante.",
+          "gesundheitText": "Ohne Zuckerzusatz ist vorteilhaft, das Produkt bleibt aber kalorienreich und nährstoffarm.",
+          "nachhaltigkeitText": "Bio-Anbau ist nachhaltig, der starke Verarbeitungsgrad bleibt ein kleiner Nachteil."
+        }
+      }
+    ]
+  },
+  {
+    "id": "wasser",
+    "name": "Wasser",
+    "image": "💧",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "wasser-v2",
+        "name": "Wasser Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Niedriger Preis, Pfand kommt dazu.",
+          "gesundheitText": "Bestes Standardgetränk, keine Kalorien.",
+          "nachhaltigkeitText": "Mehrweg reduziert Einwegmüll, Energie und Ressourcen."
+        }
+      }
+    ]
+  },
+  {
+    "id": "apfelschorle",
+    "name": "Apfelschorle",
+    "image": "🍎",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "apfelschorle-v1",
+        "name": "Apfelschorle Variante 1",
+        "variantName": "Apfelschorle Standard",
+        "description": "Fruchtsaftanteil ca. 50–60 %, kohlensäurehaltiges Mineralwasser, Einwegflasche/PET, wenig Zusatzstoffe, vegan, kein Koffein",
+        "priceCents": 79,
+        "priceLabel": "0,79 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan",
+          "Kein Koffein",
+          "Wenig Zusatzstoffe"
+        ],
+        "risks": [
+          "Fruchtzucker",
+          "Einwegflasche/PET"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstiger Preis für 0,5 Liter.",
+          "gesundheitText": "Fruchtsaftanteil und wenig Zusatzstoffe sind positiv, Zucker aus Saft bleibt relevant.",
+          "nachhaltigkeitText": "Einweg-PET belastet die Nachhaltigkeit trotz veganer Rezeptur."
+        }
+      },
+      {
+        "id": "apfelschorle-v2",
+        "name": "Apfelschorle Variante 2",
+        "variantName": "Apfelschorle „leicht“ / light",
+        "description": "Weniger Fruchtsaft, weniger Zucker/Kalorien, höherer Wasseranteil, Einwegflasche/PET, vegan, kein Koffein",
+        "priceCents": 89,
+        "priceLabel": "0,89 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienärmer",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Einwegflasche/PET",
+          "Weniger Fruchtsaft"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Etwas teurer als die Standardvariante.",
+          "gesundheitText": "Weniger Zucker und Kalorien sind vorteilhaft, der geringere Fruchtsaftanteil mindert den Produktwert.",
+          "nachhaltigkeitText": "Einweg-PET bleibt ein deutlicher Nachhaltigkeitsnachteil."
+        }
+      },
+      {
+        "id": "apfelschorle-v3",
+        "name": "Apfelschorle Variante 3",
+        "variantName": "Apfelschorle Standard in Mehrwegflasche",
+        "description": "Mehrwegflasche, nachhaltiger durch Reinigung und Wiederbefüllung, Zucker kann variieren, vegan, kein Koffein",
+        "priceCents": 79,
+        "priceLabel": "0,79 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Mehrwegflasche",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Zucker kann variieren"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Günstiger Preis bei nachhaltigerer Verpackung.",
+          "gesundheitText": "Schorle enthält Fruchtsaft, der Zuckergehalt kann aber variieren.",
+          "nachhaltigkeitText": "Mehrweg spart Einwegmüll, Energie und Ressourcen."
+        }
+      },
+      {
+        "id": "apfelschorle-v4",
+        "name": "Apfelschorle Variante 4",
+        "variantName": "Apfelschorle „leicht“ / light in Mehrwegflasche",
+        "description": "Kalorienärmer, wenig Zusatzstoffe, Mehrwegflasche spart Energie und Ressourcen, vegan, kein Koffein",
+        "priceCents": 89,
+        "priceLabel": "0,89 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienärmer",
+          "Mehrwegflasche",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 5,
+          "preisText": "Etwas teurer, kombiniert aber weniger Zucker mit Mehrweg.",
+          "gesundheitText": "Kalorienärmer und mit wenig Zusatzstoffen, daher die beste Schorle-Variante für Gesundheit.",
+          "nachhaltigkeitText": "Mehrwegflasche reduziert Verpackungsmüll und Ressourceneinsatz deutlich."
+        }
+      }
+    ]
+  },
+  {
+    "id": "cola",
+    "name": "Cola",
+    "image": "🥤",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "cola-v1",
+        "name": "Cola Variante 1",
+        "variantName": "Colagetränk mit Zucker in Einwegdose/-flasche",
+        "description": "Zuckerhaltig, Zusatzstoffe möglich, Einwegverpackung, hoher Energieverbrauch, koffeinhaltig",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Gut verfügbar"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein",
+          "Zusatzstoffe möglich",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Günstiges Getränk pro Dose oder Flasche.",
+          "gesundheitText": "Zuckerhaltig, koffeinhaltig und nicht als Durstlöscher geeignet.",
+          "nachhaltigkeitText": "Einwegverpackung und hoher Energieverbrauch führen zu einer niedrigen Bewertung."
+        }
+      },
+      {
+        "id": "cola-v2",
+        "name": "Cola Variante 2",
+        "variantName": "Cola Light/Zero in Einwegdose/-flasche",
+        "description": "Wenig oder kein Zucker, mehr Zusatzstoffe wie Süß-, Farb- und Aromastoffe, koffeinhaltig",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Wenig oder kein Zucker",
+          "Kalorienärmer"
+        ],
+        "risks": [
+          "Koffein",
+          "Süßstoffe",
+          "Farb- und Aromastoffe",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 1,
+          "preisText": "Günstiges Getränk, preislich wie Zucker-Cola.",
+          "gesundheitText": "Wenig Zucker ist positiv, Süßstoffe, Zusatzstoffe und Koffein bleiben Nachteile.",
+          "nachhaltigkeitText": "Einwegverpackung belastet die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "cola-v3",
+        "name": "Cola Variante 3",
+        "variantName": "Colagetränk mit Zucker in Mehrwegflasche",
+        "description": "Zuckerhaltige Cola in Mehrwegflasche, nachhaltiger durch Wiederbefüllung, koffeinhaltig",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Mehrwegflasche"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstig und preisgleich zur Einwegvariante.",
+          "gesundheitText": "Zuckerhaltig und koffeinhaltig, daher nur gelegentlich geeignet.",
+          "nachhaltigkeitText": "Mehrweg verbessert die Verpackungsbilanz, die Rezeptur bleibt unverändert."
+        }
+      },
+      {
+        "id": "cola-v4",
+        "name": "Cola Variante 4",
+        "variantName": "Cola ohne Zucker in Mehrwegflasche",
+        "description": "Kalorienfrei, aber nicht als Durstlöscher geeignet, enthält Süß-, Farb- und Aromastoffe sowie Koffein",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei",
+          "Mehrwegflasche"
+        ],
+        "risks": [
+          "Koffein",
+          "Süßstoffe",
+          "Farb- und Aromastoffe"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Günstig und preisgleich zu den anderen Cola-Varianten.",
+          "gesundheitText": "Kalorienfrei, aber durch Koffein und Zusatzstoffe kein guter Durstlöscher.",
+          "nachhaltigkeitText": "Mehrwegflasche verbessert die Nachhaltigkeit deutlich gegenüber Einweg."
+        }
+      }
+    ]
+  },
+  {
+    "id": "durstloescher",
+    "name": "Durstlöscher",
+    "image": "🧃",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "durstloescher-v1",
+        "name": "Durstlöscher Variante 1",
+        "variantName": "Durstlöscher mit Zucker",
+        "description": "500-ml-Trinkpack/Tetrapack mit Strohhalm, viele Geschmacksrichtungen, Fruchtgehalt meist 1–15 %, Zusatzstoffe, vegan, kein Koffein",
+        "priceCents": 115,
+        "priceLabel": "1,15 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan",
+          "Kein Koffein",
+          "Viele Geschmacksrichtungen"
+        ],
+        "risks": [
+          "Zucker",
+          "Zusatzstoffe",
+          "Trinkpack mit Strohhalm",
+          "Niedriger Fruchtgehalt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Relativ teuer bezogen auf 0,33 Liter.",
+          "gesundheitText": "Viel Zucker, niedriger Fruchtgehalt und Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Trinkpack und Strohhalm verursachen Verpackungsaufwand."
+        }
+      },
+      {
+        "id": "durstloescher-v2",
+        "name": "Durstlöscher Variante 2",
+        "variantName": "Durstlöscher ohne Zucker / Zero",
+        "description": "Zuckerfreie Variante, kalorienärmer, mehr Zusatzstoffe möglich, nur Eistee-Varianten als Zero verfügbar, vegan, kein Koffein",
+        "priceCents": 115,
+        "priceLabel": "1,15 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Kalorienärmer",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Mehr Zusatzstoffe möglich",
+          "Trinkpack mit Strohhalm",
+          "Begrenzte Sortenauswahl"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Relativ teuer bezogen auf 0,33 Liter.",
+          "gesundheitText": "Zuckerfrei und kalorienärmer, aber häufig mit mehr Zusatzstoffen.",
+          "nachhaltigkeitText": "Verpackungsaufwand bleibt durch Trinkpack und Strohhalm bestehen."
+        }
+      }
+    ]
+  },
+  {
+    "id": "eistee",
+    "name": "Eistee",
+    "image": "🧋",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "eistee-v1",
+        "name": "Eistee Variante 1",
+        "variantName": "Eistee mit Zucker",
+        "description": "Eistee auf Teebasis, Einwegflasche/-dose/-karton, Schwarztee-Extrakt, Zusatzstoffe, vegan, koffeinhaltig",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein",
+          "Zusatzstoffe",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittelpreisiges Getränk.",
+          "gesundheitText": "Zuckerhaltig, koffeinhaltig und mit Zusatzstoffen, daher nur gelegentlich geeignet.",
+          "nachhaltigkeitText": "Einwegverpackung senkt die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "eistee-v2",
+        "name": "Eistee Variante 2",
+        "variantName": "Eistee ohne Zucker / Zero",
+        "description": "Zuckerfrei bzw. kalorienärmer, Einwegflasche/-dose, Schwarztee-Extrakt, ggf. mehr Zusatzstoffe, vegan, koffeinhaltig",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Kalorienärmer",
+          "Vegan"
+        ],
+        "risks": [
+          "Koffein",
+          "Zusatzstoffe",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittelpreisig und preisgleich zur Zucker-Variante.",
+          "gesundheitText": "Zuckerfrei und kalorienärmer, aber koffeinhaltig und ggf. mit mehr Zusatzstoffen.",
+          "nachhaltigkeitText": "Einwegverpackung bleibt ein Nachhaltigkeitsnachteil."
+        }
+      },
+      {
+        "id": "eistee-v3",
+        "name": "Eistee Variante 3",
+        "variantName": "Eistee mit Zucker in Mehrwegflasche",
+        "description": "Zuckerhaltiger Eistee in Mehrwegflasche, nachhaltiger durch Wiederbefüllung, vegan, koffeinhaltig",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Mehrwegflasche",
+          "Vegan"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 1,
+          "nachhaltigkeit": 4,
+          "preisText": "Mittelpreisig und preisgleich zur Einwegvariante.",
+          "gesundheitText": "Zuckerhaltig und koffeinhaltig, daher kein idealer Durstlöscher.",
+          "nachhaltigkeitText": "Mehrwegflasche reduziert Verpackungsmüll und Ressourcenverbrauch."
+        }
+      },
+      {
+        "id": "eistee-v4",
+        "name": "Eistee Variante 4",
+        "variantName": "Eistee ohne Zucker in Mehrwegflasche",
+        "description": "Kalorienfrei, enthält Zusatzstoffe und Koffein, Mehrwegflasche spart Energie und Ressourcen, vegan",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei",
+          "Mehrwegflasche",
+          "Vegan"
+        ],
+        "risks": [
+          "Koffein",
+          "Zusatzstoffe"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Mittelpreisig und preisgleich zu den anderen Eistee-Varianten.",
+          "gesundheitText": "Kalorienfrei, aber Zusatzstoffe und Koffein bleiben Nachteile.",
+          "nachhaltigkeitText": "Mehrwegflasche spart Energie und Ressourcen gegenüber Einweg."
+        }
+      }
+    ]
+  },
+  {
+    "id": "energy-drink",
+    "name": "Energy Drink",
+    "image": "⚡",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "energy-drink-v1",
+        "name": "Energy Drink Variante 1",
+        "variantName": "Energy Drink mit Zucker aus Einwegdose/-flasche",
+        "description": "Zuckerhaltig, verschiedene Geschmacksrichtungen, Zusatzstoffe, ggf. Farbstoffe, enthält Koffein und Taurin",
+        "priceCents": 139,
+        "priceLabel": "1,39 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Viele Geschmacksrichtungen"
+        ],
+        "risks": [
+          "Zucker",
+          "Koffein",
+          "Taurin",
+          "Zusatzstoffe",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Teurer als viele Softdrinks in ähnlicher Portionsgröße.",
+          "gesundheitText": "Zucker, Koffein, Taurin und Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Einwegdose oder -flasche und energieintensive Herstellung belasten die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "energy-drink-v2",
+        "name": "Energy Drink Variante 2",
+        "variantName": "Energy Drink ohne Zucker / Zero aus Einwegdose/-flasche",
+        "description": "Zuckerfrei bzw. kalorienärmer, ggf. mehr Zusatzstoffe, verschiedene Geschmacksrichtungen, enthält Koffein und Taurin",
+        "priceCents": 139,
+        "priceLabel": "1,39 €/0,33 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Kalorienärmer",
+          "Viele Geschmacksrichtungen"
+        ],
+        "risks": [
+          "Koffein",
+          "Taurin",
+          "Mehr Zusatzstoffe möglich",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 1,
+          "preisText": "Teurer als viele Softdrinks in ähnlicher Portionsgröße.",
+          "gesundheitText": "Zuckerfrei ist vorteilhaft, Koffein, Taurin und Zusatzstoffe bleiben problematisch.",
+          "nachhaltigkeitText": "Einwegverpackung und Verarbeitung führen zu einer niedrigen Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "saft",
+    "name": "Saft",
+    "image": "🧃",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "saft-v1",
+        "name": "Saft Variante 1",
+        "variantName": "Fruchtsaftgetränk mit 6–30 % Fruchtgehalt in Einweg",
+        "description": "Einwegflasche/-dose/-glas oder Trinkpack, enthält Wasser, Zusatzstoffe, Fruchtzucker und zugesetzten Zucker, vegan, kein Koffein",
+        "priceCents": 169,
+        "priceLabel": "1,69 €/Liter",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Zugesetzter Zucker",
+          "Zusatzstoffe",
+          "Einwegverpackung",
+          "Niedriger Fruchtgehalt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittelpreisig, aber mit niedrigem Fruchtgehalt.",
+          "gesundheitText": "Enthält Fruchtzucker, zugesetzten Zucker und Zusatzstoffe bei nur 6–30 % Fruchtgehalt.",
+          "nachhaltigkeitText": "Einwegverpackung und Verarbeitung senken die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "saft-v2",
+        "name": "Saft Variante 2",
+        "variantName": "Fruchtsaft mit 100 % Fruchtgehalt in Einweg",
+        "description": "100 % Frucht, Direktsaft oder Konzentrat, ohne zugesetzten Zucker und Zusatzstoffe, natürlicher Zucker enthalten, vegan, kein Koffein",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Liter",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "100 % Frucht",
+          "Ohne zugesetzten Zucker",
+          "Ohne Zusatzstoffe",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Natürlicher Zucker",
+          "Einwegverpackung"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Etwas teurer als Fruchtsaftgetränk, aber bessere Qualität.",
+          "gesundheitText": "100 % Frucht ohne zugesetzten Zucker und Zusatzstoffe, natürlicher Zucker bleibt enthalten.",
+          "nachhaltigkeitText": "Einwegverpackung begrenzt die Nachhaltigkeit trotz besserer Rezeptur."
+        }
+      },
+      {
+        "id": "saft-v3",
+        "name": "Saft Variante 3",
+        "variantName": "Fruchtsaftgetränk mit 6–30 % Fruchtgehalt in Mehrweg",
+        "description": "Regionaler Fruchtsaft in Mehrwegflasche, nachhaltiger, aber erhöhter Zuckergehalt im Vergleich zu Fruchtsaft, vegan, kein Koffein",
+        "priceCents": 169,
+        "priceLabel": "1,69 €/Liter",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Mehrwegflasche",
+          "Regional",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Erhöhter Zuckergehalt",
+          "Niedriger Fruchtgehalt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Mittelpreisig und preisgleich zur Einweg-Variante.",
+          "gesundheitText": "Niedriger Fruchtgehalt und erhöhter Zuckergehalt mindern die Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Regionalität und Mehrwegflasche verbessern die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "saft-v4",
+        "name": "Saft Variante 4",
+        "variantName": "Fruchtsaft mit 100 % Fruchtgehalt in Mehrweg",
+        "description": "100 % Frucht, regional, Mehrwegflasche spart Energie und Ressourcen, vegan, kein Koffein",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Liter",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "100 % Frucht",
+          "Regional",
+          "Mehrwegflasche",
+          "Vegan",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Natürlicher Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 5,
+          "preisText": "Etwas teurer, bietet aber die beste Saftqualität.",
+          "gesundheitText": "100 % Frucht ohne zugesetzten Zucker, natürlicher Zucker bleibt zu beachten.",
+          "nachhaltigkeitText": "Regionalität und Mehrwegflasche sorgen für eine hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "trinkwasser",
+    "name": "Trinkwasser",
+    "image": "💧",
+    "category": "GETRAENKE",
+    "variants": [
+      {
+        "id": "trinkwasser-v1",
+        "name": "Trinkwasser Variante 1",
+        "variantName": "Wasser in Einwegflaschen",
+        "description": "Einwegflasche mit 25 Cent Pfand, wird recycelt, aber nicht wiederbefüllt; Neuproduktion energieintensiv",
+        "priceCents": 19,
+        "priceLabel": "0,19 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei",
+          "Kein Zucker",
+          "Kein Koffein"
+        ],
+        "risks": [
+          "Einwegflasche",
+          "Neuproduktion energieintensiv"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Sehr günstiges Getränk, Pfand kommt hinzu.",
+          "gesundheitText": "Kalorienfrei, zuckerfrei und sehr gut als Durstlöscher geeignet.",
+          "nachhaltigkeitText": "Recycling ist besser als Restmüll, aber Einwegflaschen werden nicht wiederbefüllt und brauchen Neuproduktion."
+        }
+      },
+      {
+        "id": "trinkwasser-v2",
+        "name": "Trinkwasser Variante 2",
+        "variantName": "Wasser in Mehrwegflaschen",
+        "description": "Mehrwegflasche mit 8 oder 15 Cent Pfand, wird gereinigt und bis zu 50-mal wiederbefüllt; ressourcenschonender",
+        "priceCents": 29,
+        "priceLabel": "0,29 €/0,5 L",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kalorienfrei",
+          "Kein Zucker",
+          "Kein Koffein",
+          "Mehrwegflasche"
+        ],
+        "risks": [],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Sehr günstiges Getränk, trotz leicht höherem Preis als Einweg.",
+          "gesundheitText": "Bestes Standardgetränk: kalorienfrei, zuckerfrei und ideal als Durstlöscher.",
+          "nachhaltigkeitText": "Mehrwegflaschen werden vielfach wiederbefüllt und sind besonders ressourcenschonend."
+        }
+      }
+    ]
+  },
+  {
+    "id": "vollmilchschokolade",
+    "name": "Vollmilchschokolade",
+    "image": "🍫",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "vollmilchschokolade-v1",
+        "name": "Vollmilchschokolade Variante 1",
+        "variantName": "Konventionell",
+        "description": "Standard-Vollmilchschokolade bekannter Marken, weit verbreitet, günstig bis mittelpreisig.",
+        "priceCents": 199,
+        "priceLabel": "1,99 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Weit verbreitet"
+        ],
+        "risks": [
+          "Zucker",
+          "Milchfett",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und weit verbreitet.",
+          "gesundheitText": "Süßigkeit mit hohem Zuckeranteil; nur gelegentlich sinnvoll.",
+          "nachhaltigkeitText": "Konventionelle Kakao- und Milchzutaten sowie Verarbeitung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "vollmilchschokolade-v2",
+        "name": "Vollmilchschokolade Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Vollmilchschokolade mit Bio-Milch und Bio-Kakao, meist teurer, klare Bio-Kennzeichnung.",
+        "priceCents": 219,
+        "priceLabel": "2,19 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Milch",
+          "Bio-Kakao",
+          "Klare Bio-Kennzeichnung"
+        ],
+        "risks": [
+          "Teurer",
+          "Zucker",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "vollmilchschokolade-v3",
+        "name": "Vollmilchschokolade Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Kein zugesetzter Zucker, meist mit Süßungsmitteln angereichert, teurer als Bio und konventionell.",
+        "priceCents": 450,
+        "priceLabel": "4,50 € / 80 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker"
+        ],
+        "risks": [
+          "Süßungsmittel",
+          "Sehr teuer",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "zartbitterschokolade",
+    "name": "Zartbitterschokolade",
+    "image": "🍫",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "zartbitterschokolade-v1",
+        "name": "Zartbitterschokolade Variante 1",
+        "variantName": "Konventionell",
+        "description": "Klassische Zartbitterschokolade großer Marken, hoher Zuckergehalt, oft nicht aus biologischem Anbau.",
+        "priceCents": 179,
+        "priceLabel": "1,79 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Weit verbreitet"
+        ],
+        "risks": [
+          "Hoher Zuckergehalt",
+          "Nicht Bio",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und weit verbreitet.",
+          "gesundheitText": "Süßigkeit mit hohem Zuckeranteil; nur gelegentlich sinnvoll.",
+          "nachhaltigkeitText": "Konventionelle Kakao- und Milchzutaten sowie Verarbeitung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "zartbitterschokolade-v2",
+        "name": "Zartbitterschokolade Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Zartbitterschokolade aus kontrolliertem Anbau, ohne Pestizide, höherer Preis wegen Bio-Zutaten.",
+        "priceCents": 219,
+        "priceLabel": "2,19 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Kakao",
+          "Kontrollierter Anbau",
+          "Ohne synthetische Pestizide"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "zartbitterschokolade-v3",
+        "name": "Zartbitterschokolade Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Kein zugesetzter Zucker, meist mit Süßungsmitteln, häufig nur von Markenherstellern verfügbar.",
+        "priceCents": 450,
+        "priceLabel": "4,50 € / 85 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker"
+        ],
+        "risks": [
+          "Süßungsmittel",
+          "Sehr teuer",
+          "Begrenzte Verfügbarkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "joghurtgums",
+    "name": "Joghurtgums",
+    "image": "🍬",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "joghurtgums-v1",
+        "name": "Joghurtgums Variante 1",
+        "variantName": "Konventionell",
+        "description": "Weit verbreitet, viel Zucker, synthetische Aromen/Farbstoffe möglich, meistens bereits vegan.",
+        "priceCents": 139,
+        "priceLabel": "1,39 € / 210 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Weit verbreitet",
+          "Meist vegan"
+        ],
+        "risks": [
+          "Viel Zucker",
+          "Synthetische Aromen/Farbstoffe möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und gut verfügbar.",
+          "gesundheitText": "Hoher Zuckeranteil und mögliche Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verpackung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "joghurtgums-v2",
+        "name": "Joghurtgums Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Joghurtgums mit natürlichen Aromen und Farben, höherer Preis.",
+        "priceCents": 338,
+        "priceLabel": "3,38 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Natürliche Aromen und Farben"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "joghurtgums-v3",
+        "name": "Joghurtgums Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Zucker durch Süßungsmittel ersetzt, meist höherer Preis.",
+        "priceCents": 289,
+        "priceLabel": "2,89 € / 130 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei"
+        ],
+        "risks": [
+          "Süßungsmittel",
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "lakritzschnecken",
+    "name": "Lakritzschnecken",
+    "image": "🍬",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "lakritzschnecken-v1",
+        "name": "Lakritzschnecken Variante 1",
+        "variantName": "Konventionell",
+        "description": "Sehr gängig, meist mit synthetischen Aromen/Farbstoffen, häufig günstig bis mittelpreisig.",
+        "priceCents": 119,
+        "priceLabel": "1,19 € / 175 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sehr gängig",
+          "Günstig bis mittelpreisig"
+        ],
+        "risks": [
+          "Synthetische Aromen/Farbstoffe möglich",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und gut verfügbar.",
+          "gesundheitText": "Hoher Zuckeranteil und mögliche Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verpackung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "lakritzschnecken-v2",
+        "name": "Lakritzschnecken Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Lakritz mit natürlichen Zutaten, ohne synthetische Zusätze, höherer Preis wegen Bio-Zutaten.",
+        "priceCents": 358,
+        "priceLabel": "3,58 € / 160 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Natürliche Zutaten",
+          "Ohne synthetische Zusätze"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "lakritzschnecken-v3",
+        "name": "Lakritzschnecken Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Stärkerer Lakritz- und Salmiakgeschmack, weniger süß, höherer Preis durch alternative Produkte.",
+        "priceCents": 390,
+        "priceLabel": "3,90 € / 150 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Weniger süß"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Stärkerer Salmiakgeschmack"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "popcorn-gesuesst",
+    "name": "Popcorn, gesüßt",
+    "image": "🍿",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "popcorn-gesuesst-v1",
+        "name": "Popcorn, gesüßt Variante 1",
+        "variantName": "Konventionell",
+        "description": "Weit verbreitet, meist mit industriellen Zutaten wie Zucker, Backfett und Aromastoffen.",
+        "priceCents": 79,
+        "priceLabel": "0,79 € / 130 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Weit verbreitet",
+          "Günstig"
+        ],
+        "risks": [
+          "Zucker",
+          "Backfett",
+          "Aromastoffe"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und gut verfügbar.",
+          "gesundheitText": "Hoher Zuckeranteil und mögliche Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verpackung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "popcorn-gesuesst-v2",
+        "name": "Popcorn, gesüßt Variante 2",
+        "variantName": "Bio",
+        "description": "Meist mit Bio-Zucker und ohne künstliche Zusatzstoffe, höherer Preis wegen Bio-Zutaten.",
+        "priceCents": 250,
+        "priceLabel": "2,50 € / 90 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zucker",
+          "Ohne künstliche Zusatzstoffe"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "popcorn-gesuesst-v3",
+        "name": "Popcorn, gesüßt Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Kein zugesetzter Zucker, trotzdem viel Fett und Maisstärke, ggf. alternativ mit Salz verfeinert.",
+        "priceCents": 79,
+        "priceLabel": "0,79 € / 130 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker"
+        ],
+        "risks": [
+          "Viel Fett",
+          "Maisstärke",
+          "Salz möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "salzlakritz-diamanten",
+    "name": "Salzlakritz Diamanten",
+    "image": "◆",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "salzlakritz-diamanten-v1",
+        "name": "Salzlakritz Diamanten Variante 1",
+        "variantName": "Konventionell",
+        "description": "Gängig, hoher Zuckeranteil, hoher Salzanteil, meist konventionelle Zusatzstoffe.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Gängig"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Hoher Salzanteil",
+          "Konventionelle Zusatzstoffe"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und gut verfügbar.",
+          "gesundheitText": "Hoher Zucker- und Salzanteil führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Zusatzstoffe begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "salzlakritz-diamanten-v2",
+        "name": "Salzlakritz Diamanten Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Lakritz mit Salzüberzug und natürlichen Zutaten, höherer Preis wegen Bio-Zutaten.",
+        "priceCents": 219,
+        "priceLabel": "2,19 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Natürliche Zutaten"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Salzüberzug",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Natürlichere Zutaten sind positiv, Zucker und Salz bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "salzlakritz-diamanten-v3",
+        "name": "Salzlakritz Diamanten Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Lakritz-Snack ohne Zucker, meist reduzierter Salzanteil, Zucker wird durch teurere Alternativen ersetzt.",
+        "priceCents": 359,
+        "priceLabel": "3,59 € / 150 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Meist reduzierter Salzanteil"
+        ],
+        "risks": [
+          "Teurere Zucker-Alternativen",
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 2,
+          "preisText": "Teurer als konventionelle Ware durch alternative Rezeptur.",
+          "gesundheitText": "Zuckerfrei und meist salzreduziert ist besser, bleibt aber ein Snackprodukt.",
+          "nachhaltigkeitText": "Zuckerfreie Rezeptur verbessert nicht automatisch die Umweltbilanz; Verarbeitung bleibt hoch."
+        }
+      }
+    ]
+  },
+  {
+    "id": "gummibaerchen",
+    "name": "Gummibärchen",
+    "image": "🍬",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "gummibaerchen-v2",
+        "name": "Gummibärchen Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 1,
+          "nachhaltigkeit": 4,
+          "preisText": "Deutlich höherer Preis als konventionell.",
+          "gesundheitText": "Hauptsächlich Zucker, keine nennenswerten Nährstoffe.",
+          "nachhaltigkeitText": "Biologische Zutaten, ohne gentechnische Zusatzstoffe."
+        }
+      }
+    ]
+  },
+  {
+    "id": "apfel",
+    "name": "Apfel",
+    "image": "🍎",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "apfel-v1",
+        "name": "Apfel Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 190,
+        "priceLabel": "1,90 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Ballaststoffe"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstige Standardware.",
+          "gesundheitText": "Frisches Obst liefert Vitamine und Ballaststoffe, mögliche Pestizidrückstände mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau hat weniger strenge Umweltauflagen; bei Importware kommen Transport- und Arbeitsbedingungen hinzu."
+        }
+      },
+      {
+        "id": "apfel-v2",
+        "name": "Apfel Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 239,
+        "priceLabel": "2,39 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "apfel-v3",
+        "name": "Apfel Variante 3",
+        "variantName": "Regionalität + Saisonalität",
+        "description": "Produkte stammen aus näherer Umgebung und natürlicher Reifezeit. Vorteile für Klima, Umwelt, Wirtschaft, Qualität und Frische; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 239,
+        "priceLabel": "2,39 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Regional",
+          "Saisonal",
+          "Oft frischer"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer, dafür oft frischer und saisonal.",
+          "gesundheitText": "Frisches, saisonales Obst kann besonders aromatisch und nährstoffreich sein.",
+          "nachhaltigkeitText": "Kurze Transportwege, natürliche Reifezeit und Unterstützung regionaler Wirtschaft verbessern die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "apfel-v4",
+        "name": "Apfel Variante 4",
+        "variantName": "Bio + Regionalität/Saisonalität",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, regionale/saisonale Erzeugung, Beitrag zur Nachhaltigkeit.",
+        "priceCents": 249,
+        "priceLabel": "2,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio- und Regional-/saisonal-Siegel.",
+          "gesundheitText": "Frisches Obst, nährstoffreich und mit reduziertem Pestizideinsatz.",
+          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "banana",
+    "name": "Banane",
+    "image": "🍌",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "banana-v1",
+        "name": "Banane Variante 1",
+        "variantName": "Konventionell angebaut",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 99,
+        "priceLabel": "0,99 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Ballaststoffe"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Schlechtere Arbeitsbedingungen möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Niedriger Preis, oft im Angebot erhältlich.",
+          "gesundheitText": "Frisches Obst mit Vitaminen, Mineralstoffen und Ballaststoffen.",
+          "nachhaltigkeitText": "Pflanzliches Produkt mit wenig Verpackung, aber konventioneller Anbau."
+        }
+      },
+      {
+        "id": "banana-v2",
+        "name": "Banane Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 150,
+        "priceLabel": "1,50 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "banana-v3",
+        "name": "Banane Variante 3",
+        "variantName": "Fairtrade",
+        "description": "Bessere Löhne und Arbeitsbedingungen, stärkere soziale Standards als bei konventioneller Ware; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 180,
+        "priceLabel": "1,80 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Fairtrade",
+          "Bessere soziale Standards"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware, aber mit sozialem Mehrwert.",
+          "gesundheitText": "Frisches Obst bleibt gesund; der Anbau kann trotzdem konventionell sein.",
+          "nachhaltigkeitText": "Fairtrade stärkt Löhne, Arbeitsbedingungen und soziale Standards."
+        }
+      },
+      {
+        "id": "banana-v4",
+        "name": "Banane Variante 4",
+        "variantName": "Bio + Fairtrade",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, fairere Bezahlung und Arbeitsbedingungen, oft lose verkauft mit weniger Verpackungsmüll.",
+        "priceCents": 229,
+        "priceLabel": "2,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Fairtrade",
+          "Weniger Verpackungsmüll"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höchster Preis durch Bio- und Fairtrade-Standards.",
+          "gesundheitText": "Bio-Obst mit weniger Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio + Fairtrade verbindet Umweltstandards mit faireren Arbeitsbedingungen und oft weniger Verpackungsmüll."
+        }
+      }
+    ]
+  },
+  {
+    "id": "birne",
+    "name": "Birne",
+    "image": "🍐",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "birne-v1",
+        "name": "Birne Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Ballaststoffe"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstige Standardware.",
+          "gesundheitText": "Frisches Obst liefert Vitamine und Ballaststoffe, mögliche Pestizidrückstände mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau hat weniger strenge Umweltauflagen; bei Importware kommen Transport- und Arbeitsbedingungen hinzu."
+        }
+      },
+      {
+        "id": "birne-v2",
+        "name": "Birne Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 119,
+        "priceLabel": "1,19 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "birne-v3",
+        "name": "Birne Variante 3",
+        "variantName": "Regionalität + Saisonalität",
+        "description": "Produkte stammen aus näherer Umgebung und natürlicher Reifezeit. Vorteile für Klima, Umwelt, Wirtschaft, Qualität und Frische; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 119,
+        "priceLabel": "1,19 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Regional",
+          "Saisonal",
+          "Oft frischer"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer, dafür oft frischer und saisonal.",
+          "gesundheitText": "Frisches, saisonales Obst kann besonders aromatisch und nährstoffreich sein.",
+          "nachhaltigkeitText": "Kurze Transportwege, natürliche Reifezeit und Unterstützung regionaler Wirtschaft verbessern die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "birne-v4",
+        "name": "Birne Variante 4",
+        "variantName": "Bio + Regionalität/Saisonalität",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, regionale/saisonale Erzeugung, Beitrag zur Nachhaltigkeit.",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio-, Regional- und Saisonalitätsvorteile.",
+          "gesundheitText": "Frisches Bio-Obst mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "erdbeeren",
+    "name": "Erdbeeren",
+    "image": "🍓",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "erdbeeren-v1",
+        "name": "Erdbeeren Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 229,
+        "priceLabel": "2,29 €/250 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Ballaststoffe"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstige Standardware.",
+          "gesundheitText": "Frisches Obst liefert Vitamine und Ballaststoffe, mögliche Pestizidrückstände mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau hat weniger strenge Umweltauflagen; bei Importware kommen Transport- und Arbeitsbedingungen hinzu."
+        }
+      },
+      {
+        "id": "erdbeeren-v2",
+        "name": "Erdbeeren Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 259,
+        "priceLabel": "2,59 €/250 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "erdbeeren-v3",
+        "name": "Erdbeeren Variante 3",
+        "variantName": "Regionalität + Saisonalität",
+        "description": "Produkte stammen aus näherer Umgebung und natürlicher Reifezeit. Vorteile für Klima, Umwelt, Wirtschaft, Qualität und Frische; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 259,
+        "priceLabel": "2,59 €/250 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Regional",
+          "Saisonal",
+          "Oft frischer"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer, dafür oft frischer und saisonal.",
+          "gesundheitText": "Frisches, saisonales Obst kann besonders aromatisch und nährstoffreich sein.",
+          "nachhaltigkeitText": "Kurze Transportwege, natürliche Reifezeit und Unterstützung regionaler Wirtschaft verbessern die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "erdbeeren-v4",
+        "name": "Erdbeeren Variante 4",
+        "variantName": "Bio + Regionalität/Saisonalität",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, regionale/saisonale Erzeugung, Beitrag zur Nachhaltigkeit.",
+        "priceCents": 279,
+        "priceLabel": "2,79 €/250 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio-, Regional- und Saisonalitätsvorteile.",
+          "gesundheitText": "Frisches Bio-Obst mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "kiwi",
+    "name": "Kiwi",
+    "image": "🥝",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "kiwi-v1",
+        "name": "Kiwi Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 29,
+        "priceLabel": "0,29 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Vitaminreich"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstige Standardware.",
+          "gesundheitText": "Frisches Obst liefert Vitamine und Ballaststoffe, mögliche Pestizidrückstände mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau hat weniger strenge Umweltauflagen; bei Importware kommen Transport- und Arbeitsbedingungen hinzu."
+        }
+      },
+      {
+        "id": "kiwi-v2",
+        "name": "Kiwi Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 59,
+        "priceLabel": "0,59 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "kiwi-v3",
+        "name": "Kiwi Variante 3",
+        "variantName": "Nicht angegeben",
+        "description": "Im Dokument ist für Variante 3 keine Beschreibung und kein Preis eingetragen.",
+        "priceCents": 0,
+        "priceLabel": "Nicht angegeben",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Keine Beschreibung angegeben",
+          "Kein Preis angegeben"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Kein Preis angegeben.",
+          "gesundheitText": "Keine Produktinformationen angegeben; daher nicht sinnvoll bewertbar.",
+          "nachhaltigkeitText": "Keine Informationen zu Anbau, Herkunft oder Verpackung angegeben."
+        }
+      },
+      {
+        "id": "kiwi-v4",
+        "name": "Kiwi Variante 4",
+        "variantName": "Bio + Regionalität/Saisonalität",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, regionale/saisonale Erzeugung, Beitrag zur Nachhaltigkeit.",
+        "priceCents": 69,
+        "priceLabel": "0,69 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio-, Regional- und Saisonalitätsvorteile.",
+          "gesundheitText": "Frisches Bio-Obst mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "studentenfutter",
+    "name": "Studentenfutter",
+    "image": "🥜",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "studentenfutter-v1",
+        "name": "Studentenfutter Variante 1",
+        "variantName": "Konventionelles Studentenfutter mit Trockenobst",
+        "description": "Hoher Fettanteil, viele Ballaststoffe, moderater Preis. Verpackung aus Einwegplastik, dadurch viel Müll.",
+        "packaging": "Einwegplastikverpackung",
+        "priceCents": 229,
+        "priceLabel": "2,29 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Viele Ballaststoffe",
+          "Trockenobst",
+          "Nüsse mit wertvollen Fetten"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Einwegplastik",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Moderater Packungspreis.",
+          "gesundheitText": "Nüsse und Trockenobst liefern Ballaststoffe und wertvolle Fette, sind aber energiereich.",
+          "nachhaltigkeitText": "Einwegplastik verursacht viel Müll und senkt die Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "studentenfutter-v2",
+        "name": "Studentenfutter Variante 2",
+        "variantName": "Bio Studentenfutter mit Trockenobst",
+        "description": "Fair gehandeltes Trockenobst/Nüsse, weniger Zusatzstoffe, Fokus auf natürliche Zutaten. Verpackung teilweise aus Recyclingmaterial oder mit höherem Papieranteil.",
+        "packaging": "Teilweise Recyclingmaterial oder höherer Papieranteil",
+        "priceCents": 269,
+        "priceLabel": "2,69 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Fair gehandeltes Trockenobst/Nüsse",
+          "Weniger Zusatzstoffe",
+          "Natürliche Zutaten"
+        ],
+        "risks": [
+          "Energiedicht",
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Bio-Produkte sind eher teuer.",
+          "gesundheitText": "Nüsse energiereich, Portion klein halten.",
+          "nachhaltigkeitText": "Bio mit strengeren Umweltauflagen."
+        }
+      }
+    ]
+  },
+  {
+    "id": "walnuesse",
+    "name": "Walnüsse",
+    "image": "🌰",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "walnuesse-v1",
+        "name": "Walnüsse Variante 1",
+        "variantName": "Konventionelle Walnüsse naturbelassen",
+        "description": "Viele ungesättigte Fettsäuren und viele Ballaststoffe. Moderater Preis. Verpackung aus Einwegplastik, dadurch viel Müll.",
+        "packaging": "Einwegplastikverpackung",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Ungesättigte Fettsäuren",
+          "Viele Ballaststoffe",
+          "Naturbelassen"
+        ],
+        "risks": [
+          "Energiedicht",
+          "Einwegplastik",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 2,
+          "preisText": "Moderater Preis für naturbelassene Walnüsse.",
+          "gesundheitText": "Ungesättigte Fettsäuren und Ballaststoffe sind sehr positiv; Portionsgröße wegen Energiegehalt beachten.",
+          "nachhaltigkeitText": "Einwegplastik verursacht viel Müll, konventionelle Herkunft begrenzt die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "walnuesse-v2",
+        "name": "Walnüsse Variante 2",
+        "variantName": "Bio Walnüsse",
+        "description": "Fair gehandelte oder regionale Walnüsse, viele ungesättigte Fettsäuren und Ballaststoffe. Verpackung teilweise aus Recyclingmaterial oder mit höherem Papieranteil.",
+        "packaging": "Teilweise Recyclingmaterial oder höherer Papieranteil",
+        "priceCents": 369,
+        "priceLabel": "3,69 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Fair gehandelt oder regional",
+          "Ungesättigte Fettsäuren",
+          "Viele Ballaststoffe"
+        ],
+        "risks": [
+          "Teurer",
+          "Energiedicht"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Deutlich teurer als konventionelle Walnüsse.",
+          "gesundheitText": "Viele ungesättigte Fettsäuren und Ballaststoffe; Portionsgröße wegen Energiegehalt beachten.",
+          "nachhaltigkeitText": "Bio, faire oder regionale Herkunft und bessere Verpackung sorgen für eine hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "kartoffelchips-paprika",
+    "name": "Kartoffelchips Paprika",
+    "image": "🥔",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "kartoffelchips-paprika-v1",
+        "name": "Kartoffelchips Paprika Variante 1",
+        "variantName": "Konventionelle Kartoffelchips mit Salz und Paprikagewürz",
+        "description": "Hoher Fettanteil, keine Ballaststoffe, viele Zusatzstoffe. Meist günstiger Preis, oft Großpackung aus dem Discounter. Verpackung aus Einwegplastik.",
+        "packaging": "Großpackung aus Einwegplastik",
+        "priceCents": 119,
+        "priceLabel": "1,19 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Keine Ballaststoffe",
+          "Viele Zusatzstoffe",
+          "Salz",
+          "Einwegplastik"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Sehr günstiger Kilopreis, oft als Discounter-Großpackung.",
+          "gesundheitText": "Hoher Fett- und Salzanteil, keine Ballaststoffe und viele Zusatzstoffe führen zu einer niedrigen Bewertung.",
+          "nachhaltigkeitText": "Einwegplastik und stark verarbeitete konventionelle Zutaten führen zu einer niedrigen Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "linsenchips",
+    "name": "Linsenchips",
+    "image": "🟠",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "linsenchips-v1",
+        "name": "Linsenchips Variante 1",
+        "variantName": "Konventionelle Linsenchips mit Salz und Gewürzen",
+        "description": "Hoher Fettanteil, kaum Ballaststoffe, viele Zusatzstoffe. Hoher Preis, oft Großpackung aus dem Discounter. Verpackung aus Einwegplastik.",
+        "packaging": "Großpackung aus Einwegplastik",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Pflanzlich"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Kaum Ballaststoffe",
+          "Viele Zusatzstoffe",
+          "Salz",
+          "Einwegplastik"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Hoher Preis für eine Snackpackung.",
+          "gesundheitText": "Linsenbasis klingt günstig, hoher Fettanteil, Salz und Zusatzstoffe mindern die Gesundheitsbewertung deutlich.",
+          "nachhaltigkeitText": "Pflanzliche Basis ist positiv, Einwegplastik und starke Verarbeitung senken die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "linsenchips-v2",
+        "name": "Linsenchips Variante 2",
+        "variantName": "Bio Linsenchips mit Salz und Gewürzen",
+        "description": "Hoher Fettanteil, kaum Ballaststoffe, aber weniger Zusatzstoffe und stärkerer Fokus auf natürliche Zutaten. Verpackung teilweise aus Recyclingmaterial oder mit höherem Papieranteil.",
+        "packaging": "Teilweise Recyclingmaterial oder höherer Papieranteil",
+        "priceCents": 229,
+        "priceLabel": "2,29 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Pflanzlich",
+          "Weniger Zusatzstoffe",
+          "Natürlichere Zutaten"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Kaum Ballaststoffe",
+          "Salz",
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Linsenchips.",
+          "gesundheitText": "Weniger Zusatzstoffe und natürlichere Zutaten sind besser, Fett- und Salzgehalt bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Zutaten und bessere Verpackung verbessern die Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "nuesse-im-knuspermantel",
+    "name": "Nüsse im Knuspermantel",
+    "image": "🥜",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "nuesse-im-knuspermantel-v1",
+        "name": "Nüsse im Knuspermantel Variante 1",
+        "variantName": "Konventionelle Erdnüsse im Knuspermantel",
+        "description": "Hoher Fettanteil und weniger Ballaststoffe. Moderater Preis. Verpackung aus Einwegplastik, dadurch viel Müll.",
+        "packaging": "Einwegplastikverpackung",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Moderater Preis",
+          "Erdnüsse liefern wertvolle Fette"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Weniger Ballaststoffe",
+          "Knuspermantel",
+          "Einwegplastik",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Moderater bis günstiger Packungspreis.",
+          "gesundheitText": "Erdnüsse liefern wertvolle Fette, der Knuspermantel reduziert den Gesundheitsvorteil und liefert weniger Ballaststoffe.",
+          "nachhaltigkeitText": "Einwegplastik verursacht viel Müll, konventionelle Zutaten begrenzen die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "naturjoghurt",
+    "name": "Naturjoghurt",
+    "image": "🥛",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "naturjoghurt-v1",
+        "name": "Naturjoghurt Variante 1",
+        "variantName": "Konventioneller Naturjoghurt",
+        "description": "Meist günstiger Preis, oft Großpackung oder mehrere Verpackungseinheiten aus dem Discounter. Viele einzeln verpackte Joghurts mit Folienverschluss, dadurch viel Müll.",
+        "packaging": "Großpackung oder mehrere Verpackungseinheiten; häufig Einzelbecher mit Folienverschluss",
+        "priceCents": 45,
+        "priceLabel": "0,45 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis",
+          "Eiweiß",
+          "Calcium"
+        ],
+        "risks": [
+          "Viel Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Sehr günstige Packung, oft im Discounter erhältlich.",
+          "gesundheitText": "Naturjoghurt liefert Eiweiß und Calcium, ist aber je nach Verpackungsgröße unterschiedlich empfehlenswert.",
+          "nachhaltigkeitText": "Viele Einzelverpackungen mit Folienverschluss verursachen viel Müll; tierische Zutaten belasten die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "naturjoghurt-v2",
+        "name": "Naturjoghurt Variante 2",
+        "variantName": "Fettarmer Naturjoghurt",
+        "description": "Mittlerer Preis, oft Großpackung oder mehrere Verpackungseinheiten. Viele einzeln verpackte Joghurts mit Folienverschluss, dadurch viel Müll.",
+        "packaging": "Großpackung oder mehrere Verpackungseinheiten; häufig Einzelbecher mit Folienverschluss",
+        "priceCents": 89,
+        "priceLabel": "0,89 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Fettärmer",
+          "Eiweiß",
+          "Calcium"
+        ],
+        "risks": [
+          "Viel Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstigeres Produkt.",
+          "gesundheitText": "Ohne zugesetzten Zucker, fettärmere Variante.",
+          "nachhaltigkeitText": "Tierisches Produkt mit höherer Klimawirkung."
+        }
+      },
+      {
+        "id": "naturjoghurt-v3",
+        "name": "Naturjoghurt Variante 3",
+        "variantName": "Bio Naturjoghurt",
+        "description": "Höherer Preis, oft einzeln verpackt. Mit Folienverschluss, teils auch im Mehrwegglas erhältlich.",
+        "packaging": "Einzelverpackung mit Folienverschluss, teils im Mehrwegglas",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Eiweiß",
+          "Calcium",
+          "Teilweise Mehrwegglas"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Einzelverpackung möglich",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 4,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Qualität.",
+          "gesundheitText": "Bio-Naturjoghurt liefert Eiweiß und Calcium, bleibt aber ein tierisches Produkt.",
+          "nachhaltigkeitText": "Bio-Standards und Mehrwegglas-Option verbessern die Nachhaltigkeit gegenüber konventionellen Einzelbechern."
+        }
+      },
+      {
+        "id": "naturjoghurt-v4",
+        "name": "Naturjoghurt Variante 4",
+        "variantName": "Fettarmer Bio Naturjoghurt",
+        "description": "Meist günstiger Preis, oft Großpackung oder mehrere Verpackungseinheiten aus dem Discounter. Im Mehrwegglas erhältlich.",
+        "packaging": "Großpackung oder mehrere Verpackungseinheiten; im Mehrwegglas erhältlich",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Fettärmer",
+          "Bio",
+          "Eiweiß",
+          "Calcium",
+          "Mehrwegglas möglich"
+        ],
+        "risks": [
+          "Höherer Packungspreis",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Teurer als konventionelle Varianten, aber mit Bio- und Mehrwegvorteilen.",
+          "gesundheitText": "Fettarm, ohne zugesetzten Zucker und mit Bio-Qualität besonders empfehlenswert unter den Joghurtvarianten.",
+          "nachhaltigkeitText": "Bio-Qualität und Mehrwegglas sorgen für die beste Nachhaltigkeitsbewertung in dieser Produktgruppe."
+        }
+      }
+    ]
+  },
+  {
+    "id": "skyr-natur",
+    "name": "Skyr Natur",
+    "image": "🥣",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "skyr-natur-v1",
+        "name": "Skyr Natur Variante 1",
+        "variantName": "Konventioneller Skyr",
+        "description": "Hoher Preis, oft im 500-g-Becher erhältlich. Einzeln verpackter Becher mit Folienverschluss, dadurch viel Müll.",
+        "packaging": "500-g-Becher mit Folienverschluss",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Eiweißreich"
+        ],
+        "risks": [
+          "Hoher Preis",
+          "Viel Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 2,
+          "preisText": "Relativ hoher Packungspreis, aber sättigend durch viel Eiweiß.",
+          "gesundheitText": "Natur-Skyr ist eiweißreich und ohne Zuckerzusatz eine gute Milchprodukt-Option.",
+          "nachhaltigkeitText": "Einzelbecher mit Folienverschluss verursachen Müll; tierische Zutaten belasten die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "skyr-natur-v2",
+        "name": "Skyr Natur Variante 2",
+        "variantName": "Bio Skyr",
+        "description": "Hoher Preis, oft im 500-g-Becher erhältlich. Bio steht für strengere Umweltauflagen im Anbau. Einzeln verpackter Becher mit Folienverschluss.",
+        "packaging": "500-g-Becher mit Folienverschluss",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Eiweißreich"
+        ],
+        "risks": [
+          "Hoher Preis",
+          "Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventioneller Skyr.",
+          "gesundheitText": "Bio-Skyr Natur ist eiweißreich und ohne Zuckerzusatz empfehlenswert.",
+          "nachhaltigkeitText": "Bio steht für strengere Umweltauflagen, die Einzelverpackung bleibt ein Nachteil."
+        }
+      }
+    ]
+  },
+  {
+    "id": "skyr-himbeere",
+    "name": "Skyr Himbeere",
+    "image": "🍓",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "skyr-himbeere-v1",
+        "name": "Skyr Himbeere Variante 1",
+        "variantName": "Konventioneller Skyr Himbeere",
+        "description": "Hoher Preis, oft im 500-g-Becher erhältlich. Enthält zugesetzten Zucker und Aromen. Einzeln verpackter Becher mit Folienverschluss.",
+        "packaging": "500-g-Becher mit Folienverschluss",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Eiweißreich"
+        ],
+        "risks": [
+          "Zugesetzter Zucker",
+          "Aromen",
+          "Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 3,
+          "nachhaltigkeit": 2,
+          "preisText": "Relativ hoher Packungspreis.",
+          "gesundheitText": "Eiweißreich, aber zugesetzter Zucker und Aromen senken die Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Einzelbecher und tierische Zutaten führen zu einer niedrigen Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "skyr-himbeere-v2",
+        "name": "Skyr Himbeere Variante 2",
+        "variantName": "Bio Skyr Himbeere",
+        "description": "Hoher Preis, oft im 500-g-Becher erhältlich. Enthält zugesetzten Zucker und Aromen. Bio steht für strengere Umweltauflagen im Anbau.",
+        "packaging": "500-g-Becher mit Folienverschluss",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Eiweißreich"
+        ],
+        "risks": [
+          "Zugesetzter Zucker",
+          "Aromen",
+          "Hoher Preis",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Himbeer-Variante.",
+          "gesundheitText": "Eiweißreich und Bio, aber zugesetzter Zucker und Aromen bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Standards verbessern die Nachhaltigkeit, Verpackung und tierische Zutaten bleiben Nachteile."
+        }
+      }
+    ]
+  },
+  {
+    "id": "trinkschokolade-kakao",
+    "name": "Trinkschokolade / Kakao",
+    "image": "🧃",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "trinkschokolade-kakao-v1",
+        "name": "Trinkschokolade / Kakao Variante 1",
+        "variantName": "Konventionelle Trinkschokolade mit Schokolade und konventioneller Vollmilch",
+        "description": "Hoher Zuckeranteil, viele Zusatzstoffe und hoher Fettgehalt. Meist günstiger Preis, oft im Tetrapack aus dem Discounter. Einzeln verpackter Strohhalm, dadurch viel Müll.",
+        "packaging": "Tetrapack mit einzeln verpacktem Strohhalm",
+        "priceCents": 85,
+        "priceLabel": "0,85 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Viele Zusatzstoffe",
+          "Hoher Fettgehalt",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Günstige Packung aus dem Discounter.",
+          "gesundheitText": "Hoher Zuckeranteil, viele Zusatzstoffe und hoher Fettgehalt führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Tetrapack und einzeln verpackter Strohhalm verursachen viel Müll; konventionelle Vollmilch belastet zusätzlich."
+        }
+      }
+    ]
+  },
+  {
+    "id": "kaese-snack",
+    "name": "Käse-Snack",
+    "image": "🧀",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "kaese-snack-v1",
+        "name": "Käse-Snack Variante 1",
+        "variantName": "Konventioneller Käse-Snack",
+        "description": "Mittlerer Preis, oft Großpackung oder mehrere Verpackungseinheiten aus dem Discounter. Viele einzeln verpackte Käse-Snacks mit Folie und Wachs, dadurch viel Müll.",
+        "packaging": "Großpackung oder mehrere Verpackungseinheiten; einzeln mit Folie und Wachs verpackt",
+        "priceCents": 159,
+        "priceLabel": "1,59 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Calcium",
+          "Eiweiß"
+        ],
+        "risks": [
+          "Viel Verpackungsmüll",
+          "Folie und Wachs",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 3,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittlerer Preis für eine Packung Käse-Snacks.",
+          "gesundheitText": "Käse liefert Eiweiß und Calcium, enthält aber oft viel Fett und Salz.",
+          "nachhaltigkeitText": "Viele Einzelverpackungen mit Folie und Wachs verursachen viel Müll; tierische Zutaten belasten die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "knick-joghurt",
+    "name": "Knick-Joghurt",
+    "image": "🍫",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "knick-joghurt-v1",
+        "name": "Knick-Joghurt Variante 1",
+        "variantName": "Konventioneller gesüßter Joghurt mit Schokolade oder Knusperflocken",
+        "description": "Hoher Zuckeranteil, keine Vollkornflocken, viele Zusatzstoffe. Wenig Inhalt pro Packung. Mehrkammerverpackung mit Folie, dadurch viel Müll.",
+        "packaging": "Mehrkammerverpackung mit Folie",
+        "priceCents": 45,
+        "priceLabel": "0,45 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Einzelpreis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Keine Vollkornflocken",
+          "Viele Zusatzstoffe",
+          "Wenig Inhalt",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Günstiger Einzelpreis, aber wenig Inhalt pro Packung.",
+          "gesundheitText": "Hoher Zuckeranteil, keine Vollkornflocken und viele Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Mehrkammerverpackung mit Folie verursacht viel Müll; tierische Zutaten belasten zusätzlich."
+        }
+      }
+    ]
+  },
+  {
+    "id": "hafer-cookies",
+    "name": "Hafer-Cookies",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "hafer-cookies-v1",
+        "name": "Hafer-Cookies Variante 1",
+        "variantName": "Konventionelle Hafer-Kekse",
+        "description": "Hoher Zuckeranteil, kein Vollkorn, viele Zusatzstoffe. Meist günstiger Preis. Verpackung aus Pappe und Folie, dadurch moderat viel Müll.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Kein Vollkorn",
+          "Viele Zusatzstoffe",
+          "Moderat viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstiger Kilopreis für ein Süßgebäck.",
+          "gesundheitText": "Hoher Zuckeranteil, kein Vollkorn und viele Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Pappe und Folie verursachen moderat viel Müll; konventionelle Zutaten begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "hafer-cookies-v2",
+        "name": "Hafer-Cookies Variante 2",
+        "variantName": "Bio Hafer-Kekse",
+        "description": "Kein oder wenig Palmöl, teilweise Fairtrade-Schokolade und höherer Vollkornanteil. Teureres Produkt. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 249,
+        "priceLabel": "2,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Kein oder wenig Palmöl",
+          "Höherer Vollkornanteil",
+          "Teilweise Fairtrade-Schokolade"
+        ],
+        "risks": [
+          "Teurer",
+          "Süßgebäck",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Variante, aber noch moderat.",
+          "gesundheitText": "Höherer Vollkornanteil und weniger Palmöl sind positiv, das Produkt bleibt Süßgebäck.",
+          "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "schoko-cookies",
+    "name": "Schoko-Cookies",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "schoko-cookies-v1",
+        "name": "Schoko-Cookies Variante 1",
+        "variantName": "Konventionelle Schoko-Cookies",
+        "description": "Hoher Zuckeranteil, kein Vollkorn, viele Zusatzstoffe. Meist günstiger Preis. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 195,
+        "priceLabel": "1,95 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Kein Vollkorn",
+          "Viele Zusatzstoffe",
+          "Schokolade",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstiger Kilopreis für Schoko-Gebäck.",
+          "gesundheitText": "Hoher Zuckeranteil, Schokolade, kein Vollkorn und viele Zusatzstoffe führen zu einer niedrigen Bewertung.",
+          "nachhaltigkeitText": "Pappe und Folie verursachen Verpackungsmüll; konventionelle Zutaten begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "schoko-cookies-v2",
+        "name": "Schoko-Cookies Variante 2",
+        "variantName": "Bio Schoko-Cookies",
+        "description": "Kein oder wenig Palmöl, teilweise Fairtrade-Schokolade. Teureres Produkt. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 249,
+        "priceLabel": "2,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Kein oder wenig Palmöl",
+          "Teilweise Fairtrade-Schokolade"
+        ],
+        "risks": [
+          "Teurer",
+          "Süßgebäck",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Schoko-Cookies.",
+          "gesundheitText": "Weniger Palmöl ist positiv, Schokolade und Zucker machen es weiterhin zu Süßgebäck.",
+          "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Schokolade verbessern die Nachhaltigkeit trotz Verpackung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "dinkel-doppelkeks-schokofuellung",
+    "name": "Dinkel-Doppelkeks mit Schokofüllung",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "dinkel-doppelkeks-schokofuellung-v1",
+        "name": "Dinkel-Doppelkeks mit Schokofüllung Variante 1",
+        "variantName": "Konventionelle Kekse mit kakaohaltiger Füllung",
+        "description": "Hoher Zuckeranteil, geringer Vollkornanteil, viele Zusatzstoffe. Meist günstiger Preis. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 159,
+        "priceLabel": "1,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis",
+          "Geringer Vollkornanteil"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Viele Zusatzstoffe",
+          "Kakaohaltige Füllung",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Sehr günstiger Kilopreis.",
+          "gesundheitText": "Hoher Zuckeranteil und viele Zusatzstoffe überwiegen den geringen Vollkornanteil.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verbundverpackung führen zu einer eher niedrigen Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "dinkel-doppelkeks-schokofuellung-v2",
+        "name": "Dinkel-Doppelkeks mit Schokofüllung Variante 2",
+        "variantName": "Bio Kekse mit Schokolade oder kakaohaltiger Füllung",
+        "description": "Kein oder wenig Palmöl, teilweise Fairtrade-Schokolade und höherer Vollkornanteil. Teureres Produkt. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 259,
+        "priceLabel": "2,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Kein oder wenig Palmöl",
+          "Höherer Vollkornanteil",
+          "Teilweise Fairtrade-Schokolade"
+        ],
+        "risks": [
+          "Teurer",
+          "Süßgebäck",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Dinkel-Doppelkeks-Variante.",
+          "gesundheitText": "Höherer Vollkornanteil ist positiv, Schokofüllung und Zucker bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "doppelkeks-schokofuellung",
+    "name": "Doppelkeks mit Schokofüllung",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "doppelkeks-schokofuellung-v1",
+        "name": "Doppelkeks mit Schokofüllung Variante 1",
+        "variantName": "Konventionelle Kekse mit kakaohaltiger Füllung",
+        "description": "Hoher Zuckeranteil, kein Vollkorn, viele Zusatzstoffe. Meist günstiger Preis. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sehr günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Kein Vollkorn",
+          "Viele Zusatzstoffe",
+          "Kakaohaltige Füllung",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Sehr günstiger Kilopreis.",
+          "gesundheitText": "Hoher Zuckeranteil, kein Vollkorn und viele Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verbundverpackung führen zu einer eher niedrigen Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "doppelkeks-schokofuellung-v2",
+        "name": "Doppelkeks mit Schokofüllung Variante 2",
+        "variantName": "Bio Kekse mit Schokolade oder kakaohaltiger Füllung",
+        "description": "Kein oder wenig Palmöl, teilweise Fairtrade-Schokolade und höherer Vollkornanteil. Teureres Produkt. Verpackung aus Pappe und Folie.",
+        "packaging": "Verpackung aus Pappe und Folie",
+        "priceCents": 259,
+        "priceLabel": "2,59 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Kein oder wenig Palmöl",
+          "Höherer Vollkornanteil",
+          "Teilweise Fairtrade-Schokolade"
+        ],
+        "risks": [
+          "Teurer",
+          "Süßgebäck",
+          "Verpackung aus Pappe und Folie"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Doppelkeks-Variante.",
+          "gesundheitText": "Höherer Vollkornanteil und weniger Palmöl sind positiv, Schokofüllung und Zucker bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "haferkekse",
+    "name": "Haferkekse",
+    "image": "🍪",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "haferkekse-v2",
+        "name": "Haferkekse Variante 2",
+        "priceCents": 0,
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Mittelpreisig, Bio oft teurer.",
+          "gesundheitText": "Süßgebäck mit viel Zucker/Fett.",
+          "nachhaltigkeitText": "Mit Bio etwas nachhaltiger."
+        }
+      }
+    ]
+  },
+  {
+    "id": "sahne-eis-am-stiel",
+    "name": "Sahne-Eis am Stiel",
+    "image": "🍦",
+    "category": "TIEFKUEHL_EIS",
+    "variants": [
+      {
+        "id": "sahne-eis-am-stiel-v1",
+        "name": "Sahne-Eis am Stiel Variante 1",
+        "variantName": "Konventionell",
+        "description": "Industriell hergestellt, mit Zusatzstoffen und Schokolade. Hauptsächlich aus Milchfett, Zucker und Wasser; hoher Fett- und Zuckeranteil.",
+        "packaging": "Gut erhältlich, viele Sorten, meist größere Packungen oder einzeln verfügbar. Einzelne Eise großer Marken oft teurer.",
+        "priceCents": 290,
+        "priceLabel": "2,90 € / 100 ml",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Gut erhältlich",
+          "Viele Sorten"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Hoher Zuckeranteil",
+          "Zusatzstoffe"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Hoher Preis bezogen auf 100 ml, besonders bei Markeneis.",
+          "gesundheitText": "Hoher Fett- und Zuckeranteil, Zusatzstoffe und Schokolade machen es zu einer seltenen Genussoption.",
+          "nachhaltigkeitText": "Milchfett, Schokolade, industrielle Herstellung und meist größere Verpackungen belasten die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "sahne-eis-am-stiel-v2",
+        "name": "Sahne-Eis am Stiel Variante 2",
+        "variantName": "Bio",
+        "description": "Verzichtet oft auf künstliche Zusatzstoffe, Bio-Milch, bessere Nährstoffqualität; Kalorien bleiben hoch.",
+        "packaging": "Umweltfreundlicher, oft bessere Qualität; Auswahl und Verfügbarkeit begrenzt.",
+        "priceCents": 179,
+        "priceLabel": "1,79 € / 110 ml",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Milch",
+          "Oft ohne künstliche Zusatzstoffe",
+          "Bessere Nährstoffqualität"
+        ],
+        "risks": [
+          "Kalorienreich",
+          "Hoher Zuckeranteil",
+          "Hoher Fettanteil"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Günstiger als die konventionelle 100-ml-Angabe, aber weiterhin ein Dessertprodukt.",
+          "gesundheitText": "Bio-Zutaten und weniger Zusatzstoffe sind vorteilhaft, Kalorien-, Fett- und Zuckeranteil bleiben hoch.",
+          "nachhaltigkeitText": "Bio-Milch und bessere Standards verbessern die Nachhaltigkeit, tierische Zutaten bleiben ressourcenintensiv."
+        }
+      }
+    ]
+  },
+  {
+    "id": "wassereis",
+    "name": "Wassereis am Stiel",
+    "image": "🧊",
+    "category": "TIEFKUEHL_EIS",
+    "variants": [
+      {
+        "id": "wassereis-v1",
+        "name": "Wassereis am Stiel Variante 1",
+        "variantName": "Konventionell",
+        "description": "Industriell hergestellt, mit Zusatzstoffen. Besteht hauptsächlich aus Wasser, Aromen und Zucker; praktisch kein Fett oder Eiweiß. Für laktoseintolerante Personen geeignet.",
+        "packaging": "Gut erhältlich, viele Sorten, meist größere Packungen oder einzeln verfügbar. Einzelne Eise großer Marken oft teurer.",
+        "priceCents": 199,
+        "priceLabel": "1,99 € / 6×110 ml",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Praktisch fettfrei",
+          "Für laktoseintolerante Personen geeignet",
+          "Gut erhältlich"
+        ],
+        "risks": [
+          "Zucker",
+          "Zusatzstoffe",
+          "Aromen"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstige Mehrfachpackung mit niedrigem Preis pro Eis.",
+          "gesundheitText": "Praktisch fettfrei und laktosefrei, enthält aber vor allem Wasser, Aromen und Zucker.",
+          "nachhaltigkeitText": "Wasserbasis ist weniger ressourcenintensiv, Zusatzstoffe und konventionelle Herstellung sind Nachteile."
+        }
+      },
+      {
+        "id": "wassereis-v2",
+        "name": "Wassereis am Stiel Variante 2",
+        "variantName": "Bio",
+        "description": "Verzichtet oft auf künstliche Zusatzstoffe, meistens natürliche Aromen. Für laktoseintolerante Personen geeignet.",
+        "packaging": "Umweltfreundlicher, oft bessere Qualität, teils intensiverer Geschmack; Auswahl und Verfügbarkeit begrenzt.",
+        "priceCents": 299,
+        "priceLabel": "2,99 € / 7×60 ml",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zutaten",
+          "Meist natürliche Aromen",
+          "Für laktoseintolerante Personen geeignet"
+        ],
+        "risks": [
+          "Zucker",
+          "Begrenzte Verfügbarkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 3,
+          "preisText": "Etwas teurer aufgrund von Bio-Zutaten.",
+          "gesundheitText": "Geringere Kalorien, aber oft viel Zucker.",
+          "nachhaltigkeitText": "Nachhaltiger durch ökologische Zutaten."
+        }
+      }
+    ]
+  }
 ]
