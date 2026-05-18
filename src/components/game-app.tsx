@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { foodCatalog, type FoodItem, type FoodVariant } from '@/src/lib/food-catalog';
+import { type FoodCategory, type FoodItem, type FoodVariant } from '@/src/lib/food-catalog';
 import { fullFoodCatalog } from '@/src/lib/food-catalog-full';
 import { Button, Card, Input } from '@/src/components/ui';
 import { evaluateGoal } from '@/src/lib/game-goal-scoring';
@@ -17,6 +17,51 @@ const availableGoals = [
   'Mehr ballaststoffreiche Produkte wählen',
   'Ultra-verarbeitete Produkte reduzieren',
 ];
+
+const categoryOrder: FoodCategory[] = [
+  'OBST',
+  'GEMUESE',
+  'BACKWAREN_GEBAECK',
+  'KUEHLREGAL_READY_TO_EAT',
+  'KUEHLREGAL_FLEISCH_ALTERNATIVEN',
+  'KUEHLREGAL_MILCH_ALTERNATIVEN',
+  'GETREIDEPRODUKTE',
+  'GETRAENKE',
+  'NUESSE_UND_SALZIGES',
+  'SCHOKOLADE_SUESSWAREN',
+  'KEKSE',
+  'TIEFKUEHL_EIS',
+];
+
+const categoryLabels: Record<FoodCategory, string> = {
+  OBST: 'Obst',
+  GEMUESE: 'Gemüse',
+  BACKWAREN_GEBAECK: 'Backwaren & Gebäck',
+  KUEHLREGAL_READY_TO_EAT: 'Kühlregal · Fertiggerichte',
+  KUEHLREGAL_FLEISCH_ALTERNATIVEN: 'Kühlregal · Fleisch & Alternativen',
+  KUEHLREGAL_MILCH_ALTERNATIVEN: 'Kühlregal · Milch & Alternativen',
+  GETREIDEPRODUKTE: 'Getreideprodukte',
+  GETRAENKE: 'Getränke',
+  NUESSE_UND_SALZIGES: 'Nüsse & Salziges',
+  SCHOKOLADE_SUESSWAREN: 'Schokolade & Süßwaren',
+  KEKSE: 'Kekse',
+  TIEFKUEHL_EIS: 'Tiefkühl-Eis',
+};
+
+const categoryIcons: Record<FoodCategory, string> = {
+  OBST: '🍎',
+  GEMUESE: '🥦',
+  BACKWAREN_GEBAECK: '🥐',
+  KUEHLREGAL_READY_TO_EAT: '🥗',
+  KUEHLREGAL_FLEISCH_ALTERNATIVEN: '🥩',
+  KUEHLREGAL_MILCH_ALTERNATIVEN: '🥛',
+  GETREIDEPRODUKTE: '🌾',
+  GETRAENKE: '🧃',
+  NUESSE_UND_SALZIGES: '🥜',
+  SCHOKOLADE_SUESSWAREN: '🍫',
+  KEKSE: '🍪',
+  TIEFKUEHL_EIS: '🍦',
+};
 
 
 function findVariant(catalog: FoodItem[], foodId: string, variantId: string): { item: FoodItem; variant: FoodVariant } | null {
@@ -39,8 +84,9 @@ export function GameApp() {
   const [guideVideoUrl, setGuideVideoUrl] = useState('');
   const [guideVideos, setGuideVideos] = useState<Array<{ name: string; url: string }>>([]);
   const [saveInfo, setSaveInfo] = useState<string | null>(null);
-  const [useFullCatalog, setUseFullCatalog] = useState(true);
-  const catalog = useFullCatalog ? fullFoodCatalog : foodCatalog;
+  const [selectedCategory, setSelectedCategory] = useState<FoodCategory | null>(null);
+  const [productSearch, setProductSearch] = useState('');
+  const catalog = fullFoodCatalog;
 
   const activePlayer = players[activePlayerIndex];
 
@@ -56,6 +102,41 @@ export function GameApp() {
       return { playerId: p.id, total };
     });
   }, [catalog, players]);
+
+  const foodsByCategory = useMemo(() => {
+    return catalog.reduce((groups, food) => {
+      groups[food.category] = [...(groups[food.category] ?? []), food];
+      return groups;
+    }, {} as Partial<Record<FoodCategory, FoodItem[]>>);
+  }, [catalog]);
+
+  const categorySummaries = useMemo(() => {
+    return categoryOrder
+      .map((category) => ({ category, foods: foodsByCategory[category] ?? [] }))
+      .filter(({ foods }) => foods.length > 0);
+  }, [foodsByCategory]);
+
+  const visibleFoods = useMemo(() => {
+    if (!selectedCategory) return [];
+    const query = productSearch.trim().toLowerCase();
+    const categoryFoods = foodsByCategory[selectedCategory] ?? [];
+    if (!query) return categoryFoods;
+    return categoryFoods.filter((food) => food.name.toLowerCase().includes(query));
+  }, [foodsByCategory, productSearch, selectedCategory]);
+
+  const activeCartGroups = useMemo(() => {
+    const grouped: Partial<Record<FoodCategory, Array<{ line: CartLine; lineIndex: number; item: FoodItem; variant: FoodVariant }>>> = {};
+    activePlayer?.cart.forEach((line, lineIndex) => {
+      const entry = findVariant(catalog, line.foodId, line.variantId);
+      if (!entry) return;
+      const category = entry.item.category;
+      grouped[category] = [...(grouped[category] ?? []), { line, lineIndex, item: entry.item, variant: entry.variant }];
+    });
+
+    return categoryOrder
+      .map((category) => ({ category, lines: grouped[category] ?? [] }))
+      .filter(({ lines }) => lines.length > 0);
+  }, [activePlayer?.cart, catalog]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -111,6 +192,8 @@ export function GameApp() {
     setActivePlayerIndex(0);
     setSelectedFood(null);
     setSelectedVariantId('');
+    setSelectedCategory(null);
+    setProductSearch('');
     setQty(1);
     setSetupGoals({});
     if (typeof window !== 'undefined') {
@@ -149,6 +232,10 @@ export function GameApp() {
     if (lines.length < 1) return;
     setPlayers(lines.map((name, idx) => ({ id: `p-${idx}`, name, cart: [], done: false, goals: setupGoals[idx] ?? [] })));
     setActivePlayerIndex(0);
+    setSelectedCategory(null);
+    setSelectedFood(null);
+    setSelectedVariantId('');
+    setProductSearch('');
     setScreen('play');
   }
 
@@ -180,11 +267,32 @@ export function GameApp() {
     setPlayers((current) => current.map((p, idx) => idx === activePlayerIndex ? { ...p, done: true } : p));
   }
 
+  function selectCategory(category: FoodCategory) {
+    setSelectedCategory(category);
+    setSelectedFood(null);
+    setSelectedVariantId('');
+    setProductSearch('');
+  }
+
+  function showCategoryOverview() {
+    setSelectedCategory(null);
+    setSelectedFood(null);
+    setSelectedVariantId('');
+    setProductSearch('');
+  }
+
+  function selectFood(food: FoodItem) {
+    setSelectedFood(food);
+    setSelectedVariantId(food.variants[0]?.id ?? '');
+  }
+
   function nextPlayer() {
     if (players.length === 0) return;
     setActivePlayerIndex((i) => (i + 1) % players.length);
+    setSelectedCategory(null);
     setSelectedFood(null);
     setSelectedVariantId('');
+    setProductSearch('');
     setQty(1);
   }
 
@@ -297,28 +405,72 @@ export function GameApp() {
           <p className="text-sm text-slate-300">Status: {activePlayer?.done ? 'Einkauf fertig' : 'Einkauft'}</p>
         </div>
 
-        <h3 className="text-lg font-medium">Lebensmittelübersicht</h3>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          {catalog.map((food) => (
-            <button
-              key={food.id}
-              type="button"
-              onClick={() => {
-                setSelectedFood(food);
-                setSelectedVariantId(food.variants[0]?.id ?? '');
-              }}
-              className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-left hover:bg-white/5"
-            >
-              <p className="text-3xl">{food.image}</p>
-              <p className="mt-2 font-semibold">{food.name}</p>
-            </button>
-          ))}
+        <div className="space-y-2">
+          <h3 className="text-lg font-medium">Einkaufsübersicht</h3>
+          <p className="text-sm text-slate-300">
+            {selectedCategory
+              ? `Einkaufsübersicht > ${categoryLabels[selectedCategory]}`
+              : 'Wähle zuerst eine Kategorie aus. Danach werden nur die passenden Produkte angezeigt.'}
+          </p>
         </div>
+
+        {!selectedCategory ? (
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            {categorySummaries.map(({ category, foods }) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => selectCategory(category)}
+                className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-left transition hover:border-emerald-300/60 hover:bg-white/5"
+              >
+                <div className="flex items-start gap-3">
+                  <span className="text-4xl" aria-hidden="true">{categoryIcons[category]}</span>
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-slate-400">Kategorie</p>
+                    <p className="mt-1 font-semibold">{categoryLabels[category]}</p>
+                    <p className="mt-1 text-sm text-slate-400">{foods.length} {foods.length === 1 ? 'Produkt' : 'Produkte'}</p>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-slate-900/50 p-4">
+              <div>
+                <p className="text-xs uppercase tracking-wide text-slate-400">Kategorie</p>
+                <h4 className="text-xl font-semibold">{categoryIcons[selectedCategory]} {categoryLabels[selectedCategory]}</h4>
+                <p className="text-sm text-slate-300">{foodsByCategory[selectedCategory]?.length ?? 0} Produkte in dieser Kategorie</p>
+              </div>
+              <Button onClick={showCategoryOverview} className="bg-white text-slate-950 hover:bg-slate-200">← Zurück zu Kategorien</Button>
+            </div>
+
+            <label className="block text-sm">
+              <span>Produkt in {categoryLabels[selectedCategory]} suchen</span>
+              <Input value={productSearch} onChange={(e) => setProductSearch(e.target.value)} placeholder="Produktname eingeben ..." />
+            </label>
+
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+              {visibleFoods.map((food) => (
+                <button
+                  key={food.id}
+                  type="button"
+                  onClick={() => selectFood(food)}
+                  className={`rounded-2xl border p-4 text-left transition hover:bg-white/5 ${selectedFood?.id === food.id ? 'border-emerald-300 bg-emerald-400/10' : 'border-white/10 bg-slate-900/60'}`}
+                >
+                  <p className="text-3xl">{food.image}</p>
+                  <p className="mt-2 font-semibold">{food.name}</p>
+                </button>
+              ))}
+            </div>
+            {visibleFoods.length === 0 ? <p className="rounded-2xl border border-white/10 p-4 text-sm text-slate-300">Keine Produkte für diese Suche gefunden.</p> : null}
+          </div>
+        )}
 
         {selectedFood ? (
           <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/50 p-4">
             <h4 className="text-xl font-semibold">{selectedFood.name}</h4>
-            <p className="text-xs text-slate-400">Kategorie: {selectedFood.category}</p>
+            <p className="text-xs text-slate-400">Kategorie: {categoryLabels[selectedFood.category]}</p>
             <label className="block text-sm">
               <span>Variante</span>
               <select
@@ -362,17 +514,23 @@ export function GameApp() {
 
       <Card className="space-y-4">
         <h3 className="text-xl font-semibold">Einkaufskorb: {activePlayer?.name}</h3>
-        <div className="space-y-2 text-sm">
-          {activePlayer?.cart.length ? activePlayer.cart.map((line, idx) => {
-            const entry = findVariant(catalog, line.foodId, line.variantId);
-            if (!entry) return null;
-            return (
-              <div key={`${line.foodId}-${line.variantId}-${idx}`} className="flex items-center justify-between gap-3 rounded-xl border border-white/10 p-2">
-                <span>{entry.item.name} ({entry.variant.name}) × {line.qty}</span>
-                {!activePlayer.done ? <Button onClick={() => removeFromCart(idx)} className="bg-rose-300 px-3 py-1 text-xs text-slate-950 hover:bg-rose-200">Entfernen</Button> : null}
+        <div className="space-y-3 text-sm">
+          {activeCartGroups.length ? activeCartGroups.map(({ category, lines }) => (
+            <div key={`cart-${category}`} className="rounded-2xl border border-white/10 p-3">
+              <div className="mb-2 flex items-center justify-between gap-2">
+                <p className="font-semibold">{categoryIcons[category]} {categoryLabels[category]}</p>
+                <p className="text-xs text-slate-400">{lines.length} {lines.length === 1 ? 'Artikel' : 'Artikel'}</p>
               </div>
-            );
-          }) : <p className="text-slate-400">Noch nichts im Korb.</p>}
+              <div className="space-y-2">
+                {lines.map(({ line, lineIndex, item, variant }) => (
+                  <div key={`${line.foodId}-${line.variantId}-${lineIndex}`} className="flex items-center justify-between gap-3 rounded-xl border border-white/10 p-2">
+                    <span>{item.name} ({variant.name}) × {line.qty}</span>
+                    {!activePlayer?.done ? <Button onClick={() => removeFromCart(lineIndex)} className="bg-rose-300 px-3 py-1 text-xs text-slate-950 hover:bg-rose-200">Entfernen</Button> : null}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )) : <p className="text-slate-400">Noch nichts im Korb.</p>}
         </div>
         {canShowScores ? <p className="font-semibold">Preis-Score Summe: {totalsByPlayer.find((t) => t.playerId === activePlayer?.id)?.total ?? 0}</p> : null}
         <div className="flex flex-wrap gap-2">
@@ -381,10 +539,6 @@ export function GameApp() {
           <Button onClick={() => void saveSession()} className="bg-amber-300 text-slate-950 hover:bg-amber-200">Spielstand speichern</Button>
           <Button onClick={resetAll} className="bg-rose-300 text-slate-950 hover:bg-rose-200">Spiel zurücksetzen</Button>
         </div>
-        <label className="inline-flex items-center gap-2 text-xs text-slate-300">
-          <input type="checkbox" checked={useFullCatalog} onChange={(e) => setUseFullCatalog(e.target.checked)} />
-          Vollkatalog (61 Lebensmittel) verwenden
-        </label>
         {saveInfo ? <p className="text-sm text-emerald-200">{saveInfo}</p> : null}
 
         <div className="rounded-2xl border border-white/10 p-3 text-sm">
