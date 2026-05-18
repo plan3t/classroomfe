@@ -1337,38 +1337,6 @@
     ]
   },
   {
-    "id": "naturjoghurt",
-    "name": "Naturjoghurt",
-    "image": "🥛",
-    "category": "KUEHLREGAL_MILCH_ALTERNATIVEN",
-    "variants": [
-      {
-        "id": "naturjoghurt-v2",
-        "name": "Naturjoghurt Variante 2",
-        "priceCents": 0,
-        "nutrition": {
-          "energyKcal": 0,
-          "fatG": 0,
-          "saltG": 0
-        },
-        "additives": [],
-        "benefits": [
-          "Eiweiß",
-          "Calcium"
-        ],
-        "risks": [],
-        "rating": {
-          "preisbewusstsein": 3,
-          "gesundheit": 5,
-          "nachhaltigkeit": 3,
-          "preisText": "Günstigeres Produkt.",
-          "gesundheitText": "Ohne zugesetzten Zucker, fettärmere Variante.",
-          "nachhaltigkeitText": "Tierisches Produkt mit höherer Klimawirkung."
-        }
-      }
-    ]
-  },
-  {
     "id": "reiswaffeln-pur",
     "name": "Reiswaffeln pur",
     "image": "🍘",
@@ -2546,6 +2514,411 @@
           "preisText": "Deutlich höherer Preis als konventionell.",
           "gesundheitText": "Hauptsächlich Zucker, keine nennenswerten Nährstoffe.",
           "nachhaltigkeitText": "Biologische Zutaten, ohne gentechnische Zusatzstoffe."
+        }
+      }
+    ]
+  },
+  {
+    "id": "naturjoghurt",
+    "name": "Naturjoghurt",
+    "image": "🥛",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "naturjoghurt-v1",
+        "name": "Naturjoghurt Variante 1",
+        "variantName": "Konventioneller Naturjoghurt",
+        "description": "Meist günstiger Preis, oft Großpackung oder mehrere Verpackungseinheiten aus dem Discounter. Viele einzeln verpackte Joghurts mit Folienverschluss, dadurch viel Müll.",
+        "packaging": "Großpackung oder mehrere Verpackungseinheiten; häufig Einzelbecher mit Folienverschluss",
+        "priceCents": 45,
+        "priceLabel": "0,45 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis",
+          "Eiweiß",
+          "Calcium"
+        ],
+        "risks": [
+          "Viel Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Sehr günstige Packung, oft im Discounter erhältlich.",
+          "gesundheitText": "Naturjoghurt liefert Eiweiß und Calcium, ist aber je nach Verpackungsgröße unterschiedlich empfehlenswert.",
+          "nachhaltigkeitText": "Viele Einzelverpackungen mit Folienverschluss verursachen viel Müll; tierische Zutaten belasten die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "naturjoghurt-v2",
+        "name": "Naturjoghurt Variante 2",
+        "variantName": "Fettarmer Naturjoghurt",
+        "description": "Mittlerer Preis, oft Großpackung oder mehrere Verpackungseinheiten. Viele einzeln verpackte Joghurts mit Folienverschluss, dadurch viel Müll.",
+        "packaging": "Großpackung oder mehrere Verpackungseinheiten; häufig Einzelbecher mit Folienverschluss",
+        "priceCents": 89,
+        "priceLabel": "0,89 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Fettärmer",
+          "Eiweiß",
+          "Calcium"
+        ],
+        "risks": [
+          "Viel Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstigeres Produkt.",
+          "gesundheitText": "Ohne zugesetzten Zucker, fettärmere Variante.",
+          "nachhaltigkeitText": "Tierisches Produkt mit höherer Klimawirkung."
+        }
+      },
+      {
+        "id": "naturjoghurt-v3",
+        "name": "Naturjoghurt Variante 3",
+        "variantName": "Bio Naturjoghurt",
+        "description": "Höherer Preis, oft einzeln verpackt. Mit Folienverschluss, teils auch im Mehrwegglas erhältlich.",
+        "packaging": "Einzelverpackung mit Folienverschluss, teils im Mehrwegglas",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Eiweiß",
+          "Calcium",
+          "Teilweise Mehrwegglas"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Einzelverpackung möglich",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 4,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Qualität.",
+          "gesundheitText": "Bio-Naturjoghurt liefert Eiweiß und Calcium, bleibt aber ein tierisches Produkt.",
+          "nachhaltigkeitText": "Bio-Standards und Mehrwegglas-Option verbessern die Nachhaltigkeit gegenüber konventionellen Einzelbechern."
+        }
+      },
+      {
+        "id": "naturjoghurt-v4",
+        "name": "Naturjoghurt Variante 4",
+        "variantName": "Fettarmer Bio Naturjoghurt",
+        "description": "Meist günstiger Preis, oft Großpackung oder mehrere Verpackungseinheiten aus dem Discounter. Im Mehrwegglas erhältlich.",
+        "packaging": "Großpackung oder mehrere Verpackungseinheiten; im Mehrwegglas erhältlich",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Fettärmer",
+          "Bio",
+          "Eiweiß",
+          "Calcium",
+          "Mehrwegglas möglich"
+        ],
+        "risks": [
+          "Höherer Packungspreis",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Teurer als konventionelle Varianten, aber mit Bio- und Mehrwegvorteilen.",
+          "gesundheitText": "Fettarm, ohne zugesetzten Zucker und mit Bio-Qualität besonders empfehlenswert unter den Joghurtvarianten.",
+          "nachhaltigkeitText": "Bio-Qualität und Mehrwegglas sorgen für die beste Nachhaltigkeitsbewertung in dieser Produktgruppe."
+        }
+      }
+    ]
+  },
+  {
+    "id": "skyr-natur",
+    "name": "Skyr Natur",
+    "image": "🥣",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "skyr-natur-v1",
+        "name": "Skyr Natur Variante 1",
+        "variantName": "Konventioneller Skyr",
+        "description": "Hoher Preis, oft im 500-g-Becher erhältlich. Einzeln verpackter Becher mit Folienverschluss, dadurch viel Müll.",
+        "packaging": "500-g-Becher mit Folienverschluss",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Eiweißreich"
+        ],
+        "risks": [
+          "Hoher Preis",
+          "Viel Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 2,
+          "preisText": "Relativ hoher Packungspreis, aber sättigend durch viel Eiweiß.",
+          "gesundheitText": "Natur-Skyr ist eiweißreich und ohne Zuckerzusatz eine gute Milchprodukt-Option.",
+          "nachhaltigkeitText": "Einzelbecher mit Folienverschluss verursachen Müll; tierische Zutaten belasten die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "skyr-natur-v2",
+        "name": "Skyr Natur Variante 2",
+        "variantName": "Bio Skyr",
+        "description": "Hoher Preis, oft im 500-g-Becher erhältlich. Bio steht für strengere Umweltauflagen im Anbau. Einzeln verpackter Becher mit Folienverschluss.",
+        "packaging": "500-g-Becher mit Folienverschluss",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Eiweißreich"
+        ],
+        "risks": [
+          "Hoher Preis",
+          "Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventioneller Skyr.",
+          "gesundheitText": "Bio-Skyr Natur ist eiweißreich und ohne Zuckerzusatz empfehlenswert.",
+          "nachhaltigkeitText": "Bio steht für strengere Umweltauflagen, die Einzelverpackung bleibt ein Nachteil."
+        }
+      }
+    ]
+  },
+  {
+    "id": "skyr-himbeere",
+    "name": "Skyr Himbeere",
+    "image": "🍓",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "skyr-himbeere-v1",
+        "name": "Skyr Himbeere Variante 1",
+        "variantName": "Konventioneller Skyr Himbeere",
+        "description": "Hoher Preis, oft im 500-g-Becher erhältlich. Enthält zugesetzten Zucker und Aromen. Einzeln verpackter Becher mit Folienverschluss.",
+        "packaging": "500-g-Becher mit Folienverschluss",
+        "priceCents": 149,
+        "priceLabel": "1,49 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Eiweißreich"
+        ],
+        "risks": [
+          "Zugesetzter Zucker",
+          "Aromen",
+          "Verpackungsmüll",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 3,
+          "nachhaltigkeit": 2,
+          "preisText": "Relativ hoher Packungspreis.",
+          "gesundheitText": "Eiweißreich, aber zugesetzter Zucker und Aromen senken die Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Einzelbecher und tierische Zutaten führen zu einer niedrigen Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "skyr-himbeere-v2",
+        "name": "Skyr Himbeere Variante 2",
+        "variantName": "Bio Skyr Himbeere",
+        "description": "Hoher Preis, oft im 500-g-Becher erhältlich. Enthält zugesetzten Zucker und Aromen. Bio steht für strengere Umweltauflagen im Anbau.",
+        "packaging": "500-g-Becher mit Folienverschluss",
+        "priceCents": 189,
+        "priceLabel": "1,89 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Eiweißreich"
+        ],
+        "risks": [
+          "Zugesetzter Zucker",
+          "Aromen",
+          "Hoher Preis",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als die konventionelle Himbeer-Variante.",
+          "gesundheitText": "Eiweißreich und Bio, aber zugesetzter Zucker und Aromen bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Standards verbessern die Nachhaltigkeit, Verpackung und tierische Zutaten bleiben Nachteile."
+        }
+      }
+    ]
+  },
+  {
+    "id": "trinkschokolade-kakao",
+    "name": "Trinkschokolade / Kakao",
+    "image": "🧃",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "trinkschokolade-kakao-v1",
+        "name": "Trinkschokolade / Kakao Variante 1",
+        "variantName": "Konventionelle Trinkschokolade mit Schokolade und konventioneller Vollmilch",
+        "description": "Hoher Zuckeranteil, viele Zusatzstoffe und hoher Fettgehalt. Meist günstiger Preis, oft im Tetrapack aus dem Discounter. Einzeln verpackter Strohhalm, dadurch viel Müll.",
+        "packaging": "Tetrapack mit einzeln verpacktem Strohhalm",
+        "priceCents": 85,
+        "priceLabel": "0,85 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Viele Zusatzstoffe",
+          "Hoher Fettgehalt",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Günstige Packung aus dem Discounter.",
+          "gesundheitText": "Hoher Zuckeranteil, viele Zusatzstoffe und hoher Fettgehalt führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Tetrapack und einzeln verpackter Strohhalm verursachen viel Müll; konventionelle Vollmilch belastet zusätzlich."
+        }
+      }
+    ]
+  },
+  {
+    "id": "kaese-snack",
+    "name": "Käse-Snack",
+    "image": "🧀",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "kaese-snack-v1",
+        "name": "Käse-Snack Variante 1",
+        "variantName": "Konventioneller Käse-Snack",
+        "description": "Mittlerer Preis, oft Großpackung oder mehrere Verpackungseinheiten aus dem Discounter. Viele einzeln verpackte Käse-Snacks mit Folie und Wachs, dadurch viel Müll.",
+        "packaging": "Großpackung oder mehrere Verpackungseinheiten; einzeln mit Folie und Wachs verpackt",
+        "priceCents": 159,
+        "priceLabel": "1,59 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Calcium",
+          "Eiweiß"
+        ],
+        "risks": [
+          "Viel Verpackungsmüll",
+          "Folie und Wachs",
+          "Tierisches Produkt"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 3,
+          "nachhaltigkeit": 2,
+          "preisText": "Mittlerer Preis für eine Packung Käse-Snacks.",
+          "gesundheitText": "Käse liefert Eiweiß und Calcium, enthält aber oft viel Fett und Salz.",
+          "nachhaltigkeitText": "Viele Einzelverpackungen mit Folie und Wachs verursachen viel Müll; tierische Zutaten belasten die Nachhaltigkeit."
+        }
+      }
+    ]
+  },
+  {
+    "id": "knick-joghurt",
+    "name": "Knick-Joghurt",
+    "image": "🍫",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "knick-joghurt-v1",
+        "name": "Knick-Joghurt Variante 1",
+        "variantName": "Konventioneller gesüßter Joghurt mit Schokolade oder Knusperflocken",
+        "description": "Hoher Zuckeranteil, keine Vollkornflocken, viele Zusatzstoffe. Wenig Inhalt pro Packung. Mehrkammerverpackung mit Folie, dadurch viel Müll.",
+        "packaging": "Mehrkammerverpackung mit Folie",
+        "priceCents": 45,
+        "priceLabel": "0,45 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Einzelpreis"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Keine Vollkornflocken",
+          "Viele Zusatzstoffe",
+          "Wenig Inhalt",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Günstiger Einzelpreis, aber wenig Inhalt pro Packung.",
+          "gesundheitText": "Hoher Zuckeranteil, keine Vollkornflocken und viele Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Mehrkammerverpackung mit Folie verursacht viel Müll; tierische Zutaten belasten zusätzlich."
         }
       }
     ]
