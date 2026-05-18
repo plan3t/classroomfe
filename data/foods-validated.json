@@ -2395,6 +2395,599 @@
     ]
   },
   {
+    "id": "vollmilchschokolade",
+    "name": "Vollmilchschokolade",
+    "image": "🍫",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "vollmilchschokolade-v1",
+        "name": "Vollmilchschokolade Variante 1",
+        "variantName": "Konventionell",
+        "description": "Standard-Vollmilchschokolade bekannter Marken, weit verbreitet, günstig bis mittelpreisig.",
+        "priceCents": 199,
+        "priceLabel": "1,99 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Weit verbreitet"
+        ],
+        "risks": [
+          "Zucker",
+          "Milchfett",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und weit verbreitet.",
+          "gesundheitText": "Süßigkeit mit hohem Zuckeranteil; nur gelegentlich sinnvoll.",
+          "nachhaltigkeitText": "Konventionelle Kakao- und Milchzutaten sowie Verarbeitung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "vollmilchschokolade-v2",
+        "name": "Vollmilchschokolade Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Vollmilchschokolade mit Bio-Milch und Bio-Kakao, meist teurer, klare Bio-Kennzeichnung.",
+        "priceCents": 219,
+        "priceLabel": "2,19 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Milch",
+          "Bio-Kakao",
+          "Klare Bio-Kennzeichnung"
+        ],
+        "risks": [
+          "Teurer",
+          "Zucker",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "vollmilchschokolade-v3",
+        "name": "Vollmilchschokolade Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Kein zugesetzter Zucker, meist mit Süßungsmitteln angereichert, teurer als Bio und konventionell.",
+        "priceCents": 450,
+        "priceLabel": "4,50 € / 80 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker"
+        ],
+        "risks": [
+          "Süßungsmittel",
+          "Sehr teuer",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "zartbitterschokolade",
+    "name": "Zartbitterschokolade",
+    "image": "🍫",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "zartbitterschokolade-v1",
+        "name": "Zartbitterschokolade Variante 1",
+        "variantName": "Konventionell",
+        "description": "Klassische Zartbitterschokolade großer Marken, hoher Zuckergehalt, oft nicht aus biologischem Anbau.",
+        "priceCents": 179,
+        "priceLabel": "1,79 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Weit verbreitet"
+        ],
+        "risks": [
+          "Hoher Zuckergehalt",
+          "Nicht Bio",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und weit verbreitet.",
+          "gesundheitText": "Süßigkeit mit hohem Zuckeranteil; nur gelegentlich sinnvoll.",
+          "nachhaltigkeitText": "Konventionelle Kakao- und Milchzutaten sowie Verarbeitung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "zartbitterschokolade-v2",
+        "name": "Zartbitterschokolade Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Zartbitterschokolade aus kontrolliertem Anbau, ohne Pestizide, höherer Preis wegen Bio-Zutaten.",
+        "priceCents": 219,
+        "priceLabel": "2,19 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Kakao",
+          "Kontrollierter Anbau",
+          "Ohne synthetische Pestizide"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Süßigkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "zartbitterschokolade-v3",
+        "name": "Zartbitterschokolade Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Kein zugesetzter Zucker, meist mit Süßungsmitteln, häufig nur von Markenherstellern verfügbar.",
+        "priceCents": 450,
+        "priceLabel": "4,50 € / 85 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker"
+        ],
+        "risks": [
+          "Süßungsmittel",
+          "Sehr teuer",
+          "Begrenzte Verfügbarkeit"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "joghurtgums",
+    "name": "Joghurtgums",
+    "image": "🍬",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "joghurtgums-v1",
+        "name": "Joghurtgums Variante 1",
+        "variantName": "Konventionell",
+        "description": "Weit verbreitet, viel Zucker, synthetische Aromen/Farbstoffe möglich, meistens bereits vegan.",
+        "priceCents": 139,
+        "priceLabel": "1,39 € / 210 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Weit verbreitet",
+          "Meist vegan"
+        ],
+        "risks": [
+          "Viel Zucker",
+          "Synthetische Aromen/Farbstoffe möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und gut verfügbar.",
+          "gesundheitText": "Hoher Zuckeranteil und mögliche Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verpackung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "joghurtgums-v2",
+        "name": "Joghurtgums Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Joghurtgums mit natürlichen Aromen und Farben, höherer Preis.",
+        "priceCents": 338,
+        "priceLabel": "3,38 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Natürliche Aromen und Farben"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "joghurtgums-v3",
+        "name": "Joghurtgums Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Zucker durch Süßungsmittel ersetzt, meist höherer Preis.",
+        "priceCents": 289,
+        "priceLabel": "2,89 € / 130 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei"
+        ],
+        "risks": [
+          "Süßungsmittel",
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "lakritzschnecken",
+    "name": "Lakritzschnecken",
+    "image": "🍬",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "lakritzschnecken-v1",
+        "name": "Lakritzschnecken Variante 1",
+        "variantName": "Konventionell",
+        "description": "Sehr gängig, meist mit synthetischen Aromen/Farbstoffen, häufig günstig bis mittelpreisig.",
+        "priceCents": 119,
+        "priceLabel": "1,19 € / 175 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Sehr gängig",
+          "Günstig bis mittelpreisig"
+        ],
+        "risks": [
+          "Synthetische Aromen/Farbstoffe möglich",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und gut verfügbar.",
+          "gesundheitText": "Hoher Zuckeranteil und mögliche Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verpackung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "lakritzschnecken-v2",
+        "name": "Lakritzschnecken Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Lakritz mit natürlichen Zutaten, ohne synthetische Zusätze, höherer Preis wegen Bio-Zutaten.",
+        "priceCents": 358,
+        "priceLabel": "3,58 € / 160 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Natürliche Zutaten",
+          "Ohne synthetische Zusätze"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "lakritzschnecken-v3",
+        "name": "Lakritzschnecken Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Stärkerer Lakritz- und Salmiakgeschmack, weniger süß, höherer Preis durch alternative Produkte.",
+        "priceCents": 390,
+        "priceLabel": "3,90 € / 150 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Weniger süß"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Stärkerer Salmiakgeschmack"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "popcorn-gesuesst",
+    "name": "Popcorn, gesüßt",
+    "image": "🍿",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "popcorn-gesuesst-v1",
+        "name": "Popcorn, gesüßt Variante 1",
+        "variantName": "Konventionell",
+        "description": "Weit verbreitet, meist mit industriellen Zutaten wie Zucker, Backfett und Aromastoffen.",
+        "priceCents": 79,
+        "priceLabel": "0,79 € / 130 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Weit verbreitet",
+          "Günstig"
+        ],
+        "risks": [
+          "Zucker",
+          "Backfett",
+          "Aromastoffe"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und gut verfügbar.",
+          "gesundheitText": "Hoher Zuckeranteil und mögliche Zusatzstoffe führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Verpackung begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "popcorn-gesuesst-v2",
+        "name": "Popcorn, gesüßt Variante 2",
+        "variantName": "Bio",
+        "description": "Meist mit Bio-Zucker und ohne künstliche Zusatzstoffe, höherer Preis wegen Bio-Zutaten.",
+        "priceCents": 250,
+        "priceLabel": "2,50 € / 90 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio-Zucker",
+          "Ohne künstliche Zusatzstoffe"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Bio-Zutaten und natürlichere Zusätze sind besser, das Produkt bleibt aber eine Süßigkeit.",
+          "nachhaltigkeitText": "Bio-Anbau und natürlichere Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "popcorn-gesuesst-v3",
+        "name": "Popcorn, gesüßt Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Kein zugesetzter Zucker, trotzdem viel Fett und Maisstärke, ggf. alternativ mit Salz verfeinert.",
+        "priceCents": 79,
+        "priceLabel": "0,79 € / 130 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Kein zugesetzter Zucker"
+        ],
+        "risks": [
+          "Viel Fett",
+          "Maisstärke",
+          "Salz möglich"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Deutlich teurer durch zuckerfreie Spezialrezeptur.",
+          "gesundheitText": "Kein zugesetzter Zucker ist positiv, Süßungsmittel und Snackcharakter bleiben Nachteile.",
+          "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
+        }
+      }
+    ]
+  },
+  {
+    "id": "salzlakritz-diamanten",
+    "name": "Salzlakritz Diamanten",
+    "image": "◆",
+    "category": "SCHOKOLADE_SUESSWAREN",
+    "variants": [
+      {
+        "id": "salzlakritz-diamanten-v1",
+        "name": "Salzlakritz Diamanten Variante 1",
+        "variantName": "Konventionell",
+        "description": "Gängig, hoher Zuckeranteil, hoher Salzanteil, meist konventionelle Zusatzstoffe.",
+        "priceCents": 149,
+        "priceLabel": "1,49 € / 200 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Gängig"
+        ],
+        "risks": [
+          "Hoher Zuckeranteil",
+          "Hoher Salzanteil",
+          "Konventionelle Zusatzstoffe"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 1,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstig bis mittelpreisig und gut verfügbar.",
+          "gesundheitText": "Hoher Zucker- und Salzanteil führen zu einer niedrigen Gesundheitsbewertung.",
+          "nachhaltigkeitText": "Konventionelle Zutaten und Zusatzstoffe begrenzen die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "salzlakritz-diamanten-v2",
+        "name": "Salzlakritz Diamanten Variante 2",
+        "variantName": "Bio",
+        "description": "Bio-Lakritz mit Salzüberzug und natürlichen Zutaten, höherer Preis wegen Bio-Zutaten.",
+        "priceCents": 219,
+        "priceLabel": "2,19 € / 100 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Natürliche Zutaten"
+        ],
+        "risks": [
+          "Höherer Preis",
+          "Salzüberzug",
+          "Zucker"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 2,
+          "nachhaltigkeit": 4,
+          "preisText": "Höherer Preis durch Bio-Zutaten.",
+          "gesundheitText": "Natürlichere Zutaten sind positiv, Zucker und Salz bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Zutaten verbessern die Nachhaltigkeit gegenüber konventioneller Ware."
+        }
+      },
+      {
+        "id": "salzlakritz-diamanten-v3",
+        "name": "Salzlakritz Diamanten Variante 3",
+        "variantName": "Zuckerfrei",
+        "description": "Lakritz-Snack ohne Zucker, meist reduzierter Salzanteil, Zucker wird durch teurere Alternativen ersetzt.",
+        "priceCents": 359,
+        "priceLabel": "3,59 € / 150 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Zuckerfrei",
+          "Meist reduzierter Salzanteil"
+        ],
+        "risks": [
+          "Teurere Zucker-Alternativen",
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 2,
+          "preisText": "Teurer als konventionelle Ware durch alternative Rezeptur.",
+          "gesundheitText": "Zuckerfrei und meist salzreduziert ist besser, bleibt aber ein Snackprodukt.",
+          "nachhaltigkeitText": "Zuckerfreie Rezeptur verbessert nicht automatisch die Umweltbilanz; Verarbeitung bleibt hoch."
+        }
+      }
+    ]
+  },
+  {
     "id": "gummibaerchen",
     "name": "Gummibärchen",
     "image": "🍬",
