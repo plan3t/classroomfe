@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { foodCatalog, type FoodItem, type FoodVariant } from '@/src/lib/food-catalog';
+import { type FoodCategory, type FoodItem, type FoodVariant } from '@/src/lib/food-catalog';
 import { fullFoodCatalog } from '@/src/lib/food-catalog-full';
 import { Button, Card, Input } from '@/src/components/ui';
 import { evaluateGoal } from '@/src/lib/game-goal-scoring';
@@ -18,11 +18,89 @@ const availableGoals = [
   'Ultra-verarbeitete Produkte reduzieren',
 ];
 
+const categoryOrder: FoodCategory[] = [
+  'OBST',
+  'GEMUESE',
+  'BACKWAREN_GEBAECK',
+  'KUEHLREGAL_READY_TO_EAT',
+  'KUEHLREGAL_FLEISCH_ALTERNATIVEN',
+  'KUEHLREGAL_MILCH_ALTERNATIVEN',
+  'GETREIDEPRODUKTE',
+  'GETRAENKE',
+  'NUESSE_UND_SALZIGES',
+  'SCHOKOLADE_SUESSWAREN',
+  'KEKSE',
+  'TIEFKUEHL_EIS',
+];
+
+const categoryLabels: Record<FoodCategory, string> = {
+  OBST: 'Obst',
+  GEMUESE: 'Gemüse',
+  BACKWAREN_GEBAECK: 'Backwaren & Gebäck',
+  KUEHLREGAL_READY_TO_EAT: 'Kühlregal · Fertiggerichte',
+  KUEHLREGAL_FLEISCH_ALTERNATIVEN: 'Kühlregal · Fleisch & Alternativen',
+  KUEHLREGAL_MILCH_ALTERNATIVEN: 'Kühlregal · Milch & Alternativen',
+  GETREIDEPRODUKTE: 'Getreideprodukte',
+  GETRAENKE: 'Getränke',
+  NUESSE_UND_SALZIGES: 'Nüsse & Salziges',
+  SCHOKOLADE_SUESSWAREN: 'Schokolade & Süßwaren',
+  KEKSE: 'Kekse',
+  TIEFKUEHL_EIS: 'Tiefkühl-Eis',
+};
+
+const categoryIcons: Record<FoodCategory, string> = {
+  OBST: '🍎',
+  GEMUESE: '🥦',
+  BACKWAREN_GEBAECK: '🥐',
+  KUEHLREGAL_READY_TO_EAT: '🥗',
+  KUEHLREGAL_FLEISCH_ALTERNATIVEN: '🥩',
+  KUEHLREGAL_MILCH_ALTERNATIVEN: '🥛',
+  GETREIDEPRODUKTE: '🌾',
+  GETRAENKE: '🧃',
+  NUESSE_UND_SALZIGES: '🥜',
+  SCHOKOLADE_SUESSWAREN: '🍫',
+  KEKSE: '🍪',
+  TIEFKUEHL_EIS: '🍦',
+};
+
+
+type AggregatedCartEntry = {
+  line: CartLine;
+  lineIndices: number[];
+  item: FoodItem;
+  variant: FoodVariant;
+};
 
 function findVariant(catalog: FoodItem[], foodId: string, variantId: string): { item: FoodItem; variant: FoodVariant } | null {
   const item = catalog.find((f) => f.id === foodId);
   const variant = item?.variants.find((v) => v.id === variantId);
   return item && variant ? { item, variant } : null;
+}
+
+function aggregateCartEntries(catalog: FoodItem[], cart: CartLine[]): AggregatedCartEntry[] {
+  const entries = new Map<string, AggregatedCartEntry>();
+
+  cart.forEach((line, lineIndex) => {
+    const entry = findVariant(catalog, line.foodId, line.variantId);
+    if (!entry) return;
+
+    const key = `${line.foodId}-${line.variantId}`;
+    const existing = entries.get(key);
+    if (existing) {
+      existing.line.qty += line.qty;
+      existing.lineIndices.push(lineIndex);
+      return;
+    }
+
+    entries.set(key, {
+      line: { ...line },
+      lineIndices: [lineIndex],
+      item: entry.item,
+      variant: entry.variant,
+    });
+  });
+
+  return Array.from(entries.values());
 }
 
 export function GameApp() {
@@ -39,8 +117,10 @@ export function GameApp() {
   const [guideVideoUrl, setGuideVideoUrl] = useState('');
   const [guideVideos, setGuideVideos] = useState<Array<{ name: string; url: string }>>([]);
   const [saveInfo, setSaveInfo] = useState<string | null>(null);
-  const [useFullCatalog, setUseFullCatalog] = useState(true);
-  const catalog = useFullCatalog ? fullFoodCatalog : foodCatalog;
+  const [cartNotice, setCartNotice] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<FoodCategory | null>(null);
+  const [productSearch, setProductSearch] = useState('');
+  const catalog = fullFoodCatalog;
 
   const activePlayer = players[activePlayerIndex];
 
@@ -56,6 +136,61 @@ export function GameApp() {
       return { playerId: p.id, total };
     });
   }, [catalog, players]);
+
+  const foodsByCategory = useMemo(() => {
+    return catalog.reduce((groups, food) => {
+      groups[food.category] = [...(groups[food.category] ?? []), food];
+      return groups;
+    }, {} as Partial<Record<FoodCategory, FoodItem[]>>);
+  }, [catalog]);
+
+  const categorySummaries = useMemo(() => {
+    return categoryOrder
+      .map((category) => ({ category, foods: foodsByCategory[category] ?? [] }))
+      .filter(({ foods }) => foods.length > 0);
+  }, [foodsByCategory]);
+
+  const visibleFoods = useMemo(() => {
+    if (!selectedCategory) return [];
+    const query = productSearch.trim().toLowerCase();
+    const categoryFoods = foodsByCategory[selectedCategory] ?? [];
+    if (!query) return categoryFoods;
+    return categoryFoods.filter((food) => food.name.toLowerCase().includes(query));
+  }, [foodsByCategory, productSearch, selectedCategory]);
+
+  const overviewSearchResults = useMemo(() => {
+    if (selectedCategory) return [];
+    const query = productSearch.trim().toLowerCase();
+    if (!query) return [];
+    return catalog.filter((food) => {
+      const categoryLabel = categoryLabels[food.category].toLowerCase();
+      return food.name.toLowerCase().includes(query) || categoryLabel.includes(query);
+    });
+  }, [catalog, productSearch, selectedCategory]);
+
+  const overviewSearchGroups = useMemo(() => {
+    const grouped: Partial<Record<FoodCategory, FoodItem[]>> = {};
+    overviewSearchResults.forEach((food) => {
+      grouped[food.category] = [...(grouped[food.category] ?? []), food];
+    });
+
+    return categoryOrder
+      .map((category) => ({ category, foods: grouped[category] ?? [] }))
+      .filter(({ foods }) => foods.length > 0);
+  }, [overviewSearchResults]);
+
+  const activeCartGroups = useMemo(() => {
+    const grouped: Partial<Record<FoodCategory, AggregatedCartEntry[]>> = {};
+
+    aggregateCartEntries(catalog, activePlayer?.cart ?? []).forEach((entry) => {
+      const category = entry.item.category;
+      grouped[category] = [...(grouped[category] ?? []), entry];
+    });
+
+    return categoryOrder
+      .map((category) => ({ category, lines: grouped[category] ?? [] }))
+      .filter(({ lines }) => lines.length > 0);
+  }, [activePlayer?.cart, catalog]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -103,6 +238,12 @@ export function GameApp() {
     window.localStorage.setItem('game-companion-media-v1', JSON.stringify(guideVideos));
   }, [guideVideos]);
 
+  useEffect(() => {
+    if (!cartNotice) return;
+    const timeoutId = window.setTimeout(() => setCartNotice(null), 2500);
+    return () => window.clearTimeout(timeoutId);
+  }, [cartNotice]);
+
   function resetAll() {
     setScreen('start');
     setMode('normal');
@@ -111,6 +252,8 @@ export function GameApp() {
     setActivePlayerIndex(0);
     setSelectedFood(null);
     setSelectedVariantId('');
+    setSelectedCategory(null);
+    setProductSearch('');
     setQty(1);
     setSetupGoals({});
     if (typeof window !== 'undefined') {
@@ -118,6 +261,7 @@ export function GameApp() {
       window.localStorage.removeItem('game-companion-media-v1');
     }
     setSaveInfo(null);
+    setCartNotice(null);
   }
 
   async function addGuideVideoFile(file: File) {
@@ -149,30 +293,68 @@ export function GameApp() {
     if (lines.length < 1) return;
     setPlayers(lines.map((name, idx) => ({ id: `p-${idx}`, name, cart: [], done: false, goals: setupGoals[idx] ?? [] })));
     setActivePlayerIndex(0);
+    setSelectedCategory(null);
+    setSelectedFood(null);
+    setSelectedVariantId('');
+    setProductSearch('');
     setScreen('play');
   }
 
   function addToCart() {
     if (!activePlayer || !selectedFood || !selectedVariantId || qty <= 0) return;
+    let nextQuantity = qty;
+    const selectedVariant = selectedFood.variants.find((variant) => variant.id === selectedVariantId);
+
     setPlayers((current) => current.map((p, idx) => {
       if (idx !== activePlayerIndex) return p;
+      const existingLineIndex = p.cart.findIndex((line) => line.foodId === selectedFood.id && line.variantId === selectedVariantId);
+      if (existingLineIndex >= 0) {
+        nextQuantity = p.cart[existingLineIndex].qty + qty;
+        return {
+          ...p,
+          cart: p.cart.map((line, cartIdx) => cartIdx === existingLineIndex ? { ...line, qty: nextQuantity } : line),
+        };
+      }
+
       return {
         ...p,
         cart: [...p.cart, { foodId: selectedFood.id, variantId: selectedVariantId, qty }],
       };
     }));
+    setCartNotice(`${selectedFood.name}${selectedVariant ? ` (${selectedVariant.name})` : ''} ist jetzt ${nextQuantity}× im Einkaufskorb.`);
     setQty(1);
   }
 
-  function removeFromCart(lineIndex: number) {
+  function removeFromCart(lineIndices: number[]) {
     if (!activePlayer) return;
     setPlayers((current) => current.map((p, idx) => {
       if (idx !== activePlayerIndex) return p;
       return {
         ...p,
-        cart: p.cart.filter((_, cartIdx) => cartIdx !== lineIndex),
+        cart: p.cart.filter((_, cartIdx) => !lineIndices.includes(cartIdx)),
       };
     }));
+    setCartNotice('Artikel wurde aus dem Einkaufskorb entfernt.');
+  }
+
+  function updateCartQuantity(lineIndices: number[], nextQuantity: number) {
+    if (!activePlayer) return;
+    if (nextQuantity <= 0) {
+      removeFromCart(lineIndices);
+      return;
+    }
+
+    const primaryLineIndex = lineIndices[0];
+    setPlayers((current) => current.map((p, idx) => {
+      if (idx !== activePlayerIndex) return p;
+      return {
+        ...p,
+        cart: p.cart
+          .map((line, cartIdx) => cartIdx === primaryLineIndex ? { ...line, qty: nextQuantity } : line)
+          .filter((_, cartIdx) => cartIdx === primaryLineIndex || !lineIndices.includes(cartIdx)),
+      };
+    }));
+    setCartNotice(`Menge wurde auf ${nextQuantity} gesetzt.`);
   }
 
   function finishShopping() {
@@ -180,11 +362,39 @@ export function GameApp() {
     setPlayers((current) => current.map((p, idx) => idx === activePlayerIndex ? { ...p, done: true } : p));
   }
 
+  function selectCategory(category: FoodCategory) {
+    setSelectedCategory(category);
+    setSelectedFood(null);
+    setSelectedVariantId('');
+    setProductSearch('');
+  }
+
+  function showCategoryOverview() {
+    setSelectedCategory(null);
+    setSelectedFood(null);
+    setSelectedVariantId('');
+    setProductSearch('');
+  }
+
+  function selectFood(food: FoodItem) {
+    setSelectedFood(food);
+    setSelectedVariantId(food.variants[0]?.id ?? '');
+  }
+
+  function selectFoodFromOverview(food: FoodItem) {
+    setSelectedCategory(food.category);
+    setSelectedFood(food);
+    setSelectedVariantId(food.variants[0]?.id ?? '');
+    setProductSearch('');
+  }
+
   function nextPlayer() {
     if (players.length === 0) return;
     setActivePlayerIndex((i) => (i + 1) % players.length);
+    setSelectedCategory(null);
     setSelectedFood(null);
     setSelectedVariantId('');
+    setProductSearch('');
     setQty(1);
   }
 
@@ -297,28 +507,114 @@ export function GameApp() {
           <p className="text-sm text-slate-300">Status: {activePlayer?.done ? 'Einkauf fertig' : 'Einkauft'}</p>
         </div>
 
-        <h3 className="text-lg font-medium">Lebensmittelübersicht</h3>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          {catalog.map((food) => (
-            <button
-              key={food.id}
-              type="button"
-              onClick={() => {
-                setSelectedFood(food);
-                setSelectedVariantId(food.variants[0]?.id ?? '');
-              }}
-              className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-left hover:bg-white/5"
-            >
-              <p className="text-3xl">{food.image}</p>
-              <p className="mt-2 font-semibold">{food.name}</p>
-            </button>
-          ))}
+        <div className="space-y-2">
+          <h3 className="text-lg font-medium">Einkaufsübersicht</h3>
+          <p className="text-sm text-slate-300">
+            {selectedCategory
+              ? `Einkaufsübersicht > ${categoryLabels[selectedCategory]}`
+              : 'Wähle zuerst eine Kategorie aus. Danach werden nur die passenden Produkte angezeigt.'}
+          </p>
         </div>
+
+        {!selectedCategory ? (
+          <div className="space-y-4">
+            <label className="block text-sm">
+              <span>Produkt im gesamten Einkauf suchen</span>
+              <Input value={productSearch} onChange={(e) => setProductSearch(e.target.value)} placeholder="Produktname eingeben ..." />
+            </label>
+
+            {productSearch.trim() ? (
+              <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/40 p-4">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="font-semibold">Suchergebnisse</p>
+                  <p className="text-xs text-slate-400">{overviewSearchResults.length} {overviewSearchResults.length === 1 ? 'Produkt' : 'Produkte'} gefunden</p>
+                </div>
+                {overviewSearchGroups.length ? (
+                  <div className="space-y-4">
+                    {overviewSearchGroups.map(({ category, foods }) => (
+                      <div key={`overview-group-${category}`} className="space-y-2">
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="text-sm font-semibold">{categoryIcons[category]} {categoryLabels[category]}</p>
+                          <p className="text-xs text-slate-400">{foods.length} Treffer</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                          {foods.map((food) => (
+                            <button
+                              key={`overview-${food.id}`}
+                              type="button"
+                              onClick={() => selectFoodFromOverview(food)}
+                              className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-left transition hover:border-emerald-300/60 hover:bg-white/5"
+                            >
+                              <p className="text-3xl">{food.image}</p>
+                              <p className="mt-2 font-semibold">{food.name}</p>
+                              <p className="mt-1 text-xs text-slate-400">{categoryLabels[food.category]}</p>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : <p className="text-sm text-slate-300">Keine Produkte für diese Suche gefunden.</p>}
+              </div>
+            ) : null}
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {categorySummaries.map(({ category, foods }) => (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => selectCategory(category)}
+                  className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-left transition hover:border-emerald-300/60 hover:bg-white/5"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="text-4xl" aria-hidden="true">{categoryIcons[category]}</span>
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-slate-400">Kategorie</p>
+                      <p className="mt-1 font-semibold">{categoryLabels[category]}</p>
+                      <p className="mt-1 text-sm text-slate-400">{foods.length} {foods.length === 1 ? 'Produkt' : 'Produkte'}</p>
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-slate-900/50 p-4">
+              <div>
+                <p className="text-xs uppercase tracking-wide text-slate-400">Kategorie</p>
+                <h4 className="text-xl font-semibold">{categoryIcons[selectedCategory]} {categoryLabels[selectedCategory]}</h4>
+                <p className="text-sm text-slate-300">{foodsByCategory[selectedCategory]?.length ?? 0} Produkte in dieser Kategorie</p>
+              </div>
+              <Button onClick={showCategoryOverview} className="bg-white text-slate-950 hover:bg-slate-200">← Zurück zu Kategorien</Button>
+            </div>
+
+            <label className="block text-sm">
+              <span>Produkt in {categoryLabels[selectedCategory]} suchen</span>
+              <Input value={productSearch} onChange={(e) => setProductSearch(e.target.value)} placeholder="Produktname eingeben ..." />
+            </label>
+
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+              {visibleFoods.map((food) => (
+                <button
+                  key={food.id}
+                  type="button"
+                  onClick={() => selectFood(food)}
+                  className={`rounded-2xl border p-4 text-left transition hover:bg-white/5 ${selectedFood?.id === food.id ? 'border-emerald-300 bg-emerald-400/10' : 'border-white/10 bg-slate-900/60'}`}
+                >
+                  <p className="text-3xl">{food.image}</p>
+                  <p className="mt-2 font-semibold">{food.name}</p>
+                </button>
+              ))}
+            </div>
+            {visibleFoods.length === 0 ? <p className="rounded-2xl border border-white/10 p-4 text-sm text-slate-300">Keine Produkte für diese Suche gefunden.</p> : null}
+          </div>
+        )}
 
         {selectedFood ? (
           <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/50 p-4">
             <h4 className="text-xl font-semibold">{selectedFood.name}</h4>
-            <p className="text-xs text-slate-400">Kategorie: {selectedFood.category}</p>
+            <p className="text-xs text-slate-400">Kategorie: {categoryLabels[selectedFood.category]}</p>
             <label className="block text-sm">
               <span>Variante</span>
               <select
@@ -362,14 +658,31 @@ export function GameApp() {
 
       <Card className="space-y-4">
         <h3 className="text-xl font-semibold">Einkaufskorb: {activePlayer?.name}</h3>
-        <div className="space-y-2 text-sm">
-          {activePlayer?.cart.length ? activePlayer.cart.map((line, idx) => {
-            const entry = findVariant(catalog, line.foodId, line.variantId);
-            if (!entry) return null;
+        {cartNotice ? <p className="rounded-2xl border border-emerald-300/30 bg-emerald-400/10 p-3 text-sm text-emerald-100">{cartNotice}</p> : null}
+        <div className="space-y-3 text-sm">
+          {activeCartGroups.length ? activeCartGroups.map(({ category, lines }) => {
+            const categoryQuantity = lines.reduce((sum, { line }) => sum + line.qty, 0);
+            const categoryPriceScore = lines.reduce((sum, { line, variant }) => sum + variant.rating.preisbewusstsein * line.qty, 0);
             return (
-              <div key={`${line.foodId}-${line.variantId}-${idx}`} className="flex items-center justify-between gap-3 rounded-xl border border-white/10 p-2">
-                <span>{entry.item.name} ({entry.variant.name}) × {line.qty}</span>
-                {!activePlayer.done ? <Button onClick={() => removeFromCart(idx)} className="bg-rose-300 px-3 py-1 text-xs text-slate-950 hover:bg-rose-200">Entfernen</Button> : null}
+              <div key={`cart-${category}`} className="rounded-2xl border border-white/10 p-3">
+                <div className="mb-2 flex items-center justify-between gap-2">
+                  <p className="font-semibold">{categoryIcons[category]} {categoryLabels[category]}</p>
+                  <p className="text-xs text-slate-400">{lines.length} Artikel · Menge {categoryQuantity} · Preis-Score {categoryPriceScore}</p>
+                </div>
+                <div className="space-y-2">
+                  {lines.map(({ line, lineIndices, item, variant }) => (
+                    <div key={`${line.foodId}-${line.variantId}`} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/10 p-2">
+                      <span>{item.name} ({variant.name}) × {line.qty}</span>
+                      {!activePlayer?.done ? (
+                        <div className="flex items-center gap-2">
+                          <Button onClick={() => updateCartQuantity(lineIndices, line.qty - 1)} className="bg-white px-3 py-1 text-xs text-slate-950 hover:bg-slate-200">−</Button>
+                          <Button onClick={() => updateCartQuantity(lineIndices, line.qty + 1)} className="bg-white px-3 py-1 text-xs text-slate-950 hover:bg-slate-200">+</Button>
+                          <Button onClick={() => removeFromCart(lineIndices)} className="bg-rose-300 px-3 py-1 text-xs text-slate-950 hover:bg-rose-200">Entfernen</Button>
+                        </div>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
               </div>
             );
           }) : <p className="text-slate-400">Noch nichts im Korb.</p>}
@@ -381,10 +694,6 @@ export function GameApp() {
           <Button onClick={() => void saveSession()} className="bg-amber-300 text-slate-950 hover:bg-amber-200">Spielstand speichern</Button>
           <Button onClick={resetAll} className="bg-rose-300 text-slate-950 hover:bg-rose-200">Spiel zurücksetzen</Button>
         </div>
-        <label className="inline-flex items-center gap-2 text-xs text-slate-300">
-          <input type="checkbox" checked={useFullCatalog} onChange={(e) => setUseFullCatalog(e.target.checked)} />
-          Vollkatalog (61 Lebensmittel) verwenden
-        </label>
         {saveInfo ? <p className="text-sm text-emerald-200">{saveInfo}</p> : null}
 
         <div className="rounded-2xl border border-white/10 p-3 text-sm">
@@ -422,18 +731,14 @@ export function GameApp() {
                       <details className="mt-2">
                         <summary className="cursor-pointer text-emerald-200">Begründungen anzeigen</summary>
                         <div className="mt-2 space-y-2 text-slate-300">
-                          {player.cart.map((line, idx) => {
-                            const entry = findVariant(catalog, line.foodId, line.variantId);
-                            if (!entry) return null;
-                            return (
-                              <div key={`reason-${player.id}-${idx}`}>
-                                <p className="font-medium text-white">{entry.item.name} ({entry.variant.name}) × {line.qty}</p>
-                                <p>Preis: {entry.variant.rating.preisText}</p>
-                                <p>Gesundheit: {entry.variant.rating.gesundheitText}</p>
-                                <p>Nachhaltigkeit: {entry.variant.rating.nachhaltigkeitText}</p>
-                              </div>
-                            );
-                          })}
+                          {aggregateCartEntries(catalog, player.cart).map(({ line, item, variant }) => (
+                            <div key={`reason-${player.id}-${line.foodId}-${line.variantId}`}>
+                              <p className="font-medium text-white">{item.name} ({variant.name}) × {line.qty}</p>
+                              <p>Preis: {variant.rating.preisText}</p>
+                              <p>Gesundheit: {variant.rating.gesundheitText}</p>
+                              <p>Nachhaltigkeit: {variant.rating.nachhaltigkeitText}</p>
+                            </div>
+                          ))}
                         </div>
                       </details>
                     ) : <p className="text-slate-300">Keine Artikel im Einkaufskorb.</p>}
