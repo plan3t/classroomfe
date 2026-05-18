@@ -3668,7 +3668,7 @@
     "id": "studentenfutter",
     "name": "Studentenfutter",
     "image": "🥜",
-    "category": "KEKSE",
+    "category": "NUESSE_UND_SALZIGES",
     "variants": [
       {
         "id": "studentenfutter-v1",
@@ -3742,7 +3742,7 @@
     "id": "walnuesse",
     "name": "Walnüsse",
     "image": "🌰",
-    "category": "KEKSE",
+    "category": "NUESSE_UND_SALZIGES",
     "variants": [
       {
         "id": "walnuesse-v1",
@@ -3816,7 +3816,7 @@
     "id": "kartoffelchips-paprika",
     "name": "Kartoffelchips Paprika",
     "image": "🥔",
-    "category": "KEKSE",
+    "category": "NUESSE_UND_SALZIGES",
     "variants": [
       {
         "id": "kartoffelchips-paprika-v1",
@@ -3857,7 +3857,7 @@
     "id": "linsenchips",
     "name": "Linsenchips",
     "image": "🟠",
-    "category": "KEKSE",
+    "category": "NUESSE_UND_SALZIGES",
     "variants": [
       {
         "id": "linsenchips-v1",
@@ -3933,7 +3933,7 @@
     "id": "nuesse-im-knuspermantel",
     "name": "Nüsse im Knuspermantel",
     "image": "🥜",
-    "category": "KEKSE",
+    "category": "NUESSE_UND_SALZIGES",
     "variants": [
       {
         "id": "nuesse-im-knuspermantel-v1",
