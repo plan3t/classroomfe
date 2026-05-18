@@ -64,43 +64,10 @@ const categoryIcons: Record<FoodCategory, string> = {
 };
 
 
-type AggregatedCartEntry = {
-  line: CartLine;
-  lineIndices: number[];
-  item: FoodItem;
-  variant: FoodVariant;
-};
-
 function findVariant(catalog: FoodItem[], foodId: string, variantId: string): { item: FoodItem; variant: FoodVariant } | null {
   const item = catalog.find((f) => f.id === foodId);
   const variant = item?.variants.find((v) => v.id === variantId);
   return item && variant ? { item, variant } : null;
-}
-
-function aggregateCartEntries(catalog: FoodItem[], cart: CartLine[]): AggregatedCartEntry[] {
-  const entries = new Map<string, AggregatedCartEntry>();
-
-  cart.forEach((line, lineIndex) => {
-    const entry = findVariant(catalog, line.foodId, line.variantId);
-    if (!entry) return;
-
-    const key = `${line.foodId}-${line.variantId}`;
-    const existing = entries.get(key);
-    if (existing) {
-      existing.line.qty += line.qty;
-      existing.lineIndices.push(lineIndex);
-      return;
-    }
-
-    entries.set(key, {
-      line: { ...line },
-      lineIndices: [lineIndex],
-      item: entry.item,
-      variant: entry.variant,
-    });
-  });
-
-  return Array.from(entries.values());
 }
 
 export function GameApp() {
@@ -117,7 +84,6 @@ export function GameApp() {
   const [guideVideoUrl, setGuideVideoUrl] = useState('');
   const [guideVideos, setGuideVideos] = useState<Array<{ name: string; url: string }>>([]);
   const [saveInfo, setSaveInfo] = useState<string | null>(null);
-  const [cartNotice, setCartNotice] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<FoodCategory | null>(null);
   const [productSearch, setProductSearch] = useState('');
   const catalog = fullFoodCatalog;
@@ -158,33 +124,13 @@ export function GameApp() {
     return categoryFoods.filter((food) => food.name.toLowerCase().includes(query));
   }, [foodsByCategory, productSearch, selectedCategory]);
 
-  const overviewSearchResults = useMemo(() => {
-    if (selectedCategory) return [];
-    const query = productSearch.trim().toLowerCase();
-    if (!query) return [];
-    return catalog.filter((food) => {
-      const categoryLabel = categoryLabels[food.category].toLowerCase();
-      return food.name.toLowerCase().includes(query) || categoryLabel.includes(query);
-    });
-  }, [catalog, productSearch, selectedCategory]);
-
-  const overviewSearchGroups = useMemo(() => {
-    const grouped: Partial<Record<FoodCategory, FoodItem[]>> = {};
-    overviewSearchResults.forEach((food) => {
-      grouped[food.category] = [...(grouped[food.category] ?? []), food];
-    });
-
-    return categoryOrder
-      .map((category) => ({ category, foods: grouped[category] ?? [] }))
-      .filter(({ foods }) => foods.length > 0);
-  }, [overviewSearchResults]);
-
   const activeCartGroups = useMemo(() => {
-    const grouped: Partial<Record<FoodCategory, AggregatedCartEntry[]>> = {};
-
-    aggregateCartEntries(catalog, activePlayer?.cart ?? []).forEach((entry) => {
+    const grouped: Partial<Record<FoodCategory, Array<{ line: CartLine; lineIndex: number; item: FoodItem; variant: FoodVariant }>>> = {};
+    activePlayer?.cart.forEach((line, lineIndex) => {
+      const entry = findVariant(catalog, line.foodId, line.variantId);
+      if (!entry) return;
       const category = entry.item.category;
-      grouped[category] = [...(grouped[category] ?? []), entry];
+      grouped[category] = [...(grouped[category] ?? []), { line, lineIndex, item: entry.item, variant: entry.variant }];
     });
 
     return categoryOrder
@@ -238,12 +184,6 @@ export function GameApp() {
     window.localStorage.setItem('game-companion-media-v1', JSON.stringify(guideVideos));
   }, [guideVideos]);
 
-  useEffect(() => {
-    if (!cartNotice) return;
-    const timeoutId = window.setTimeout(() => setCartNotice(null), 2500);
-    return () => window.clearTimeout(timeoutId);
-  }, [cartNotice]);
-
   function resetAll() {
     setScreen('start');
     setMode('normal');
@@ -261,7 +201,6 @@ export function GameApp() {
       window.localStorage.removeItem('game-companion-media-v1');
     }
     setSaveInfo(null);
-    setCartNotice(null);
   }
 
   async function addGuideVideoFile(file: File) {
@@ -302,59 +241,25 @@ export function GameApp() {
 
   function addToCart() {
     if (!activePlayer || !selectedFood || !selectedVariantId || qty <= 0) return;
-    let nextQuantity = qty;
-    const selectedVariant = selectedFood.variants.find((variant) => variant.id === selectedVariantId);
-
     setPlayers((current) => current.map((p, idx) => {
       if (idx !== activePlayerIndex) return p;
-      const existingLineIndex = p.cart.findIndex((line) => line.foodId === selectedFood.id && line.variantId === selectedVariantId);
-      if (existingLineIndex >= 0) {
-        nextQuantity = p.cart[existingLineIndex].qty + qty;
-        return {
-          ...p,
-          cart: p.cart.map((line, cartIdx) => cartIdx === existingLineIndex ? { ...line, qty: nextQuantity } : line),
-        };
-      }
-
       return {
         ...p,
         cart: [...p.cart, { foodId: selectedFood.id, variantId: selectedVariantId, qty }],
       };
     }));
-    setCartNotice(`${selectedFood.name}${selectedVariant ? ` (${selectedVariant.name})` : ''} ist jetzt ${nextQuantity}× im Einkaufskorb.`);
     setQty(1);
   }
 
-  function removeFromCart(lineIndices: number[]) {
+  function removeFromCart(lineIndex: number) {
     if (!activePlayer) return;
     setPlayers((current) => current.map((p, idx) => {
       if (idx !== activePlayerIndex) return p;
       return {
         ...p,
-        cart: p.cart.filter((_, cartIdx) => !lineIndices.includes(cartIdx)),
+        cart: p.cart.filter((_, cartIdx) => cartIdx !== lineIndex),
       };
     }));
-    setCartNotice('Artikel wurde aus dem Einkaufskorb entfernt.');
-  }
-
-  function updateCartQuantity(lineIndices: number[], nextQuantity: number) {
-    if (!activePlayer) return;
-    if (nextQuantity <= 0) {
-      removeFromCart(lineIndices);
-      return;
-    }
-
-    const primaryLineIndex = lineIndices[0];
-    setPlayers((current) => current.map((p, idx) => {
-      if (idx !== activePlayerIndex) return p;
-      return {
-        ...p,
-        cart: p.cart
-          .map((line, cartIdx) => cartIdx === primaryLineIndex ? { ...line, qty: nextQuantity } : line)
-          .filter((_, cartIdx) => cartIdx === primaryLineIndex || !lineIndices.includes(cartIdx)),
-      };
-    }));
-    setCartNotice(`Menge wurde auf ${nextQuantity} gesetzt.`);
   }
 
   function finishShopping() {
@@ -379,13 +284,6 @@ export function GameApp() {
   function selectFood(food: FoodItem) {
     setSelectedFood(food);
     setSelectedVariantId(food.variants[0]?.id ?? '');
-  }
-
-  function selectFoodFromOverview(food: FoodItem) {
-    setSelectedCategory(food.category);
-    setSelectedFood(food);
-    setSelectedVariantId(food.variants[0]?.id ?? '');
-    setProductSearch('');
   }
 
   function nextPlayer() {
@@ -517,66 +415,24 @@ export function GameApp() {
         </div>
 
         {!selectedCategory ? (
-          <div className="space-y-4">
-            <label className="block text-sm">
-              <span>Produkt im gesamten Einkauf suchen</span>
-              <Input value={productSearch} onChange={(e) => setProductSearch(e.target.value)} placeholder="Produktname eingeben ..." />
-            </label>
-
-            {productSearch.trim() ? (
-              <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <p className="font-semibold">Suchergebnisse</p>
-                  <p className="text-xs text-slate-400">{overviewSearchResults.length} {overviewSearchResults.length === 1 ? 'Produkt' : 'Produkte'} gefunden</p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            {categorySummaries.map(({ category, foods }) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => selectCategory(category)}
+                className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-left transition hover:border-emerald-300/60 hover:bg-white/5"
+              >
+                <div className="flex items-start gap-3">
+                  <span className="text-4xl" aria-hidden="true">{categoryIcons[category]}</span>
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-slate-400">Kategorie</p>
+                    <p className="mt-1 font-semibold">{categoryLabels[category]}</p>
+                    <p className="mt-1 text-sm text-slate-400">{foods.length} {foods.length === 1 ? 'Produkt' : 'Produkte'}</p>
+                  </div>
                 </div>
-                {overviewSearchGroups.length ? (
-                  <div className="space-y-4">
-                    {overviewSearchGroups.map(({ category, foods }) => (
-                      <div key={`overview-group-${category}`} className="space-y-2">
-                        <div className="flex items-center justify-between gap-2">
-                          <p className="text-sm font-semibold">{categoryIcons[category]} {categoryLabels[category]}</p>
-                          <p className="text-xs text-slate-400">{foods.length} Treffer</p>
-                        </div>
-                        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-                          {foods.map((food) => (
-                            <button
-                              key={`overview-${food.id}`}
-                              type="button"
-                              onClick={() => selectFoodFromOverview(food)}
-                              className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-left transition hover:border-emerald-300/60 hover:bg-white/5"
-                            >
-                              <p className="text-3xl">{food.image}</p>
-                              <p className="mt-2 font-semibold">{food.name}</p>
-                              <p className="mt-1 text-xs text-slate-400">{categoryLabels[food.category]}</p>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : <p className="text-sm text-slate-300">Keine Produkte für diese Suche gefunden.</p>}
-              </div>
-            ) : null}
-
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              {categorySummaries.map(({ category, foods }) => (
-                <button
-                  key={category}
-                  type="button"
-                  onClick={() => selectCategory(category)}
-                  className="rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-left transition hover:border-emerald-300/60 hover:bg-white/5"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="text-4xl" aria-hidden="true">{categoryIcons[category]}</span>
-                    <div>
-                      <p className="text-xs uppercase tracking-wide text-slate-400">Kategorie</p>
-                      <p className="mt-1 font-semibold">{categoryLabels[category]}</p>
-                      <p className="mt-1 text-sm text-slate-400">{foods.length} {foods.length === 1 ? 'Produkt' : 'Produkte'}</p>
-                    </div>
-                  </div>
-                </button>
-              ))}
-            </div>
+              </button>
+            ))}
           </div>
         ) : (
           <div className="space-y-4">
@@ -658,31 +514,12 @@ export function GameApp() {
 
       <Card className="space-y-4">
         <h3 className="text-xl font-semibold">Einkaufskorb: {activePlayer?.name}</h3>
-        {cartNotice ? <p className="rounded-2xl border border-emerald-300/30 bg-emerald-400/10 p-3 text-sm text-emerald-100">{cartNotice}</p> : null}
         <div className="space-y-3 text-sm">
-          {activeCartGroups.length ? activeCartGroups.map(({ category, lines }) => {
-            const categoryQuantity = lines.reduce((sum, { line }) => sum + line.qty, 0);
-            const categoryPriceScore = lines.reduce((sum, { line, variant }) => sum + variant.rating.preisbewusstsein * line.qty, 0);
-            return (
-              <div key={`cart-${category}`} className="rounded-2xl border border-white/10 p-3">
-                <div className="mb-2 flex items-center justify-between gap-2">
-                  <p className="font-semibold">{categoryIcons[category]} {categoryLabels[category]}</p>
-                  <p className="text-xs text-slate-400">{lines.length} Artikel · Menge {categoryQuantity} · Preis-Score {categoryPriceScore}</p>
-                </div>
-                <div className="space-y-2">
-                  {lines.map(({ line, lineIndices, item, variant }) => (
-                    <div key={`${line.foodId}-${line.variantId}`} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/10 p-2">
-                      <span>{item.name} ({variant.name}) × {line.qty}</span>
-                      {!activePlayer?.done ? (
-                        <div className="flex items-center gap-2">
-                          <Button onClick={() => updateCartQuantity(lineIndices, line.qty - 1)} className="bg-white px-3 py-1 text-xs text-slate-950 hover:bg-slate-200">−</Button>
-                          <Button onClick={() => updateCartQuantity(lineIndices, line.qty + 1)} className="bg-white px-3 py-1 text-xs text-slate-950 hover:bg-slate-200">+</Button>
-                          <Button onClick={() => removeFromCart(lineIndices)} className="bg-rose-300 px-3 py-1 text-xs text-slate-950 hover:bg-rose-200">Entfernen</Button>
-                        </div>
-                      ) : null}
-                    </div>
-                  ))}
-                </div>
+          {activeCartGroups.length ? activeCartGroups.map(({ category, lines }) => (
+            <div key={`cart-${category}`} className="rounded-2xl border border-white/10 p-3">
+              <div className="mb-2 flex items-center justify-between gap-2">
+                <p className="font-semibold">{categoryIcons[category]} {categoryLabels[category]}</p>
+                <p className="text-xs text-slate-400">{lines.length} {lines.length === 1 ? 'Artikel' : 'Artikel'}</p>
               </div>
               <div className="space-y-2">
                 {lines.map(({ line, lineIndex, item, variant }) => (
@@ -739,14 +576,18 @@ export function GameApp() {
                       <details className="mt-2">
                         <summary className="cursor-pointer text-emerald-200">Begründungen anzeigen</summary>
                         <div className="mt-2 space-y-2 text-slate-300">
-                          {aggregateCartEntries(catalog, player.cart).map(({ line, item, variant }) => (
-                            <div key={`reason-${player.id}-${line.foodId}-${line.variantId}`}>
-                              <p className="font-medium text-white">{item.name} ({variant.name}) × {line.qty}</p>
-                              <p>Preis: {variant.rating.preisText}</p>
-                              <p>Gesundheit: {variant.rating.gesundheitText}</p>
-                              <p>Nachhaltigkeit: {variant.rating.nachhaltigkeitText}</p>
-                            </div>
-                          ))}
+                          {player.cart.map((line, idx) => {
+                            const entry = findVariant(catalog, line.foodId, line.variantId);
+                            if (!entry) return null;
+                            return (
+                              <div key={`reason-${player.id}-${idx}`}>
+                                <p className="font-medium text-white">{entry.item.name} ({entry.variant.name}) × {line.qty}</p>
+                                <p>Preis: {entry.variant.rating.preisText}</p>
+                                <p>Gesundheit: {entry.variant.rating.gesundheitText}</p>
+                                <p>Nachhaltigkeit: {entry.variant.rating.nachhaltigkeitText}</p>
+                              </div>
+                            );
+                          })}
                         </div>
                       </details>
                     ) : <p className="text-slate-300">Keine Artikel im Einkaufskorb.</p>}
