@@ -78,7 +78,7 @@ export function GameApp() {
   const [activePlayerIndex, setActivePlayerIndex] = useState(0);
   const [selectedFood, setSelectedFood] = useState<FoodItem | null>(null);
   const [selectedVariantId, setSelectedVariantId] = useState<string>('');
-  const [qty, setQty] = useState(1);
+  const [qtyInput, setQtyInput] = useState('1');
   const [setupGoals, setSetupGoals] = useState<Record<number, string[]>>({});
   const [hydrated, setHydrated] = useState(false);
   const [guideVideoUrl, setGuideVideoUrl] = useState('');
@@ -89,6 +89,8 @@ export function GameApp() {
   const catalog = fullFoodCatalog;
 
   const activePlayer = players[activePlayerIndex];
+  const qty = Number.parseInt(qtyInput, 10);
+  const canAddToCart = Number.isInteger(qty) && qty > 0;
 
   const allDone = players.length > 0 && players.every((p) => p.done);
   const canShowScores = allDone;
@@ -123,6 +125,13 @@ export function GameApp() {
     if (!query) return categoryFoods;
     return categoryFoods.filter((food) => food.name.toLowerCase().includes(query));
   }, [foodsByCategory, productSearch, selectedCategory]);
+
+  const activeCartPriceCents = useMemo(() => {
+    return activePlayer?.cart.reduce((sum, line) => {
+      const entry = findVariant(catalog, line.foodId, line.variantId);
+      return entry ? sum + entry.variant.priceCents * line.qty : sum;
+    }, 0) ?? 0;
+  }, [activePlayer?.cart, catalog]);
 
   const activeCartGroups = useMemo(() => {
     const grouped: Partial<Record<FoodCategory, Array<{ line: CartLine; lineIndex: number; item: FoodItem; variant: FoodVariant }>>> = {};
@@ -194,7 +203,7 @@ export function GameApp() {
     setSelectedVariantId('');
     setSelectedCategory(null);
     setProductSearch('');
-    setQty(1);
+    setQtyInput('1');
     setSetupGoals({});
     if (typeof window !== 'undefined') {
       window.localStorage.removeItem('game-companion-state-v1');
@@ -240,7 +249,7 @@ export function GameApp() {
   }
 
   function addToCart() {
-    if (!activePlayer || !selectedFood || !selectedVariantId || qty <= 0) return;
+    if (!activePlayer || !selectedFood || !selectedVariantId || !canAddToCart) return;
     setPlayers((current) => current.map((p, idx) => {
       if (idx !== activePlayerIndex) return p;
       return {
@@ -248,7 +257,7 @@ export function GameApp() {
         cart: [...p.cart, { foodId: selectedFood.id, variantId: selectedVariantId, qty }],
       };
     }));
-    setQty(1);
+    setQtyInput('1');
   }
 
   function removeFromCart(lineIndex: number) {
@@ -293,7 +302,11 @@ export function GameApp() {
     setSelectedFood(null);
     setSelectedVariantId('');
     setProductSearch('');
-    setQty(1);
+    setQtyInput('1');
+  }
+
+  function formatPrice(cents: number) {
+    return `${(cents / 100).toFixed(2).replace('.', ',')} €`;
   }
 
   function toggleGoal(playerIndex: number, goal: string) {
@@ -504,9 +517,18 @@ export function GameApp() {
             <div className="flex flex-wrap items-end gap-3">
               <label className="text-sm">
                 Menge
-                <Input type="number" min={1} value={String(qty)} onChange={(e) => setQty(Math.max(1, Number(e.target.value) || 1))} />
+                <Input
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  value={qtyInput}
+                  onChange={(e) => {
+                    const nextValue = e.target.value;
+                    if (/^\d*$/.test(nextValue)) setQtyInput(nextValue);
+                  }}
+                  placeholder="Menge eingeben"
+                />
               </label>
-              <Button onClick={addToCart}>In Einkaufskorb</Button>
+              <Button onClick={addToCart} disabled={!canAddToCart}>In Einkaufskorb</Button>
             </div>
           </div>
         ) : null}
@@ -532,6 +554,7 @@ export function GameApp() {
             </div>
           )) : <p className="text-slate-400">Noch nichts im Korb.</p>}
         </div>
+        <p className="font-semibold">Preissumme: {formatPrice(activeCartPriceCents)}</p>
         {canShowScores ? <p className="font-semibold">Preis-Score Summe: {totalsByPlayer.find((t) => t.playerId === activePlayer?.id)?.total ?? 0}</p> : null}
         <div className="flex flex-wrap gap-2">
           <Button onClick={finishShopping} className="bg-emerald-400 text-slate-950 hover:bg-emerald-300">Einkauf fertig</Button>
