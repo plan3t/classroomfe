@@ -1,67 +1,5 @@
 [
   {
-    "id": "banana",
-    "name": "Banane",
-    "image": "🍌",
-    "category": "OBST",
-    "variants": [
-      {
-        "id": "banana-v1",
-        "name": "Banane Variante 1",
-        "priceCents": 0,
-        "nutrition": {
-          "energyKcal": 0,
-          "fatG": 0,
-          "saltG": 0
-        },
-        "additives": [],
-        "benefits": [
-          "Frisches Obst"
-        ],
-        "risks": [],
-        "rating": {
-          "preisbewusstsein": 5,
-          "gesundheit": 5,
-          "nachhaltigkeit": 3,
-          "preisText": "Niedriger Preis, oft im Angebot erhältlich.",
-          "gesundheitText": "Frisches Obst mit Vitaminen, Mineralstoffen und Ballaststoffen.",
-          "nachhaltigkeitText": "Pflanzliches Produkt mit wenig Verpackung, aber konventioneller Anbau."
-        }
-      }
-    ]
-  },
-  {
-    "id": "apple",
-    "name": "Apfel",
-    "image": "🍎",
-    "category": "OBST",
-    "variants": [
-      {
-        "id": "apple-v4",
-        "name": "Apfel Variante 4",
-        "priceCents": 0,
-        "nutrition": {
-          "energyKcal": 0,
-          "fatG": 0,
-          "saltG": 0
-        },
-        "additives": [],
-        "benefits": [
-          "Frisches Obst"
-        ],
-        "risks": [],
-        "rating": {
-          "preisbewusstsein": 4,
-          "gesundheit": 5,
-          "nachhaltigkeit": 5,
-          "preisText": "Höherer Preis durch Bio- und Regional-/saisonal-Siegel.",
-          "gesundheitText": "Frisches Obst, nährstoffreich und mit reduziertem Pestizideinsatz.",
-          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
-        }
-      }
-    ]
-  },
-  {
     "id": "snack-paprika",
     "name": "Snack-Paprika",
     "image": "🫑",
@@ -2483,6 +2421,652 @@
           "preisText": "Deutlich höherer Preis als konventionell.",
           "gesundheitText": "Hauptsächlich Zucker, keine nennenswerten Nährstoffe.",
           "nachhaltigkeitText": "Biologische Zutaten, ohne gentechnische Zusatzstoffe."
+        }
+      }
+    ]
+  },
+  {
+    "id": "apfel",
+    "name": "Apfel",
+    "image": "🍎",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "apfel-v1",
+        "name": "Apfel Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 190,
+        "priceLabel": "1,90 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Ballaststoffe"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstige Standardware.",
+          "gesundheitText": "Frisches Obst liefert Vitamine und Ballaststoffe, mögliche Pestizidrückstände mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau hat weniger strenge Umweltauflagen; bei Importware kommen Transport- und Arbeitsbedingungen hinzu."
+        }
+      },
+      {
+        "id": "apfel-v2",
+        "name": "Apfel Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 239,
+        "priceLabel": "2,39 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "apfel-v3",
+        "name": "Apfel Variante 3",
+        "variantName": "Regionalität + Saisonalität",
+        "description": "Produkte stammen aus näherer Umgebung und natürlicher Reifezeit. Vorteile für Klima, Umwelt, Wirtschaft, Qualität und Frische; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 239,
+        "priceLabel": "2,39 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Regional",
+          "Saisonal",
+          "Oft frischer"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer, dafür oft frischer und saisonal.",
+          "gesundheitText": "Frisches, saisonales Obst kann besonders aromatisch und nährstoffreich sein.",
+          "nachhaltigkeitText": "Kurze Transportwege, natürliche Reifezeit und Unterstützung regionaler Wirtschaft verbessern die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "apfel-v4",
+        "name": "Apfel Variante 4",
+        "variantName": "Bio + Regionalität/Saisonalität",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, regionale/saisonale Erzeugung, Beitrag zur Nachhaltigkeit.",
+        "priceCents": 249,
+        "priceLabel": "2,49 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio- und Regional-/saisonal-Siegel.",
+          "gesundheitText": "Frisches Obst, nährstoffreich und mit reduziertem Pestizideinsatz.",
+          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "banana",
+    "name": "Banane",
+    "image": "🍌",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "banana-v1",
+        "name": "Banane Variante 1",
+        "variantName": "Konventionell angebaut",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 99,
+        "priceLabel": "0,99 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Ballaststoffe"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Schlechtere Arbeitsbedingungen möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 5,
+          "nachhaltigkeit": 3,
+          "preisText": "Niedriger Preis, oft im Angebot erhältlich.",
+          "gesundheitText": "Frisches Obst mit Vitaminen, Mineralstoffen und Ballaststoffen.",
+          "nachhaltigkeitText": "Pflanzliches Produkt mit wenig Verpackung, aber konventioneller Anbau."
+        }
+      },
+      {
+        "id": "banana-v2",
+        "name": "Banane Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 150,
+        "priceLabel": "1,50 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "banana-v3",
+        "name": "Banane Variante 3",
+        "variantName": "Fairtrade",
+        "description": "Bessere Löhne und Arbeitsbedingungen, stärkere soziale Standards als bei konventioneller Ware; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 180,
+        "priceLabel": "1,80 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Fairtrade",
+          "Bessere soziale Standards"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware, aber mit sozialem Mehrwert.",
+          "gesundheitText": "Frisches Obst bleibt gesund; der Anbau kann trotzdem konventionell sein.",
+          "nachhaltigkeitText": "Fairtrade stärkt Löhne, Arbeitsbedingungen und soziale Standards."
+        }
+      },
+      {
+        "id": "banana-v4",
+        "name": "Banane Variante 4",
+        "variantName": "Bio + Fairtrade",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, fairere Bezahlung und Arbeitsbedingungen, oft lose verkauft mit weniger Verpackungsmüll.",
+        "priceCents": 229,
+        "priceLabel": "2,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Fairtrade",
+          "Weniger Verpackungsmüll"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höchster Preis durch Bio- und Fairtrade-Standards.",
+          "gesundheitText": "Bio-Obst mit weniger Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio + Fairtrade verbindet Umweltstandards mit faireren Arbeitsbedingungen und oft weniger Verpackungsmüll."
+        }
+      }
+    ]
+  },
+  {
+    "id": "birne",
+    "name": "Birne",
+    "image": "🍐",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "birne-v1",
+        "name": "Birne Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 75,
+        "priceLabel": "0,75 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Ballaststoffe"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstige Standardware.",
+          "gesundheitText": "Frisches Obst liefert Vitamine und Ballaststoffe, mögliche Pestizidrückstände mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau hat weniger strenge Umweltauflagen; bei Importware kommen Transport- und Arbeitsbedingungen hinzu."
+        }
+      },
+      {
+        "id": "birne-v2",
+        "name": "Birne Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 119,
+        "priceLabel": "1,19 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "birne-v3",
+        "name": "Birne Variante 3",
+        "variantName": "Regionalität + Saisonalität",
+        "description": "Produkte stammen aus näherer Umgebung und natürlicher Reifezeit. Vorteile für Klima, Umwelt, Wirtschaft, Qualität und Frische; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 119,
+        "priceLabel": "1,19 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Regional",
+          "Saisonal",
+          "Oft frischer"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer, dafür oft frischer und saisonal.",
+          "gesundheitText": "Frisches, saisonales Obst kann besonders aromatisch und nährstoffreich sein.",
+          "nachhaltigkeitText": "Kurze Transportwege, natürliche Reifezeit und Unterstützung regionaler Wirtschaft verbessern die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "birne-v4",
+        "name": "Birne Variante 4",
+        "variantName": "Bio + Regionalität/Saisonalität",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, regionale/saisonale Erzeugung, Beitrag zur Nachhaltigkeit.",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio-, Regional- und Saisonalitätsvorteile.",
+          "gesundheitText": "Frisches Bio-Obst mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "erdbeeren",
+    "name": "Erdbeeren",
+    "image": "🍓",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "erdbeeren-v1",
+        "name": "Erdbeeren Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 229,
+        "priceLabel": "2,29 €/250 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Ballaststoffe"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 3,
+          "preisText": "Günstige Standardware.",
+          "gesundheitText": "Frisches Obst liefert Vitamine und Ballaststoffe, mögliche Pestizidrückstände mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau hat weniger strenge Umweltauflagen; bei Importware kommen Transport- und Arbeitsbedingungen hinzu."
+        }
+      },
+      {
+        "id": "erdbeeren-v2",
+        "name": "Erdbeeren Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 259,
+        "priceLabel": "2,59 €/250 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "erdbeeren-v3",
+        "name": "Erdbeeren Variante 3",
+        "variantName": "Regionalität + Saisonalität",
+        "description": "Produkte stammen aus näherer Umgebung und natürlicher Reifezeit. Vorteile für Klima, Umwelt, Wirtschaft, Qualität und Frische; Anbau kann trotzdem konventionell sein.",
+        "priceCents": 259,
+        "priceLabel": "2,59 €/250 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Regional",
+          "Saisonal",
+          "Oft frischer"
+        ],
+        "risks": [
+          "Anbau kann konventionell sein"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Etwas teurer, dafür oft frischer und saisonal.",
+          "gesundheitText": "Frisches, saisonales Obst kann besonders aromatisch und nährstoffreich sein.",
+          "nachhaltigkeitText": "Kurze Transportwege, natürliche Reifezeit und Unterstützung regionaler Wirtschaft verbessern die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "erdbeeren-v4",
+        "name": "Erdbeeren Variante 4",
+        "variantName": "Bio + Regionalität/Saisonalität",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, regionale/saisonale Erzeugung, Beitrag zur Nachhaltigkeit.",
+        "priceCents": 279,
+        "priceLabel": "2,79 €/250 g",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio-, Regional- und Saisonalitätsvorteile.",
+          "gesundheitText": "Frisches Bio-Obst mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
+        }
+      }
+    ]
+  },
+  {
+    "id": "kiwi",
+    "name": "Kiwi",
+    "image": "🥝",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "kiwi-v1",
+        "name": "Kiwi Variante 1",
+        "variantName": "Konventionell angebaut / Standard",
+        "description": "Mehr Einsatz von Pestiziden möglich, mögliche Pestizidrückstände, schlechtere Arbeitsbedingungen auf Plantagen, weniger strenge Umweltauflagen.",
+        "priceCents": 29,
+        "priceLabel": "0,29 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Vitaminreich"
+        ],
+        "risks": [
+          "Pestizidrückstände möglich",
+          "Weniger strenge Umweltauflagen"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Günstige Standardware.",
+          "gesundheitText": "Frisches Obst liefert Vitamine und Ballaststoffe, mögliche Pestizidrückstände mindern die Bewertung.",
+          "nachhaltigkeitText": "Konventioneller Anbau hat weniger strenge Umweltauflagen; bei Importware kommen Transport- und Arbeitsbedingungen hinzu."
+        }
+      },
+      {
+        "id": "kiwi-v2",
+        "name": "Kiwi Variante 2",
+        "variantName": "Bio-Anbau",
+        "description": "Strengere Regeln beim Pflanzenschutz, weniger synthetische Pestizide, besser für Bodenschutz und Biodiversität.",
+        "priceCents": 59,
+        "priceLabel": "0,59 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Weniger synthetische Pestizide"
+        ],
+        "risks": [
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 5,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Ware.",
+          "gesundheitText": "Bio-Obst mit weniger synthetischen Pestiziden und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Strengere Regeln beim Pflanzenschutz verbessern Bodenschutz und Biodiversität."
+        }
+      },
+      {
+        "id": "kiwi-v3",
+        "name": "Kiwi Variante 3",
+        "variantName": "Nicht angegeben",
+        "description": "Im Dokument ist für Variante 3 keine Beschreibung und kein Preis eingetragen.",
+        "priceCents": 0,
+        "priceLabel": "Nicht angegeben",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [],
+        "risks": [
+          "Keine Beschreibung angegeben",
+          "Kein Preis angegeben"
+        ],
+        "rating": {
+          "preisbewusstsein": 1,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Kein Preis angegeben.",
+          "gesundheitText": "Keine Produktinformationen angegeben; daher nicht sinnvoll bewertbar.",
+          "nachhaltigkeitText": "Keine Informationen zu Anbau, Herkunft oder Verpackung angegeben."
+        }
+      },
+      {
+        "id": "kiwi-v4",
+        "name": "Kiwi Variante 4",
+        "variantName": "Bio + Regionalität/Saisonalität",
+        "description": "Weniger Pestizide, Schutz von Boden und Umwelt, regionale/saisonale Erzeugung, Beitrag zur Nachhaltigkeit.",
+        "priceCents": 69,
+        "priceLabel": "0,69 €/Stück",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Frisches Obst",
+          "Bio-Anbau",
+          "Regional",
+          "Saisonal"
+        ],
+        "risks": [
+          "Höherer Preis"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Höherer Preis durch Bio-, Regional- und Saisonalitätsvorteile.",
+          "gesundheitText": "Frisches Bio-Obst mit reduziertem Pestizideinsatz und hoher Nährstoffqualität.",
+          "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
         }
       }
     ]
