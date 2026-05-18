@@ -2457,37 +2457,6 @@
     ]
   },
   {
-    "id": "studentenfutter",
-    "name": "Studentenfutter",
-    "image": "🥜",
-    "category": "NUESSE_UND_SALZIGES",
-    "variants": [
-      {
-        "id": "studentenfutter-v2",
-        "name": "Studentenfutter Variante 2",
-        "priceCents": 0,
-        "nutrition": {
-          "energyKcal": 0,
-          "fatG": 0,
-          "saltG": 0
-        },
-        "additives": [],
-        "benefits": [
-          "Wertvolle Fette"
-        ],
-        "risks": [],
-        "rating": {
-          "preisbewusstsein": 2,
-          "gesundheit": 3,
-          "nachhaltigkeit": 4,
-          "preisText": "Bio-Produkte sind eher teuer.",
-          "gesundheitText": "Nüsse energiereich, Portion klein halten.",
-          "nachhaltigkeitText": "Bio mit strengeren Umweltauflagen."
-        }
-      }
-    ]
-  },
-  {
     "id": "gummibaerchen",
     "name": "Gummibärchen",
     "image": "🍬",
@@ -2514,6 +2483,313 @@
           "preisText": "Deutlich höherer Preis als konventionell.",
           "gesundheitText": "Hauptsächlich Zucker, keine nennenswerten Nährstoffe.",
           "nachhaltigkeitText": "Biologische Zutaten, ohne gentechnische Zusatzstoffe."
+        }
+      }
+    ]
+  },
+  {
+    "id": "studentenfutter",
+    "name": "Studentenfutter",
+    "image": "🥜",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "studentenfutter-v1",
+        "name": "Studentenfutter Variante 1",
+        "variantName": "Konventionelles Studentenfutter mit Trockenobst",
+        "description": "Hoher Fettanteil, viele Ballaststoffe, moderater Preis. Verpackung aus Einwegplastik, dadurch viel Müll.",
+        "packaging": "Einwegplastikverpackung",
+        "priceCents": 229,
+        "priceLabel": "2,29 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Viele Ballaststoffe",
+          "Trockenobst",
+          "Nüsse mit wertvollen Fetten"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Einwegplastik",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 4,
+          "nachhaltigkeit": 2,
+          "preisText": "Moderater Packungspreis.",
+          "gesundheitText": "Nüsse und Trockenobst liefern Ballaststoffe und wertvolle Fette, sind aber energiereich.",
+          "nachhaltigkeitText": "Einwegplastik verursacht viel Müll und senkt die Nachhaltigkeitsbewertung."
+        }
+      },
+      {
+        "id": "studentenfutter-v2",
+        "name": "Studentenfutter Variante 2",
+        "variantName": "Bio Studentenfutter mit Trockenobst",
+        "description": "Fair gehandeltes Trockenobst/Nüsse, weniger Zusatzstoffe, Fokus auf natürliche Zutaten. Verpackung teilweise aus Recyclingmaterial oder mit höherem Papieranteil.",
+        "packaging": "Teilweise Recyclingmaterial oder höherer Papieranteil",
+        "priceCents": 269,
+        "priceLabel": "2,69 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Fair gehandeltes Trockenobst/Nüsse",
+          "Weniger Zusatzstoffe",
+          "Natürliche Zutaten"
+        ],
+        "risks": [
+          "Energiedicht",
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Bio-Produkte sind eher teuer.",
+          "gesundheitText": "Nüsse energiereich, Portion klein halten.",
+          "nachhaltigkeitText": "Bio mit strengeren Umweltauflagen."
+        }
+      }
+    ]
+  },
+  {
+    "id": "walnuesse",
+    "name": "Walnüsse",
+    "image": "🌰",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "walnuesse-v1",
+        "name": "Walnüsse Variante 1",
+        "variantName": "Konventionelle Walnüsse naturbelassen",
+        "description": "Viele ungesättigte Fettsäuren und viele Ballaststoffe. Moderater Preis. Verpackung aus Einwegplastik, dadurch viel Müll.",
+        "packaging": "Einwegplastikverpackung",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Ungesättigte Fettsäuren",
+          "Viele Ballaststoffe",
+          "Naturbelassen"
+        ],
+        "risks": [
+          "Energiedicht",
+          "Einwegplastik",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 5,
+          "nachhaltigkeit": 2,
+          "preisText": "Moderater Preis für naturbelassene Walnüsse.",
+          "gesundheitText": "Ungesättigte Fettsäuren und Ballaststoffe sind sehr positiv; Portionsgröße wegen Energiegehalt beachten.",
+          "nachhaltigkeitText": "Einwegplastik verursacht viel Müll, konventionelle Herkunft begrenzt die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "walnuesse-v2",
+        "name": "Walnüsse Variante 2",
+        "variantName": "Bio Walnüsse",
+        "description": "Fair gehandelte oder regionale Walnüsse, viele ungesättigte Fettsäuren und Ballaststoffe. Verpackung teilweise aus Recyclingmaterial oder mit höherem Papieranteil.",
+        "packaging": "Teilweise Recyclingmaterial oder höherer Papieranteil",
+        "priceCents": 369,
+        "priceLabel": "3,69 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Fair gehandelt oder regional",
+          "Ungesättigte Fettsäuren",
+          "Viele Ballaststoffe"
+        ],
+        "risks": [
+          "Teurer",
+          "Energiedicht"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 5,
+          "nachhaltigkeit": 5,
+          "preisText": "Deutlich teurer als konventionelle Walnüsse.",
+          "gesundheitText": "Viele ungesättigte Fettsäuren und Ballaststoffe; Portionsgröße wegen Energiegehalt beachten.",
+          "nachhaltigkeitText": "Bio, faire oder regionale Herkunft und bessere Verpackung sorgen für eine hohe Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "kartoffelchips-paprika",
+    "name": "Kartoffelchips Paprika",
+    "image": "🥔",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "kartoffelchips-paprika-v1",
+        "name": "Kartoffelchips Paprika Variante 1",
+        "variantName": "Konventionelle Kartoffelchips mit Salz und Paprikagewürz",
+        "description": "Hoher Fettanteil, keine Ballaststoffe, viele Zusatzstoffe. Meist günstiger Preis, oft Großpackung aus dem Discounter. Verpackung aus Einwegplastik.",
+        "packaging": "Großpackung aus Einwegplastik",
+        "priceCents": 119,
+        "priceLabel": "1,19 €/kg",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Günstiger Preis"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Keine Ballaststoffe",
+          "Viele Zusatzstoffe",
+          "Salz",
+          "Einwegplastik"
+        ],
+        "rating": {
+          "preisbewusstsein": 5,
+          "gesundheit": 1,
+          "nachhaltigkeit": 1,
+          "preisText": "Sehr günstiger Kilopreis, oft als Discounter-Großpackung.",
+          "gesundheitText": "Hoher Fett- und Salzanteil, keine Ballaststoffe und viele Zusatzstoffe führen zu einer niedrigen Bewertung.",
+          "nachhaltigkeitText": "Einwegplastik und stark verarbeitete konventionelle Zutaten führen zu einer niedrigen Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "linsenchips",
+    "name": "Linsenchips",
+    "image": "🟠",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "linsenchips-v1",
+        "name": "Linsenchips Variante 1",
+        "variantName": "Konventionelle Linsenchips mit Salz und Gewürzen",
+        "description": "Hoher Fettanteil, kaum Ballaststoffe, viele Zusatzstoffe. Hoher Preis, oft Großpackung aus dem Discounter. Verpackung aus Einwegplastik.",
+        "packaging": "Großpackung aus Einwegplastik",
+        "priceCents": 199,
+        "priceLabel": "1,99 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Pflanzlich"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Kaum Ballaststoffe",
+          "Viele Zusatzstoffe",
+          "Salz",
+          "Einwegplastik"
+        ],
+        "rating": {
+          "preisbewusstsein": 3,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Hoher Preis für eine Snackpackung.",
+          "gesundheitText": "Linsenbasis klingt günstig, hoher Fettanteil, Salz und Zusatzstoffe mindern die Gesundheitsbewertung deutlich.",
+          "nachhaltigkeitText": "Pflanzliche Basis ist positiv, Einwegplastik und starke Verarbeitung senken die Nachhaltigkeit."
+        }
+      },
+      {
+        "id": "linsenchips-v2",
+        "name": "Linsenchips Variante 2",
+        "variantName": "Bio Linsenchips mit Salz und Gewürzen",
+        "description": "Hoher Fettanteil, kaum Ballaststoffe, aber weniger Zusatzstoffe und stärkerer Fokus auf natürliche Zutaten. Verpackung teilweise aus Recyclingmaterial oder mit höherem Papieranteil.",
+        "packaging": "Teilweise Recyclingmaterial oder höherer Papieranteil",
+        "priceCents": 229,
+        "priceLabel": "2,29 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Bio",
+          "Pflanzlich",
+          "Weniger Zusatzstoffe",
+          "Natürlichere Zutaten"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Kaum Ballaststoffe",
+          "Salz",
+          "Teurer"
+        ],
+        "rating": {
+          "preisbewusstsein": 2,
+          "gesundheit": 3,
+          "nachhaltigkeit": 4,
+          "preisText": "Teurer als konventionelle Linsenchips.",
+          "gesundheitText": "Weniger Zusatzstoffe und natürlichere Zutaten sind besser, Fett- und Salzgehalt bleiben Nachteile.",
+          "nachhaltigkeitText": "Bio-Zutaten und bessere Verpackung verbessern die Nachhaltigkeitsbewertung."
+        }
+      }
+    ]
+  },
+  {
+    "id": "nuesse-im-knuspermantel",
+    "name": "Nüsse im Knuspermantel",
+    "image": "🥜",
+    "category": "KEKSE",
+    "variants": [
+      {
+        "id": "nuesse-im-knuspermantel-v1",
+        "name": "Nüsse im Knuspermantel Variante 1",
+        "variantName": "Konventionelle Erdnüsse im Knuspermantel",
+        "description": "Hoher Fettanteil und weniger Ballaststoffe. Moderater Preis. Verpackung aus Einwegplastik, dadurch viel Müll.",
+        "packaging": "Einwegplastikverpackung",
+        "priceCents": 129,
+        "priceLabel": "1,29 €/Packung",
+        "nutrition": {
+          "energyKcal": 0,
+          "fatG": 0,
+          "saltG": 0
+        },
+        "additives": [],
+        "benefits": [
+          "Moderater Preis",
+          "Erdnüsse liefern wertvolle Fette"
+        ],
+        "risks": [
+          "Hoher Fettanteil",
+          "Weniger Ballaststoffe",
+          "Knuspermantel",
+          "Einwegplastik",
+          "Viel Verpackungsmüll"
+        ],
+        "rating": {
+          "preisbewusstsein": 4,
+          "gesundheit": 2,
+          "nachhaltigkeit": 2,
+          "preisText": "Moderater bis günstiger Packungspreis.",
+          "gesundheitText": "Erdnüsse liefern wertvolle Fette, der Knuspermantel reduziert den Gesundheitsvorteil und liefert weniger Ballaststoffe.",
+          "nachhaltigkeitText": "Einwegplastik verursacht viel Müll, konventionelle Zutaten begrenzen die Nachhaltigkeit."
         }
       }
     ]
