@@ -304,67 +304,69 @@ export function GameApp() {
 
   if (screen === 'start') {
     return (
-      <Card className="mx-auto max-w-5xl overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-0">
-        <div className="grid gap-0 md:grid-cols-[1.25fr_0.75fr]">
-          <div className="space-y-6 p-8 md:p-10">
-            <p className="inline-flex rounded-full border border-emerald-300/40 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-200">Smart Eat · Brettspiel-Begleitapp</p>
-            <h1 className="text-4xl font-bold leading-tight md:text-5xl">Smart Eat</h1>
-            <p className="max-w-2xl text-slate-300">Mit einem Klick startet eine vollständige Runde mit vier Spielern. Produktwahl, Warenkorb und Auswertung bleiben wie gewohnt erhalten – optimiert für Tablet und Klassenzimmer.</p>
-            <div className="flex flex-wrap gap-3">
-              <Button onClick={() => setPlayerCountModalOpen(true)} className="px-6 py-3 text-base font-semibold bg-emerald-400 text-slate-950 hover:bg-emerald-300">Spiel starten</Button>
+      <>
+        <Card className="mx-auto max-w-5xl overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-0">
+          <div className="grid gap-0 md:grid-cols-[1.25fr_0.75fr]">
+            <div className="space-y-6 p-8 md:p-10">
+              <p className="inline-flex rounded-full border border-emerald-300/40 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-200">Smart Eat · Brettspiel-Begleitapp</p>
+              <h1 className="text-4xl font-bold leading-tight md:text-5xl">Smart Eat</h1>
+              <p className="max-w-2xl text-slate-300">Mit einem Klick startet eine vollständige Runde mit vier Spielern. Produktwahl, Warenkorb und Auswertung bleiben wie gewohnt erhalten – optimiert für Tablet und Klassenzimmer.</p>
+              <div className="flex flex-wrap gap-3">
+                <Button onClick={() => setPlayerCountModalOpen(true)} className="px-6 py-3 text-base font-semibold bg-emerald-400 text-slate-950 hover:bg-emerald-300">Spiel starten</Button>
+              </div>
+              <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm">
+                <h2 className="text-lg font-semibold text-white">Spielanleitung</h2>
+                <p><span className="font-semibold">Runde 1:</span> Kauft mindestens zwei Lebensmittel und ein Getränk. Vor jedem Zug Quiz-Karte ziehen und Punkte notieren.</p>
+                <p><span className="font-semibold">Runde 2:</span> Verbessert euren schwächsten Aspekt (Preis, Gesundheit oder Nachhaltigkeit) aus Runde 1.</p>
+                <p><span className="font-semibold">Aktionsfeld:</span> Landet ihr auf einem Aktionsfeld, zieht eine Aktionskarte und lest sie laut vor.</p>
+                <p className="text-amber-200">Vergesst nicht eure Quiz-Punkte!</p>
+              </div>
             </div>
-            <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm">
-              <h2 className="text-lg font-semibold text-white">Spielanleitung</h2>
-              <p><span className="font-semibold">Runde 1:</span> Kauft mindestens zwei Lebensmittel und ein Getränk. Vor jedem Zug Quiz-Karte ziehen und Punkte notieren.</p>
-              <p><span className="font-semibold">Runde 2:</span> Verbessert euren schwächsten Aspekt (Preis, Gesundheit oder Nachhaltigkeit) aus Runde 1.</p>
-              <p><span className="font-semibold">Aktionsfeld:</span> Landet ihr auf einem Aktionsfeld, zieht eine Aktionskarte und lest sie laut vor.</p>
-              <p className="text-amber-200">Vergesst nicht eure Quiz-Punkte!</p>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center gap-4 border-t border-white/10 bg-slate-900/70 p-8 md:border-l md:border-t-0">
-            <p className="text-sm font-semibold uppercase tracking-wide text-slate-300">Beim Start automatisch enthalten</p>
-            <ul className="space-y-3 text-sm text-slate-200">
-              <li>✅ 4 Spieler: <span className="text-white">„Spieler 1“ bis „Spieler 4“</span></li>
-              <li>✅ Direkter Sprung in den Einkaufsbereich</li>
-              <li>✅ Einheitliche Bedienung für die gesamte Klasse</li>
-            </ul>
-            <p className="text-xs text-slate-400">Tipp: Nach jedem Durchlauf kann das Spiel mit „Spiel zurücksetzen“ erneut gestartet werden.</p>
-            <details className="rounded-xl border border-white/10 p-3 text-sm">
-              <summary className="cursor-pointer font-semibold">Material & Symbolwürfel (optional)</summary>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-300">
-                <li>Material: Spielfeld, Zahlenwürfel, 4 Spielfiguren, 4 Einkaufszettel, 12 Regalblätter, Aktionskarten, Quiz-Karten.</li>
-                <li>Symbolwürfel Rot: Gewürfelte Augenzahl zurückgehen.</li>
-                <li>Rosa/Orange/Grün: Ziel anpassen (Herz, billig, nachhaltig).</li>
-                <li>Blau/Lila: Aktions- bzw. Quiz-Karte ziehen.</li>
+            <div className="flex flex-col justify-center gap-4 border-t border-white/10 bg-slate-900/70 p-8 md:border-l md:border-t-0">
+              <p className="text-sm font-semibold uppercase tracking-wide text-slate-300">Beim Start automatisch enthalten</p>
+              <ul className="space-y-3 text-sm text-slate-200">
+                <li>✅ 4 Spieler: <span className="text-white">„Spieler 1“ bis „Spieler 4“</span></li>
+                <li>✅ Direkter Sprung in den Einkaufsbereich</li>
+                <li>✅ Einheitliche Bedienung für die gesamte Klasse</li>
               </ul>
-            </details>
-          </div>
-        </div>
-      </Card>
-      {playerCountModalOpen ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4">
-          <Card className="w-full max-w-md space-y-4 border border-white/10">
-            <h4 className="text-xl font-semibold">Wie viele Spieler machen mit?</h4>
-            <p className="text-sm text-slate-300">Bitte wähle zwischen 2 und 4 Spielern.</p>
-            <label className="block text-sm">
-              <span>Anzahl Spieler</span>
-              <select
-                value={playerCount}
-                onChange={(e) => setPlayerCount(Number(e.target.value))}
-                className="mt-1 w-full rounded-xl border border-white/15 bg-slate-950 px-3 py-2"
-              >
-                <option value={2}>2 Spieler</option>
-                <option value={3}>3 Spieler</option>
-                <option value={4}>4 Spieler</option>
-              </select>
-            </label>
-            <div className="flex justify-end gap-2">
-              <Button onClick={() => setPlayerCountModalOpen(false)} className="bg-white text-slate-950 hover:bg-slate-200">Abbrechen</Button>
-              <Button onClick={startGame} className="bg-emerald-400 text-slate-950 hover:bg-emerald-300">Starten</Button>
+              <p className="text-xs text-slate-400">Tipp: Nach jedem Durchlauf kann das Spiel mit „Spiel zurücksetzen“ erneut gestartet werden.</p>
+              <details className="rounded-xl border border-white/10 p-3 text-sm">
+                <summary className="cursor-pointer font-semibold">Material & Symbolwürfel (optional)</summary>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-300">
+                  <li>Material: Spielfeld, Zahlenwürfel, 4 Spielfiguren, 4 Einkaufszettel, 12 Regalblätter, Aktionskarten, Quiz-Karten.</li>
+                  <li>Symbolwürfel Rot: Gewürfelte Augenzahl zurückgehen.</li>
+                  <li>Rosa/Orange/Grün: Ziel anpassen (Herz, billig, nachhaltig).</li>
+                  <li>Blau/Lila: Aktions- bzw. Quiz-Karte ziehen.</li>
+                </ul>
+              </details>
             </div>
-          </Card>
-        </div>
-      ) : null}
+          </div>
+        </Card>
+        {playerCountModalOpen ? (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4">
+            <Card className="w-full max-w-md space-y-4 border border-white/10">
+              <h4 className="text-xl font-semibold">Wie viele Spieler machen mit?</h4>
+              <p className="text-sm text-slate-300">Bitte wähle zwischen 2 und 4 Spielern.</p>
+              <label className="block text-sm">
+                <span>Anzahl Spieler</span>
+                <select
+                  value={playerCount}
+                  onChange={(e) => setPlayerCount(Number(e.target.value))}
+                  className="mt-1 w-full rounded-xl border border-white/15 bg-slate-950 px-3 py-2"
+                >
+                  <option value={2}>2 Spieler</option>
+                  <option value={3}>3 Spieler</option>
+                  <option value={4}>4 Spieler</option>
+                </select>
+              </label>
+              <div className="flex justify-end gap-2">
+                <Button onClick={() => setPlayerCountModalOpen(false)} className="bg-white text-slate-950 hover:bg-slate-200">Abbrechen</Button>
+                <Button onClick={startGame} className="bg-emerald-400 text-slate-950 hover:bg-emerald-300">Starten</Button>
+              </div>
+            </Card>
+          </div>
+        ) : null}
+      </>
     );
   }
 
