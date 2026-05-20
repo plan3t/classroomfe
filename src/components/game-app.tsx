@@ -207,6 +207,13 @@ export function GameApp() {
     if (!activePlayer || !selectedFood || !selectedVariantId || !canAddToCart) return;
     setPlayers((current) => current.map((p, idx) => {
       if (idx !== activePlayerIndex) return p;
+      const existingLineIndex = p.cart.findIndex((line) => line.foodId === selectedFood.id && line.variantId === selectedVariantId);
+      if (existingLineIndex >= 0) {
+        const nextCart = p.cart.map((line, lineIndex) => (
+          lineIndex === existingLineIndex ? { ...line, qty: line.qty + qty } : line
+        ));
+        return { ...p, cart: nextCart };
+      }
       return {
         ...p,
         cart: [...p.cart, { foodId: selectedFood.id, variantId: selectedVariantId, qty }],
