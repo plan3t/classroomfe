@@ -550,13 +550,12 @@ export function GameApp() {
                     menge: sum.menge + line.qty,
                   };
                 }, { preis: 0, gesundheit: 0, nachhaltigkeit: 0, menge: 0 });
-                const divisor = Math.max(1, totals.menge);
                 return (
                   <div key={`rating-${player.id}`} className="rounded-xl border border-white/10 p-3">
                     <p className="font-semibold">Bewertung für {player.name}</p>
-                    <p>Preisbewusstsein: {(totals.preis / divisor).toFixed(1)}/5</p>
-                    <p>Gesundheitsförderlichkeit: {(totals.gesundheit / divisor).toFixed(1)}/5</p>
-                    <p>Nachhaltigkeit: {(totals.nachhaltigkeit / divisor).toFixed(1)}/5</p>
+                    <p>Preisbewusstsein: {totals.preis}</p>
+                    <p>Gesundheitsförderlichkeit: {totals.gesundheit}</p>
+                    <p>Nachhaltigkeit: {totals.nachhaltigkeit}</p>
                     {player.cart.length ? (
                       <details className="mt-2">
                         <summary className="cursor-pointer text-emerald-200">Begründungen anzeigen</summary>
