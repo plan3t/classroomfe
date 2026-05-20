@@ -7,7 +7,7 @@ import { Button, Card, Input } from '@/src/components/ui';
 
 type Screen = 'start' | 'play';
 type CartLine = { foodId: string; variantId: string; qty: number };
-type Player = { id: string; name: string; cart: CartLine[]; done: boolean; goals: string[] };
+type Player = { id: string; name: string; cart: CartLine[]; done: boolean; goals: string[]; quizPoints: number };
 type GameMode = 'normal';
 
 const categoryOrder: FoodCategory[] = [
@@ -73,6 +73,7 @@ export function GameApp() {
   const [finishConfirmOpen, setFinishConfirmOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const [saveInfo, setSaveInfo] = useState<string | null>(null);
+  const [finishWarning, setFinishWarning] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<FoodCategory | null>(null);
   const [productSearch, setProductSearch] = useState('');
   const catalog = fullFoodCatalog;
@@ -212,6 +213,7 @@ export function GameApp() {
       cart: [],
       done: false,
       goals: [],
+      quizPoints: 0,
     }));
     setPlayers(defaultPlayers);
     setActivePlayerIndex(0);
@@ -247,8 +249,34 @@ export function GameApp() {
 
   function finishShopping() {
     if (!activePlayer) return;
+    const validation = canFinishShopping(activePlayer.cart);
+    if (!validation.ok) {
+      setFinishWarning('Du brauchst mindestens zwei Lebensmittel und ein Getränk.');
+      setFinishConfirmOpen(false);
+      return;
+    }
     setPlayers((current) => current.map((p, idx) => idx === activePlayerIndex ? { ...p, done: true } : p));
+    setFinishWarning(null);
     setFinishConfirmOpen(false);
+  }
+
+  function canFinishShopping(cart: CartLine[]): { ok: boolean } {
+    const counts = cart.reduce((sum, line) => {
+      const entry = findVariant(catalog, line.foodId, line.variantId);
+      if (!entry) return sum;
+      if (entry.item.category === 'GETRAENKE') {
+        return { ...sum, drinks: sum.drinks + line.qty };
+      }
+      return { ...sum, foods: sum.foods + line.qty };
+    }, { foods: 0, drinks: 0 });
+
+    return { ok: counts.foods >= 2 && counts.drinks >= 1 };
+  }
+
+  function changeQuizPoints(delta: number) {
+    setPlayers((current) => current.map((player, idx) => (
+      idx === activePlayerIndex ? { ...player, quizPoints: Math.max(0, player.quizPoints + delta) } : player
+    )));
   }
 
   function selectCategory(category: FoodCategory) {
@@ -289,11 +317,18 @@ export function GameApp() {
       <Card className="mx-auto max-w-5xl overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-0">
         <div className="grid gap-0 md:grid-cols-[1.25fr_0.75fr]">
           <div className="space-y-6 p-8 md:p-10">
-            <p className="inline-flex rounded-full border border-emerald-300/40 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-200">Brettspiel-Begleitapp</p>
-            <h1 className="text-4xl font-bold leading-tight md:text-5xl">Einkaufsspiel schnell und klar steuern</h1>
+            <p className="inline-flex rounded-full border border-emerald-300/40 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-200">Smart Eat · Brettspiel-Begleitapp</p>
+            <h1 className="text-4xl font-bold leading-tight md:text-5xl">Smart Eat</h1>
             <p className="max-w-2xl text-slate-300">Mit einem Klick startet eine vollständige Runde mit vier Spielern. Produktwahl, Warenkorb und Auswertung bleiben wie gewohnt erhalten – optimiert für Tablet und Klassenzimmer.</p>
             <div className="flex flex-wrap gap-3">
               <Button onClick={startGame} className="px-6 py-3 text-base font-semibold bg-emerald-400 text-slate-950 hover:bg-emerald-300">Spiel starten</Button>
+            </div>
+            <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm">
+              <h2 className="text-lg font-semibold text-white">Kompakte Spielanleitung</h2>
+              <p><span className="font-semibold">Runde 1:</span> Kauft mindestens zwei Lebensmittel und ein Getränk. Vor jedem Zug Quiz-Karte ziehen und Punkte notieren.</p>
+              <p><span className="font-semibold">Runde 2:</span> Verbessert euren schwächsten Aspekt (Preis, Gesundheit oder Nachhaltigkeit) aus Runde 1.</p>
+              <p><span className="font-semibold">Aktionsfeld:</span> Landet ihr auf einem Aktionsfeld, zieht eine Aktionskarte und lest sie laut vor.</p>
+              <p className="text-amber-200">Vergesst nicht eure Quiz-Punkte!</p>
             </div>
           </div>
           <div className="flex flex-col justify-center gap-4 border-t border-white/10 bg-slate-900/70 p-8 md:border-l md:border-t-0">
@@ -304,6 +339,15 @@ export function GameApp() {
               <li>✅ Einheitliche Bedienung für die gesamte Klasse</li>
             </ul>
             <p className="text-xs text-slate-400">Tipp: Nach jedem Durchlauf kann das Spiel mit „Spiel zurücksetzen“ erneut gestartet werden.</p>
+            <details className="rounded-xl border border-white/10 p-3 text-sm">
+              <summary className="cursor-pointer font-semibold">Material & Symbolwürfel (optional)</summary>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-300">
+                <li>Material: Spielfeld, Zahlenwürfel, 4 Spielfiguren, 4 Einkaufszettel, 12 Regalblätter, Aktionskarten, Quiz-Karten.</li>
+                <li>Symbolwürfel Rot: Gewürfelte Augenzahl zurückgehen.</li>
+                <li>Rosa/Orange/Grün: Ziel anpassen (Herz, billig, nachhaltig).</li>
+                <li>Blau/Lila: Aktions- bzw. Quiz-Karte ziehen.</li>
+              </ul>
+            </details>
           </div>
         </div>
       </Card>
@@ -315,8 +359,9 @@ export function GameApp() {
       <Card className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-2xl font-semibold">Aktiver Spieler: {activePlayer?.name}</h2>
-          <p className="text-sm text-slate-300">Status: {activePlayer?.done ? 'Einkauf fertig' : 'Einkauft'}</p>
+          <p className="text-sm text-slate-300">Status: {activePlayer?.done ? 'Einkauf fertig · wartet an der Kasse' : 'Einkauft'}</p>
         </div>
+        {finishWarning ? <p className="rounded-xl border border-amber-300/40 bg-amber-400/10 p-3 text-sm text-amber-100">{finishWarning}</p> : null}
 
         <div className="space-y-2">
           <h3 className="text-lg font-medium">Einkaufsübersicht</h3>
@@ -455,6 +500,13 @@ export function GameApp() {
           )) : <p className="text-slate-400">Noch nichts im Korb.</p>}
         </div>
         <p className="font-semibold">Preissumme: {formatPrice(activeCartPriceCents)}</p>
+        <div className="rounded-2xl border border-white/10 p-3 text-sm">
+          <p className="font-semibold">Quiz-Punkte: {activePlayer?.quizPoints ?? 0}</p>
+          <div className="mt-2 flex gap-2">
+            <Button onClick={() => changeQuizPoints(1)} className="bg-emerald-300 px-3 py-1 text-slate-950 hover:bg-emerald-200">+1</Button>
+            <Button onClick={() => changeQuizPoints(-1)} className="bg-white px-3 py-1 text-slate-950 hover:bg-slate-200">-1</Button>
+          </div>
+        </div>
         {canShowScores ? <p className="font-semibold">Preis-Score Summe: {totalsByPlayer.find((t) => t.playerId === activePlayer?.id)?.total ?? 0}</p> : null}
         <div className="flex flex-wrap gap-2">
           <Button onClick={() => setFinishConfirmOpen(true)} className="bg-emerald-400 text-slate-950 hover:bg-emerald-300">Einkauf fertig</Button>
