@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: 'Release tag to publish, for example v1.0.0'
-        required: true
+        description: 'Release tag to publish, for example v1.0.0 (leave empty to auto-increment latest tag)'
+        required: false
+        default: ''
         type: string
       release_title:
         description: 'Optional GitHub release title'
@@ -32,11 +33,33 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
-      IMAGE_ARCHIVE_NAME: classroomfe-${{ inputs.release_tag }}-docker-image.tar.gz
-      IMAGE_CHECKSUM_NAME: classroomfe-${{ inputs.release_tag }}-docker-image.tar.gz.sha256
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve release tag
+        id: resolve_tag
+        run: |
+          input_tag='${{ inputs.release_tag }}'
+          if [ -n "${input_tag}" ]; then
+            release_tag="${input_tag}"
+          else
+            git fetch --tags --force
+            latest_tag="$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-version:refname | head -n 1)"
+            if [ -z "${latest_tag}" ]; then
+              release_tag="v0.0.1"
+            else
+              version="${latest_tag#v}"
+              IFS='.' read -r major minor patch <<< "${version}"
+              patch=$((patch + 1))
+              release_tag="v${major}.${minor}.${patch}"
+            fi
+          fi
+          echo "release_tag=${release_tag}" >> "${GITHUB_OUTPUT}"
+          echo "image_archive_name=classroomfe-${release_tag}-docker-image.tar.gz" >> "${GITHUB_OUTPUT}"
+          echo "image_checksum_name=classroomfe-${release_tag}-docker-image.tar.gz.sha256" >> "${GITHUB_OUTPUT}"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -54,7 +77,7 @@ jobs:
         with:
           images: ${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value=${{ inputs.release_tag }}
+            type=raw,value=${{ steps.resolve_tag.outputs.release_tag }}
             type=raw,value=latest,enable=${{ inputs.set_latest }}
 
       - name: Build and push Docker image
@@ -68,22 +91,22 @@ jobs:
 
       - name: Export Docker image archive for release assets
         run: |
-          docker pull "${IMAGE_NAME}:${{ inputs.release_tag }}"
-          docker save "${IMAGE_NAME}:${{ inputs.release_tag }}" | gzip > "${IMAGE_ARCHIVE_NAME}"
-          sha256sum "${IMAGE_ARCHIVE_NAME}" > "${IMAGE_CHECKSUM_NAME}"
+          docker pull "${IMAGE_NAME}:${{ steps.resolve_tag.outputs.release_tag }}"
+          docker save "${IMAGE_NAME}:${{ steps.resolve_tag.outputs.release_tag }}" | gzip > "${{ steps.resolve_tag.outputs.image_archive_name }}"
+          sha256sum "${{ steps.resolve_tag.outputs.image_archive_name }}" > "${{ steps.resolve_tag.outputs.image_checksum_name }}"
 
       - name: Create Git tag
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git tag -f "${{ inputs.release_tag }}" "${{ github.sha }}"
-          git push origin "refs/tags/${{ inputs.release_tag }}" --force
+          git tag -f "${{ steps.resolve_tag.outputs.release_tag }}" "${{ github.sha }}"
+          git push origin "refs/tags/${{ steps.resolve_tag.outputs.release_tag }}" --force
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ inputs.release_tag }}
-          name: ${{ inputs.release_title != '' && inputs.release_title || inputs.release_tag }}
+          tag_name: ${{ steps.resolve_tag.outputs.release_tag }}
+          name: ${{ inputs.release_title != '' && inputs.release_title || steps.resolve_tag.outputs.release_tag }}
           prerelease: ${{ inputs.prerelease }}
           generate_release_notes: true
           body: |
@@ -93,14 +116,14 @@ jobs:
             ${{ steps.meta.outputs.tags }}
 
             Pull command:
-            `docker pull ${{ env.IMAGE_NAME }}:${{ inputs.release_tag }}`
+            `docker pull ${{ env.IMAGE_NAME }}:${{ steps.resolve_tag.outputs.release_tag }}`
 
             Downloadable release assets:
-            - `${{ env.IMAGE_ARCHIVE_NAME }}`
-            - `${{ env.IMAGE_CHECKSUM_NAME }}`
+            - `${{ steps.resolve_tag.outputs.image_archive_name }}`
+            - `${{ steps.resolve_tag.outputs.image_checksum_name }}`
 
             Image digest:
             `${{ steps.build.outputs.digest }}`
           files: |
-            ${{ env.IMAGE_ARCHIVE_NAME }}
-            ${{ env.IMAGE_CHECKSUM_NAME }}
+            ${{ steps.resolve_tag.outputs.image_archive_name }}
+            ${{ steps.resolve_tag.outputs.image_checksum_name }}
