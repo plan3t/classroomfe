@@ -77,7 +77,10 @@ export function GameApp() {
   const [finishWarning, setFinishWarning] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<FoodCategory | null>(null);
   const [productSearch, setProductSearch] = useState('');
-  const catalog = fullFoodCatalog;
+  const catalog = useMemo(
+    () => fullFoodCatalog.filter((item) => item.id !== 'wasser' && item.name.toLowerCase() !== 'wasser'),
+    [],
+  );
 
   const activePlayer = players[activePlayerIndex];
   const qty = Number.parseInt(qtyInput, 10);
@@ -246,6 +249,7 @@ export function GameApp() {
       return;
     }
     setPlayers((current) => current.map((p, idx) => idx === activePlayerIndex ? { ...p, done: true } : p));
+    nextPlayer();
     setFinishWarning(null);
     setFinishConfirmOpen(false);
   }
@@ -499,7 +503,7 @@ export function GameApp() {
               <div className="space-y-2">
                 {lines.map(({ line, lineIndex, item, variant }) => (
                   <div key={`${line.foodId}-${line.variantId}-${lineIndex}`} className="flex items-center justify-between gap-3 rounded-xl border border-white/10 p-2">
-                    <span>{item.name} ({variant.name}) × {line.qty}</span>
+                    <span>{item.name} ({variant.name}) × {line.qty} · Einzelpreis: {formatPrice(variant.priceCents)}</span>
                     {!activePlayer?.done ? <Button onClick={() => removeFromCart(lineIndex)} className="bg-rose-300 px-3 py-1 text-xs text-slate-950 hover:bg-rose-200">Entfernen</Button> : null}
                   </div>
                 ))}
