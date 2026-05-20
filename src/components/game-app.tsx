@@ -72,7 +72,6 @@ export function GameApp() {
   const [qtyInput, setQtyInput] = useState('1');
   const [finishConfirmOpen, setFinishConfirmOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
-  const [saveInfo, setSaveInfo] = useState<string | null>(null);
   const [finishWarning, setFinishWarning] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<FoodCategory | null>(null);
   const [productSearch, setProductSearch] = useState('');
@@ -184,26 +183,6 @@ export function GameApp() {
     if (typeof window !== 'undefined') {
       window.localStorage.removeItem('game-companion-state-v1');
     }
-    setSaveInfo(null);
-  }
-
-  async function saveSession() {
-    const sessionId = `game-${Date.now()}`;
-    const res = await fetch('/api/game/sessions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: sessionId,
-        mode,
-        players,
-        notes: 'Gespeichert aus iPad-Spielmodus',
-      }),
-    });
-    if (!res.ok) {
-      setSaveInfo('Speichern fehlgeschlagen.');
-      return;
-    }
-    setSaveInfo(`Spielstand gespeichert: ${sessionId}`);
   }
 
   function startGame() {
@@ -324,7 +303,7 @@ export function GameApp() {
               <Button onClick={startGame} className="px-6 py-3 text-base font-semibold bg-emerald-400 text-slate-950 hover:bg-emerald-300">Spiel starten</Button>
             </div>
             <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm">
-              <h2 className="text-lg font-semibold text-white">Kompakte Spielanleitung</h2>
+              <h2 className="text-lg font-semibold text-white">Spielanleitung</h2>
               <p><span className="font-semibold">Runde 1:</span> Kauft mindestens zwei Lebensmittel und ein Getränk. Vor jedem Zug Quiz-Karte ziehen und Punkte notieren.</p>
               <p><span className="font-semibold">Runde 2:</span> Verbessert euren schwächsten Aspekt (Preis, Gesundheit oder Nachhaltigkeit) aus Runde 1.</p>
               <p><span className="font-semibold">Aktionsfeld:</span> Landet ihr auf einem Aktionsfeld, zieht eine Aktionskarte und lest sie laut vor.</p>
@@ -440,23 +419,15 @@ export function GameApp() {
               </select>
             </label>
             {selectedFood.variants.filter((v) => v.id === selectedVariantId).map((v) => (
-              <div key={v.id} className="grid gap-3 md:grid-cols-2">
-                <div className="rounded-xl border border-white/10 p-3 text-sm">
-                  <p className="font-semibold">Nährwerte</p>
-                  <p>Energie: {v.nutrition.energyKcal} kcal</p>
-                  <p>Fett: {v.nutrition.fatG} g</p>
-                  <p>Salz: {v.nutrition.saltG} g</p>
-                </div>
-                <div className="rounded-xl border border-white/10 p-3 text-sm">
-                  <p className="font-semibold">Produktinformationen</p>
-                  {v.variantName ? <p>Variante: {v.variantName}</p> : null}
-                  {v.description ? <p>Merkmale: {v.description}</p> : null}
-                  {v.packaging ? <p>Verpackung/Kaufart: {v.packaging}</p> : null}
-                  <p>Preis: {v.priceLabel ?? `${(v.priceCents / 100).toFixed(2).replace('.', ',')} €`}</p>
-                  <p>Zusatzstoffe: {v.additives.length ? v.additives.join(', ') : 'Keine angegeben'}</p>
-                  <p>Vorteile: {v.benefits.length ? v.benefits.join(', ') : 'Keine angegeben'}</p>
-                  <p>Risiken: {v.risks.length ? v.risks.join(', ') : 'Keine angegeben'}</p>
-                </div>
+              <div key={v.id} className="rounded-xl border border-white/10 p-3 text-sm">
+                <p className="font-semibold">Produktinformationen</p>
+                {v.variantName ? <p>Variante: {v.variantName}</p> : null}
+                {v.description ? <p>Merkmale: {v.description}</p> : null}
+                {v.packaging ? <p>Verpackung/Kaufart: {v.packaging}</p> : null}
+                <p>Preis: {v.priceLabel ?? `${(v.priceCents / 100).toFixed(2).replace('.', ',')} €`}</p>
+                <p>Zusatzstoffe: {v.additives.length ? v.additives.join(', ') : 'Keine angegeben'}</p>
+                <p>Vorteile: {v.benefits.length ? v.benefits.join(', ') : 'Keine angegeben'}</p>
+                <p>Risiken: {v.risks.length ? v.risks.join(', ') : 'Keine angegeben'}</p>
               </div>
             ))}
             <div className="flex flex-wrap items-end gap-3">
@@ -511,10 +482,8 @@ export function GameApp() {
         <div className="flex flex-wrap gap-2">
           <Button onClick={() => setFinishConfirmOpen(true)} className="bg-emerald-400 text-slate-950 hover:bg-emerald-300">Einkauf fertig</Button>
           <Button onClick={nextPlayer} className="bg-white text-slate-950 hover:bg-slate-200">iPad weitergeben</Button>
-          <Button onClick={() => void saveSession()} className="bg-amber-300 text-slate-950 hover:bg-amber-200">Spielstand speichern</Button>
           <Button onClick={resetAll} className="bg-rose-300 text-slate-950 hover:bg-rose-200">Spiel zurücksetzen</Button>
         </div>
-        {saveInfo ? <p className="text-sm text-emerald-200">{saveInfo}</p> : null}
 
         <div className="rounded-2xl border border-white/10 p-3 text-sm">
           <p className="font-semibold">Spielstand</p>
