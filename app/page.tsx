@@ -6,12 +6,11 @@ export default function HomePage() {
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.25),_transparent_35%),linear-gradient(180deg,#020617,#0f172a)] px-6 py-12">
       <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <section className="space-y-6 py-10">
-          <p className="text-sm uppercase tracking-[0.4em] text-emerald-300">LinguaClass</p>
-          <h1 className="max-w-3xl text-5xl font-black leading-tight">Responsive Brettspiel-Begleitapp für Spieler am Tisch.</h1>
-          <p className="max-w-2xl text-lg text-slate-300">Startet direkt ins Spiel, verwaltet Lebensmittel, Varianten und Einkaufskörbe und verfolgt die Spielinhalte zentral auf dem iPad.</p>
+          <p className="text-sm uppercase tracking-[0.4em] text-emerald-300">Smart Eat</p>
+          <h1 className="max-w-3xl text-5xl font-black leading-tight">Die moderne Brettspiel-Begleitapp für euren Pausensnack.</h1>
+          <p className="max-w-2xl text-lg text-slate-300">Smart Eat startet direkt ins Spiel, verwaltet Lebensmittel und Einkaufskörbe und unterstützt euren Ablauf im Klassenzimmer klar und übersichtlich.</p>
           <div className="flex flex-wrap gap-3">
             <Link className="rounded-2xl bg-emerald-400 px-5 py-3 font-semibold text-slate-950" href="/game">Spiel starten</Link>
-            <Link className="rounded-2xl border border-white/15 px-5 py-3 font-semibold" href="/join">Als Spieler beitreten</Link>
           </div>
         </section>
         <Card className="space-y-4 self-start">
