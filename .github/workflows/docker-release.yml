@@ -23,10 +23,19 @@ on:
         required: true
         default: false
         type: boolean
+      publish_release_assets:
+        description: 'Generate and upload Docker image archive assets (slow, default off)'
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: write
   packages: write
+
+concurrency:
+  group: docker-release-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   docker-release:
@@ -57,9 +66,25 @@ jobs:
               release_tag="v${major}.${minor}.${patch}"
             fi
           fi
+
+          should_publish_assets='${{ inputs.publish_release_assets }}'
+          if [ "${should_publish_assets}" = "true" ] && [ '${{ inputs.prerelease }}' = 'false' ]; then
+            release_files='classroomfe-'
+            release_files+="${release_tag}"
+            release_files+='-docker-image.tar.gz classroomfe-'
+            release_files+="${release_tag}"
+            release_files+='-docker-image.tar.gz.sha256'
+            publish_assets='true'
+          else
+            release_files=''
+            publish_assets='false'
+          fi
+
           echo "release_tag=${release_tag}" >> "${GITHUB_OUTPUT}"
           echo "image_archive_name=classroomfe-${release_tag}-docker-image.tar.gz" >> "${GITHUB_OUTPUT}"
           echo "image_checksum_name=classroomfe-${release_tag}-docker-image.tar.gz.sha256" >> "${GITHUB_OUTPUT}"
+          echo "publish_assets=${publish_assets}" >> "${GITHUB_OUTPUT}"
+          echo "release_files=${release_files}" >> "${GITHUB_OUTPUT}"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -88,8 +113,11 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Export Docker image archive for release assets
+        if: ${{ steps.resolve_tag.outputs.publish_assets == 'true' }}
         run: |
           docker pull "${IMAGE_NAME}:${{ steps.resolve_tag.outputs.release_tag }}"
           docker save "${IMAGE_NAME}:${{ steps.resolve_tag.outputs.release_tag }}" | gzip > "${{ steps.resolve_tag.outputs.image_archive_name }}"
@@ -118,12 +146,9 @@ jobs:
             Pull command:
             `docker pull ${{ env.IMAGE_NAME }}:${{ steps.resolve_tag.outputs.release_tag }}`
 
-            Downloadable release assets:
-            - `${{ steps.resolve_tag.outputs.image_archive_name }}`
-            - `${{ steps.resolve_tag.outputs.image_checksum_name }}`
+            Release assets generated:
+            `${{ steps.resolve_tag.outputs.publish_assets }}`
 
             Image digest:
             `${{ steps.build.outputs.digest }}`
-          files: |
-            ${{ steps.resolve_tag.outputs.image_archive_name }}
-            ${{ steps.resolve_tag.outputs.image_checksum_name }}
+          files: ${{ steps.resolve_tag.outputs.release_files }}

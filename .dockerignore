@@ -6,3 +6,21 @@ npm-debug.log
 Dockerfile
 README.md
 coverage
+
+# Reduce churn from non-runtime artifacts.
+*.md
+*.log
+.vscode
+.idea
+.eslintcache
+.prettiercache
+.npmrc
+
+# VCS, local env, and testing/docs assets.
+.env
+.env.*
+*.local
+**/__tests__/
+**/*.test.*
+**/*.spec.*
+docs
