@@ -71,6 +71,8 @@ export function GameApp() {
   const [selectedVariantId, setSelectedVariantId] = useState<string>('');
   const [qtyInput, setQtyInput] = useState('1');
   const [finishConfirmOpen, setFinishConfirmOpen] = useState(false);
+  const [playerCountModalOpen, setPlayerCountModalOpen] = useState(false);
+  const [playerCount, setPlayerCount] = useState(4);
   const [hydrated, setHydrated] = useState(false);
   const [finishWarning, setFinishWarning] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<FoodCategory | null>(null);
@@ -186,7 +188,8 @@ export function GameApp() {
   }
 
   function startGame() {
-    const defaultPlayers = Array.from({ length: 4 }, (_, idx) => ({
+    const normalizedCount = Math.max(2, Math.min(4, playerCount));
+    const defaultPlayers = Array.from({ length: normalizedCount }, (_, idx) => ({
       id: `p-${idx}`,
       name: `Spieler ${idx + 1}`,
       cart: [],
@@ -200,6 +203,7 @@ export function GameApp() {
     setSelectedFood(null);
     setSelectedVariantId('');
     setProductSearch('');
+    setPlayerCountModalOpen(false);
     setScreen('play');
   }
 
@@ -307,7 +311,7 @@ export function GameApp() {
             <h1 className="text-4xl font-bold leading-tight md:text-5xl">Smart Eat</h1>
             <p className="max-w-2xl text-slate-300">Mit einem Klick startet eine vollständige Runde mit vier Spielern. Produktwahl, Warenkorb und Auswertung bleiben wie gewohnt erhalten – optimiert für Tablet und Klassenzimmer.</p>
             <div className="flex flex-wrap gap-3">
-              <Button onClick={startGame} className="px-6 py-3 text-base font-semibold bg-emerald-400 text-slate-950 hover:bg-emerald-300">Spiel starten</Button>
+              <Button onClick={() => setPlayerCountModalOpen(true)} className="px-6 py-3 text-base font-semibold bg-emerald-400 text-slate-950 hover:bg-emerald-300">Spiel starten</Button>
             </div>
             <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/60 p-4 text-sm">
               <h2 className="text-lg font-semibold text-white">Spielanleitung</h2>
@@ -337,6 +341,30 @@ export function GameApp() {
           </div>
         </div>
       </Card>
+      {playerCountModalOpen ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4">
+          <Card className="w-full max-w-md space-y-4 border border-white/10">
+            <h4 className="text-xl font-semibold">Wie viele Spieler machen mit?</h4>
+            <p className="text-sm text-slate-300">Bitte wähle zwischen 2 und 4 Spielern.</p>
+            <label className="block text-sm">
+              <span>Anzahl Spieler</span>
+              <select
+                value={playerCount}
+                onChange={(e) => setPlayerCount(Number(e.target.value))}
+                className="mt-1 w-full rounded-xl border border-white/15 bg-slate-950 px-3 py-2"
+              >
+                <option value={2}>2 Spieler</option>
+                <option value={3}>3 Spieler</option>
+                <option value={4}>4 Spieler</option>
+              </select>
+            </label>
+            <div className="flex justify-end gap-2">
+              <Button onClick={() => setPlayerCountModalOpen(false)} className="bg-white text-slate-950 hover:bg-slate-200">Abbrechen</Button>
+              <Button onClick={startGame} className="bg-emerald-400 text-slate-950 hover:bg-emerald-300">Starten</Button>
+            </div>
+          </Card>
+        </div>
+      ) : null}
     );
   }
 
