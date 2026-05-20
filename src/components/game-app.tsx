@@ -255,10 +255,11 @@ export function GameApp() {
   }
 
   function canFinishShopping(cart: CartLine[]): { ok: boolean } {
+    const additionalDrinkIds = new Set(['smoothie', 'trinkschokolade-kakao']);
     const counts = cart.reduce((sum, line) => {
       const entry = findVariant(catalog, line.foodId, line.variantId);
       if (!entry) return sum;
-      if (entry.item.category === 'GETRAENKE') {
+      if (entry.item.category === 'GETRAENKE' || additionalDrinkIds.has(entry.item.id)) {
         return { ...sum, drinks: sum.drinks + line.qty };
       }
       return { ...sum, foods: sum.foods + line.qty };
