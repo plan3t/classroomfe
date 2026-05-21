@@ -1,30 +1,35 @@
-name: Docker Release
+name: Docker Build and Push to GHCR
 
 on:
+  push:
+    branches:
+      - main
+      - develop
+  workflow_call:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: 'Release tag to publish, for example v1.0.0 (leave empty to auto-increment latest tag)'
+        description: "Release tag to publish, for example v1.0.0 (leave empty to auto-increment latest tag)"
         required: false
-        default: ''
+        default: ""
         type: string
       release_title:
-        description: 'Optional GitHub release title'
+        description: "Optional GitHub release title"
         required: false
-        default: ''
+        default: ""
         type: string
       set_latest:
-        description: 'Also publish the image with the latest tag'
+        description: "Also publish the image with the latest tag"
         required: true
         default: true
         type: boolean
       prerelease:
-        description: 'Mark the GitHub release as a prerelease'
+        description: "Mark the GitHub release as a prerelease"
         required: true
         default: false
         type: boolean
       publish_release_assets:
-        description: 'Generate and upload Docker image archive assets (slow, default off)'
+        description: "Generate and upload Docker image archive assets (slow, default off)"
         required: true
         default: false
         type: boolean
@@ -34,55 +39,105 @@ permissions:
   packages: write
 
 concurrency:
-  group: docker-release-${{ github.ref }}
+  group: docker-build-and-push-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  docker-release:
+  build-and-push:
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
-    env:
-      IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Resolve release tag
-        id: resolve_tag
+      - name: Resolve Docker and release metadata
+        id: vars
         run: |
-          input_tag='${{ inputs.release_tag }}'
-          if [ -n "${input_tag}" ]; then
-            release_tag="${input_tag}"
-          else
-            git fetch --tags --force
-            latest_tag="$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-version:refname | head -n 1)"
-            if [ -z "${latest_tag}" ]; then
-              release_tag="v0.0.1"
+          repo_name="$(echo "${GITHUB_REPOSITORY##*/}" | tr '[:upper:]' '[:lower:]')"
+          owner="$(echo "${GITHUB_REPOSITORY_OWNER}" | tr '[:upper:]' '[:lower:]')"
+          image_name="ghcr.io/${owner}/${repo_name}"
+          short_sha="${GITHUB_SHA::7}"
+
+          is_release="false"
+          publish_latest="true"
+          prerelease="false"
+          release_tag=""
+          release_title=""
+          release_files=""
+          publish_assets="false"
+          image_archive_name=""
+          image_checksum_name=""
+
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            is_release="true"
+
+            input_tag='${{ github.event.inputs.release_tag }}'
+            input_title='${{ github.event.inputs.release_title }}'
+            set_latest_input='${{ github.event.inputs.set_latest }}'
+            prerelease_input='${{ github.event.inputs.prerelease }}'
+            publish_assets_input='${{ github.event.inputs.publish_release_assets }}'
+
+            if [ -z "${set_latest_input}" ]; then
+              set_latest_input="true"
+            fi
+            if [ -z "${prerelease_input}" ]; then
+              prerelease_input="false"
+            fi
+            if [ -z "${publish_assets_input}" ]; then
+              publish_assets_input="false"
+            fi
+
+            if [ -n "${input_tag}" ]; then
+              release_tag="${input_tag}"
             else
-              version="${latest_tag#v}"
-              IFS='.' read -r major minor patch <<< "${version}"
-              patch=$((patch + 1))
-              release_tag="v${major}.${minor}.${patch}"
+              git fetch --tags --force
+              latest_tag="$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-version:refname | head -n 1)"
+              if [ -z "${latest_tag}" ]; then
+                release_tag="v0.0.1"
+              else
+                version="${latest_tag#v}"
+                IFS='.' read -r major minor patch <<< "${version}"
+                patch=$((patch + 1))
+                release_tag="v${major}.${minor}.${patch}"
+              fi
+            fi
+
+            publish_latest="${set_latest_input}"
+            prerelease="${prerelease_input}"
+            if [ -n "${input_title}" ]; then
+              release_title="${input_title}"
+            else
+              release_title="${release_tag}"
+            fi
+            image_archive_name="${repo_name}-${release_tag}-docker-image.tar.gz"
+            image_checksum_name="${repo_name}-${release_tag}-docker-image.tar.gz.sha256"
+
+            if [ "${publish_assets_input}" = "true" ] && [ "${prerelease_input}" = "false" ]; then
+              release_files="${image_archive_name} ${image_checksum_name}"
+              publish_assets="true"
             fi
           fi
 
-          should_publish_assets='${{ inputs.publish_release_assets }}'
-          if [ "${should_publish_assets}" = "true" ] && [ '${{ inputs.prerelease }}' = 'false' ]; then
-            release_files='classroomfe-'
-            release_files+="${release_tag}"
-            release_files+='-docker-image.tar.gz classroomfe-'
-            release_files+="${release_tag}"
-            release_files+='-docker-image.tar.gz.sha256'
-            publish_assets='true'
-          else
-            release_files=''
-            publish_assets='false'
+          version_tag="${GITHUB_REF_NAME}"
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            version_tag="${GITHUB_REF#refs/tags/}"
           fi
 
+          echo "repo_name=${repo_name}" >> "${GITHUB_OUTPUT}"
+          echo "owner=${owner}" >> "${GITHUB_OUTPUT}"
+          echo "image_name=${image_name}" >> "${GITHUB_OUTPUT}"
+          echo "short_sha=${short_sha}" >> "${GITHUB_OUTPUT}"
+          echo "version_tag=${version_tag}" >> "${GITHUB_OUTPUT}"
+          echo "is_release=${is_release}" >> "${GITHUB_OUTPUT}"
           echo "release_tag=${release_tag}" >> "${GITHUB_OUTPUT}"
-          echo "image_archive_name=classroomfe-${release_tag}-docker-image.tar.gz" >> "${GITHUB_OUTPUT}"
-          echo "image_checksum_name=classroomfe-${release_tag}-docker-image.tar.gz.sha256" >> "${GITHUB_OUTPUT}"
+          echo "release_title=${release_title}" >> "${GITHUB_OUTPUT}"
+          echo "publish_latest=${publish_latest}" >> "${GITHUB_OUTPUT}"
+          echo "prerelease=${prerelease}" >> "${GITHUB_OUTPUT}"
+          echo "image_archive_name=${image_archive_name}" >> "${GITHUB_OUTPUT}"
+          echo "image_checksum_name=${image_checksum_name}" >> "${GITHUB_OUTPUT}"
           echo "publish_assets=${publish_assets}" >> "${GITHUB_OUTPUT}"
           echo "release_files=${release_files}" >> "${GITHUB_OUTPUT}"
 
@@ -100,10 +155,13 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.IMAGE_NAME }}
+          images: ${{ steps.vars.outputs.image_name }}
+          flavor: |
+            latest=false
           tags: |
-            type=raw,value=${{ steps.resolve_tag.outputs.release_tag }}
-            type=raw,value=latest,enable=${{ inputs.set_latest }}
+            type=raw,value=${{ steps.vars.outputs.release_tag }},enable=${{ steps.vars.outputs.is_release == 'true' }}
+            type=raw,value=latest,enable=${{ steps.vars.outputs.publish_latest == 'true' }}
+            type=raw,value=${{ steps.vars.outputs.version_tag }}-${{ steps.vars.outputs.short_sha }},enable=${{ steps.vars.outputs.is_release != 'true' }}
 
       - name: Build and push Docker image
         id: build
@@ -117,38 +175,40 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Export Docker image archive for release assets
-        if: ${{ steps.resolve_tag.outputs.publish_assets == 'true' }}
+        if: ${{ steps.vars.outputs.publish_assets == 'true' }}
         run: |
-          docker pull "${IMAGE_NAME}:${{ steps.resolve_tag.outputs.release_tag }}"
-          docker save "${IMAGE_NAME}:${{ steps.resolve_tag.outputs.release_tag }}" | gzip > "${{ steps.resolve_tag.outputs.image_archive_name }}"
-          sha256sum "${{ steps.resolve_tag.outputs.image_archive_name }}" > "${{ steps.resolve_tag.outputs.image_checksum_name }}"
+          docker pull "${{ steps.vars.outputs.image_name }}:${{ steps.vars.outputs.release_tag }}"
+          docker save "${{ steps.vars.outputs.image_name }}:${{ steps.vars.outputs.release_tag }}" | gzip > "${{ steps.vars.outputs.image_archive_name }}"
+          sha256sum "${{ steps.vars.outputs.image_archive_name }}" > "${{ steps.vars.outputs.image_checksum_name }}"
 
       - name: Create Git tag
+        if: ${{ steps.vars.outputs.is_release == 'true' }}
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git tag -f "${{ steps.resolve_tag.outputs.release_tag }}" "${{ github.sha }}"
-          git push origin "refs/tags/${{ steps.resolve_tag.outputs.release_tag }}" --force
+          git tag -f "${{ steps.vars.outputs.release_tag }}" "${{ github.sha }}"
+          git push origin "refs/tags/${{ steps.vars.outputs.release_tag }}" --force
 
       - name: Create GitHub release
+        if: ${{ steps.vars.outputs.is_release == 'true' }}
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.resolve_tag.outputs.release_tag }}
-          name: ${{ inputs.release_title != '' && inputs.release_title || steps.resolve_tag.outputs.release_tag }}
-          prerelease: ${{ inputs.prerelease }}
+          tag_name: ${{ steps.vars.outputs.release_tag }}
+          name: ${{ steps.vars.outputs.release_title }}
+          prerelease: ${{ steps.vars.outputs.prerelease == 'true' }}
           generate_release_notes: true
           body: |
-            Docker image published to `${{ env.IMAGE_NAME }}`.
+            Docker image published to `${{ steps.vars.outputs.image_name }}`.
 
             Published tags:
             ${{ steps.meta.outputs.tags }}
 
             Pull command:
-            `docker pull ${{ env.IMAGE_NAME }}:${{ steps.resolve_tag.outputs.release_tag }}`
+            `docker pull ${{ steps.vars.outputs.image_name }}:${{ steps.vars.outputs.release_tag }}`
 
             Release assets generated:
-            `${{ steps.resolve_tag.outputs.publish_assets }}`
+            `${{ steps.vars.outputs.publish_assets }}`
 
             Image digest:
             `${{ steps.build.outputs.digest }}`
-          files: ${{ steps.resolve_tag.outputs.release_files }}
+          files: ${{ steps.vars.outputs.release_files }}
