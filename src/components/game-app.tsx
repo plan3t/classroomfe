@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
 import { type FoodCategory, type FoodItem, type FoodVariant } from '@/src/lib/food-catalog';
 import { fullFoodCatalog } from '@/src/lib/food-catalog-full';
@@ -437,7 +438,11 @@ export function GameApp() {
                   onClick={() => selectFood(food)}
                   className={`rounded-2xl border p-4 text-left transition hover:bg-white/5 ${selectedFood?.id === food.id ? 'border-emerald-300 bg-emerald-400/10' : 'border-white/10 bg-slate-900/60'}`}
                 >
-                  <p className="text-3xl">{food.image}</p>
+                  {food.imagePath ? (
+                    <Image src={food.imagePath} alt={`Produktbild von ${food.name}`} width={96} height={96} className="h-20 w-20 rounded-2xl object-cover" />
+                  ) : (
+                    <p className="text-3xl">{food.image}</p>
+                  )}
                   <p className="mt-2 font-semibold">{food.name}</p>
                 </button>
               ))}
@@ -448,8 +453,17 @@ export function GameApp() {
 
         {selectedFood ? (
           <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/50 p-4">
-            <h4 className="text-xl font-semibold">{selectedFood.name}</h4>
-            <p className="text-xs text-slate-400">Kategorie: {categoryLabels[selectedFood.category]}</p>
+            <div className="flex items-center gap-3">
+              {selectedFood.imagePath ? (
+                <Image src={selectedFood.imagePath} alt={`Produktbild von ${selectedFood.name}`} width={80} height={80} className="h-16 w-16 rounded-2xl object-cover" />
+              ) : (
+                <p className="text-3xl">{selectedFood.image}</p>
+              )}
+              <div>
+                <h4 className="text-xl font-semibold">{selectedFood.name}</h4>
+                <p className="text-xs text-slate-400">Kategorie: {categoryLabels[selectedFood.category]}</p>
+              </div>
+            </div>
             <label className="block text-sm">
               <span>Variante</span>
               <select

@@ -128,7 +128,8 @@
           "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität und möglichst wenig Verpackung sorgen für eine sehr hohe Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/snack-paprika.svg"
   },
   {
     "id": "snack-tomaten-cherrytomaten",
@@ -259,7 +260,8 @@
           "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität & unverpackt sorgen für hohe Umwelt- und Sozialstandards."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/snack-tomaten-cherrytomaten.svg"
   },
   {
     "id": "snack-gurken",
@@ -390,7 +392,8 @@
           "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität und möglichst wenig Verpackung sorgen für eine sehr hohe Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/snack-gurken.svg"
   },
   {
     "id": "moehren",
@@ -521,7 +524,8 @@
           "nachhaltigkeitText": "Bio-Anbau, Regionalität/Saisonalität und möglichst wenig Verpackung sorgen für eine sehr hohe Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/moehren.svg"
   },
   {
     "id": "donut",
@@ -558,7 +562,8 @@
           "nachhaltigkeitText": "Papiertüte und pflanzliche Grundzutaten sind günstiger als Plastik, konventionelle Zutaten senken die Nachhaltigkeit."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/donut.svg"
   },
   {
     "id": "kaesebroetchen",
@@ -597,7 +602,8 @@
           "nachhaltigkeitText": "Getreidebasis und Papiertüte sind moderat, Käse und konventionelle Zutaten belasten die Nachhaltigkeit."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/kaesebroetchen.svg"
   },
   {
     "id": "mehrkornbroetchen",
@@ -666,7 +672,8 @@
           "nachhaltigkeitText": "Bio-Zutaten und geringe Verpackung sorgen für eine hohe Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/mehrkornbroetchen.svg"
   },
   {
     "id": "pizzastueck",
@@ -705,7 +712,8 @@
           "nachhaltigkeitText": "Papiertüte ist günstig, doch Käse/Fleischbeläge und Verarbeitung senken die Nachhaltigkeit."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/pizzastueck.svg"
   },
   {
     "id": "schokobroetchen",
@@ -743,7 +751,8 @@
           "nachhaltigkeitText": "Plastikverpackung, Verarbeitung und konventionelle Zutaten führen zu einer niedrigen Bewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/schokobroetchen.svg"
   },
   {
     "id": "sesam-bagel",
@@ -781,7 +790,8 @@
           "nachhaltigkeitText": "Papiertüte und pflanzliche Zutaten sind moderat, konventioneller Anbau begrenzt die Nachhaltigkeit."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/sesam-bagel.svg"
   },
   {
     "id": "waffeln",
@@ -851,7 +861,8 @@
           "nachhaltigkeitText": "Bio-Zutaten verbessern die Bewertung, Plastikverpackung und Verarbeitung bleiben Nachteile."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/waffeln.svg"
   },
   {
     "id": "weizenbroetchen",
@@ -890,7 +901,8 @@
           "nachhaltigkeitText": "Getreide ressourcenschonender, Nachhaltigkeit steigt mit Bio."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/weizenbroetchen.svg"
   },
   {
     "id": "sandwich-kaese",
@@ -934,7 +946,8 @@
           "nachhaltigkeitText": "Verarbeiteter Snack mit Ei, Käse und beschichteter Einwegverpackung erzeugt eine niedrigere Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/sandwich-kaese.svg"
   },
   {
     "id": "sandwich-schinken",
@@ -979,7 +992,8 @@
           "nachhaltigkeitText": "Fleisch, tierische Zutaten und beschichtete Einwegverpackung belasten die Nachhaltigkeitsbewertung deutlich."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/sandwich-schinken.svg"
   },
   {
     "id": "smoothie",
@@ -1049,7 +1063,8 @@
           "nachhaltigkeitText": "Mehrweg-Glasflaschen reduzieren Verpackungsmüll und verbessern die Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/smoothie.svg"
   },
   {
     "id": "salat-ready",
@@ -1120,7 +1135,8 @@
           "nachhaltigkeitText": "Oft verarbeitet/verpackt; tierische Zutaten senken Nachhaltigkeit."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/salat-ready.svg"
   },
   {
     "id": "joghurt-fruechte-granola",
@@ -1164,7 +1180,8 @@
           "nachhaltigkeitText": "Einwegplastik, Alufolie und ein tierisches Milchprodukt führen zu einer eher niedrigen Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/joghurt-fruechte-granola.svg"
   },
   {
     "id": "veganer-snack-salami-art",
@@ -1234,7 +1251,8 @@
           "nachhaltigkeitText": "Pflanzlich und Bio sorgt für eine sehr gute Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/veganer-snack-salami-art.svg"
   },
   {
     "id": "wuerstchen",
@@ -1338,7 +1356,8 @@
           "nachhaltigkeitText": "Kürzere Transportwege und lokale Wertschöpfung sind positiv, Fleisch bleibt ressourcenintensiv."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/wuerstchen.svg"
   },
   {
     "id": "falafel",
@@ -1409,7 +1428,8 @@
           "nachhaltigkeitText": "Pflanzliche Bio-Zutaten sorgen für eine hohe Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/falafel.svg"
   },
   {
     "id": "frikadelle",
@@ -1515,7 +1535,8 @@
           "nachhaltigkeitText": "Kurze Transportwege sind positiv, Fleischproduktion bleibt ressourcenintensiv."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/frikadelle.svg"
   },
   {
     "id": "reiswaffeln-pur",
@@ -1584,7 +1605,8 @@
           "nachhaltigkeitText": "Bio-Anbau und sozial verträglichere Produktionsbedingungen sind sehr positiv."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/reiswaffeln-pur.svg"
   },
   {
     "id": "muesliriegel-erdnuesse",
@@ -1686,7 +1708,8 @@
           "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, Nachhaltigkeit hängt von Bio- oder konventioneller Herkunft ab."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/muesliriegel-erdnuesse.svg"
   },
   {
     "id": "muesliriegel-schoko",
@@ -1788,7 +1811,8 @@
           "nachhaltigkeitText": "Pflanzliche Zutaten sind positiv, Nachhaltigkeit hängt von Bio- oder konventioneller Herkunft ab."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/muesliriegel-schoko.svg"
   },
   {
     "id": "reiswaffeln-schokolade",
@@ -1860,7 +1884,8 @@
           "nachhaltigkeitText": "Bio-Anbau ist nachhaltig, der starke Verarbeitungsgrad bleibt ein kleiner Nachteil."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/reiswaffeln-schokolade.svg"
   },
   {
     "id": "wasser",
@@ -1891,7 +1916,8 @@
           "nachhaltigkeitText": "Mehrweg reduziert Einwegmüll, Energie und Ressourcen."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/wasser.svg"
   },
   {
     "id": "apfelschorle",
@@ -2020,7 +2046,8 @@
           "nachhaltigkeitText": "Mehrwegflasche reduziert Verpackungsmüll und Ressourceneinsatz deutlich."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/apfelschorle.svg"
   },
   {
     "id": "cola",
@@ -2151,7 +2178,8 @@
           "nachhaltigkeitText": "Mehrwegflasche verbessert die Nachhaltigkeit deutlich gegenüber Einweg."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/cola.svg"
   },
   {
     "id": "durstloescher",
@@ -2225,7 +2253,8 @@
           "nachhaltigkeitText": "Verpackungsaufwand bleibt durch Trinkpack und Strohhalm bestehen."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/durstloescher.svg"
   },
   {
     "id": "eistee",
@@ -2357,7 +2386,8 @@
           "nachhaltigkeitText": "Mehrwegflasche spart Energie und Ressourcen gegenüber Einweg."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/eistee.svg"
   },
   {
     "id": "energy-drink",
@@ -2430,7 +2460,8 @@
           "nachhaltigkeitText": "Einwegverpackung und Verarbeitung führen zu einer niedrigen Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/energy-drink.svg"
   },
   {
     "id": "saft",
@@ -2567,7 +2598,8 @@
           "nachhaltigkeitText": "Regionalität und Mehrwegflasche sorgen für eine hohe Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/saft.svg"
   },
   {
     "id": "trinkwasser",
@@ -2635,7 +2667,8 @@
           "nachhaltigkeitText": "Mehrwegflaschen werden vielfach wiederbefüllt und sind besonders ressourcenschonend."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/trinkwasser.svg"
   },
   {
     "id": "vollmilchschokolade",
@@ -2735,7 +2768,8 @@
           "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/vollmilchschokolade.svg"
   },
   {
     "id": "zartbitterschokolade",
@@ -2834,7 +2868,8 @@
           "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/zartbitterschokolade.svg"
   },
   {
     "id": "joghurtgums",
@@ -2931,7 +2966,8 @@
           "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/joghurtgums.svg"
   },
   {
     "id": "lakritzschnecken",
@@ -3030,7 +3066,8 @@
           "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/lakritzschnecken.svg"
   },
   {
     "id": "popcorn-gesuesst",
@@ -3129,7 +3166,8 @@
           "nachhaltigkeitText": "Zuckerfrei verbessert vor allem den Zuckerkonsum, nicht automatisch die Umweltbilanz."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/popcorn-gesuesst.svg"
   },
   {
     "id": "salzlakritz-diamanten",
@@ -3228,7 +3266,8 @@
           "nachhaltigkeitText": "Zuckerfreie Rezeptur verbessert nicht automatisch die Umweltbilanz; Verarbeitung bleibt hoch."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/salzlakritz-diamanten.svg"
   },
   {
     "id": "gummibaerchen",
@@ -3259,7 +3298,8 @@
           "nachhaltigkeitText": "Biologische Zutaten, ohne gentechnische Zusatzstoffe."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/gummibaerchen.svg"
   },
   {
     "id": "apfel",
@@ -3389,7 +3429,8 @@
           "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/apfel.svg"
   },
   {
     "id": "banana",
@@ -3519,7 +3560,8 @@
           "nachhaltigkeitText": "Bio + Fairtrade verbindet Umweltstandards mit faireren Arbeitsbedingungen und oft weniger Verpackungsmüll."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/banana.svg"
   },
   {
     "id": "birne",
@@ -3649,7 +3691,8 @@
           "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/birne.svg"
   },
   {
     "id": "erdbeeren",
@@ -3779,7 +3822,8 @@
           "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/erdbeeren.svg"
   },
   {
     "id": "kiwi",
@@ -3878,7 +3922,8 @@
           "nachhaltigkeitText": "Bio-Anbau und Regionalität/Saisonalität sorgen für hohe Umwelt- und Sozialstandards."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/kiwi.svg"
   },
   {
     "id": "studentenfutter",
@@ -3952,7 +3997,8 @@
           "nachhaltigkeitText": "Bio mit strengeren Umweltauflagen."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/studentenfutter.svg"
   },
   {
     "id": "walnuesse",
@@ -4026,7 +4072,8 @@
           "nachhaltigkeitText": "Bio, faire oder regionale Herkunft und bessere Verpackung sorgen für eine hohe Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/walnuesse.svg"
   },
   {
     "id": "kartoffelchips-paprika",
@@ -4067,7 +4114,8 @@
           "nachhaltigkeitText": "Einwegplastik und stark verarbeitete konventionelle Zutaten führen zu einer niedrigen Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/kartoffelchips-paprika.svg"
   },
   {
     "id": "linsenchips",
@@ -4143,7 +4191,8 @@
           "nachhaltigkeitText": "Bio-Zutaten und bessere Verpackung verbessern die Nachhaltigkeitsbewertung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/linsenchips.svg"
   },
   {
     "id": "nuesse-im-knuspermantel",
@@ -4185,7 +4234,8 @@
           "nachhaltigkeitText": "Einwegplastik verursacht viel Müll, konventionelle Zutaten begrenzen die Nachhaltigkeit."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/nuesse-im-knuspermantel.svg"
   },
   {
     "id": "naturjoghurt",
@@ -4325,7 +4375,8 @@
           "nachhaltigkeitText": "Bio-Qualität und Mehrwegglas sorgen für die beste Nachhaltigkeitsbewertung in dieser Produktgruppe."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/naturjoghurt.svg"
   },
   {
     "id": "skyr-natur",
@@ -4396,7 +4447,8 @@
           "nachhaltigkeitText": "Bio steht für strengere Umweltauflagen, die Einzelverpackung bleibt ein Nachteil."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/skyr-natur.svg"
   },
   {
     "id": "skyr-himbeere",
@@ -4469,7 +4521,8 @@
           "nachhaltigkeitText": "Bio-Standards verbessern die Nachhaltigkeit, Verpackung und tierische Zutaten bleiben Nachteile."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/skyr-himbeere.svg"
   },
   {
     "id": "trinkschokolade-kakao",
@@ -4509,7 +4562,8 @@
           "nachhaltigkeitText": "Tetrapack und einzeln verpackter Strohhalm verursachen viel Müll; konventionelle Vollmilch belastet zusätzlich."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/trinkschokolade-kakao.svg"
   },
   {
     "id": "kaese-snack",
@@ -4549,7 +4603,8 @@
           "nachhaltigkeitText": "Viele Einzelverpackungen mit Folie und Wachs verursachen viel Müll; tierische Zutaten belasten die Nachhaltigkeit."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/kaese-snack.svg"
   },
   {
     "id": "knick-joghurt",
@@ -4590,7 +4645,8 @@
           "nachhaltigkeitText": "Mehrkammerverpackung mit Folie verursacht viel Müll; tierische Zutaten belasten zusätzlich."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/knick-joghurt.svg"
   },
   {
     "id": "hafer-cookies",
@@ -4664,7 +4720,8 @@
           "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/hafer-cookies.svg"
   },
   {
     "id": "schoko-cookies",
@@ -4738,7 +4795,8 @@
           "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Schokolade verbessern die Nachhaltigkeit trotz Verpackung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/schoko-cookies.svg"
   },
   {
     "id": "dinkel-doppelkeks-schokofuellung",
@@ -4813,7 +4871,8 @@
           "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/dinkel-doppelkeks-schokofuellung.svg"
   },
   {
     "id": "doppelkeks-schokofuellung",
@@ -4888,7 +4947,8 @@
           "nachhaltigkeitText": "Bio-Zutaten, weniger Palmöl und Fairtrade-Anteile verbessern die Nachhaltigkeit trotz Verpackung."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/doppelkeks-schokofuellung.svg"
   },
   {
     "id": "sahne-eis-am-stiel",
@@ -4961,7 +5021,8 @@
           "nachhaltigkeitText": "Bio-Milch und bessere Standards verbessern die Nachhaltigkeit, tierische Zutaten bleiben ressourcenintensiv."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/sahne-eis-am-stiel.svg"
   },
   {
     "id": "wassereis",
@@ -5034,6 +5095,7 @@
           "nachhaltigkeitText": "Nachhaltiger durch ökologische Zutaten."
         }
       }
-    ]
+    ],
+    "imagePath": "/product-images/wassereis.svg"
   }
 ]
