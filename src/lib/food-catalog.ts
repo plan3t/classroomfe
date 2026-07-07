@@ -42,6 +42,7 @@ export type FoodItem = {
   id: string;
   name: string;
   image: string;
+  imagePath?: string;
   category: FoodCategory;
   variants: FoodVariant[];
 };

@@ -33,6 +33,20 @@ Diese App wurde von einer Classroom-Quiz-App zu einer **Brettspiel-Begleitapp** 
 - `GameSession` / `GamePlayer` / `GameCartLine` (Prisma) für gespeicherte Spielstände
 - 61er Vollkatalog als aktueller App-Katalog (iterierbar/erweiterbar)
 
+
+## Lokale Nutzung in Codex
+Dieses Repository enthält eine Codex-/Devcontainer-freundliche Grundkonfiguration:
+
+```bash
+./.codex/setup.sh
+npm run dev
+```
+
+Der Setup-Schritt installiert die Node-Abhängigkeiten und generiert den Prisma-Client. Für eine containerbasierte lokale Umgebung kann zusätzlich die Devcontainer-Konfiguration in `.devcontainer/devcontainer.json` verwendet werden.
+
+## Produktbilder
+Alle Produkte aus `data/foods-validated.json` besitzen ein lokales Produktbild unter `public/product-images/`. Die Katalogdaten referenzieren diese Dateien über `imagePath`, sodass die Bilder im Spielmodus ohne externe Dienste geladen werden.
+
 ## Entwicklung
 ```bash
 npm install
